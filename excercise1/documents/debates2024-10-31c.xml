@@ -1,0 +1,542 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<!DOCTYPE publicwhip
+[
+<!ENTITY ndash   "&#8211;">
+<!ENTITY mdash   "&#8212;">
+<!ENTITY iexcl   "&#161;">
+<!ENTITY divide  "&#247;">
+<!ENTITY euro    "&#8364;">
+<!ENTITY trade   "&#8482;">
+<!ENTITY bull    "&#8226;">
+<!ENTITY lsquo   "&#8216;">
+<!ENTITY rsquo   "&#8217;">
+<!ENTITY sbquo   "&#8218;">
+<!ENTITY ldquo   "&#8220;">
+<!ENTITY rdquo   "&#8221;">
+<!ENTITY bdquo   "&#8222;">
+<!ENTITY dagger  "&#8224;">
+
+<!ENTITY Ouml   "&#214;" >
+<!ENTITY szlig  "&#223;" >
+<!ENTITY agrave "&#224;" >
+<!ENTITY aacute "&#225;" >
+<!ENTITY acirc  "&#226;" >
+<!ENTITY atilde "&#227;" >
+<!ENTITY auml   "&#228;" >
+<!ENTITY ccedil "&#231;" >
+<!ENTITY egrave "&#232;" >
+<!ENTITY eacute "&#233;" >
+<!ENTITY ecirc  "&#234;" >
+<!ENTITY euml   "&#235;" >
+<!ENTITY iacute "&#237;" >
+<!ENTITY icirc  "&#238;" >
+<!ENTITY iuml	"&#239;" >
+<!ENTITY ntilde "&#241;" >
+<!ENTITY nbsp   "&#160;" >
+<!ENTITY oacute "&#243;" >
+<!ENTITY ocirc  "&#244;" >
+<!ENTITY ouml   "&#246;" >
+<!ENTITY oslash "&#248;" >
+<!ENTITY uacute "&#250;" >
+<!ENTITY uuml   "&#252;" >
+<!ENTITY thorn  "&#254;" >
+
+<!ENTITY pound  "&#163;" >
+<!ENTITY sect   "&#167;" >
+<!ENTITY copy   "&#169;" >
+<!ENTITY reg    "&#174;" >
+<!ENTITY deg    "&#176;" >
+<!ENTITY plusmn "&#177;" >
+<!ENTITY sup2   "&#178;" >
+<!ENTITY micro  "&#181;" >
+<!ENTITY para   "&#182;" >
+<!ENTITY middot "&#183;" >
+<!ENTITY ordm   "&#186;" >
+<!ENTITY frac14 "&#188;" >
+<!ENTITY frac12 "&#189;" >
+<!ENTITY frac34 "&#190;" >
+<!ENTITY oelig "&#339;" >
+<!ENTITY aelig  "&#230;" >
+
+]>
+
+<publicwhip scrapeversion="/home/twfy-live/parldata/scrapedxml/debates/debates2024-10-31c.xml" latest="no">
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.919.0" newgid="uk.org.publicwhip/debate/2024-10-31d.919.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.919.1" newgid="uk.org.publicwhip/debate/2024-10-31d.919.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.919.2" newgid="uk.org.publicwhip/debate/2024-10-31d.919.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.919.3" newgid="uk.org.publicwhip/debate/2024-10-31d.919.3" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.919.4" newgid="uk.org.publicwhip/debate/2024-10-31d.919.4" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.919.5" newgid="uk.org.publicwhip/debate/2024-10-31d.919.5" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.919.6" newgid="uk.org.publicwhip/debate/2024-10-31d.919.6" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.919.7" newgid="uk.org.publicwhip/debate/2024-10-31d.919.7" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.919.8" newgid="uk.org.publicwhip/debate/2024-10-31d.919.8" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.919.9" newgid="uk.org.publicwhip/debate/2024-10-31d.919.9" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.920.0" newgid="uk.org.publicwhip/debate/2024-10-31d.920.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.920.1" newgid="uk.org.publicwhip/debate/2024-10-31d.920.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.920.2" newgid="uk.org.publicwhip/debate/2024-10-31d.920.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.920.3" newgid="uk.org.publicwhip/debate/2024-10-31d.920.3" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.920.4" newgid="uk.org.publicwhip/debate/2024-10-31d.920.4" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.921.0" newgid="uk.org.publicwhip/debate/2024-10-31d.921.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.921.1" newgid="uk.org.publicwhip/debate/2024-10-31d.921.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.921.2" newgid="uk.org.publicwhip/debate/2024-10-31d.921.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.921.3" newgid="uk.org.publicwhip/debate/2024-10-31d.921.3" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.921.4" newgid="uk.org.publicwhip/debate/2024-10-31d.921.4" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.921.5" newgid="uk.org.publicwhip/debate/2024-10-31d.921.5" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.922.0" newgid="uk.org.publicwhip/debate/2024-10-31d.922.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.922.1" newgid="uk.org.publicwhip/debate/2024-10-31d.922.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.922.2" newgid="uk.org.publicwhip/debate/2024-10-31d.922.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.922.3" newgid="uk.org.publicwhip/debate/2024-10-31d.922.3" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.922.4" newgid="uk.org.publicwhip/debate/2024-10-31d.922.4" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.922.5" newgid="uk.org.publicwhip/debate/2024-10-31d.922.5" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.922.6" newgid="uk.org.publicwhip/debate/2024-10-31d.922.6" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.922.7" newgid="uk.org.publicwhip/debate/2024-10-31d.922.7" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.922.8" newgid="uk.org.publicwhip/debate/2024-10-31d.922.8" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.923.0" newgid="uk.org.publicwhip/debate/2024-10-31d.923.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.923.1" newgid="uk.org.publicwhip/debate/2024-10-31d.923.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.923.2" newgid="uk.org.publicwhip/debate/2024-10-31d.923.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.923.3" newgid="uk.org.publicwhip/debate/2024-10-31d.923.3" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.923.4" newgid="uk.org.publicwhip/debate/2024-10-31d.923.4" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.923.5" newgid="uk.org.publicwhip/debate/2024-10-31d.923.5" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.923.6" newgid="uk.org.publicwhip/debate/2024-10-31d.923.6" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.924.0" newgid="uk.org.publicwhip/debate/2024-10-31d.924.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.924.1" newgid="uk.org.publicwhip/debate/2024-10-31d.924.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.924.2" newgid="uk.org.publicwhip/debate/2024-10-31d.924.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.924.3" newgid="uk.org.publicwhip/debate/2024-10-31d.924.3" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.924.4" newgid="uk.org.publicwhip/debate/2024-10-31d.924.4" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.924.5" newgid="uk.org.publicwhip/debate/2024-10-31d.924.5" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.924.6" newgid="uk.org.publicwhip/debate/2024-10-31d.924.6" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.925.0" newgid="uk.org.publicwhip/debate/2024-10-31d.925.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.925.1" newgid="uk.org.publicwhip/debate/2024-10-31d.925.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.925.2" newgid="uk.org.publicwhip/debate/2024-10-31d.925.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.925.3" newgid="uk.org.publicwhip/debate/2024-10-31d.925.3" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.925.4" newgid="uk.org.publicwhip/debate/2024-10-31d.925.4" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.925.5" newgid="uk.org.publicwhip/debate/2024-10-31d.925.5" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.925.6" newgid="uk.org.publicwhip/debate/2024-10-31d.925.6" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.925.7" newgid="uk.org.publicwhip/debate/2024-10-31d.925.7" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.926.0" newgid="uk.org.publicwhip/debate/2024-10-31d.926.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.926.1" newgid="uk.org.publicwhip/debate/2024-10-31d.926.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.926.2" newgid="uk.org.publicwhip/debate/2024-10-31d.926.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.926.3" newgid="uk.org.publicwhip/debate/2024-10-31d.926.3" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.926.4" newgid="uk.org.publicwhip/debate/2024-10-31d.926.4" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.926.5" newgid="uk.org.publicwhip/debate/2024-10-31d.926.5" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.926.6" newgid="uk.org.publicwhip/debate/2024-10-31d.926.6" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.926.7" newgid="uk.org.publicwhip/debate/2024-10-31d.926.7" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.927.0" newgid="uk.org.publicwhip/debate/2024-10-31d.927.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.927.1" newgid="uk.org.publicwhip/debate/2024-10-31d.927.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.927.2" newgid="uk.org.publicwhip/debate/2024-10-31d.927.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.927.3" newgid="uk.org.publicwhip/debate/2024-10-31d.927.3" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.927.4" newgid="uk.org.publicwhip/debate/2024-10-31d.927.4" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.927.5" newgid="uk.org.publicwhip/debate/2024-10-31d.927.5" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.928.0" newgid="uk.org.publicwhip/debate/2024-10-31d.928.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.928.1" newgid="uk.org.publicwhip/debate/2024-10-31d.928.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.928.2" newgid="uk.org.publicwhip/debate/2024-10-31d.928.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.928.3" newgid="uk.org.publicwhip/debate/2024-10-31d.928.3" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.928.4" newgid="uk.org.publicwhip/debate/2024-10-31d.928.4" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.928.5" newgid="uk.org.publicwhip/debate/2024-10-31d.928.5" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.928.6" newgid="uk.org.publicwhip/debate/2024-10-31d.928.6" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.928.7" newgid="uk.org.publicwhip/debate/2024-10-31d.928.7" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.929.0" newgid="uk.org.publicwhip/debate/2024-10-31d.929.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.929.1" newgid="uk.org.publicwhip/debate/2024-10-31d.929.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.929.2" newgid="uk.org.publicwhip/debate/2024-10-31d.929.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.929.3" newgid="uk.org.publicwhip/debate/2024-10-31d.929.3" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.929.4" newgid="uk.org.publicwhip/debate/2024-10-31d.929.4" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.929.5" newgid="uk.org.publicwhip/debate/2024-10-31d.929.5" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.929.6" newgid="uk.org.publicwhip/debate/2024-10-31d.929.6" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.929.7" newgid="uk.org.publicwhip/debate/2024-10-31d.929.7" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.930.0" newgid="uk.org.publicwhip/debate/2024-10-31d.930.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.930.1" newgid="uk.org.publicwhip/debate/2024-10-31d.930.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.930.2" newgid="uk.org.publicwhip/debate/2024-10-31d.930.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.930.3" newgid="uk.org.publicwhip/debate/2024-10-31d.930.3" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.930.4" newgid="uk.org.publicwhip/debate/2024-10-31d.930.4" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.930.5" newgid="uk.org.publicwhip/debate/2024-10-31d.930.5" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.930.6" newgid="uk.org.publicwhip/debate/2024-10-31d.930.6" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.930.7" newgid="uk.org.publicwhip/debate/2024-10-31d.930.7" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.930.8" newgid="uk.org.publicwhip/debate/2024-10-31d.930.8" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.931.0" newgid="uk.org.publicwhip/debate/2024-10-31d.931.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.931.1" newgid="uk.org.publicwhip/debate/2024-10-31d.931.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.931.2" newgid="uk.org.publicwhip/debate/2024-10-31d.931.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.931.3" newgid="uk.org.publicwhip/debate/2024-10-31d.931.3" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.931.4" newgid="uk.org.publicwhip/debate/2024-10-31d.931.4" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.932.0" newgid="uk.org.publicwhip/debate/2024-10-31d.932.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.932.1" newgid="uk.org.publicwhip/debate/2024-10-31d.932.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.932.2" newgid="uk.org.publicwhip/debate/2024-10-31d.932.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.932.3" newgid="uk.org.publicwhip/debate/2024-10-31d.932.3" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.932.4" newgid="uk.org.publicwhip/debate/2024-10-31d.932.4" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.932.5" newgid="uk.org.publicwhip/debate/2024-10-31d.932.5" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.932.6" newgid="uk.org.publicwhip/debate/2024-10-31d.932.6" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.933.0" newgid="uk.org.publicwhip/debate/2024-10-31d.933.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.933.1" newgid="uk.org.publicwhip/debate/2024-10-31d.933.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.933.2" newgid="uk.org.publicwhip/debate/2024-10-31d.933.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.933.3" newgid="uk.org.publicwhip/debate/2024-10-31d.933.3" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.933.4" newgid="uk.org.publicwhip/debate/2024-10-31d.933.4" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.933.5" newgid="uk.org.publicwhip/debate/2024-10-31d.933.5" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.934.0" newgid="uk.org.publicwhip/debate/2024-10-31d.934.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.934.1" newgid="uk.org.publicwhip/debate/2024-10-31d.934.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.934.2" newgid="uk.org.publicwhip/debate/2024-10-31d.934.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.934.3" newgid="uk.org.publicwhip/debate/2024-10-31d.934.3" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.934.4" newgid="uk.org.publicwhip/debate/2024-10-31d.934.4" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.934.5" newgid="uk.org.publicwhip/debate/2024-10-31d.934.5" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.935.0" newgid="uk.org.publicwhip/debate/2024-10-31d.935.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.935.1" newgid="uk.org.publicwhip/debate/2024-10-31d.935.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.935.2" newgid="uk.org.publicwhip/debate/2024-10-31d.935.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.935.3" newgid="uk.org.publicwhip/debate/2024-10-31d.935.3" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.935.4" newgid="uk.org.publicwhip/debate/2024-10-31d.935.4" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.935.5" newgid="uk.org.publicwhip/debate/2024-10-31d.935.5" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.935.6" newgid="uk.org.publicwhip/debate/2024-10-31d.935.6" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.935.7" newgid="uk.org.publicwhip/debate/2024-10-31d.935.7" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.936.0" newgid="uk.org.publicwhip/debate/2024-10-31d.936.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.936.1" newgid="uk.org.publicwhip/debate/2024-10-31d.936.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.936.2" newgid="uk.org.publicwhip/debate/2024-10-31d.936.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.936.3" newgid="uk.org.publicwhip/debate/2024-10-31d.936.3" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.936.4" newgid="uk.org.publicwhip/debate/2024-10-31d.936.4" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.936.5" newgid="uk.org.publicwhip/debate/2024-10-31d.936.5" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.936.6" newgid="uk.org.publicwhip/debate/2024-10-31d.936.6" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.936.7" newgid="uk.org.publicwhip/debate/2024-10-31d.936.7" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.937.0" newgid="uk.org.publicwhip/debate/2024-10-31d.937.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.937.1" newgid="uk.org.publicwhip/debate/2024-10-31d.937.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.937.2" newgid="uk.org.publicwhip/debate/2024-10-31d.937.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.937.3" newgid="uk.org.publicwhip/debate/2024-10-31d.937.3" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.937.4" newgid="uk.org.publicwhip/debate/2024-10-31d.937.4" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.937.5" newgid="uk.org.publicwhip/debate/2024-10-31d.937.5" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.937.6" newgid="uk.org.publicwhip/debate/2024-10-31d.937.6" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.937.7" newgid="uk.org.publicwhip/debate/2024-10-31d.937.7" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.938.0" newgid="uk.org.publicwhip/debate/2024-10-31d.938.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.938.1" newgid="uk.org.publicwhip/debate/2024-10-31d.938.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.938.2" newgid="uk.org.publicwhip/debate/2024-10-31d.938.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.938.3" newgid="uk.org.publicwhip/debate/2024-10-31d.938.3" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.938.4" newgid="uk.org.publicwhip/debate/2024-10-31d.938.4" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.938.5" newgid="uk.org.publicwhip/debate/2024-10-31d.938.5" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.938.6" newgid="uk.org.publicwhip/debate/2024-10-31d.938.6" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.938.7" newgid="uk.org.publicwhip/debate/2024-10-31d.938.7" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.938.8" newgid="uk.org.publicwhip/debate/2024-10-31d.938.8" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.938.9" newgid="uk.org.publicwhip/debate/2024-10-31d.938.9" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.939.0" newgid="uk.org.publicwhip/debate/2024-10-31d.939.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.941.0" newgid="uk.org.publicwhip/debate/2024-10-31d.941.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.941.1" newgid="uk.org.publicwhip/debate/2024-10-31d.941.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.941.2" newgid="uk.org.publicwhip/debate/2024-10-31d.941.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.941.3" newgid="uk.org.publicwhip/debate/2024-10-31d.941.3" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.941.4" newgid="uk.org.publicwhip/debate/2024-10-31d.941.4" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.943.0" newgid="uk.org.publicwhip/debate/2024-10-31d.943.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.943.1" newgid="uk.org.publicwhip/debate/2024-10-31d.943.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.944.0" newgid="uk.org.publicwhip/debate/2024-10-31d.944.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.945.0" newgid="uk.org.publicwhip/debate/2024-10-31d.945.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.945.1" newgid="uk.org.publicwhip/debate/2024-10-31d.945.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.945.2" newgid="uk.org.publicwhip/debate/2024-10-31d.945.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.945.3" newgid="uk.org.publicwhip/debate/2024-10-31d.945.3" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.945.4" newgid="uk.org.publicwhip/debate/2024-10-31d.945.4" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.946.0" newgid="uk.org.publicwhip/debate/2024-10-31d.946.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.946.1" newgid="uk.org.publicwhip/debate/2024-10-31d.946.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.946.2" newgid="uk.org.publicwhip/debate/2024-10-31d.946.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.946.3" newgid="uk.org.publicwhip/debate/2024-10-31d.946.3" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.946.4" newgid="uk.org.publicwhip/debate/2024-10-31d.946.4" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.947.0" newgid="uk.org.publicwhip/debate/2024-10-31d.947.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.947.1" newgid="uk.org.publicwhip/debate/2024-10-31d.947.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.947.2" newgid="uk.org.publicwhip/debate/2024-10-31d.947.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.947.3" newgid="uk.org.publicwhip/debate/2024-10-31d.947.3" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.947.4" newgid="uk.org.publicwhip/debate/2024-10-31d.947.4" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.947.5" newgid="uk.org.publicwhip/debate/2024-10-31d.947.5" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.948.0" newgid="uk.org.publicwhip/debate/2024-10-31d.948.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.948.1" newgid="uk.org.publicwhip/debate/2024-10-31d.948.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.948.2" newgid="uk.org.publicwhip/debate/2024-10-31d.948.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.948.3" newgid="uk.org.publicwhip/debate/2024-10-31d.948.3" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.948.4" newgid="uk.org.publicwhip/debate/2024-10-31d.948.4" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.948.5" newgid="uk.org.publicwhip/debate/2024-10-31d.948.5" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.948.6" newgid="uk.org.publicwhip/debate/2024-10-31d.948.6" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.949.0" newgid="uk.org.publicwhip/debate/2024-10-31d.949.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.949.1" newgid="uk.org.publicwhip/debate/2024-10-31d.949.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.949.2" newgid="uk.org.publicwhip/debate/2024-10-31d.949.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.949.3" newgid="uk.org.publicwhip/debate/2024-10-31d.949.3" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.949.4" newgid="uk.org.publicwhip/debate/2024-10-31d.949.4" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.950.0" newgid="uk.org.publicwhip/debate/2024-10-31d.950.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.950.1" newgid="uk.org.publicwhip/debate/2024-10-31d.950.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.950.2" newgid="uk.org.publicwhip/debate/2024-10-31d.950.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.950.3" newgid="uk.org.publicwhip/debate/2024-10-31d.950.3" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.950.4" newgid="uk.org.publicwhip/debate/2024-10-31d.950.4" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.950.5" newgid="uk.org.publicwhip/debate/2024-10-31d.950.5" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.950.6" newgid="uk.org.publicwhip/debate/2024-10-31d.950.6" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.950.7" newgid="uk.org.publicwhip/debate/2024-10-31d.950.7" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.951.0" newgid="uk.org.publicwhip/debate/2024-10-31d.951.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.951.1" newgid="uk.org.publicwhip/debate/2024-10-31d.951.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.951.2" newgid="uk.org.publicwhip/debate/2024-10-31d.951.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.951.3" newgid="uk.org.publicwhip/debate/2024-10-31d.951.3" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.951.4" newgid="uk.org.publicwhip/debate/2024-10-31d.951.4" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.951.5" newgid="uk.org.publicwhip/debate/2024-10-31d.951.5" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.952.0" newgid="uk.org.publicwhip/debate/2024-10-31d.952.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.952.1" newgid="uk.org.publicwhip/debate/2024-10-31d.952.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.952.2" newgid="uk.org.publicwhip/debate/2024-10-31d.952.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.952.3" newgid="uk.org.publicwhip/debate/2024-10-31d.952.3" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.952.4" newgid="uk.org.publicwhip/debate/2024-10-31d.952.4" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.953.0" newgid="uk.org.publicwhip/debate/2024-10-31d.953.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.953.1" newgid="uk.org.publicwhip/debate/2024-10-31d.953.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.953.2" newgid="uk.org.publicwhip/debate/2024-10-31d.953.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.953.3" newgid="uk.org.publicwhip/debate/2024-10-31d.953.3" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.953.4" newgid="uk.org.publicwhip/debate/2024-10-31d.953.4" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.953.5" newgid="uk.org.publicwhip/debate/2024-10-31d.953.5" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.954.0" newgid="uk.org.publicwhip/debate/2024-10-31d.954.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.954.1" newgid="uk.org.publicwhip/debate/2024-10-31d.954.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.954.2" newgid="uk.org.publicwhip/debate/2024-10-31d.954.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.954.3" newgid="uk.org.publicwhip/debate/2024-10-31d.954.3" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.954.4" newgid="uk.org.publicwhip/debate/2024-10-31d.954.4" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.954.5" newgid="uk.org.publicwhip/debate/2024-10-31d.954.5" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.955.0" newgid="uk.org.publicwhip/debate/2024-10-31d.955.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.955.1" newgid="uk.org.publicwhip/debate/2024-10-31d.955.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.955.2" newgid="uk.org.publicwhip/debate/2024-10-31d.955.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.955.3" newgid="uk.org.publicwhip/debate/2024-10-31d.955.3" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.955.4" newgid="uk.org.publicwhip/debate/2024-10-31d.955.4" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.955.5" newgid="uk.org.publicwhip/debate/2024-10-31d.955.5" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.956.0" newgid="uk.org.publicwhip/debate/2024-10-31d.956.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.956.1" newgid="uk.org.publicwhip/debate/2024-10-31d.956.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.956.2" newgid="uk.org.publicwhip/debate/2024-10-31d.956.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.956.3" newgid="uk.org.publicwhip/debate/2024-10-31d.956.3" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.956.4" newgid="uk.org.publicwhip/debate/2024-10-31d.956.4" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.956.5" newgid="uk.org.publicwhip/debate/2024-10-31d.956.5" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.957.0" newgid="uk.org.publicwhip/debate/2024-10-31d.957.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.957.1" newgid="uk.org.publicwhip/debate/2024-10-31d.957.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.957.2" newgid="uk.org.publicwhip/debate/2024-10-31d.957.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.957.3" newgid="uk.org.publicwhip/debate/2024-10-31d.957.3" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.957.4" newgid="uk.org.publicwhip/debate/2024-10-31d.957.4" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.958.0" newgid="uk.org.publicwhip/debate/2024-10-31d.958.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.958.1" newgid="uk.org.publicwhip/debate/2024-10-31d.958.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.958.2" newgid="uk.org.publicwhip/debate/2024-10-31d.958.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.958.3" newgid="uk.org.publicwhip/debate/2024-10-31d.958.3" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.958.4" newgid="uk.org.publicwhip/debate/2024-10-31d.958.4" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.958.5" newgid="uk.org.publicwhip/debate/2024-10-31d.958.5" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.959.0" newgid="uk.org.publicwhip/debate/2024-10-31d.959.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.959.1" newgid="uk.org.publicwhip/debate/2024-10-31d.959.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.959.2" newgid="uk.org.publicwhip/debate/2024-10-31d.959.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.959.3" newgid="uk.org.publicwhip/debate/2024-10-31d.959.3" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.959.4" newgid="uk.org.publicwhip/debate/2024-10-31d.959.4" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.959.5" newgid="uk.org.publicwhip/debate/2024-10-31d.959.5" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.960.0" newgid="uk.org.publicwhip/debate/2024-10-31d.960.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.960.1" newgid="uk.org.publicwhip/debate/2024-10-31d.960.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.960.2" newgid="uk.org.publicwhip/debate/2024-10-31d.960.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.960.3" newgid="uk.org.publicwhip/debate/2024-10-31d.960.3" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.960.4" newgid="uk.org.publicwhip/debate/2024-10-31d.960.4" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.960.5" newgid="uk.org.publicwhip/debate/2024-10-31d.960.5" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.960.6" newgid="uk.org.publicwhip/debate/2024-10-31d.960.6" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.961.0" newgid="uk.org.publicwhip/debate/2024-10-31d.961.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.961.1" newgid="uk.org.publicwhip/debate/2024-10-31d.961.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.962.0" newgid="uk.org.publicwhip/debate/2024-10-31d.962.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.962.1" newgid="uk.org.publicwhip/debate/2024-10-31d.962.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.962.2" newgid="uk.org.publicwhip/debate/2024-10-31d.962.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.962.3" newgid="uk.org.publicwhip/debate/2024-10-31d.962.3" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.963.0" newgid="uk.org.publicwhip/debate/2024-10-31d.963.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.963.1" newgid="uk.org.publicwhip/debate/2024-10-31d.963.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.963.2" newgid="uk.org.publicwhip/debate/2024-10-31d.963.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.963.3" newgid="uk.org.publicwhip/debate/2024-10-31d.963.3" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.964.0" newgid="uk.org.publicwhip/debate/2024-10-31d.964.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.964.1" newgid="uk.org.publicwhip/debate/2024-10-31d.964.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.964.2" newgid="uk.org.publicwhip/debate/2024-10-31d.964.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.964.3" newgid="uk.org.publicwhip/debate/2024-10-31d.964.3" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.964.4" newgid="uk.org.publicwhip/debate/2024-10-31d.964.4" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.965.0" newgid="uk.org.publicwhip/debate/2024-10-31d.965.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.965.1" newgid="uk.org.publicwhip/debate/2024-10-31d.965.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.965.2" newgid="uk.org.publicwhip/debate/2024-10-31d.965.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.965.3" newgid="uk.org.publicwhip/debate/2024-10-31d.965.3" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.965.4" newgid="uk.org.publicwhip/debate/2024-10-31d.965.4" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.966.0" newgid="uk.org.publicwhip/debate/2024-10-31d.966.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.966.1" newgid="uk.org.publicwhip/debate/2024-10-31d.966.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.966.2" newgid="uk.org.publicwhip/debate/2024-10-31d.966.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.966.3" newgid="uk.org.publicwhip/debate/2024-10-31d.966.3" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.967.0" newgid="uk.org.publicwhip/debate/2024-10-31d.967.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.967.1" newgid="uk.org.publicwhip/debate/2024-10-31d.967.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.967.2" newgid="uk.org.publicwhip/debate/2024-10-31d.967.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.967.3" newgid="uk.org.publicwhip/debate/2024-10-31d.967.3" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.968.0" newgid="uk.org.publicwhip/debate/2024-10-31d.968.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.968.1" newgid="uk.org.publicwhip/debate/2024-10-31d.968.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.968.2" newgid="uk.org.publicwhip/debate/2024-10-31d.968.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.968.3" newgid="uk.org.publicwhip/debate/2024-10-31d.968.3" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.968.4" newgid="uk.org.publicwhip/debate/2024-10-31d.968.4" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.968.5" newgid="uk.org.publicwhip/debate/2024-10-31d.968.5" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.968.6" newgid="uk.org.publicwhip/debate/2024-10-31d.968.6" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.970.0" newgid="uk.org.publicwhip/debate/2024-10-31d.970.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.970.1" newgid="uk.org.publicwhip/debate/2024-10-31d.970.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.971.0" newgid="uk.org.publicwhip/debate/2024-10-31d.971.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.971.1" newgid="uk.org.publicwhip/debate/2024-10-31d.971.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.973.0" newgid="uk.org.publicwhip/debate/2024-10-31d.973.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.973.1" newgid="uk.org.publicwhip/debate/2024-10-31d.973.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.973.2" newgid="uk.org.publicwhip/debate/2024-10-31d.973.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.973.3" newgid="uk.org.publicwhip/debate/2024-10-31d.973.3" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.973.4" newgid="uk.org.publicwhip/debate/2024-10-31d.973.4" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.973.5" newgid="uk.org.publicwhip/debate/2024-10-31d.973.5" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.973.6" newgid="uk.org.publicwhip/debate/2024-10-31d.973.6" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.975.0" newgid="uk.org.publicwhip/debate/2024-10-31d.975.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.975.1" newgid="uk.org.publicwhip/debate/2024-10-31d.975.1" matchtype="changes"/>
+<speech id="uk.org.publicwhip/debate/2024-10-31c.975.1" speakername="Tom Collins" type="Start Speech" person_id="uk.org.publicwhip/person/26351" colnum="975" time="12:29:00" url="">
+    <p pid="c975.1/1">As a boy, I remember walking to the shops with my mum and passing our nearest pub. Its name, the Lord Protector, confused me at the time, and I later learned that I share a home town with one Oliver Cromwell, so perhaps I should feel at home in this place. Having said that, I confess that the nearest pub to my first family home was The Cavalier. That is because I represent, and am proud to call my home, the faithful city of Worcester. Famous among historians as the site of both the first and final armed conflicts of the English civil war, Worcester is seen by many as the birthplace of modern parliamentary democracy, and that is fitting for our city.</p>
+    <p pid="c975.1/2">Nestled on the great River Severn and in the shelter of the ancient Malvern hills, Worcester is one of England’s best kept secrets. Rooted in the beauty of nature, and richly decorated by a long and varied history, Worcester is a city deeply informed by the past, and with a record of deeply informing the future. Throughout its history, it has continuously expressed creativity, enterprise and innovation, and through the stirring music of Elgar, the creation of the world’s first combined hydroelectric power station, and even the establishment of the British Medical Association, the people of Worcester have been shaping the future of the world for millennia. We are home to Berrow’s Worcester Journal, the oldest newspaper still in print, and of course we manufacture Lea &amp; Perrins’s famous Worcestershire sauce.</p>
+    <p pid="c975.1/3">Having given a flavour of our city, I pay tribute to my immediate predecessor in this place, Robin Walker. Wherever I go, be it in this place or in my constituency, people consistently speak well of Robin, who won the affection of many with whom he worked. He worked with passion and dedication to improve education, and for that I offer my sincere thanks, and that of many others.</p>
+    <p pid="c975.1/4">Worcester is home to many small and independent businesses that contribute hugely to our distinctive culture. During the election, I visited Spin the Black Circle and Script Haven, to give just two examples, as well as larger companies that are also expressing our nation’s creativity and shaping its future. I have been privileged to work with teams of talented people at Worcester Bosch, inventing the technologies of the future to grow and decarbonise our economy. If any Member would appreciate an in-depth discussion on heat pumps or hydrogen, I am always happy to indulge, being an enthusiastic engineer by background.</p>
+    <p pid="c975.1/5">It is my belief that releasing innovation by investing in the talent, passion and skills of our emerging leaders, creators and problem solvers is key—key to our mission for growth, which is the guiding light of this Budget, and key to decarbonising our economy through industrial renewal, rebuilding our NHS, and putting people at the heart of all we do. Today, we are doing the vital work of fixing the foundations, because this kind of history-writing ambition is exactly what this place is for.</p>
+    <p pid="c975.1/6">Worcester, and its incredible community of dedicated and talented people, is ready to deliver an exciting vision for the future, with our schools, colleges, and the Hive—one of the largest children’s libraries in the  UK—ready to grow the next generation. The Budget’s commitment to taking the first steps towards the renewal of our schools, and especially its provision for children with special educational needs and disabilities, will be very welcome in Worcestershire.</p>
+    <p pid="c975.1/7">With the University of Worcester continuing our heritage through teacher training, Worcester Business School and Three Counties Medical School, where prospective Prime Ministers can reliably capture a good selfie, as well as a wealth of innovative businesses and creatives in the digital space, including the Kiln, now hosting BetaDen, our community has the vision for people and nature to flourish. It is led by local people such as Worcester Environmental Group, our cathedral’s eco-group, and projects such as Bramblewood. It is a hub of culture, with arts at the Swan theatre, the Scala project and the Arches, and has a growing track record in disability sports, historic world-class cricket at New Road, our fantastic city football clubs, and hopefully soon the return of professional rugby with the Warriors. We are also very good in a tug of war!</p>
+    <p pid="c975.1/8">Informed by the past and informing the future, Worcester has taught me that the key is to put people first, dream big, and unleash the creativity of diverse teams to shape the future. I came to politics with a passion to tackle climate change, see an end to modern slavery, and put leadership and vision back at the heart of politics. Let us remember that throughout the long history of this place, we, like Worcester, have never lingered on the past. As the Budget empowers us to do, let us continue always to fix our gaze with ambition, clarity, and focus on the creation of a bright and prosperous future.</p>
+</speech>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.976.0" newgid="uk.org.publicwhip/debate/2024-10-31d.976.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.976.1" newgid="uk.org.publicwhip/debate/2024-10-31d.976.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.977.0" newgid="uk.org.publicwhip/debate/2024-10-31d.977.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.978.0" newgid="uk.org.publicwhip/debate/2024-10-31d.978.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.978.1" newgid="uk.org.publicwhip/debate/2024-10-31d.978.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.978.2" newgid="uk.org.publicwhip/debate/2024-10-31d.978.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.978.3" newgid="uk.org.publicwhip/debate/2024-10-31d.978.3" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.978.4" newgid="uk.org.publicwhip/debate/2024-10-31d.978.4" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.979.0" newgid="uk.org.publicwhip/debate/2024-10-31d.979.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.979.1" newgid="uk.org.publicwhip/debate/2024-10-31d.979.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.980.0" newgid="uk.org.publicwhip/debate/2024-10-31d.980.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.980.1" newgid="uk.org.publicwhip/debate/2024-10-31d.980.1" matchtype="changes"/>
+<speech id="uk.org.publicwhip/debate/2024-10-31c.980.1" speakername="Margaret Mullane" type="Start Speech" person_id="uk.org.publicwhip/person/26495" colnum="980" time="12:49:00" url="">
+    <p pid="c980.1/1">Thank you, Madam Deputy Speaker, for allowing me to contribute to this debate with my maiden speech. It is the honour of my life to be standing here, in this historic place, at the heart of democracy, representing the communities of Dagenham and Rainham, the place where I was born and raised.</p>
+    <p pid="c980.1/2">I was well and truly made in Dagenham, and I am also the first woman to represent the seat since the boundaries were redrawn in 2010, when the old seat of Dagenham inherited the communities of Rainham, South Hornchurch, Elm Park and now Beam Park. I am proud to join the long list of political women from Dagenham, such as the Ford machinists whose battle paved the way for the Equal Pay Act in the ’70s, and now our very own Holly Ridley, Labour’s new general secretary.</p>
+    <p pid="c980.1/3">I must take this opportunity to pay tribute to the inexhaustible work of my predecessor, Jon Cruddas, who always put the needs of local people first and was, I know, a very well-respected Member of this House for his very thoughtful contributions. His presence will be missed by honourable colleagues in Westminster and by the people of Dagenham and Rainham, not least for his community-led approach to parliamentary politics. He always brought people with him, displaying integrity and compassion, and I have committed to continuing in that vein.</p>
+    <p pid="c980.1/4">When people think of Dagenham and Rainham, they think of industry and the era of great British manufacturing —the Ford factory, Sanofi-Aventis and May &amp; Baker, which created one of the first antibiotics, saving many thousands of lives during world war two, including that of Sir Winston Churchill when he suffered with pneumonia. People also think of council housing. The Becontree estate, one of the most ambitious social housing projects in the world, built during the interwar period, marked its 100th anniversary in 2021 and is still a source of great pride. People also think of working-class solidarity: the communities that were forged on the factory floor, in the clubs and at the docks; and the indomitable spirit of the women machinists whose famous fight paved the way for the Equal Pay Act 1970 and for a strong trade union voice in our area.</p>
+    <p pid="c980.1/5">Dagenham and Rainham has a rich past, and it is now my job to ensure that it has a bright future, full of opportunity and promise, built on the back of a new  deal for working people. It has not always been politics for me; I have worked in insurance and in a call centre, and was a barmaid at the Dagenham Trades Hall.</p>
+    <p pid="c980.1/6">I know how precarious work can be in areas such as Dagenham and Rainham, and it was the miners’ strike that drew me into politics. Seeing secure jobs stolen away, the injustice of Orgreave and the heart being ripped out of working-class communities by decisions made in Westminster, I knew then that I wanted to be a voice for working-class people. That is why I welcome the Government’s commitment to making the Hillsborough law a reality, creating a level playing field for people in places such as Dagenham and Rainham when tragedies sadly happen—like in 2015, when four young men were murdered by a serial killer. The Independent Office for Police Conduct found that mistakes were made during the investigation, and nearly a decade later I continue to work with the family of Jack Taylor, seeking the justice they deserve.</p>
+    <p pid="c980.1/7">It is not only justice that working-class communities such as Dagenham and Rainham seek; they want more police on our streets to tackle the scourge of knife crime, particularly around transport hubs such as Dagenham Heathway, Elm Park and Rainham. We want thriving town centres, an NHS fit for the future—one where you can get a GP appointment—jobs you can raise a family on, council housing, infrastructure, good public services we can all rely on and representatives who serve with integrity.</p>
+    <p pid="c980.1/8">The devastating fire at the Spectrum building in my constituency in the early hours of <phrase class="date" code="">Monday 26 August</phrase> will not have escaped the attention of the House. That has yet again brought to the fore the safety of residents in high-rise blocks across the country. Thankfully, a combination of brave residents and the rapid response from the London Fire Brigade meant that there was no loss of life on this occasion. I want to take a moment to thank our emergency services for their amazing work and our community in Dagenham for their overwhelming response to this tragedy. Local businesses and residents rallied around to help families who had lost literally everything. That is who we are in Dagenham and Rainham, and I could not be prouder as their representative in this House.</p>
+    <p pid="c980.1/9">There is a long way to go before we have a level playing field, but in the meantime I will dedicate every moment I spend in this House to raising living standards and attracting opportunities for my constituents. The work has already begun. In a matter of months London’s biggest film studio will be complete, bringing skilled work in the creative industries to a new generation of young people, making hope possible. That has only been made possible under the local stewardship of Labour, guided by Jon Cruddas, who brokered the agreement when Sanofi-Aventis vacated the site, and Barking and Dagenham council, which secured the deal with Hackman Capital Partners to develop it.</p>
+    <p pid="c980.1/10">As with all things, there is good news and bad news, and there are still a lot of battles that need to be fought. There is a patch of empty land at Marsh Way where c2c trains should be taking customers from their new neighbourhood on the Beam Park estate to Fenchurch Street in 20 minutes, as promised by developers. I am determined to make sure that promise is made good.  Since discovering that this crucial infrastructure has been derailed, it is Labour representatives who have been fighting for a green light to get it delivered.</p>
+    <p pid="c980.1/11">I have always been a champion of council housing at traditional social rents, and I will continue to do that in Parliament. That is why I welcome the Government’s commitment to build a new generation of social and affordable homes. I also welcome the commitment to put in the essential services that communities desperately need. I will always beat the drum of infrastructure. As we build—there is a lot of development planned for Dagenham and Rainham—we must ensure not only that the homes are affordable, but that there are schools, GPs and dentists, transport options, leisure facilities, green spaces and the amenities needed to thrive.</p>
+    <p pid="c980.1/12">There are many new challenges in Dagenham and Rainham, but there are also historical challenges that need resolution. The ongoing fires at the illegal landfill on Launders Lane in Rainham are not only a scandal but a public health risk, and I will be fighting tooth and nail to extinguish them once and for all. The health of my constituents is paramount. That is why I am in regular contact with the chief executive of the Barking, Havering and Redbridge university hospitals NHS trust, offering my support to get our local NHS back on its feet. Our local NHS has ambitious plans to expand the emergency department at Queen’s hospital, and I will be doing everything in my power to make that a reality.</p>
+    <p pid="c980.1/13">At the election, I promised that I would help local communities to shape the future of Dagenham and Rainham. From the Daggers boxing club to local faith groups, businesses, working men’s clubs, and amazing local charities such as Dagenham United and the Ship in Rainham, everyone plays a part in building a future for Dagenham and Rainham. That includes Barking and Dagenham and Havering councils, which is why I will be a constant voice asking for a revised funding formula for local authorities, so that they have the resources they need to transform lives.</p>
+    <p pid="c980.1/14">I will finish as I started. It is the honour of my life to stand here representing my community and to be given the opportunity to serve. I am fiercely proud of Dagenham and Rainham and, building on the legacy of those who stood here before me, I will always be on hand to fight for the communities who call my constituency home. Thank you.</p>
+</speech>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.982.0" newgid="uk.org.publicwhip/debate/2024-10-31d.982.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.982.1" newgid="uk.org.publicwhip/debate/2024-10-31d.982.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.983.0" newgid="uk.org.publicwhip/debate/2024-10-31d.983.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.983.1" newgid="uk.org.publicwhip/debate/2024-10-31d.983.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.983.2" newgid="uk.org.publicwhip/debate/2024-10-31d.983.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.984.0" newgid="uk.org.publicwhip/debate/2024-10-31d.984.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.984.1" newgid="uk.org.publicwhip/debate/2024-10-31d.984.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.985.0" newgid="uk.org.publicwhip/debate/2024-10-31d.985.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.985.1" newgid="uk.org.publicwhip/debate/2024-10-31d.985.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.986.0" newgid="uk.org.publicwhip/debate/2024-10-31d.986.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.986.1" newgid="uk.org.publicwhip/debate/2024-10-31d.986.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.988.0" newgid="uk.org.publicwhip/debate/2024-10-31d.988.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.990.0" newgid="uk.org.publicwhip/debate/2024-10-31d.990.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.990.1" newgid="uk.org.publicwhip/debate/2024-10-31d.990.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.990.2" newgid="uk.org.publicwhip/debate/2024-10-31d.990.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.990.3" newgid="uk.org.publicwhip/debate/2024-10-31d.990.3" matchtype="changes"/>
+<speech id="uk.org.publicwhip/debate/2024-10-31c.990.3" speakername="Gregor Poynton" type="Start Speech" person_id="uk.org.publicwhip/person/26428" colnum="990" time="13:29:00" url="">
+    <p pid="c990.3/1">Thank you, Madam Deputy Speaker, for giving me the opportunity to speak in today’s debate. First, I pay tribute to my hon. Friends  the Members for Worcester (Tom Collins), and for Dagenham and Rainham (Margaret Mullane), who have proudly shown the best of their constituencies in their maiden speeches today. I pay tribute to my predecessor, Hannah Bardell. Hannah has diligently supported our constituents over the past nine years, whether by addressing the Broxburn floods, assisting homeowners affected by RAAC, advocating for those affected by the infected blood scandal, and championing LGBTQ+ rights. On election night, she was incredibly gracious—a spirit that has continued, as Hannah and her team have gone above and beyond in passing on cases and helping my team to get settled. She said to me on the night, “It’s all about the constituents,” and she has been true to her word. Hannah said in her speech on polling night that she intends to be back in some form. Of that I have no doubt. I just hope it is not too soon.</p>
+    <p pid="c990.3/2">My constituency is called Livingston, which is understandable, as that is the biggest town in the constituency and the county, but the constituency is so much more than that; it includes towns and villages such as Breich, Dechmont, Ecclesmachan, Uphall, Longridge, Broxburn, Bents, Stoneyburn, Addiewell, Kirknewton, Wilkieston, East Calder, Mid Calder, West Calder and Fauldhouse, each rich with history and a distinct community spirit. The area’s economy and population was initially boosted by mining, of coal in the west, and oil shale in the east. The landscape still bears witness to this history, with the bings that remain. That is why it was important to me that the Chancellor announced in yesterday’s Budget that we are delivering on our manifesto commitment to return the investment reserve to miners. We are handing back £1.2 billion to former miners and their families. In fact, 144 former miners in the Livingston constituency will receive an average increase of £29 per week in their pension. For those who would like a further insight into Scottish oil and the shale oil industry, there is the Almond Valley visitor centre, which brings to life the first truly commercial oil works in the world, and celebrates the West Lothian chemist James “Paraffin” Young’s work and discoveries.</p>
+    <p pid="c990.3/3">However, the biggest growth in the area was in the 1960s, with the creation of the new town of Livingston. Many from Glasgow and the west of Scotland ventured east because of the promise of improved housing and job opportunities. That entrepreneurial spirit is still alive in Livingston, which is the home of high-end manufacturers like Wyman-Gordon, biotech companies like Valneva, Glenmorangie’s bottling plant, Paterson’s shortbread factory, Mitsubishi Electric, a designer outlet village, Sky, and numerous small and medium-sized enterprises, which are the lifeblood of our local economy. Now that I have highlighted Pateron’s shortbread and Glenmorangie, I am expecting a visit from my right hon. Friend the Secretary of State for Scotland—all in the name of promoting Brand Scotland, of course.</p>
+    <p pid="c990.3/4">As I prepared to give this speech, I sought inspiration from the maiden speeches of two previous MPs for Livingston: Robin Cook and Tam Dalyell, who knew a thing or two about speaking in this place. Even in their maiden speeches, they set themselves apart with their wit, intellect and fire for social justice. Tam Dalyell used his experience as a school teacher to outline practical reforms that could be made to the education system, and Robin Cook, a former chair of housing on Edinburgh City council, made a plea for more and better housing. I took from them that you should talk about what you  know, and if I can maintain that for my whole parliamentary career, I think I will be doing rather well. Tam Dalyell and Robin Cook are two giants of Scottish Labour politics, who, in their different ways, made a mark in this place. We new Scottish Labour MPs must now make ours.</p>
+    <p pid="c990.3/5">There is a Scottish Labour thread of history in this place, from Hardie, Maxton, Lee and Dewar to Cook, Brown and Darling. Living up to that is an impossible task, but try we must, because in that trying and effort is the opportunity to make a change. The idea of being a Scottish MP in the Parliament of the United Kingdom is important to me. I am Scottish, and I am British. I do not see these identities as contradictory, but they are different. Given that all four nations are part of the United Kingdom, and have been, in some cases, for hundreds of years, it would seem logical that the UK identity would subsume all, but that is not so.</p>
+    <p pid="c990.3/6">The idea of Scotland is powerful. It has stood the test of time, and it means different things to different people in the Borders, the highlands, the island communities, the east, the west, the central belt, urban areas and rural areas, but there is a common fabric of what it means to be Scottish, and it binds us together, whether we were born into being Scottish or chose to make our home in Scotland. This is part of who we are, and having Scotland as one of the four nations makes our country greater than the sum of its parts.</p>
+    <p pid="c990.3/7">The theme of today’s debate is “fixing the foundations”, because over the last 14 years our country has not been on secure foundations. The chaos of the last 14 years across the UK—and particularly the last 10 years in Scotland, where there has been a focus on the constitution, not the day job—has made our country feel less secure and life feel too precarious for far too many. Families are one mistake, a piece of bad luck or a decision that is no fault of their own away from disaster. That is no way to live. That is why this Budget—which ensures a pay rise for over 200,000 of the lowest-paid Scots, letting more families keep more of their hard-earned cash—is important for families right across the Livingston constituency.</p>
+    <p pid="c990.3/8">I wanted to come to this place to make sure that everyone, no matter their background, can thrive. That is what drives me and my politics. Having grown up in a working-class family in a working-class town in central Scotland in the ’80s and ’90s, I have seen what happens when people have opportunities and security, and what happens when they do not. My father worked in a plastics plant in Grangemouth for over 35 years, providing our family with stability and dignity through unionised work. Without it, I would not be here today.</p>
+    <p pid="c990.3/9">There is hope for the future. Yesterday’s Budget marks the end of the era of austerity, and raises much-needed cash for our public services. This Labour Budget delivers the largest budget settlement for the Scottish Government in the history of devolution. It means there is an additional £1.5 billion for the Scottish Government to spend in this financial year, and an additional £3.4 billion next year. This is a significant increase in investment to ensure that we have the funding available for Scotland’s NHS, schools and public services. It is now for the SNP, which has lost its way in recent years, to get a grip and spend the money wisely.</p>
+    <p pid="c990.3/10">I recently visited the Larder, a social enterprise providing solutions to poverty through learning opportunities and access to high-quality, affordable food. It supports  young people for whom traditional academic settings have often not worked, helping them to build skills and confidence. The Larder has had huge success in turning lives around, so it can be done. We have the people and drive to build stronger communities. We have a Government who are on the side of working people, and we should not rest until everyone in this country has the opportunities that they need to build a more secure life for themselves and their families. That is what I resolve to spend my time in this place doing, on behalf of people in the Livingston constituency.</p>
+</speech>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.993.0" newgid="uk.org.publicwhip/debate/2024-10-31d.993.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.993.1" newgid="uk.org.publicwhip/debate/2024-10-31d.993.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.993.2" newgid="uk.org.publicwhip/debate/2024-10-31d.993.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.993.3" newgid="uk.org.publicwhip/debate/2024-10-31d.993.3" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.994.0" newgid="uk.org.publicwhip/debate/2024-10-31d.994.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.994.1" newgid="uk.org.publicwhip/debate/2024-10-31d.994.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.995.0" newgid="uk.org.publicwhip/debate/2024-10-31d.995.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.995.1" newgid="uk.org.publicwhip/debate/2024-10-31d.995.1" matchtype="changes"/>
+<speech id="uk.org.publicwhip/debate/2024-10-31c.995.1" speakername="Maya Ellis" type="Start Speech" person_id="uk.org.publicwhip/person/26479" colnum="995" time="13:46:00" url="">
+    <p pid="c995.1/1">Thank you, Madam Deputy Speaker. My journey here comes via almost 10 years in local government, as an officer working on economic development and regeneration. I grew up among passionate socialists, but I also saw the investment that small businesses all around me put into their local areas, so I am delighted to be making my maiden speech, as the first Labour MP for Ribble Valley, in this debate on a Budget that truly harnesses the best of both social policy and great British enterprise. We need both, and we need them to work together.</p>
+    <p pid="c995.1/2">For a young woman, full of dreams and wanting to change the world, sometimes our day-to-day can feel a pretty restrictive place to be. Anyone who has felt held back in their ambition will know that it can take just one or two people to believe in you, to make all the difference to whether you carry on or give up. I cannot possibly name all the people who helped me get here,  but you know who you are, and it made all the difference that you never questioned for a second that I could do this.</p>
+    <p pid="c995.1/3">It is so easy to quickly take for granted that we are speaking in a debate on a Budget presented by the first ever woman Chancellor of the Exchequer. She will know as well as I do that as fairytale as our journeys may seem at their high points right now, the prejudices and obstacles that we faced, and that women face every day, are still far too high. I have said it to many women, and I will say it to any listening now: you are as smart and as capable as you think you are; do not let anyone convince you otherwise. We need your fire.</p>
+    <p pid="c995.1/4">I have been in Westminster a few months now, and one thing I hear people say frequently about my predecessor, the right hon. Nigel Evans, was how much he loves and cares for this place that we stand in today. Mr Evans worked incredibly hard and diligently as Deputy Speaker and on the restoration and renewal programme board. We are very lucky to have this well-managed centre of debate and challenge in the UK, and I am grateful to Mr Evans, and to all those who work here, for upholding our exceptional standards of democracy.</p>
+    <p pid="c995.1/5">I promised Mr Evans on the night of the election that I would take care of the Ribble Valley constituency that I know we both love. I can already safely say that I will likewise show this incredible institution of Westminster and our strong democracy the respect and protection that I know we both value so highly.</p>
+    <p pid="c995.1/6">I am one of those exceptionally lucky MPs who have lived in their constituency most of our life. It means that I know it like the back of my hand. For better or worse, it also means that I encounter situations like I did the other day, when one of my old Brownie leaders called me over while doing the school run to raise an issue about local social housing—I am on it, Jan, I promise.</p>
+    <p pid="c995.1/7">My constituency of Ribble Valley is a patchwork of our country’s history and its future. We remember the battle of Bamber Bridge, when locals stood up against white GIs to welcome black US soldiers into their pubs—a brilliant example of the inclusion and multi- culturalism that makes this country great. In Samlesbury, we have produced planes to protect the country since world war two, and I am delighted that progress on establishing the National Cyber Force in my constituency is well under way. It will lead our country’s research, develop our future security and build our skills in cyber.</p>
+    <p pid="c995.1/8">People are often surprised by the size of the Ribble Valley constituency. Its boundaries have changed over the years, but it currently reaches from the Lancashire-Yorkshire border, with picture-perfect villages such as Tosside, Rimington, Waddington, West Bradford and Chipping, through to the lively suburbs of Preston, taking in Fulwood, Bamber Bridge and Walton-le- Dale, and almost reaching the Ribble estuary at the Irish sea.</p>
+    <p pid="c995.1/9">I see the breadth of my constituency as its depth. We have wonderful places to live, though much could be done to keep them safer and kinder. We have great transport links, with the M6 running through, and it is only two hours to London on the train from Preston. We also have utterly stunning countryside, including a large part of the trough of Bowland, where the late Queen said that she would have loved to retire.</p>
+    <p pid="c995.1/10">Strong communities are so important to me, and both the rural and urban areas of my constituency are made up of villages that come together to create celebrations such as the Lostock Hall carnival and the Broughton scarecrow festival just last week.</p>
+    <p pid="c995.1/11">Right in the heart of my constituency is my home village of Ribchester, where my family have lived since 1961 and where I am now raising my family. I must pay a quick tribute to the people of that village. From the amateur dramatic society and the church to the Brownie unit and the parish council, the village showed me the best of what it means to be British. I look forward to this Government easing the burden on families, so that they can spend more time contributing to the amazing communities that we all need to thrive.</p>
+    <p pid="c995.1/12">The only person I know who loved Ribble Valley more than I do was my dad. He travelled the world, living in big cities and in communes, dreaming of new ways to live our lives, but I recently found a letter that he wrote to himself at age 21, in which he spoke of the strange pull back to our beautiful little corner of the world, where he chose to raise his family and, without knowing it, raised the Labour MP he dreamed of it having.</p>
+    <p pid="c995.1/13">It is my deepest sadness that my dad did not live to see me standing here, but I know that he relished every heated debate we had at the dinner table and, along with my mum—one of the most intelligent women I know—I think my dad had an eye to what he was preparing me for. He was the biggest feminist I have ever known, and, in me, I think he raised the second biggest.</p>
+    <p pid="c995.1/14">A lot of my career has involved working on innovation policy, which has collided over time with my passion for social justice. I think we all need a vision to look towards, and I want us to be ambitious that our rapid advances in technology and automation should translate into greater rewards for workers. I would like to think that it is not too utopian to hope that we will move to a standard four-day working week in my lifetime.</p>
+    <p pid="c995.1/15">So much of what our society needs does not necessarily cost money, but it does cost time—time to give our children focused play; time to truly rest our bodies so that they do not crumble far too early; and time to live slowly and to grow our own food, to reduce the huge demands on this Earth. Technology can give us time, if that is where we choose to channel the benefits.</p>
+    <p pid="c995.1/16">Before I finish, I will touch on my utmost priority as a Member of Parliament: working families. We need to make life much more tenable, more affordable and, dare I say, more joyful for parents, who want to contribute to our country while also raising good humans. It is also critical to me that we make sure the children have the lives, support and love they deserve.</p>
+    <p pid="c995.1/17">We have a vision for an innovative and high-growth economy, but we do not get innovation without diversity of thought. This Parliament is the most diverse in history, and I, as one of those new diverse Members, am able to be here with my mental health just about intact only because my husband took three months of paternity leave with both our children. This meant that, when an election was called two days after I was selected as the Labour candidate, I did not have to spend a single second handing childcare over to him; he already knew  how to change a nappy, what to pack in a bag and the books my children want to read at bedtime. I fully believe I would not be standing here now if he had not taken paternity leave. That opportunity should not be rare.</p>
+    <p pid="c995.1/18">Forgive me for speaking in a hetero-normative context, but that is my personal experience. We know that few dads take up paternity or parental leave, which means that many women cannot dream of putting themselves forward for political office, as I did. Knowing that my husband can confidently care for my children gives me time to think, to organise and to dream. Too many women are still unable to do this because their mental load fills every bit of additional brain space they have.</p>
+    <p pid="c995.1/19">We need the ideas and dreams of mothers and parents to propel our businesses, our public services and our society. I was delighted to join the campaigning organisations Pregnant Then Screwed and The Dad Shift earlier this month to try to shift the dial on parenting equality. I hope to see some truly ambitious step changes as our Government review paternity leave over this coming year, not only to create a new vision of fatherhood in this country, but to unlock the dreams and plans of mothers, which we have been so desperately lacking but which are so desperately important. I send a huge thank you to my incredible husband for holding the fort at home, and for being the foundation of my standing here today.</p>
+    <p pid="c995.1/20">Finally, I want to acknowledge that it takes a lot of bravery to be a girl or a young woman today; it always has. It is relentless, scary and exhausting, especially for those with caring responsibilities or facing additional prejudices. There are a million reasons to give up, and a million times I almost did, but please do not give up. I can promise you this: brave girls grow up, and one day you might stand here and be the one in charge.</p>
+</speech>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.998.0" newgid="uk.org.publicwhip/debate/2024-10-31d.998.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.998.1" newgid="uk.org.publicwhip/debate/2024-10-31d.998.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.999.0" newgid="uk.org.publicwhip/debate/2024-10-31d.999.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.999.1" newgid="uk.org.publicwhip/debate/2024-10-31d.999.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.999.2" newgid="uk.org.publicwhip/debate/2024-10-31d.999.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.999.3" newgid="uk.org.publicwhip/debate/2024-10-31d.999.3" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.999.4" newgid="uk.org.publicwhip/debate/2024-10-31d.999.4" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.999.5" newgid="uk.org.publicwhip/debate/2024-10-31d.999.5" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.1000.0" newgid="uk.org.publicwhip/debate/2024-10-31d.1000.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.1000.1" newgid="uk.org.publicwhip/debate/2024-10-31d.1000.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.1000.2" newgid="uk.org.publicwhip/debate/2024-10-31d.1000.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.1000.3" newgid="uk.org.publicwhip/debate/2024-10-31d.1000.3" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.1001.0" newgid="uk.org.publicwhip/debate/2024-10-31d.1001.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.1001.1" newgid="uk.org.publicwhip/debate/2024-10-31d.1001.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.1002.0" newgid="uk.org.publicwhip/debate/2024-10-31d.1002.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.1002.1" newgid="uk.org.publicwhip/debate/2024-10-31d.1002.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.1002.2" newgid="uk.org.publicwhip/debate/2024-10-31d.1002.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.1002.3" newgid="uk.org.publicwhip/debate/2024-10-31d.1002.3" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.1002.4" newgid="uk.org.publicwhip/debate/2024-10-31d.1002.4" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.1002.5" newgid="uk.org.publicwhip/debate/2024-10-31d.1002.5" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.1002.6" newgid="uk.org.publicwhip/debate/2024-10-31d.1002.6" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.1003.0" newgid="uk.org.publicwhip/debate/2024-10-31d.1003.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.1003.1" newgid="uk.org.publicwhip/debate/2024-10-31d.1003.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.1004.0" newgid="uk.org.publicwhip/debate/2024-10-31d.1004.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.1005.0" newgid="uk.org.publicwhip/debate/2024-10-31d.1005.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.1005.1" newgid="uk.org.publicwhip/debate/2024-10-31d.1005.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.1006.0" newgid="uk.org.publicwhip/debate/2024-10-31d.1006.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.1006.1" newgid="uk.org.publicwhip/debate/2024-10-31d.1006.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.1006.2" newgid="uk.org.publicwhip/debate/2024-10-31d.1006.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.1006.3" newgid="uk.org.publicwhip/debate/2024-10-31d.1006.3" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.1008.0" newgid="uk.org.publicwhip/debate/2024-10-31d.1008.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.1009.0" newgid="uk.org.publicwhip/debate/2024-10-31d.1009.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.1011.0" newgid="uk.org.publicwhip/debate/2024-10-31d.1011.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.1013.0" newgid="uk.org.publicwhip/debate/2024-10-31d.1013.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.1014.0" newgid="uk.org.publicwhip/debate/2024-10-31d.1014.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.1014.1" newgid="uk.org.publicwhip/debate/2024-10-31d.1014.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.1014.2" newgid="uk.org.publicwhip/debate/2024-10-31d.1014.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.1014.3" newgid="uk.org.publicwhip/debate/2024-10-31d.1014.3" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.1016.0" newgid="uk.org.publicwhip/debate/2024-10-31d.1016.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.1016.1" newgid="uk.org.publicwhip/debate/2024-10-31d.1016.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.1016.2" newgid="uk.org.publicwhip/debate/2024-10-31d.1016.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.1016.3" newgid="uk.org.publicwhip/debate/2024-10-31d.1016.3" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.1017.0" newgid="uk.org.publicwhip/debate/2024-10-31d.1017.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.1019.0" newgid="uk.org.publicwhip/debate/2024-10-31d.1019.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.1022.0" newgid="uk.org.publicwhip/debate/2024-10-31d.1022.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.1023.0" newgid="uk.org.publicwhip/debate/2024-10-31d.1023.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.1023.1" newgid="uk.org.publicwhip/debate/2024-10-31d.1023.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.1024.0" newgid="uk.org.publicwhip/debate/2024-10-31d.1024.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.1024.1" newgid="uk.org.publicwhip/debate/2024-10-31d.1024.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.1024.2" newgid="uk.org.publicwhip/debate/2024-10-31d.1024.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.1025.0" newgid="uk.org.publicwhip/debate/2024-10-31d.1025.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.1027.0" newgid="uk.org.publicwhip/debate/2024-10-31d.1027.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.1029.0" newgid="uk.org.publicwhip/debate/2024-10-31d.1029.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.1031.0" newgid="uk.org.publicwhip/debate/2024-10-31d.1031.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.1032.0" newgid="uk.org.publicwhip/debate/2024-10-31d.1032.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.1032.1" newgid="uk.org.publicwhip/debate/2024-10-31d.1032.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.1032.2" newgid="uk.org.publicwhip/debate/2024-10-31d.1032.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.1032.3" newgid="uk.org.publicwhip/debate/2024-10-31d.1032.3" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.1034.0" newgid="uk.org.publicwhip/debate/2024-10-31d.1034.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.1034.1" newgid="uk.org.publicwhip/debate/2024-10-31d.1034.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.1035.0" newgid="uk.org.publicwhip/debate/2024-10-31d.1035.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.1036.0" newgid="uk.org.publicwhip/debate/2024-10-31d.1036.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.1036.1" newgid="uk.org.publicwhip/debate/2024-10-31d.1036.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.1039.0" newgid="uk.org.publicwhip/debate/2024-10-31d.1039.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.1039.1" newgid="uk.org.publicwhip/debate/2024-10-31d.1039.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.1039.2" newgid="uk.org.publicwhip/debate/2024-10-31d.1039.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.1039.3" newgid="uk.org.publicwhip/debate/2024-10-31d.1039.3" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.1040.0" newgid="uk.org.publicwhip/debate/2024-10-31d.1040.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.1040.1" newgid="uk.org.publicwhip/debate/2024-10-31d.1040.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.1040.2" newgid="uk.org.publicwhip/debate/2024-10-31d.1040.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.1042.0" newgid="uk.org.publicwhip/debate/2024-10-31d.1042.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.1043.0" newgid="uk.org.publicwhip/debate/2024-10-31d.1043.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.1044.0" newgid="uk.org.publicwhip/debate/2024-10-31d.1044.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.1045.0" newgid="uk.org.publicwhip/debate/2024-10-31d.1045.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.1046.0" newgid="uk.org.publicwhip/debate/2024-10-31d.1046.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.1047.0" newgid="uk.org.publicwhip/debate/2024-10-31d.1047.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.1047.1" newgid="uk.org.publicwhip/debate/2024-10-31d.1047.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-10-31c.1048.0" newgid="uk.org.publicwhip/debate/2024-10-31d.1048.0" matchtype="perfectmatch"/>
+</publicwhip>
+

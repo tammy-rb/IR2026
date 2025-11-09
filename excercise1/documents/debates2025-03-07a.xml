@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<!DOCTYPE publicwhip
+[
+<!ENTITY ndash   "&#8211;">
+<!ENTITY mdash   "&#8212;">
+<!ENTITY iexcl   "&#161;">
+<!ENTITY divide  "&#247;">
+<!ENTITY euro    "&#8364;">
+<!ENTITY trade   "&#8482;">
+<!ENTITY bull    "&#8226;">
+<!ENTITY lsquo   "&#8216;">
+<!ENTITY rsquo   "&#8217;">
+<!ENTITY sbquo   "&#8218;">
+<!ENTITY ldquo   "&#8220;">
+<!ENTITY rdquo   "&#8221;">
+<!ENTITY bdquo   "&#8222;">
+<!ENTITY dagger  "&#8224;">
+
+<!ENTITY Ouml   "&#214;" >
+<!ENTITY szlig  "&#223;" >
+<!ENTITY agrave "&#224;" >
+<!ENTITY aacute "&#225;" >
+<!ENTITY acirc  "&#226;" >
+<!ENTITY atilde "&#227;" >
+<!ENTITY auml   "&#228;" >
+<!ENTITY ccedil "&#231;" >
+<!ENTITY egrave "&#232;" >
+<!ENTITY eacute "&#233;" >
+<!ENTITY ecirc  "&#234;" >
+<!ENTITY euml   "&#235;" >
+<!ENTITY iacute "&#237;" >
+<!ENTITY icirc  "&#238;" >
+<!ENTITY iuml	"&#239;" >
+<!ENTITY ntilde "&#241;" >
+<!ENTITY nbsp   "&#160;" >
+<!ENTITY oacute "&#243;" >
+<!ENTITY ocirc  "&#244;" >
+<!ENTITY ouml   "&#246;" >
+<!ENTITY oslash "&#248;" >
+<!ENTITY uacute "&#250;" >
+<!ENTITY uuml   "&#252;" >
+<!ENTITY thorn  "&#254;" >
+
+<!ENTITY pound  "&#163;" >
+<!ENTITY sect   "&#167;" >
+<!ENTITY copy   "&#169;" >
+<!ENTITY reg    "&#174;" >
+<!ENTITY deg    "&#176;" >
+<!ENTITY plusmn "&#177;" >
+<!ENTITY sup2   "&#178;" >
+<!ENTITY micro  "&#181;" >
+<!ENTITY para   "&#182;" >
+<!ENTITY middot "&#183;" >
+<!ENTITY ordm   "&#186;" >
+<!ENTITY frac14 "&#188;" >
+<!ENTITY frac12 "&#189;" >
+<!ENTITY frac34 "&#190;" >
+<!ENTITY oelig "&#339;" >
+<!ENTITY aelig  "&#230;" >
+
+]>
+
+<publicwhip scrapeversion="/home/twfy-live/parldata/scrapedxml/debates/debates2025-03-07a.xml" latest="no">
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.551.0" newgid="uk.org.publicwhip/debate/2025-03-07b.551.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.551.1" newgid="uk.org.publicwhip/debate/2025-03-07b.551.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.551.2" newgid="uk.org.publicwhip/debate/2025-03-07b.551.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.551.3" newgid="uk.org.publicwhip/debate/2025-03-07b.551.3" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.551.4" newgid="uk.org.publicwhip/debate/2025-03-07b.551.4" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.552.0" newgid="uk.org.publicwhip/debate/2025-03-07b.552.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.552.1" newgid="uk.org.publicwhip/debate/2025-03-07b.552.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.552.2" newgid="uk.org.publicwhip/debate/2025-03-07b.552.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.553.0" newgid="uk.org.publicwhip/debate/2025-03-07b.553.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.553.1" newgid="uk.org.publicwhip/debate/2025-03-07b.553.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.553.2" newgid="uk.org.publicwhip/debate/2025-03-07b.553.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.554.0" newgid="uk.org.publicwhip/debate/2025-03-07b.554.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.554.1" newgid="uk.org.publicwhip/debate/2025-03-07b.554.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.554.2" newgid="uk.org.publicwhip/debate/2025-03-07b.554.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.556.0" newgid="uk.org.publicwhip/debate/2025-03-07b.556.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.556.1" newgid="uk.org.publicwhip/debate/2025-03-07b.556.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.556.2" newgid="uk.org.publicwhip/debate/2025-03-07b.556.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.556.3" newgid="uk.org.publicwhip/debate/2025-03-07b.556.3" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.556.4" newgid="uk.org.publicwhip/debate/2025-03-07b.556.4" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.557.0" newgid="uk.org.publicwhip/debate/2025-03-07b.557.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.557.1" newgid="uk.org.publicwhip/debate/2025-03-07b.557.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.557.2" newgid="uk.org.publicwhip/debate/2025-03-07b.557.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.559.0" newgid="uk.org.publicwhip/debate/2025-03-07b.559.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.559.1" newgid="uk.org.publicwhip/debate/2025-03-07b.559.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.559.2" newgid="uk.org.publicwhip/debate/2025-03-07b.559.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.560.0" newgid="uk.org.publicwhip/debate/2025-03-07b.560.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.560.1" newgid="uk.org.publicwhip/debate/2025-03-07b.560.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.560.2" newgid="uk.org.publicwhip/debate/2025-03-07b.560.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.561.0" newgid="uk.org.publicwhip/debate/2025-03-07b.561.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.561.1" newgid="uk.org.publicwhip/debate/2025-03-07b.561.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.561.2" newgid="uk.org.publicwhip/debate/2025-03-07b.561.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.561.3" newgid="uk.org.publicwhip/debate/2025-03-07b.561.3" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.561.4" newgid="uk.org.publicwhip/debate/2025-03-07b.561.4" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.562.0" newgid="uk.org.publicwhip/debate/2025-03-07b.562.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.564.0" newgid="uk.org.publicwhip/debate/2025-03-07b.564.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.564.1" newgid="uk.org.publicwhip/debate/2025-03-07b.564.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.564.2" newgid="uk.org.publicwhip/debate/2025-03-07b.564.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.564.3" newgid="uk.org.publicwhip/debate/2025-03-07b.564.3" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.564.4" newgid="uk.org.publicwhip/debate/2025-03-07b.564.4" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.564.5" newgid="uk.org.publicwhip/debate/2025-03-07b.564.5" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.565.0" newgid="uk.org.publicwhip/debate/2025-03-07b.565.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.567.0" newgid="uk.org.publicwhip/debate/2025-03-07b.567.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.567.1" newgid="uk.org.publicwhip/debate/2025-03-07b.567.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.568.0" newgid="uk.org.publicwhip/debate/2025-03-07b.568.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.568.1" newgid="uk.org.publicwhip/debate/2025-03-07b.568.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.568.2" newgid="uk.org.publicwhip/debate/2025-03-07b.568.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.569.0" newgid="uk.org.publicwhip/debate/2025-03-07b.569.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.570.0" newgid="uk.org.publicwhip/debate/2025-03-07b.570.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.570.1" newgid="uk.org.publicwhip/debate/2025-03-07b.570.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.572.0" newgid="uk.org.publicwhip/debate/2025-03-07b.572.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.573.0" newgid="uk.org.publicwhip/debate/2025-03-07b.573.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.573.1" newgid="uk.org.publicwhip/debate/2025-03-07b.573.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.573.2" newgid="uk.org.publicwhip/debate/2025-03-07b.573.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.573.3" newgid="uk.org.publicwhip/debate/2025-03-07b.573.3" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.575.0" newgid="uk.org.publicwhip/debate/2025-03-07b.575.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.575.1" newgid="uk.org.publicwhip/debate/2025-03-07b.575.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.575.2" newgid="uk.org.publicwhip/debate/2025-03-07b.575.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.576.0" newgid="uk.org.publicwhip/debate/2025-03-07b.576.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.576.1" newgid="uk.org.publicwhip/debate/2025-03-07b.576.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.578.0" newgid="uk.org.publicwhip/debate/2025-03-07b.578.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.579.0" newgid="uk.org.publicwhip/debate/2025-03-07b.579.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.580.0" newgid="uk.org.publicwhip/debate/2025-03-07b.580.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.580.1" newgid="uk.org.publicwhip/debate/2025-03-07b.580.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.581.0" newgid="uk.org.publicwhip/debate/2025-03-07b.581.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.583.0" newgid="uk.org.publicwhip/debate/2025-03-07b.583.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.584.0" newgid="uk.org.publicwhip/debate/2025-03-07b.584.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.584.1" newgid="uk.org.publicwhip/debate/2025-03-07b.584.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.585.0" newgid="uk.org.publicwhip/debate/2025-03-07b.585.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.585.1" newgid="uk.org.publicwhip/debate/2025-03-07b.585.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.585.2" newgid="uk.org.publicwhip/debate/2025-03-07b.585.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.585.3" newgid="uk.org.publicwhip/debate/2025-03-07b.585.3" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.585.4" newgid="uk.org.publicwhip/debate/2025-03-07b.585.4" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.586.0" newgid="uk.org.publicwhip/debate/2025-03-07b.586.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.589.0" newgid="uk.org.publicwhip/debate/2025-03-07b.589.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.590.0" newgid="uk.org.publicwhip/debate/2025-03-07b.590.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.591.0" newgid="uk.org.publicwhip/debate/2025-03-07b.591.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.593.0" newgid="uk.org.publicwhip/debate/2025-03-07b.593.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.593.1" newgid="uk.org.publicwhip/debate/2025-03-07b.593.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.593.2" newgid="uk.org.publicwhip/debate/2025-03-07b.593.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.593.3" newgid="uk.org.publicwhip/debate/2025-03-07b.593.3" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.594.0" newgid="uk.org.publicwhip/debate/2025-03-07b.594.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.594.1" newgid="uk.org.publicwhip/debate/2025-03-07b.594.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.594.2" newgid="uk.org.publicwhip/debate/2025-03-07b.594.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.595.0" newgid="uk.org.publicwhip/debate/2025-03-07b.595.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.595.1" newgid="uk.org.publicwhip/debate/2025-03-07b.595.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.595.2" newgid="uk.org.publicwhip/debate/2025-03-07b.595.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.596.0" newgid="uk.org.publicwhip/debate/2025-03-07b.596.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.596.1" newgid="uk.org.publicwhip/debate/2025-03-07b.596.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.597.0" newgid="uk.org.publicwhip/debate/2025-03-07b.597.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.598.0" newgid="uk.org.publicwhip/debate/2025-03-07b.598.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.598.1" newgid="uk.org.publicwhip/debate/2025-03-07b.598.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.598.2" newgid="uk.org.publicwhip/debate/2025-03-07b.598.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.599.0" newgid="uk.org.publicwhip/debate/2025-03-07b.599.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.599.1" newgid="uk.org.publicwhip/debate/2025-03-07b.599.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.599.2" newgid="uk.org.publicwhip/debate/2025-03-07b.599.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.599.3" newgid="uk.org.publicwhip/debate/2025-03-07b.599.3" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.600.0" newgid="uk.org.publicwhip/debate/2025-03-07b.600.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.601.0" newgid="uk.org.publicwhip/debate/2025-03-07b.601.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.601.1" newgid="uk.org.publicwhip/debate/2025-03-07b.601.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.602.0" newgid="uk.org.publicwhip/debate/2025-03-07b.602.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.602.1" newgid="uk.org.publicwhip/debate/2025-03-07b.602.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.602.2" newgid="uk.org.publicwhip/debate/2025-03-07b.602.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.602.3" newgid="uk.org.publicwhip/debate/2025-03-07b.602.3" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.603.0" newgid="uk.org.publicwhip/debate/2025-03-07b.603.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.603.1" newgid="uk.org.publicwhip/debate/2025-03-07b.603.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.603.2" newgid="uk.org.publicwhip/debate/2025-03-07b.603.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.603.3" newgid="uk.org.publicwhip/debate/2025-03-07b.603.3" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.603.4" newgid="uk.org.publicwhip/debate/2025-03-07b.603.4" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.606.0" newgid="uk.org.publicwhip/debate/2025-03-07b.606.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.606.1" newgid="uk.org.publicwhip/debate/2025-03-07b.606.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.606.2" newgid="uk.org.publicwhip/debate/2025-03-07b.606.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.607.0" newgid="uk.org.publicwhip/debate/2025-03-07b.607.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.607.1" newgid="uk.org.publicwhip/debate/2025-03-07b.607.1" matchtype="changes"/>
+<speech id="uk.org.publicwhip/debate/2025-03-07a.607.1" speakername="John Grady" type="Continuation Speech" person_id="uk.org.publicwhip/person/26426" colnum="607" time="13:03:00" url="">
+    <p pid="a607.1/1">I could not agree with my hon. Friend more. Edinburgh has a thriving space sector, as does Scotland. My hon. Friend has for many years been heavily involved in work to grow the economy in Edinburgh and the Borders, and I pay tribute to him for that.</p>
+    <p pid="a607.1/2">I must, however, take this opportunity to pick a minor bone with my hon. Friend. He mentioned that Glasgow does not have a castle, and I wish to correct the record. We have a fine ruined castle called Crookston castle. It is the second-oldest building in Glasgow. The first-oldest building in Glasgow is the beautiful cathedral. I will not indulge in a dispute about whether Edinburgh or Glasgow is the better city. They are both beautiful, great cities. Glasgow is slightly better, but there you are. I am obliged to my hon. Friend for his intervention, and I am also glad to be able to correct that point.</p>
+    <p pid="a607.1/3">There is another reason why it is important that we have a thriving space and satellite industry. Space is critical to defence, and we must have a thriving space sector to protect our country. The United Kingdom works with allies to ensure that our interests are defended in space. However, the world is becoming more unstable, and it is essential that we have our own capabilities to launch and operate satellites from the United Kingdom,  and this Bill is important in that regard, too. It will help to secure a vibrant end-to-end space industry in the United Kingdom, and that is important for defence. To take one example, having our own domestic launch capability is important, and a vibrant civilian sector will help to cover the costs of that launch capability. This Bill also has a national security theme.</p>
+    <p pid="a607.1/4">Owing to much hard work, including by the last Government, the UK Space Agency and many others, the United Kingdom also has a firm foundation for a thriving space industry. In the time available, I cannot provide a complete survey of the vibrant and growing space industry, but here are some key points. One key task we have had is to develop our own launch capability to put satellites up in space, and then to get them back down. That is why there is so much chat about spaceports—in my life, at least.</p>
+    <p pid="a607.1/5">SaxaVord, the UK spaceport in the Shetland Islands, is one of only two licensed vertical launch spaceports in Europe. That is at the far end of the north of the map of our family of nations. Down in the far south-west, we also have an operational spaceport in Cornwall. That illustrates that space is an opportunity for our family of nations from the very top to the very bottom—I mean that only in a cartographic sense; I am not looking to offend any Members from Cornwall.</p>
+    <p pid="a607.1/6">There are also spaceports under construction and planned in: Sutherland, on the far north of the coast of Scotland, to the west of Thurso; North Uist, a wonderful place, which I commend as I spent much of my honeymoon there; Glasgow Prestwick; Spaceport Machrihanish, on the southern tip of the Argyll peninsula, which I would also recommend for a visit to Scotland; and, Snowdonia. Some may wonder where those places are. They are all wonderful places, and they illustrate that space is an opportunity across the United Kingdom.</p>
+    <p pid="a607.1/7">Let us turn to the satellite or, as Lou Reed sang, “Satellite of Love”. The UK has incredible talents in manufacturing satellites and satellite technology. As a Scottish MP, I focus on Scotland, and as a Glasgow MP, I focus on Glasgow, but let us start in the Moray firth, where my mother came from. It has a fine tradition of engineering. For those who follow highland league football—I suspect I am in a minority of one in the House today—the fact that Forres Mechanics is one of the oldest football clubs in the north of Scotland points to a tradition of engineering there. The Jones shipyard in Buckie is another great engineering industry in the north of Scotland.</p>
+    <p pid="a607.1/8">Of significantly more relevance to this debate is that Forres is home to Orbex, which is developing a rocket called Prime. It will be the first UK-manufactured and UK-launched orbital rocket. Prime is set to take off from SaxaVord in 2025. Prime is set to take off from SaxaVord in 2025. The UK Government have recently announced a £20 million investment in Orbex—an important investment that demonstrates the opportunities being brought to the north of Scotland, for which we need to redouble our efforts to secure economic growth and prosperity.</p>
+    <p pid="a607.1/9">My home city of Glasgow has a rich history of innovation and an incredibly promising cluster of space expertise. As a Glasgow MP, I am determined that it should have a bright future in space. Glasgow is building more satellites than any other city in Europe. There are   fantastic companies in the area including, Alba Orbital, which specialises in PocketQube satellites, AAC Clyde Space, which has expertise in small satellite technology, and Spire Global, which is a leading provider of space-based data analytics and space services. This year is Glasgow’s 850th birthday. The Bill will help secure the prosperity of Glasgow for the next 850 years, creating jobs and economic growth in my great city of hard work, innovation and enterprise.</p>
+    <p pid="a607.1/10">There is clear economic analysis that shows that the space industry is an important opportunity area for growth and jobs. The latest “Size and Health of the UK Space Industry” report estimates that 228 organisations in Scotland generated a combined income of £298 million in 2021-22—almost double that of 2018-19 in real terms. About 6,500 people work in space in Scotland, and the figure for the UK is between 48,000 and 52,000. Income amounts to between £17.5 billion and £20 billion. There are more than 100,000 jobs in the supply chain as well.</p>
+    <p pid="a607.1/11">Let us pause for a moment on that: we have only just got going on this and we have 48,000 or more jobs. There is much potential here for many more good, high-paid jobs of the future, which is what Britain needs.</p>
+</speech>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.609.0" newgid="uk.org.publicwhip/debate/2025-03-07b.609.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.609.1" newgid="uk.org.publicwhip/debate/2025-03-07b.609.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.609.2" newgid="uk.org.publicwhip/debate/2025-03-07b.609.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.609.3" newgid="uk.org.publicwhip/debate/2025-03-07b.609.3" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.613.0" newgid="uk.org.publicwhip/debate/2025-03-07b.613.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.614.0" newgid="uk.org.publicwhip/debate/2025-03-07b.614.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.615.0" newgid="uk.org.publicwhip/debate/2025-03-07b.615.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.616.0" newgid="uk.org.publicwhip/debate/2025-03-07b.616.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.616.1" newgid="uk.org.publicwhip/debate/2025-03-07b.616.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.616.2" newgid="uk.org.publicwhip/debate/2025-03-07b.616.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.617.0" newgid="uk.org.publicwhip/debate/2025-03-07b.617.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.617.1" newgid="uk.org.publicwhip/debate/2025-03-07b.617.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.617.2" newgid="uk.org.publicwhip/debate/2025-03-07b.617.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.617.3" newgid="uk.org.publicwhip/debate/2025-03-07b.617.3" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.617.4" newgid="uk.org.publicwhip/debate/2025-03-07b.617.4" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.618.0" newgid="uk.org.publicwhip/debate/2025-03-07b.618.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.618.1" newgid="uk.org.publicwhip/debate/2025-03-07b.618.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.619.0" newgid="uk.org.publicwhip/debate/2025-03-07b.619.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.620.0" newgid="uk.org.publicwhip/debate/2025-03-07b.620.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.620.1" newgid="uk.org.publicwhip/debate/2025-03-07b.620.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.620.2" newgid="uk.org.publicwhip/debate/2025-03-07b.620.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.623.0" newgid="uk.org.publicwhip/debate/2025-03-07b.623.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.626.0" newgid="uk.org.publicwhip/debate/2025-03-07b.626.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.627.0" newgid="uk.org.publicwhip/debate/2025-03-07b.627.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.627.1" newgid="uk.org.publicwhip/debate/2025-03-07b.627.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.627.2" newgid="uk.org.publicwhip/debate/2025-03-07b.627.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.628.0" newgid="uk.org.publicwhip/debate/2025-03-07b.628.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.628.1" newgid="uk.org.publicwhip/debate/2025-03-07b.628.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.628.2" newgid="uk.org.publicwhip/debate/2025-03-07b.628.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.628.3" newgid="uk.org.publicwhip/debate/2025-03-07b.628.3" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.628.4" newgid="uk.org.publicwhip/debate/2025-03-07b.628.4" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.628.5" newgid="uk.org.publicwhip/debate/2025-03-07b.628.5" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.628.6" newgid="uk.org.publicwhip/debate/2025-03-07b.628.6" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.628.7" newgid="uk.org.publicwhip/debate/2025-03-07b.628.7" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.628.8" newgid="uk.org.publicwhip/debate/2025-03-07b.628.8" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.628.9" newgid="uk.org.publicwhip/debate/2025-03-07b.628.9" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.628.10" newgid="uk.org.publicwhip/debate/2025-03-07b.628.10" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.628.11" newgid="uk.org.publicwhip/debate/2025-03-07b.628.11" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.628.12" newgid="uk.org.publicwhip/debate/2025-03-07b.628.12" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.628.13" newgid="uk.org.publicwhip/debate/2025-03-07b.628.13" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.628.14" newgid="uk.org.publicwhip/debate/2025-03-07b.628.14" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.628.15" newgid="uk.org.publicwhip/debate/2025-03-07b.628.15" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.628.16" newgid="uk.org.publicwhip/debate/2025-03-07b.628.16" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.628.17" newgid="uk.org.publicwhip/debate/2025-03-07b.628.17" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.628.18" newgid="uk.org.publicwhip/debate/2025-03-07b.628.18" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.628.19" newgid="uk.org.publicwhip/debate/2025-03-07b.628.19" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.628.20" newgid="uk.org.publicwhip/debate/2025-03-07b.628.20" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.628.21" newgid="uk.org.publicwhip/debate/2025-03-07b.628.21" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.629.0" newgid="uk.org.publicwhip/debate/2025-03-07b.629.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.629.1" newgid="uk.org.publicwhip/debate/2025-03-07b.629.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.629.2" newgid="uk.org.publicwhip/debate/2025-03-07b.629.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.629.3" newgid="uk.org.publicwhip/debate/2025-03-07b.629.3" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.629.4" newgid="uk.org.publicwhip/debate/2025-03-07b.629.4" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.629.5" newgid="uk.org.publicwhip/debate/2025-03-07b.629.5" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.629.6" newgid="uk.org.publicwhip/debate/2025-03-07b.629.6" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.629.7" newgid="uk.org.publicwhip/debate/2025-03-07b.629.7" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.629.8" newgid="uk.org.publicwhip/debate/2025-03-07b.629.8" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.629.9" newgid="uk.org.publicwhip/debate/2025-03-07b.629.9" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.629.10" newgid="uk.org.publicwhip/debate/2025-03-07b.629.10" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.629.11" newgid="uk.org.publicwhip/debate/2025-03-07b.629.11" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.629.12" newgid="uk.org.publicwhip/debate/2025-03-07b.629.12" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.629.13" newgid="uk.org.publicwhip/debate/2025-03-07b.629.13" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.629.14" newgid="uk.org.publicwhip/debate/2025-03-07b.629.14" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.629.15" newgid="uk.org.publicwhip/debate/2025-03-07b.629.15" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.629.16" newgid="uk.org.publicwhip/debate/2025-03-07b.629.16" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.629.17" newgid="uk.org.publicwhip/debate/2025-03-07b.629.17" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.629.18" newgid="uk.org.publicwhip/debate/2025-03-07b.629.18" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.629.19" newgid="uk.org.publicwhip/debate/2025-03-07b.629.19" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.629.20" newgid="uk.org.publicwhip/debate/2025-03-07b.629.20" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.630.0" newgid="uk.org.publicwhip/debate/2025-03-07b.630.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.630.1" newgid="uk.org.publicwhip/debate/2025-03-07b.630.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.630.2" newgid="uk.org.publicwhip/debate/2025-03-07b.630.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.630.3" newgid="uk.org.publicwhip/debate/2025-03-07b.630.3" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.630.4" newgid="uk.org.publicwhip/debate/2025-03-07b.630.4" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.630.5" newgid="uk.org.publicwhip/debate/2025-03-07b.630.5" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.630.6" newgid="uk.org.publicwhip/debate/2025-03-07b.630.6" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.630.7" newgid="uk.org.publicwhip/debate/2025-03-07b.630.7" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.630.8" newgid="uk.org.publicwhip/debate/2025-03-07b.630.8" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.630.9" newgid="uk.org.publicwhip/debate/2025-03-07b.630.9" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.630.10" newgid="uk.org.publicwhip/debate/2025-03-07b.630.10" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.630.11" newgid="uk.org.publicwhip/debate/2025-03-07b.630.11" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.630.12" newgid="uk.org.publicwhip/debate/2025-03-07b.630.12" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.630.13" newgid="uk.org.publicwhip/debate/2025-03-07b.630.13" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.630.14" newgid="uk.org.publicwhip/debate/2025-03-07b.630.14" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.630.15" newgid="uk.org.publicwhip/debate/2025-03-07b.630.15" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.630.16" newgid="uk.org.publicwhip/debate/2025-03-07b.630.16" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.631.0" newgid="uk.org.publicwhip/debate/2025-03-07b.631.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.631.1" newgid="uk.org.publicwhip/debate/2025-03-07b.631.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.631.2" newgid="uk.org.publicwhip/debate/2025-03-07b.631.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.635.0" newgid="uk.org.publicwhip/debate/2025-03-07b.635.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.637.0" newgid="uk.org.publicwhip/debate/2025-03-07b.637.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2025-03-07a.638.0" newgid="uk.org.publicwhip/debate/2025-03-07b.638.0" matchtype="perfectmatch"/>
+</publicwhip>
+

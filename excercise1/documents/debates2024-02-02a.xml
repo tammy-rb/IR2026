@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<!DOCTYPE publicwhip
+[
+<!ENTITY ndash   "&#8211;">
+<!ENTITY mdash   "&#8212;">
+<!ENTITY iexcl   "&#161;">
+<!ENTITY divide  "&#247;">
+<!ENTITY euro    "&#8364;">
+<!ENTITY trade   "&#8482;">
+<!ENTITY bull    "&#8226;">
+<!ENTITY lsquo   "&#8216;">
+<!ENTITY rsquo   "&#8217;">
+<!ENTITY sbquo   "&#8218;">
+<!ENTITY ldquo   "&#8220;">
+<!ENTITY rdquo   "&#8221;">
+<!ENTITY bdquo   "&#8222;">
+<!ENTITY dagger  "&#8224;">
+
+<!ENTITY Ouml   "&#214;" >
+<!ENTITY szlig  "&#223;" >
+<!ENTITY agrave "&#224;" >
+<!ENTITY aacute "&#225;" >
+<!ENTITY acirc  "&#226;" >
+<!ENTITY atilde "&#227;" >
+<!ENTITY auml   "&#228;" >
+<!ENTITY ccedil "&#231;" >
+<!ENTITY egrave "&#232;" >
+<!ENTITY eacute "&#233;" >
+<!ENTITY ecirc  "&#234;" >
+<!ENTITY euml   "&#235;" >
+<!ENTITY iacute "&#237;" >
+<!ENTITY icirc  "&#238;" >
+<!ENTITY iuml	"&#239;" >
+<!ENTITY ntilde "&#241;" >
+<!ENTITY nbsp   "&#160;" >
+<!ENTITY oacute "&#243;" >
+<!ENTITY ocirc  "&#244;" >
+<!ENTITY ouml   "&#246;" >
+<!ENTITY oslash "&#248;" >
+<!ENTITY uacute "&#250;" >
+<!ENTITY uuml   "&#252;" >
+<!ENTITY thorn  "&#254;" >
+
+<!ENTITY pound  "&#163;" >
+<!ENTITY sect   "&#167;" >
+<!ENTITY copy   "&#169;" >
+<!ENTITY reg    "&#174;" >
+<!ENTITY deg    "&#176;" >
+<!ENTITY plusmn "&#177;" >
+<!ENTITY sup2   "&#178;" >
+<!ENTITY micro  "&#181;" >
+<!ENTITY para   "&#182;" >
+<!ENTITY middot "&#183;" >
+<!ENTITY ordm   "&#186;" >
+<!ENTITY frac14 "&#188;" >
+<!ENTITY frac12 "&#189;" >
+<!ENTITY frac34 "&#190;" >
+<!ENTITY oelig "&#339;" >
+<!ENTITY aelig  "&#230;" >
+
+]>
+
+<publicwhip scrapeversion="/home/twfy-live/parldata/scrapedxml/debates/debates2024-02-02a.xml" latest="no">
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02a.1101.0" newgid="uk.org.publicwhip/debate/2024-02-02b.1101.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02a.1101.1" newgid="uk.org.publicwhip/debate/2024-02-02b.1101.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02a.1101.2" newgid="uk.org.publicwhip/debate/2024-02-02b.1101.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02a.1101.3" newgid="uk.org.publicwhip/debate/2024-02-02b.1101.3" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02a.1101.4" newgid="uk.org.publicwhip/debate/2024-02-02b.1101.4" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02a.1101.5" newgid="uk.org.publicwhip/debate/2024-02-02b.1101.5" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02a.1102.0" newgid="uk.org.publicwhip/debate/2024-02-02b.1102.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02a.1102.1" newgid="uk.org.publicwhip/debate/2024-02-02b.1102.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02a.1102.2" newgid="uk.org.publicwhip/debate/2024-02-02b.1102.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02a.1102.3" newgid="uk.org.publicwhip/debate/2024-02-02b.1102.3" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02a.1102.4" newgid="uk.org.publicwhip/debate/2024-02-02b.1102.4" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02a.1103.0" newgid="uk.org.publicwhip/debate/2024-02-02b.1103.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02a.1103.1" newgid="uk.org.publicwhip/debate/2024-02-02b.1103.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02a.1103.2" newgid="uk.org.publicwhip/debate/2024-02-02b.1103.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02a.1103.3" newgid="uk.org.publicwhip/debate/2024-02-02b.1103.3" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02a.1104.0" newgid="uk.org.publicwhip/debate/2024-02-02b.1104.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02a.1104.1" newgid="uk.org.publicwhip/debate/2024-02-02b.1104.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02a.1105.0" newgid="uk.org.publicwhip/debate/2024-02-02b.1105.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02a.1106.0" newgid="uk.org.publicwhip/debate/2024-02-02b.1106.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02a.1108.0" newgid="uk.org.publicwhip/debate/2024-02-02b.1108.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02a.1108.1" newgid="uk.org.publicwhip/debate/2024-02-02b.1108.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02a.1110.0" newgid="uk.org.publicwhip/debate/2024-02-02b.1110.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02a.1110.1" newgid="uk.org.publicwhip/debate/2024-02-02b.1110.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02a.1114.0" newgid="uk.org.publicwhip/debate/2024-02-02b.1114.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02a.1114.1" newgid="uk.org.publicwhip/debate/2024-02-02b.1114.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02a.1115.0" newgid="uk.org.publicwhip/debate/2024-02-02b.1115.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02a.1116.0" newgid="uk.org.publicwhip/debate/2024-02-02b.1116.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02a.1116.1" newgid="uk.org.publicwhip/debate/2024-02-02b.1116.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02a.1117.0" newgid="uk.org.publicwhip/debate/2024-02-02b.1117.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02a.1120.0" newgid="uk.org.publicwhip/debate/2024-02-02b.1120.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02a.1120.1" newgid="uk.org.publicwhip/debate/2024-02-02b.1120.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02a.1121.0" newgid="uk.org.publicwhip/debate/2024-02-02b.1121.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02a.1121.1" newgid="uk.org.publicwhip/debate/2024-02-02b.1121.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02a.1121.2" newgid="uk.org.publicwhip/debate/2024-02-02b.1121.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02a.1122.0" newgid="uk.org.publicwhip/debate/2024-02-02b.1122.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02a.1122.1" newgid="uk.org.publicwhip/debate/2024-02-02b.1122.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02a.1122.2" newgid="uk.org.publicwhip/debate/2024-02-02b.1122.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02a.1122.3" newgid="uk.org.publicwhip/debate/2024-02-02b.1122.3" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02a.1122.4" newgid="uk.org.publicwhip/debate/2024-02-02b.1122.4" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02a.1122.5" newgid="uk.org.publicwhip/debate/2024-02-02b.1122.5" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02a.1122.6" newgid="uk.org.publicwhip/debate/2024-02-02b.1122.6" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02a.1123.0" newgid="uk.org.publicwhip/debate/2024-02-02b.1123.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02a.1123.1" newgid="uk.org.publicwhip/debate/2024-02-02b.1123.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02a.1123.2" newgid="uk.org.publicwhip/debate/2024-02-02b.1123.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02a.1123.3" newgid="uk.org.publicwhip/debate/2024-02-02b.1123.3" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02a.1123.4" newgid="uk.org.publicwhip/debate/2024-02-02b.1123.4" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02a.1123.5" newgid="uk.org.publicwhip/debate/2024-02-02b.1123.5" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02a.1124.0" newgid="uk.org.publicwhip/debate/2024-02-02b.1124.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02a.1124.1" newgid="uk.org.publicwhip/debate/2024-02-02b.1124.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02a.1125.0" newgid="uk.org.publicwhip/debate/2024-02-02b.1125.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02a.1125.1" newgid="uk.org.publicwhip/debate/2024-02-02b.1125.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02a.1125.2" newgid="uk.org.publicwhip/debate/2024-02-02b.1125.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02a.1126.0" newgid="uk.org.publicwhip/debate/2024-02-02b.1126.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02a.1126.1" newgid="uk.org.publicwhip/debate/2024-02-02b.1126.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02a.1126.2" newgid="uk.org.publicwhip/debate/2024-02-02b.1126.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02a.1127.0" newgid="uk.org.publicwhip/debate/2024-02-02b.1127.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02a.1127.1" newgid="uk.org.publicwhip/debate/2024-02-02b.1127.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02a.1127.2" newgid="uk.org.publicwhip/debate/2024-02-02b.1127.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02a.1128.0" newgid="uk.org.publicwhip/debate/2024-02-02b.1128.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02a.1128.1" newgid="uk.org.publicwhip/debate/2024-02-02b.1128.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02a.1129.0" newgid="uk.org.publicwhip/debate/2024-02-02b.1129.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02a.1138.0" newgid="uk.org.publicwhip/debate/2024-02-02b.1138.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02a.1138.1" newgid="uk.org.publicwhip/debate/2024-02-02b.1138.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02a.1138.2" newgid="uk.org.publicwhip/debate/2024-02-02b.1138.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02a.1138.3" newgid="uk.org.publicwhip/debate/2024-02-02b.1138.3" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02a.1138.4" newgid="uk.org.publicwhip/debate/2024-02-02b.1138.4" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02a.1138.5" newgid="uk.org.publicwhip/debate/2024-02-02b.1138.5" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02a.1139.0" newgid="uk.org.publicwhip/debate/2024-02-02b.1139.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02a.1140.0" newgid="uk.org.publicwhip/debate/2024-02-02b.1140.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02a.1143.0" newgid="uk.org.publicwhip/debate/2024-02-02b.1143.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02a.1143.1" newgid="uk.org.publicwhip/debate/2024-02-02b.1143.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02a.1144.0" newgid="uk.org.publicwhip/debate/2024-02-02b.1144.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02a.1144.1" newgid="uk.org.publicwhip/debate/2024-02-02b.1144.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02a.1144.2" newgid="uk.org.publicwhip/debate/2024-02-02b.1144.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02a.1145.0" newgid="uk.org.publicwhip/debate/2024-02-02b.1145.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02a.1145.1" newgid="uk.org.publicwhip/debate/2024-02-02b.1145.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02a.1145.2" newgid="uk.org.publicwhip/debate/2024-02-02b.1145.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02a.1146.0" newgid="uk.org.publicwhip/debate/2024-02-02b.1146.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02a.1146.1" newgid="uk.org.publicwhip/debate/2024-02-02b.1146.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02a.1147.0" newgid="uk.org.publicwhip/debate/2024-02-02b.1147.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02a.1147.1" newgid="uk.org.publicwhip/debate/2024-02-02b.1147.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02a.1148.0" newgid="uk.org.publicwhip/debate/2024-02-02b.1148.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02a.1148.1" newgid="uk.org.publicwhip/debate/2024-02-02b.1148.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02a.1149.0" newgid="uk.org.publicwhip/debate/2024-02-02b.1149.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02a.1150.0" newgid="uk.org.publicwhip/debate/2024-02-02b.1150.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02a.1150.1" newgid="uk.org.publicwhip/debate/2024-02-02b.1150.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02a.1151.0" newgid="uk.org.publicwhip/debate/2024-02-02b.1151.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02a.1151.1" newgid="uk.org.publicwhip/debate/2024-02-02b.1151.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02a.1151.2" newgid="uk.org.publicwhip/debate/2024-02-02b.1151.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02a.1151.3" newgid="uk.org.publicwhip/debate/2024-02-02b.1151.3" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02a.1152.0" newgid="uk.org.publicwhip/debate/2024-02-02b.1152.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02a.1153.0" newgid="uk.org.publicwhip/debate/2024-02-02b.1153.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02a.1154.0" newgid="uk.org.publicwhip/debate/2024-02-02b.1154.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02a.1154.1" newgid="uk.org.publicwhip/debate/2024-02-02b.1154.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02a.1155.0" newgid="uk.org.publicwhip/debate/2024-02-02b.1155.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02a.1156.0" newgid="uk.org.publicwhip/debate/2024-02-02b.1156.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02a.1156.1" newgid="uk.org.publicwhip/debate/2024-02-02b.1156.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02a.1156.2" newgid="uk.org.publicwhip/debate/2024-02-02b.1156.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02a.1156.3" newgid="uk.org.publicwhip/debate/2024-02-02b.1156.3" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02a.1157.0" newgid="uk.org.publicwhip/debate/2024-02-02b.1157.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02a.1158.0" newgid="uk.org.publicwhip/debate/2024-02-02b.1158.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02a.1159.0" newgid="uk.org.publicwhip/debate/2024-02-02b.1159.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02a.1161.0" newgid="uk.org.publicwhip/debate/2024-02-02b.1161.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02a.1161.1" newgid="uk.org.publicwhip/debate/2024-02-02b.1161.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02a.1162.0" newgid="uk.org.publicwhip/debate/2024-02-02b.1162.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02a.1164.0" newgid="uk.org.publicwhip/debate/2024-02-02b.1164.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02a.1165.0" newgid="uk.org.publicwhip/debate/2024-02-02b.1165.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02a.1165.1" newgid="uk.org.publicwhip/debate/2024-02-02b.1165.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02a.1165.2" newgid="uk.org.publicwhip/debate/2024-02-02b.1165.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02a.1165.3" newgid="uk.org.publicwhip/debate/2024-02-02b.1165.3" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02a.1165.4" newgid="uk.org.publicwhip/debate/2024-02-02b.1165.4" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02a.1168.0" newgid="uk.org.publicwhip/debate/2024-02-02b.1168.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02a.1169.0" newgid="uk.org.publicwhip/debate/2024-02-02b.1169.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02a.1170.0" newgid="uk.org.publicwhip/debate/2024-02-02b.1170.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02a.1172.0" newgid="uk.org.publicwhip/debate/2024-02-02b.1172.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02a.1172.1" newgid="uk.org.publicwhip/debate/2024-02-02b.1172.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02a.1173.0" newgid="uk.org.publicwhip/debate/2024-02-02b.1173.0" matchtype="changes"/>
+<speech id="uk.org.publicwhip/debate/2024-02-02a.1173.0" speakername="Damian Hinds" type="Start Speech" person_id="uk.org.publicwhip/person/24782" colnum="1173" time="14:04:00" url="">
+    <p pid="a1173.0/1">Let me first warmly congratulate my right hon. Friend <phrase class="honfriend" person_id="uk.org.publicwhip/person/25614" name="Vicky Ford">the Member for Chelmsford (Vicky Ford)</phrase> on her success in the ballot, and on using that success for this purpose. I am delighted that she has chosen school attendance as the subject of her Bill. It is a subject that I know is close to her heart, and one that she has championed with aplomb and with impact. She said towards the end of her remarks that attendance is the key to a child’s future, and I agree. We have often said that reading is the most fundamental thing in school, because if a child cannot read properly, they cannot access the curriculum and nothing else works, but attendance is even more important. Whatever our brilliant teachers are doing in schools, if the children are not there, they cannot benefit.</p>
+    <p pid="a1173.0/2">I thank my hon. Friends and the Opposition spokes-person, <phrase class="honfriend" person_id="uk.org.publicwhip/person/24818" name="Catherine McKinnell">the hon. Member for Newcastle upon Tyne North (Catherine McKinnell)</phrase>, for their contributions. We all recognise the importance of regular attendance not only for children’s attainment, but for their wellbeing and development. There is evidence that some attitudes  to absence have changed since the pandemic, with a somewhat greater propensity among some families to keep a child with a minor illness, such as a cough or a cold, at home, whereas prior to the pandemic they would have gone to school. It is worth saying that, before covid, great progress had been made on attendance since 2010, and we are committed to getting back to those levels. They will never be 100%, for obvious reasons—every child will be off school ill at some point, and sadly some children will need to be off for extended periods—but we need to get back to that pre-pandemic level of 95% or above.</p>
+    <p pid="a1173.0/3">I am pleased to confirm that the Government fully support this Bill from my right hon. Friend the Member for Chelmsford. We are exploring all possible avenues to make our attendance guidance statutory, including the use of existing powers. That is important because we want every child to be able to achieve their potential, and attending school regularly is obviously crucial to that. As my right hon. Friend outlined, this Bill will improve the consistency of support available in all parts of England, first, by requiring schools of all types to have and to publicise a school attendance policy and, secondly, by introducing a new general duty on local authorities to seek to improve attendance and reduce absence in their areas.</p>
+    <p pid="a1173.0/4">The Bill will require schools and local authorities to have regard to statutory guidance. In practice, that will see us revising and reissuing our “Working together to improve school attendance” guidance. It is widely supported by schools, trusts and local authorities, and both the Education Committee and the Children’s Commissioner have already called for it to be made statutory. The guidance was introduced in September 2022 and has already started to make a difference. There were 380,000 fewer pupils persistently absent or not attending in 2022-23 than in 2021-22. Overall absence for the autumn term just gone was 6.8%, which is down from 7.5% in autumn 2022. To turn it the other way around, attendance in that term is up, year on year, from 92.5% to 93.2%.</p>
+    <p pid="a1173.0/5">However, while we of course welcome that improvement, there is still further to go to get to those pre-pandemic levels and better, and there are still parts of the country where families do not have access to the right support, as my hon. Friend <phrase class="honfriend" person_id="uk.org.publicwhip/person/25895" name="Rob Butler">the Member for Aylesbury (Rob Butler)</phrase> rightly identified. It is important to legislate to end the postcode lottery so that any family can get the support they need, and doing so will give parents increased clarity and level up standards across schools and local authorities. That is also an important part of this Government’s emphasis on a “support first” approach, meaning that schools and local authorities work together to break down the barriers that can stop a pupil attending.</p>
+    <p pid="a1173.0/6">To support schools and local authorities in meeting those expectations, the Government already have a comprehensive attendance strategy, and this aspect of it is only one part of a much wider whole. We have deployed attendance advisers to support local authorities and a number of trusts. We have created a new data tool, with 88% of state-funded schools signed up. At the system leadership level, we have convened the attendance action alliance to work across sectors to remove barriers to attendance and reduce absence. We have launched 32 attendance hubs, to reach more than 1 million pupils. And we have expanded our attendance mentor pilot, as  my hon. Friend <phrase class="honfriend" person_id="uk.org.publicwhip/person/25882" name="Jo Gideon">the Member for Stoke-on-Trent Central (Jo Gideon)</phrase> rightly mentioned, to reach 15 priority education investment areas.</p>
+    <p pid="a1173.0/7">Of course, much wider work is in place as well. More children are now eligible for free school meals as a result of the protections put in place on universal credit transition; £30 million has been spent on breakfast clubs and it is targeted at where it is most needed—where it can have the most effect. I say to the hon. Member for Newcastle upon Tyne North that that does include secondary schools as well as primary schools. We also have in place the holiday activities and food programme. We are increasing the pupil premium in 2024-25 to £2.9 billion. Of course attendance is one of the great factors and important drivers in narrowing the gap between better-off and more disadvantaged pupils. We are expanding the Supporting Families programme over this spending review period, and addressing attendance at school where there is a problem is a fundamental part of that programme.</p>
+    <p pid="a1173.0/8">My right hon. Friend <phrase class="honfriend" person_id="uk.org.publicwhip/person/11696" name="Philip Dunne">the Member for Ludlow (Philip Dunne)</phrase> mentioned the lasting effect, sadly, of the pandemic and the importance of socialisation, and he is absolutely right; we often think of the early years and the effect on the youngest children, but this is actually true throughout a child’s or young person’s development. He particularly mentioned the year 6 to year 7 transition point, which we know is pivotal in so many ways, and a lot of schools are doing some very good work there.</p>
+    <p pid="a1173.0/9">My right hon. Friend specifically asked about mental health and the possibility of an absence code. I understand his motivation and that of others in raising that point. Let me just say that a practicality question is involved. At the moment someone is taking the register, it is not always practical for them to be able to say that something is one particular type of health issue or another, and there is the risk that we would have inaccurate reporting and a misunderstanding of trends as a result. He also mentioned the wider work on mental health. He will know that we are putting forward a grant for every state school to be able to train a senior mental health lead. In addition, the really important wider work on mental health support teams, supporting clusters of schools, primary as well as secondary, continues to grow.</p>
+    <p pid="a1173.0/10">My hon. Friend the Member for Stoke-on-Trent Central mentioned not only the mentors programme, but the importance of extra-curricular activity and pastoral care. That is really important and we need always to be saying that this is about not only learning and attainment, but everything else that comes with school. Of course, I join my hon. Friend the Member for Aylesbury in congratulating Aylesbury High School. He was right also to ask about costs for local authorities and for us not to overburden schools. In advance of issuing our existing guidance on attendance, we carried out the comprehensive new burdens assessment, which found that the expectations could be implemented by local authorities without additional funding if they had the average number of staff working on attendance. We are confident that that assessment remains accurate, based on a growing body of evidence since that assessment was published. The evidence shows that where local authorities are delivering the guidance, staffing levels have remained within those predicted levels.</p>
+    <p pid="a1173.0/11">But my hon. Friend the Member for Aylesbury was also right to talk about ensuring that we do not overburden schools themselves. I join him in paying tribute to school leaders, schoolteachers and wider staff for the extraordinary work that we have heard is going on and what they are doing to get children into school. I absolutely agree with him that we need to ensure that we have a proportionate approach that supports the whole system—the schools, local authorities and so on—and works with people in our common endeavour to maximise the benefit that children get from their education. This Bill, if passed, will also update our existing guidance in advance of the new school year to reflect the latest best practice and feedback that we have gathered from the sector, and to make it as easy as possible for schools and local authorities to understand the actions they need to take.</p>
+    <p pid="a1173.0/12">In closing, I reiterate my thanks and appreciation to my right hon. Friend the Member for Chelmsford for bringing this important Bill before the House today. Being in school has never been more valuable, with standards continuing to rise, and this Bill will help to ensure that every young person and their family, whatever their background and wherever they are in the country, can receive the support they need to do just that. I am sure we will hear more from her—and I look forward to that—as the Bill progresses through the House. I thank her again, and I urge hon. Members across the House to support the Bill.</p>
+</speech>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02a.1176.0" newgid="uk.org.publicwhip/debate/2024-02-02b.1176.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02a.1177.0" newgid="uk.org.publicwhip/debate/2024-02-02b.1177.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02a.1178.0" newgid="uk.org.publicwhip/debate/2024-02-02b.1178.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02a.1178.1" newgid="uk.org.publicwhip/debate/2024-02-02b.1178.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02a.1178.2" newgid="uk.org.publicwhip/debate/2024-02-02b.1178.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02a.1180.0" newgid="uk.org.publicwhip/debate/2024-02-02b.1180.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02a.1180.1" newgid="uk.org.publicwhip/debate/2024-02-02b.1180.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02a.1180.2" newgid="uk.org.publicwhip/debate/2024-02-02b.1180.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02a.1180.3" newgid="uk.org.publicwhip/debate/2024-02-02b.1180.3" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02a.1180.4" newgid="uk.org.publicwhip/debate/2024-02-02b.1180.4" matchtype="multiplecover"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02a.1180.4" newgid="uk.org.publicwhip/debate/2024-02-02b.1180.5" matchtype="multiplecover"/>
+<speech id="uk.org.publicwhip/debate/2024-02-02a.1180.4" nospeaker="true" colnum="1180" time="14:30:00" url="">
+    <p pid="a1180.4/1">Motion made, That the Bill be now read a Second time.</p>
+    <p pid="a1180.4/2">Hon. Members: Object.</p>
+    <p pid="a1180.4/3">Bill to be read a Second time on <phrase class="date" code="">Friday 1 March</phrase>.</p>
+</speech>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02a.1180.5" newgid="uk.org.publicwhip/debate/2024-02-02b.1180.6" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02a.1180.6" newgid="uk.org.publicwhip/debate/2024-02-02b.1180.7" matchtype="perfectmatch"/>
+</publicwhip>
+

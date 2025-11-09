@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<!DOCTYPE publicwhip
+[
+<!ENTITY ndash   "&#8211;">
+<!ENTITY mdash   "&#8212;">
+<!ENTITY iexcl   "&#161;">
+<!ENTITY divide  "&#247;">
+<!ENTITY euro    "&#8364;">
+<!ENTITY trade   "&#8482;">
+<!ENTITY bull    "&#8226;">
+<!ENTITY lsquo   "&#8216;">
+<!ENTITY rsquo   "&#8217;">
+<!ENTITY sbquo   "&#8218;">
+<!ENTITY ldquo   "&#8220;">
+<!ENTITY rdquo   "&#8221;">
+<!ENTITY bdquo   "&#8222;">
+<!ENTITY dagger  "&#8224;">
+
+<!ENTITY Ouml   "&#214;" >
+<!ENTITY szlig  "&#223;" >
+<!ENTITY agrave "&#224;" >
+<!ENTITY aacute "&#225;" >
+<!ENTITY acirc  "&#226;" >
+<!ENTITY atilde "&#227;" >
+<!ENTITY auml   "&#228;" >
+<!ENTITY ccedil "&#231;" >
+<!ENTITY egrave "&#232;" >
+<!ENTITY eacute "&#233;" >
+<!ENTITY ecirc  "&#234;" >
+<!ENTITY euml   "&#235;" >
+<!ENTITY iacute "&#237;" >
+<!ENTITY icirc  "&#238;" >
+<!ENTITY iuml	"&#239;" >
+<!ENTITY ntilde "&#241;" >
+<!ENTITY nbsp   "&#160;" >
+<!ENTITY oacute "&#243;" >
+<!ENTITY ocirc  "&#244;" >
+<!ENTITY ouml   "&#246;" >
+<!ENTITY oslash "&#248;" >
+<!ENTITY uacute "&#250;" >
+<!ENTITY uuml   "&#252;" >
+<!ENTITY thorn  "&#254;" >
+
+<!ENTITY pound  "&#163;" >
+<!ENTITY sect   "&#167;" >
+<!ENTITY copy   "&#169;" >
+<!ENTITY reg    "&#174;" >
+<!ENTITY deg    "&#176;" >
+<!ENTITY plusmn "&#177;" >
+<!ENTITY sup2   "&#178;" >
+<!ENTITY micro  "&#181;" >
+<!ENTITY para   "&#182;" >
+<!ENTITY middot "&#183;" >
+<!ENTITY ordm   "&#186;" >
+<!ENTITY frac14 "&#188;" >
+<!ENTITY frac12 "&#189;" >
+<!ENTITY frac34 "&#190;" >
+<!ENTITY oelig "&#339;" >
+<!ENTITY aelig  "&#230;" >
+
+]>
+
+<publicwhip scrapeversion="/home/twfy-live/parldata/scrapedxml/debates/debates2024-02-02b.xml" latest="no">
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02b.1101.0" newgid="uk.org.publicwhip/debate/2024-02-02c.1101.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02b.1101.1" newgid="uk.org.publicwhip/debate/2024-02-02c.1101.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02b.1101.2" newgid="uk.org.publicwhip/debate/2024-02-02c.1101.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02b.1101.3" newgid="uk.org.publicwhip/debate/2024-02-02c.1101.3" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02b.1101.4" newgid="uk.org.publicwhip/debate/2024-02-02c.1101.4" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02b.1101.5" newgid="uk.org.publicwhip/debate/2024-02-02c.1101.5" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02b.1102.0" newgid="uk.org.publicwhip/debate/2024-02-02c.1102.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02b.1102.1" newgid="uk.org.publicwhip/debate/2024-02-02c.1102.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02b.1102.2" newgid="uk.org.publicwhip/debate/2024-02-02c.1102.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02b.1102.3" newgid="uk.org.publicwhip/debate/2024-02-02c.1102.3" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02b.1102.4" newgid="uk.org.publicwhip/debate/2024-02-02c.1102.4" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02b.1103.0" newgid="uk.org.publicwhip/debate/2024-02-02c.1103.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02b.1103.1" newgid="uk.org.publicwhip/debate/2024-02-02c.1103.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02b.1103.2" newgid="uk.org.publicwhip/debate/2024-02-02c.1103.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02b.1103.3" newgid="uk.org.publicwhip/debate/2024-02-02c.1103.3" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02b.1104.0" newgid="uk.org.publicwhip/debate/2024-02-02c.1104.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02b.1104.1" newgid="uk.org.publicwhip/debate/2024-02-02c.1104.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02b.1105.0" newgid="uk.org.publicwhip/debate/2024-02-02c.1105.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02b.1106.0" newgid="uk.org.publicwhip/debate/2024-02-02c.1106.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02b.1108.0" newgid="uk.org.publicwhip/debate/2024-02-02c.1108.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02b.1108.1" newgid="uk.org.publicwhip/debate/2024-02-02c.1108.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02b.1110.0" newgid="uk.org.publicwhip/debate/2024-02-02c.1110.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02b.1110.1" newgid="uk.org.publicwhip/debate/2024-02-02c.1110.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02b.1114.0" newgid="uk.org.publicwhip/debate/2024-02-02c.1114.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02b.1114.1" newgid="uk.org.publicwhip/debate/2024-02-02c.1114.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02b.1115.0" newgid="uk.org.publicwhip/debate/2024-02-02c.1115.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02b.1116.0" newgid="uk.org.publicwhip/debate/2024-02-02c.1116.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02b.1116.1" newgid="uk.org.publicwhip/debate/2024-02-02c.1116.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02b.1117.0" newgid="uk.org.publicwhip/debate/2024-02-02c.1117.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02b.1120.0" newgid="uk.org.publicwhip/debate/2024-02-02c.1120.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02b.1120.1" newgid="uk.org.publicwhip/debate/2024-02-02c.1120.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02b.1121.0" newgid="uk.org.publicwhip/debate/2024-02-02c.1121.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02b.1121.1" newgid="uk.org.publicwhip/debate/2024-02-02c.1121.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02b.1121.2" newgid="uk.org.publicwhip/debate/2024-02-02c.1121.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02b.1122.0" newgid="uk.org.publicwhip/debate/2024-02-02c.1122.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02b.1122.1" newgid="uk.org.publicwhip/debate/2024-02-02c.1122.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02b.1122.2" newgid="uk.org.publicwhip/debate/2024-02-02c.1122.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02b.1122.3" newgid="uk.org.publicwhip/debate/2024-02-02c.1122.3" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02b.1122.4" newgid="uk.org.publicwhip/debate/2024-02-02c.1122.4" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02b.1122.5" newgid="uk.org.publicwhip/debate/2024-02-02c.1122.5" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02b.1122.6" newgid="uk.org.publicwhip/debate/2024-02-02c.1122.6" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02b.1123.0" newgid="uk.org.publicwhip/debate/2024-02-02c.1123.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02b.1123.1" newgid="uk.org.publicwhip/debate/2024-02-02c.1123.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02b.1123.2" newgid="uk.org.publicwhip/debate/2024-02-02c.1123.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02b.1123.3" newgid="uk.org.publicwhip/debate/2024-02-02c.1123.3" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02b.1123.4" newgid="uk.org.publicwhip/debate/2024-02-02c.1123.4" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02b.1123.5" newgid="uk.org.publicwhip/debate/2024-02-02c.1123.5" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02b.1124.0" newgid="uk.org.publicwhip/debate/2024-02-02c.1124.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02b.1124.1" newgid="uk.org.publicwhip/debate/2024-02-02c.1124.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02b.1125.0" newgid="uk.org.publicwhip/debate/2024-02-02c.1125.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02b.1125.1" newgid="uk.org.publicwhip/debate/2024-02-02c.1125.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02b.1125.2" newgid="uk.org.publicwhip/debate/2024-02-02c.1125.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02b.1126.0" newgid="uk.org.publicwhip/debate/2024-02-02c.1126.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02b.1126.1" newgid="uk.org.publicwhip/debate/2024-02-02c.1126.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02b.1126.2" newgid="uk.org.publicwhip/debate/2024-02-02c.1126.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02b.1127.0" newgid="uk.org.publicwhip/debate/2024-02-02c.1127.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02b.1127.1" newgid="uk.org.publicwhip/debate/2024-02-02c.1127.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02b.1127.2" newgid="uk.org.publicwhip/debate/2024-02-02c.1127.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02b.1128.0" newgid="uk.org.publicwhip/debate/2024-02-02c.1128.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02b.1128.1" newgid="uk.org.publicwhip/debate/2024-02-02c.1128.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02b.1129.0" newgid="uk.org.publicwhip/debate/2024-02-02c.1129.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02b.1138.0" newgid="uk.org.publicwhip/debate/2024-02-02c.1138.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02b.1138.1" newgid="uk.org.publicwhip/debate/2024-02-02c.1138.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02b.1138.2" newgid="uk.org.publicwhip/debate/2024-02-02c.1138.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02b.1138.3" newgid="uk.org.publicwhip/debate/2024-02-02c.1138.3" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02b.1138.4" newgid="uk.org.publicwhip/debate/2024-02-02c.1138.4" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02b.1138.5" newgid="uk.org.publicwhip/debate/2024-02-02c.1138.5" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02b.1139.0" newgid="uk.org.publicwhip/debate/2024-02-02c.1139.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02b.1140.0" newgid="uk.org.publicwhip/debate/2024-02-02c.1140.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02b.1143.0" newgid="uk.org.publicwhip/debate/2024-02-02c.1143.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02b.1143.1" newgid="uk.org.publicwhip/debate/2024-02-02c.1143.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02b.1144.0" newgid="uk.org.publicwhip/debate/2024-02-02c.1144.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02b.1144.1" newgid="uk.org.publicwhip/debate/2024-02-02c.1144.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02b.1144.2" newgid="uk.org.publicwhip/debate/2024-02-02c.1144.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02b.1145.0" newgid="uk.org.publicwhip/debate/2024-02-02c.1145.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02b.1145.1" newgid="uk.org.publicwhip/debate/2024-02-02c.1145.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02b.1145.2" newgid="uk.org.publicwhip/debate/2024-02-02c.1145.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02b.1146.0" newgid="uk.org.publicwhip/debate/2024-02-02c.1146.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02b.1146.1" newgid="uk.org.publicwhip/debate/2024-02-02c.1146.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02b.1147.0" newgid="uk.org.publicwhip/debate/2024-02-02c.1147.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02b.1147.1" newgid="uk.org.publicwhip/debate/2024-02-02c.1147.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02b.1148.0" newgid="uk.org.publicwhip/debate/2024-02-02c.1148.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02b.1148.1" newgid="uk.org.publicwhip/debate/2024-02-02c.1148.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02b.1149.0" newgid="uk.org.publicwhip/debate/2024-02-02c.1149.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02b.1150.0" newgid="uk.org.publicwhip/debate/2024-02-02c.1150.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02b.1150.1" newgid="uk.org.publicwhip/debate/2024-02-02c.1150.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02b.1151.0" newgid="uk.org.publicwhip/debate/2024-02-02c.1151.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02b.1151.1" newgid="uk.org.publicwhip/debate/2024-02-02c.1151.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02b.1151.2" newgid="uk.org.publicwhip/debate/2024-02-02c.1151.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02b.1151.3" newgid="uk.org.publicwhip/debate/2024-02-02c.1151.3" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02b.1152.0" newgid="uk.org.publicwhip/debate/2024-02-02c.1152.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02b.1153.0" newgid="uk.org.publicwhip/debate/2024-02-02c.1153.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02b.1154.0" newgid="uk.org.publicwhip/debate/2024-02-02c.1154.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02b.1154.1" newgid="uk.org.publicwhip/debate/2024-02-02c.1154.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02b.1155.0" newgid="uk.org.publicwhip/debate/2024-02-02c.1155.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02b.1156.0" newgid="uk.org.publicwhip/debate/2024-02-02c.1156.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02b.1156.1" newgid="uk.org.publicwhip/debate/2024-02-02c.1156.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02b.1156.2" newgid="uk.org.publicwhip/debate/2024-02-02c.1156.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02b.1156.3" newgid="uk.org.publicwhip/debate/2024-02-02c.1156.3" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02b.1157.0" newgid="uk.org.publicwhip/debate/2024-02-02c.1157.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02b.1158.0" newgid="uk.org.publicwhip/debate/2024-02-02c.1158.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02b.1159.0" newgid="uk.org.publicwhip/debate/2024-02-02c.1159.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02b.1161.0" newgid="uk.org.publicwhip/debate/2024-02-02c.1161.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02b.1161.1" newgid="uk.org.publicwhip/debate/2024-02-02c.1161.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02b.1162.0" newgid="uk.org.publicwhip/debate/2024-02-02c.1162.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02b.1164.0" newgid="uk.org.publicwhip/debate/2024-02-02c.1164.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02b.1165.0" newgid="uk.org.publicwhip/debate/2024-02-02c.1165.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02b.1165.1" newgid="uk.org.publicwhip/debate/2024-02-02c.1165.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02b.1165.2" newgid="uk.org.publicwhip/debate/2024-02-02c.1165.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02b.1165.3" newgid="uk.org.publicwhip/debate/2024-02-02c.1165.3" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02b.1165.4" newgid="uk.org.publicwhip/debate/2024-02-02c.1165.4" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02b.1168.0" newgid="uk.org.publicwhip/debate/2024-02-02c.1168.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02b.1169.0" newgid="uk.org.publicwhip/debate/2024-02-02c.1169.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02b.1170.0" newgid="uk.org.publicwhip/debate/2024-02-02c.1170.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02b.1172.0" newgid="uk.org.publicwhip/debate/2024-02-02c.1172.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02b.1172.1" newgid="uk.org.publicwhip/debate/2024-02-02c.1172.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02b.1173.0" newgid="uk.org.publicwhip/debate/2024-02-02c.1173.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02b.1176.0" newgid="uk.org.publicwhip/debate/2024-02-02c.1176.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02b.1177.0" newgid="uk.org.publicwhip/debate/2024-02-02c.1177.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02b.1178.0" newgid="uk.org.publicwhip/debate/2024-02-02c.1178.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02b.1178.1" newgid="uk.org.publicwhip/debate/2024-02-02c.1178.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02b.1178.2" newgid="uk.org.publicwhip/debate/2024-02-02c.1178.2" matchtype="multiplecover"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02b.1178.2" newgid="uk.org.publicwhip/debate/2024-02-02c.1178.3" matchtype="multiplecover"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02b.1178.2" newgid="uk.org.publicwhip/debate/2024-02-02c.1178.4" matchtype="multiplecover"/>
+<speech id="uk.org.publicwhip/debate/2024-02-02b.1178.2" speakername="Natalie Elphicke" type="Start Speech" person_id="uk.org.publicwhip/person/25831" colnum="1178" time="14:18:00" url="">
+    <p pid="b1178.2/1">I beg to move, That the Bill be now read a Second time.</p>
+    <p pid="b1178.2/2">In this place, our nation’s Parliament, change comes in many forms. Sometimes it is the clamour of the picket line, the lobby group or Members’ own interests. Sometimes it comes in the shape of an MP’s constituency surgery and the quiet working man; a man who knows what is right and wrong, who seizes injustice and internal fury and propels it to this place to be remedied. He fights not for himself—he knows the barriers that he faces—but for every man, woman and every one of us, as we face the cruel certainty of age, and age discrimination in the workplace. The man is Stephen Horne. I am proud that he is my constituent, and I am proud today to speak to Stephen’s Bill. stand with him on tackling the endemic age discrimination in our society. The Bill aims to address the provision at the heart of the nation’s challenge.</p>
+    <p pid="b1178.2/3">Jo Gideon (Stoke-on-Trent Central) (Con): I support my hon. Friend’s Bill, as she knows. The protection of other characteristics—gender, race and religion, for example—is generally observed in employment law. Does she agree that pervasive age discrimination is a big issue that we need to tackle, as her Bill will do in a small but important way?</p>
+    <p pid="b1178.2/4">Mrs Elphicke: My hon. Friend is exactly right. Age discrimination is absolutely pervasive in our society. It is such a common experience that one in three people report having experienced it. We must tackle that injustice.</p>
+    <p pid="b1178.2/5">The Bill repeals paragraph 14 of schedule 9 to the Equality Act 2010, which allows workplace benefits to be removed from a working person solely by reason of their coming to statutory pensionable age. I was pleased to introduce the Bill under the ten-minute rule last year, and I am pleased to bring it back today with strong support from so many Members across the House who, like me, believe that we urgently need to tackle this issue.</p>
+    <p pid="b1178.2/6">People in their 50s and 60s commonly experience discrimination because of their age, and 37% of those incidents are at work, according to the Centre for Ageing Better. One in five employers believes that age discrimination occurs in their organisation, and many argue that ageism is a key barrier for people aged 50 to 64 who want to return to or remain in their workplace. Paragraph 14 allows active discrimination under the law, and so opens the door to other forms of indirect and unconscious bias discrimination. That was well explored by the Women and Equalities Committee, which said that it is clear that there is</p>
+    <p pid="b1178.2/7" class="indent" pwmotiontext="yes">“prejudice, unconscious bias and casual ageism in the workplace”,</p>
+    <p pid="b1178.2/8">as well as inadequate challenge to current practices.</p>
+    <p pid="b1178.2/9">Stephen is a train driver with Eurotunnel. He helped to build the tunnel before it first opened 30 years ago, and he has driven a train since the very first went through the tunnel. When he reached the age of 66, his bosses decided to remove his workplace benefits relating to income protection and long-term sickness, and his health insurance. That puts Stephen at a disadvantage compared with other workers. He is doing the same job at 66 as he did at 65, but now he does not get the same  money’s worth, or the same terms and conditions in his contract of employment. In simple terms, Stephen does not get pay and conditions equal to those of a younger worker solely by reason of his age. That is not right.</p>
+    <p pid="b1178.2/10">If Stephen falls ill, he cannot get the same access to speedy private healthcare that other people in his company get, including for a workplace injury, which means that he might be out of the workplace for longer. If—heaven forbid—he died, his wife Marsha would no longer have the compensatory insurance through death-in-service benefits that another worker’s family would be entitled to, yet Stephen is doing exactly the same job as he was before he reached retirement age.</p>
+    <p pid="b1178.2/11">When looking into Stephen’s case, I was shocked to discover that such age discrimination is legal. The Equality Act 2010 is supposed to provide protection for older people against age discrimination. Age is, as my hon. Friend <phrase class="honfriend" person_id="uk.org.publicwhip/person/25882" name="Jo Gideon">the Member for Stoke-on-Trent Central (Jo Gideon)</phrase> rightly said, a protected characteristic, and it needs to be treated as such. That exception in the Act means that Stephen and workers up and down the land face discrimination, and similar issues with terms and conditions.</p>
+    <p pid="b1178.2/12">We need to tackle that issue, because people are staying in the workplace longer, and because it is unfair and wrong. It needs to be tackled in this place through a change in the law. I have had discussions with companies about why they do not just do the right thing, why they do not change this unfair practice, and why they do not look after all their workers better. The answer that I have had is simple: they will not do that until we in this Parliament say that they must, because they do not want to have to pay more by offering those terms and conditions. The bottom line is that they do not want older workers like Stephen. That is not right, and it is not something this country can afford, either. People are working until a much older age; that has become more acute as the Government have changed the pensionable age.</p>
+    <p pid="b1178.2/13">Stephen’s Bill seeks to put right the situation for every older worker in this country by changing the law on workplace benefits, so that older people are treated the same as others in any other part of the employment relationship. We know why this matters. There was a time when a pregnant woman had to quit her job and leave the workplace; indeed, there was a time when women were not welcome in many workplaces. There was a time when women were not given paid maternity leave, men were not given paid paternity leave and women would not get jobs if they were of childbearing age. We have addressed that through Parliament over decades. Now employers find that retaining women in the workplace—indeed, having them at the very top levels in the boardroom—benefits not just mothers, but businesses. Businesses can now retain the vital skills, knowledge and commitment of female workers, and that needs to happen in relation to older workers too. Older workers have skills and knowledge gained over many years in the workplace. Treating older workers fairly will encourage them to stay, and benefit the companies they work for.</p>
+    <p pid="b1178.2/14">I remember a time when employers used to say that a woman did not need to work, get the same bonuses as a man or be offered overtime, because men needed those  opportunities in order to feed their families. We outlawed that because equal pay at work matters and equal opportunity at work matters, too. That applies every bit as much whether it is a younger or older worker doing the job.</p>
+    <p pid="b1178.2/15">Another excuse that is given is that covering older people becomes more expensive for everyone, because the premium for the company goes up. That is, of course, absurd. Applying that logic, would it be okay to exclude from employment benefits people who have had a heart condition, cancer, a bad back, a disability or a chronic condition, on the basis that the insurance might go up? Of course not. It would not be lawful, and it should not be lawful for that to happen simply because of someone’s age. We have said in other cases that taking away someone’s work benefits is discriminatory and wrong, and it is discriminatory and wrong to do so simply because they have got older. That is something that none of us can influence or affect; it will happen to us all. Even in this place and, as we have heard recently, even in Government, people’s terms and conditions and severance pay differ depending on the age at which they take their role or responsibility.</p>
+    <p pid="b1178.2/16">It is time for us to amend this great injustice. Stephen knows that the challenge that he faces in changing the minds of his bosses is enormous, and there is no indication that they are prepared to do that. However, I know from speaking to businesses that there are things that the Government can do, beyond changing the law, to ensure that this injustice is addressed. That could include ensuring there are compensatory payments to give equivalence, on an equal pay basis, to people who do not have access to the same pay and conditions as others. That means making it unlawful for those offering insurance to have that kind of discriminatory condition, which we should do.</p>
+    <p pid="b1178.2/17">This is such an important time for our nation, as we look for everyone to contribute, and require people to work in, older life. It is essential that we put in place the right laws, protection and framework, so that whatever people want to do in older age, they are treated fairly and equally. That is the reason that Stephen has asked me—</p>
+    <p pid="b1178.2/18">The debate stood adjourned (<phrase class="standing-order" code="11(2)">Standing Order No. 11(2)</phrase>).</p>
+    <p pid="b1178.2/19">Ordered, That the debate be resumed on <phrase class="date" code="">Friday 15 March</phrase>.</p>
+</speech>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02b.1180.0" newgid="uk.org.publicwhip/debate/2024-02-02c.1180.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02b.1180.1" newgid="uk.org.publicwhip/debate/2024-02-02c.1180.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02b.1180.2" newgid="uk.org.publicwhip/debate/2024-02-02c.1180.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02b.1180.3" newgid="uk.org.publicwhip/debate/2024-02-02c.1180.3" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02b.1180.4" newgid="uk.org.publicwhip/debate/2024-02-02c.1180.4" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02b.1180.5" newgid="uk.org.publicwhip/debate/2024-02-02c.1180.5" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02b.1180.6" newgid="uk.org.publicwhip/debate/2024-02-02c.1180.6" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-02-02b.1180.7" newgid="uk.org.publicwhip/debate/2024-02-02c.1180.7" matchtype="perfectmatch"/>
+</publicwhip>
+

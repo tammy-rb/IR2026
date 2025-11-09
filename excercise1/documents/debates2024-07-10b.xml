@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<!DOCTYPE publicwhip
+[
+<!ENTITY ndash   "&#8211;">
+<!ENTITY mdash   "&#8212;">
+<!ENTITY iexcl   "&#161;">
+<!ENTITY divide  "&#247;">
+<!ENTITY euro    "&#8364;">
+<!ENTITY trade   "&#8482;">
+<!ENTITY bull    "&#8226;">
+<!ENTITY lsquo   "&#8216;">
+<!ENTITY rsquo   "&#8217;">
+<!ENTITY sbquo   "&#8218;">
+<!ENTITY ldquo   "&#8220;">
+<!ENTITY rdquo   "&#8221;">
+<!ENTITY bdquo   "&#8222;">
+<!ENTITY dagger  "&#8224;">
+
+<!ENTITY Ouml   "&#214;" >
+<!ENTITY szlig  "&#223;" >
+<!ENTITY agrave "&#224;" >
+<!ENTITY aacute "&#225;" >
+<!ENTITY acirc  "&#226;" >
+<!ENTITY atilde "&#227;" >
+<!ENTITY auml   "&#228;" >
+<!ENTITY ccedil "&#231;" >
+<!ENTITY egrave "&#232;" >
+<!ENTITY eacute "&#233;" >
+<!ENTITY ecirc  "&#234;" >
+<!ENTITY euml   "&#235;" >
+<!ENTITY iacute "&#237;" >
+<!ENTITY icirc  "&#238;" >
+<!ENTITY iuml	"&#239;" >
+<!ENTITY ntilde "&#241;" >
+<!ENTITY nbsp   "&#160;" >
+<!ENTITY oacute "&#243;" >
+<!ENTITY ocirc  "&#244;" >
+<!ENTITY ouml   "&#246;" >
+<!ENTITY oslash "&#248;" >
+<!ENTITY uacute "&#250;" >
+<!ENTITY uuml   "&#252;" >
+<!ENTITY thorn  "&#254;" >
+
+<!ENTITY pound  "&#163;" >
+<!ENTITY sect   "&#167;" >
+<!ENTITY copy   "&#169;" >
+<!ENTITY reg    "&#174;" >
+<!ENTITY deg    "&#176;" >
+<!ENTITY plusmn "&#177;" >
+<!ENTITY sup2   "&#178;" >
+<!ENTITY micro  "&#181;" >
+<!ENTITY para   "&#182;" >
+<!ENTITY middot "&#183;" >
+<!ENTITY ordm   "&#186;" >
+<!ENTITY frac14 "&#188;" >
+<!ENTITY frac12 "&#189;" >
+<!ENTITY frac34 "&#190;" >
+<!ENTITY oelig "&#339;" >
+<!ENTITY aelig  "&#230;" >
+
+]>
+
+<publicwhip scrapeversion="/home/twfy-live/parldata/scrapedxml/debates/debates2024-07-10b.xml" latest="no">
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-07-10b.23.0" newgid="uk.org.publicwhip/debate/2024-07-10c.23.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-07-10b.23.1" newgid="uk.org.publicwhip/debate/2024-07-10c.23.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-07-10b.27.0" newgid="uk.org.publicwhip/debate/2024-07-10c.27.0" matchtype="changes"/>
+<speech id="uk.org.publicwhip/debate/2024-07-10b.27.0" speakername="Lindsay Hoyle" person_id="uk.org.publicwhip/person/10295" colnum="27" time="14:28:00" url="">
+    <p pid="b27.0/1">It may assist the House to know that after the state opening of Parliament next week, I intend to make a formal announcement about the arrangements for the election of Deputy Speakers. The date for the election is likely to be <phrase class="date" code="">Tuesday 23 July</phrase>, with nominations to be submitted in the Table Office between 10 am and 5 pm on <phrase class="date" code="">Monday 22 July</phrase>. I have asked for a provisional briefing note about the election to be made available in the Vote Office, along with nomination forms. I will provide more information, including about the timings and location of the ballot, when I make the formal announcement next week. Next week, the House will also be invited to appoint a number of Members to serve as Deputy Speakers, to cover until the election process is complete.</p>
+    <p pid="b27.0/2" class="italic">The following Members took and subscribed the Oath, or made and subscribed the Affirmation required by law:</p>
+    <p pid="b27.0/3">Stephen Matthew Darling, for Torbay</p>
+    <p pid="b27.0/4">Marie Tidball, Penistone and Stocksbridge</p>
+    <p pid="b27.0/5">Alison Louise Griffiths, Bognor Regis and Littlehampton</p>
+    <p pid="b27.0/6">Sarah Alison Russell, Congleton</p>
+    <p pid="b27.0/7">Connor James Naismith, Crewe and Nantwich</p>
+    <p pid="b27.0/8">Chris Curtis, Milton Keynes North</p>
+    <p pid="b27.0/9">Natasha Dawn Irons, Croydon East</p>
+    <p pid="b27.0/10">Jessica Redmond-Withey Asato, Lowestoft</p>
+    <p pid="b27.0/11">Danny Boy Beales, Uxbridge and South Ruislip</p>
+    <p pid="b27.0/12">Paul Davies, Colne Valley</p>
+    <p pid="b27.0/13">Calum Alexander Miller, Bicester and Woodstock</p>
+    <p pid="b27.0/14">Alison Louise Hume, Scarborough and Whitby</p>
+    <p pid="b27.0/15">Sonia Kumar, Dudley</p>
+    <p pid="b27.0/16">Angus Francis MacDonald, Inverness, Skye and West Ross-shire</p>
+    <p pid="b27.0/17">Christopher Austin Francis Coghlan, Dorking and Horley</p>
+    <p pid="b27.0/18">Oliver Guy Nicholas Glover, Didcot and Wantage</p>
+    <p pid="b27.0/19">Sally Anne Jameson, Doncaster Central</p>
+    <p pid="b27.0/20">Danny Seiorse Chambers, Winchester</p>
+    <p pid="b27.0/21">Thomas William Morrison, Cheadle</p>
+    <p pid="b27.0/22">Victoria Mei Elizabeth Collins, Harpenden and  Berkhamsted</p>
+    <p pid="b27.0/23">Elizabeth Jarvis, Eastleigh</p>
+    <p pid="b27.0/24">Alexandra Katherine Brewer, North East Hampshire</p>
+    <p pid="b27.0/25">Darren James Paffey, Southampton Itchen</p>
+    <p pid="b27.0/26">Satvir Kaur, Southampton Test</p>
+    <p pid="b27.0/27">Thomas John Hayes, Bournemouth East</p>
+    <p pid="b27.0/28">David Edmund Burton-Sampson, Southend West and Leigh</p>
+    <p pid="b27.0/29">Charlotte Kathryn Bourne Cane, Ely and East  Cambridgeshire</p>
+    <p pid="b27.0/30">Claire Louise Young, Thornbury and Yate</p>
+    <p pid="b27.0/31">Irene Campbell, North Ayrshire and Arran</p>
+    <p pid="b27.0/32">Maureen Burke, Glasgow North East</p>
+    <p pid="b27.0/33">Clive Anthony Lewis, Norwich South</p>
+    <p pid="b27.0/34">Simon Joseph Opher, Stroud</p>
+    <p pid="b27.0/35">Samuel Carling, North West Cambridgeshire</p>
+    <p pid="b27.0/36">Lee Anderson, Ashfield</p>
+    <p pid="b27.0/37">Richard Tice, Boston and Skegness</p>
+    <p pid="b27.0/38">Rupert James Graham Lowe, Great Yarmouth</p>
+    <p pid="b27.0/39">James McMurdock, South Basildon and East Thurrock</p>
+    <p pid="b27.0/40">Chinyelu Susan Onwurah, Newcastle upon Tyne Central and West</p>
+    <p pid="b27.0/41">Markus Dale Campbell-Savours, Penrith and Solway</p>
+    <p pid="b27.0/42">John Anthony Slinger, Rugby</p>
+    <p pid="b27.0/43">Catherine Ann Fookes, Monmouthshire</p>
+    <p pid="b27.0/44">Kate Alexandra Dearden, Halifax</p>
+    <p pid="b27.0/45">Connor Dean Rand, Altrincham and Sale West</p>
+    <p pid="b27.0/46">Patrick Brian Hurley, Southport</p>
+    <p pid="b27.0/47">Nesil Caliskan, Barking</p>
+    <p pid="b27.0/48">Naushabah Parveen Khan, Gillingham and Rainham</p>
+    <p pid="b27.0/49">Lauren Rae Edwards, Rochester and Strood</p>
+    <p pid="b27.0/50">Christopher Paul Webb, Blackpool South</p>
+    <p pid="b27.0/51">Samantha Ruth Margaret Niblett, South Derbyshire</p>
+    <p pid="b27.0/52">Daniel Colin Aldridge, Weston-super-Mare</p>
+    <p pid="b27.0/53">Gordon McKee, Glasgow South</p>
+    <p pid="b27.0/54">Christopher Volante Hinchliff, North East Hertfordshire</p>
+    <p pid="b27.0/55">Louise Elizabeth Jones, North East Derbyshire</p>
+    <p pid="b27.0/56">Rachel Margaret Taylor, North Warwickshire and Bedworth</p>
+    <p pid="b27.0/57">Jeevun Gurpeet Singh Sandher, Loughborough</p>
+    <p pid="b27.0/58">James Edward Asser, West Ham and Beckton</p>
+    <p pid="b27.0/59">Andrew Elliot Pakes, Peterborough</p>
+    <p pid="b27.0/60">Dame Siobhain Ann McDonagh, Mitcham and Morden</p>
+    <p pid="b27.0/61">Helena Dollimore, Hastings and Rye</p>
+    <p pid="b27.0/62">James Rowan Chatterton Dickson, Dartford</p>
+    <p pid="b27.0/63">Jacob Ben Richards, Rother Valley</p>
+    <p pid="b27.0/64">Alexander David Sobel, Leeds Central and Headingley</p>
+    <p pid="b27.0/65">Jonathan James Hinder, Pendle and Clitheroe</p>
+    <p pid="b27.0/66">Michael Peter Martin, Tunbridge Wells</p>
+    <p pid="b27.0/67">Peter Timothy Fortune, Bromley and Biggin Hill</p>
+    <p pid="b27.0/68">Emma Ann Hardy, Kingston upon Hull West and  Haltemprice</p>
+    <p pid="b27.0/69">Kirsteen Ann Sullivan, Bathgate and Linlithgow</p>
+    <p pid="b27.0/70">Daniel Francis, Bexleyheath and Crayford</p>
+    <p pid="b27.0/71">Robin Edward Charles Morello, West Dorset</p>
+    <p pid="b27.0/72">Philip Michael Brickell, Bolton West</p>
+    <p pid="b27.0/73">Rosie May Wrighting, Kettering</p>
+    <p pid="b27.0/74">Frederick Jacob Theseus Thomas, Plymouth Moor View</p>
+    <p pid="b27.0/75">Sarah Rebecca Sackman, Finchley and Golders Green</p>
+    <p pid="b27.0/76">Samuel Jonathan Rushworth, Bishop Auckland</p>
+    <p pid="b27.0/77">Kevin Bonavia, Stevenage</p>
+    <p pid="b27.0/78">Fabian Hamilton, Leeds North East</p>
+    <p pid="b27.0/79">Kevin McKenna, Sittingbourne and Sheppey</p>
+    <p pid="b27.0/80">Jade Alexandra Botterill, Ossett and Denby Dale</p>
+    <p pid="b27.0/81">Imogen Walker, Hamilton and Clyde Valley</p>
+    <p pid="b27.0/82">Benjamin John Coleman, Chelsea and Fulham</p>
+    <p pid="b27.0/83">John Matthew Cooper, Dumfries and Galloway</p>
+    <p pid="b27.0/84">Thomas George Howard Collins, Worcester</p>
+    <p pid="b27.0/85">Right honourable Sir Gavin Alexander Williamson, Stone, Great Wyrley and Penkridge</p>
+    <p pid="b27.0/86">David Wain Chadwick, Brecon, Radnor and Cwm Tawe</p>
+    <p pid="b27.0/87">Matthew Raymond Western, Warwick and Leamington</p>
+    <p pid="b27.0/88">Paul Waugh, Rochdale</p>
+    <p pid="b27.0/89">Joshua Alan Austin Newbury, Cannock Chase</p>
+    <p pid="b27.0/90">David Timothy Simmonds, Ruislip, Northwood and  Pinner</p>
+    <p pid="b27.0/91">Aaron Cameron Thomas, Tewkesbury</p>
+    <p pid="b27.0/92">Anna Preston Gelderd, South East Cornwall</p>
+    <p pid="b27.0/93">Julia Buckley, Shrewsbury</p>
+    <p pid="b27.0/94">Matthew Robert Turmaine, Watford</p>
+    <p pid="b27.0/95">Catherine Eccles, Stourbridge</p>
+    <p pid="b27.0/96">Jodie Claire Gosling, Nuneaton</p>
+    <p pid="b27.0/97">Joshua MacAlister, Whitehaven and Workington</p>
+    <p pid="b27.0/98">Charles Adrian MacFie Maynard, Witney</p>
+    <p pid="b27.0/99">Michael Joseph Patrick Kane, Wythenshawe and Sale East</p>
+</speech>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-07-10b.30.0" newgid="uk.org.publicwhip/debate/2024-07-10c.30.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-07-10b.30.1" newgid="uk.org.publicwhip/debate/2024-07-10c.30.1" matchtype="perfectmatch"/>
+</publicwhip>
+

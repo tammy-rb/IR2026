@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<!DOCTYPE publicwhip
+[
+<!ENTITY ndash   "&#8211;">
+<!ENTITY mdash   "&#8212;">
+<!ENTITY iexcl   "&#161;">
+<!ENTITY divide  "&#247;">
+<!ENTITY euro    "&#8364;">
+<!ENTITY trade   "&#8482;">
+<!ENTITY bull    "&#8226;">
+<!ENTITY lsquo   "&#8216;">
+<!ENTITY rsquo   "&#8217;">
+<!ENTITY sbquo   "&#8218;">
+<!ENTITY ldquo   "&#8220;">
+<!ENTITY rdquo   "&#8221;">
+<!ENTITY bdquo   "&#8222;">
+<!ENTITY dagger  "&#8224;">
+
+<!ENTITY Ouml   "&#214;" >
+<!ENTITY szlig  "&#223;" >
+<!ENTITY agrave "&#224;" >
+<!ENTITY aacute "&#225;" >
+<!ENTITY acirc  "&#226;" >
+<!ENTITY atilde "&#227;" >
+<!ENTITY auml   "&#228;" >
+<!ENTITY ccedil "&#231;" >
+<!ENTITY egrave "&#232;" >
+<!ENTITY eacute "&#233;" >
+<!ENTITY ecirc  "&#234;" >
+<!ENTITY euml   "&#235;" >
+<!ENTITY iacute "&#237;" >
+<!ENTITY icirc  "&#238;" >
+<!ENTITY iuml	"&#239;" >
+<!ENTITY ntilde "&#241;" >
+<!ENTITY nbsp   "&#160;" >
+<!ENTITY oacute "&#243;" >
+<!ENTITY ocirc  "&#244;" >
+<!ENTITY ouml   "&#246;" >
+<!ENTITY oslash "&#248;" >
+<!ENTITY uacute "&#250;" >
+<!ENTITY uuml   "&#252;" >
+<!ENTITY thorn  "&#254;" >
+
+<!ENTITY pound  "&#163;" >
+<!ENTITY sect   "&#167;" >
+<!ENTITY copy   "&#169;" >
+<!ENTITY reg    "&#174;" >
+<!ENTITY deg    "&#176;" >
+<!ENTITY plusmn "&#177;" >
+<!ENTITY sup2   "&#178;" >
+<!ENTITY micro  "&#181;" >
+<!ENTITY para   "&#182;" >
+<!ENTITY middot "&#183;" >
+<!ENTITY ordm   "&#186;" >
+<!ENTITY frac14 "&#188;" >
+<!ENTITY frac12 "&#189;" >
+<!ENTITY frac34 "&#190;" >
+<!ENTITY oelig "&#339;" >
+<!ENTITY aelig  "&#230;" >
+
+]>
+
+<publicwhip scrapeversion="/home/twfy-live/parldata/scrapedxml/debates/debates2024-01-19a.xml" latest="no">
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1131.0" newgid="uk.org.publicwhip/debate/2024-01-19b.1131.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1131.1" newgid="uk.org.publicwhip/debate/2024-01-19b.1131.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1131.2" newgid="uk.org.publicwhip/debate/2024-01-19b.1131.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1131.3" newgid="uk.org.publicwhip/debate/2024-01-19b.1131.3" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1131.4" newgid="uk.org.publicwhip/debate/2024-01-19b.1131.4" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1131.5" newgid="uk.org.publicwhip/debate/2024-01-19b.1131.5" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1131.6" newgid="uk.org.publicwhip/debate/2024-01-19b.1131.6" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1132.0" newgid="uk.org.publicwhip/debate/2024-01-19b.1132.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1133.0" newgid="uk.org.publicwhip/debate/2024-01-19b.1133.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1133.1" newgid="uk.org.publicwhip/debate/2024-01-19b.1133.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1136.0" newgid="uk.org.publicwhip/debate/2024-01-19b.1136.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1136.1" newgid="uk.org.publicwhip/debate/2024-01-19b.1136.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1137.0" newgid="uk.org.publicwhip/debate/2024-01-19b.1137.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1138.0" newgid="uk.org.publicwhip/debate/2024-01-19b.1138.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1138.1" newgid="uk.org.publicwhip/debate/2024-01-19b.1138.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1139.0" newgid="uk.org.publicwhip/debate/2024-01-19b.1139.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1139.1" newgid="uk.org.publicwhip/debate/2024-01-19b.1139.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1141.0" newgid="uk.org.publicwhip/debate/2024-01-19b.1141.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1141.1" newgid="uk.org.publicwhip/debate/2024-01-19b.1141.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1141.2" newgid="uk.org.publicwhip/debate/2024-01-19b.1141.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1141.3" newgid="uk.org.publicwhip/debate/2024-01-19b.1141.3" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1142.0" newgid="uk.org.publicwhip/debate/2024-01-19b.1142.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1145.0" newgid="uk.org.publicwhip/debate/2024-01-19b.1145.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1151.0" newgid="uk.org.publicwhip/debate/2024-01-19b.1151.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1154.0" newgid="uk.org.publicwhip/debate/2024-01-19b.1154.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1156.0" newgid="uk.org.publicwhip/debate/2024-01-19b.1156.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1156.1" newgid="uk.org.publicwhip/debate/2024-01-19b.1156.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1156.2" newgid="uk.org.publicwhip/debate/2024-01-19b.1156.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1157.0" newgid="uk.org.publicwhip/debate/2024-01-19b.1157.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1157.1" newgid="uk.org.publicwhip/debate/2024-01-19b.1157.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1159.0" newgid="uk.org.publicwhip/debate/2024-01-19b.1159.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1162.0" newgid="uk.org.publicwhip/debate/2024-01-19b.1162.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1164.0" newgid="uk.org.publicwhip/debate/2024-01-19b.1164.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1164.1" newgid="uk.org.publicwhip/debate/2024-01-19b.1164.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1164.2" newgid="uk.org.publicwhip/debate/2024-01-19b.1164.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1165.0" newgid="uk.org.publicwhip/debate/2024-01-19b.1165.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1165.1" newgid="uk.org.publicwhip/debate/2024-01-19b.1165.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1165.2" newgid="uk.org.publicwhip/debate/2024-01-19b.1165.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1165.3" newgid="uk.org.publicwhip/debate/2024-01-19b.1165.3" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1165.4" newgid="uk.org.publicwhip/debate/2024-01-19b.1165.4" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1165.5" newgid="uk.org.publicwhip/debate/2024-01-19b.1165.5" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1165.6" newgid="uk.org.publicwhip/debate/2024-01-19b.1165.6" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1165.7" newgid="uk.org.publicwhip/debate/2024-01-19b.1165.7" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1165.8" newgid="uk.org.publicwhip/debate/2024-01-19b.1165.8" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1165.9" newgid="uk.org.publicwhip/debate/2024-01-19b.1165.9" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1167.0" newgid="uk.org.publicwhip/debate/2024-01-19b.1167.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1167.1" newgid="uk.org.publicwhip/debate/2024-01-19b.1167.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1167.2" newgid="uk.org.publicwhip/debate/2024-01-19b.1167.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1168.0" newgid="uk.org.publicwhip/debate/2024-01-19b.1168.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1169.0" newgid="uk.org.publicwhip/debate/2024-01-19b.1169.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1169.1" newgid="uk.org.publicwhip/debate/2024-01-19b.1169.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1169.2" newgid="uk.org.publicwhip/debate/2024-01-19b.1169.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1169.3" newgid="uk.org.publicwhip/debate/2024-01-19b.1169.3" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1170.0" newgid="uk.org.publicwhip/debate/2024-01-19b.1170.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1170.1" newgid="uk.org.publicwhip/debate/2024-01-19b.1170.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1170.2" newgid="uk.org.publicwhip/debate/2024-01-19b.1170.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1170.3" newgid="uk.org.publicwhip/debate/2024-01-19b.1170.3" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1170.4" newgid="uk.org.publicwhip/debate/2024-01-19b.1170.4" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1170.5" newgid="uk.org.publicwhip/debate/2024-01-19b.1170.5" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1171.0" newgid="uk.org.publicwhip/debate/2024-01-19b.1171.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1171.1" newgid="uk.org.publicwhip/debate/2024-01-19b.1171.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1171.2" newgid="uk.org.publicwhip/debate/2024-01-19b.1171.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1171.3" newgid="uk.org.publicwhip/debate/2024-01-19b.1171.3" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1171.4" newgid="uk.org.publicwhip/debate/2024-01-19b.1171.4" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1172.0" newgid="uk.org.publicwhip/debate/2024-01-19b.1172.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1173.0" newgid="uk.org.publicwhip/debate/2024-01-19b.1173.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1174.0" newgid="uk.org.publicwhip/debate/2024-01-19b.1174.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1175.0" newgid="uk.org.publicwhip/debate/2024-01-19b.1175.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1177.0" newgid="uk.org.publicwhip/debate/2024-01-19b.1177.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1177.1" newgid="uk.org.publicwhip/debate/2024-01-19b.1177.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1178.0" newgid="uk.org.publicwhip/debate/2024-01-19b.1178.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1180.0" newgid="uk.org.publicwhip/debate/2024-01-19b.1180.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1182.0" newgid="uk.org.publicwhip/debate/2024-01-19b.1182.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1183.0" newgid="uk.org.publicwhip/debate/2024-01-19b.1183.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1184.0" newgid="uk.org.publicwhip/debate/2024-01-19b.1184.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1185.0" newgid="uk.org.publicwhip/debate/2024-01-19b.1185.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1185.1" newgid="uk.org.publicwhip/debate/2024-01-19b.1185.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1185.2" newgid="uk.org.publicwhip/debate/2024-01-19b.1185.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1186.0" newgid="uk.org.publicwhip/debate/2024-01-19b.1186.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1187.0" newgid="uk.org.publicwhip/debate/2024-01-19b.1187.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1189.0" newgid="uk.org.publicwhip/debate/2024-01-19b.1189.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1191.0" newgid="uk.org.publicwhip/debate/2024-01-19b.1191.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1192.0" newgid="uk.org.publicwhip/debate/2024-01-19b.1192.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1192.1" newgid="uk.org.publicwhip/debate/2024-01-19b.1192.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1192.2" newgid="uk.org.publicwhip/debate/2024-01-19b.1192.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1192.3" newgid="uk.org.publicwhip/debate/2024-01-19b.1192.3" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1192.4" newgid="uk.org.publicwhip/debate/2024-01-19b.1192.4" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1193.0" newgid="uk.org.publicwhip/debate/2024-01-19b.1193.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1193.1" newgid="uk.org.publicwhip/debate/2024-01-19b.1193.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1193.2" newgid="uk.org.publicwhip/debate/2024-01-19b.1193.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1194.0" newgid="uk.org.publicwhip/debate/2024-01-19b.1194.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1194.1" newgid="uk.org.publicwhip/debate/2024-01-19b.1194.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1194.2" newgid="uk.org.publicwhip/debate/2024-01-19b.1194.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1195.0" newgid="uk.org.publicwhip/debate/2024-01-19b.1195.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1195.1" newgid="uk.org.publicwhip/debate/2024-01-19b.1195.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1196.0" newgid="uk.org.publicwhip/debate/2024-01-19b.1196.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1197.0" newgid="uk.org.publicwhip/debate/2024-01-19b.1197.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1197.1" newgid="uk.org.publicwhip/debate/2024-01-19b.1197.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1198.0" newgid="uk.org.publicwhip/debate/2024-01-19b.1198.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1200.0" newgid="uk.org.publicwhip/debate/2024-01-19b.1200.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1201.0" newgid="uk.org.publicwhip/debate/2024-01-19b.1201.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1201.1" newgid="uk.org.publicwhip/debate/2024-01-19b.1201.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1201.2" newgid="uk.org.publicwhip/debate/2024-01-19b.1201.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1203.0" newgid="uk.org.publicwhip/debate/2024-01-19b.1203.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1203.1" newgid="uk.org.publicwhip/debate/2024-01-19b.1203.1" matchtype="multiplecover"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1203.1" newgid="uk.org.publicwhip/debate/2024-01-19b.1205.0" matchtype="multiplecover"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1203.1" newgid="uk.org.publicwhip/debate/2024-01-19b.1205.1" matchtype="multiplecover"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1203.1" newgid="uk.org.publicwhip/debate/2024-01-19b.1205.2" matchtype="multiplecover"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1203.1" newgid="uk.org.publicwhip/debate/2024-01-19b.1207.0" matchtype="multiplecover"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1203.1" newgid="uk.org.publicwhip/debate/2024-01-19b.1207.1" matchtype="multiplecover"/>
+<speech id="uk.org.publicwhip/debate/2024-01-19a.1203.1" speakername="Oliver Heald" type="Continuation Speech" person_id="uk.org.publicwhip/person/10267" colnum="1203" time="14:05:00" url="">
+    <p pid="a1203.1/1">I entirely agree. Given the tragedy that they had experienced, it would have been possible for Ceri and Frances Menai-Davis to simply collapse, but they did not. They decided that they were going to do something positive, so they set up a charity. The enthusiasm and strength of determination that that couple bring to this situation is something to be seen, and I certainly pay tribute to them.</p>
+    <p pid="a1203.1/2">My right hon. Friend the Member for Charnwood responded to the debate by explaining that we were working on achieving better long-term plans for the early diagnosis of cancer, including rarer cancers, and on trying to prevent what had happened to Jessica from happening again. Hertfordshire’s hospital trusts are working extremely hard on that. The Government’s aim is for  three quarters of cancers to be diagnosed at stage 1 or 2, which would enable an additional 55,000 people to survive cancer for five years longer than they do now. As well as new hospitals, we need to see that improvement in diagnosis, which is already taking place in the rapid diagnostic centres and services that the new integrated care boards have been pressing for. There are currently 102 live rapid diagnostic centre pathways. In addition, East and North Hertfordshire NHS Trust, informed by experiences such as Jessica’s but also bearing in mind what has happened in the case of Hugh, is working on a much more co-ordinated multi-disciplinary approach.</p>
+    <p pid="a1203.1/3">What this shows is that we are at the start of a new era, with better hospital services and an understanding of the need to prioritise cancer not just in the elderly but in the young, and in respect of not just the best-known cancers but the rare ones. I pay tribute to the work of the all-party parliamentary group on cancer, which I support.</p>
+    <p pid="a1203.1/4">The aspect of the Bill raised by my constituent is the financial impact on parents of having to spend months in hospitals supporting sick young children. My constituent is self-employed, and it cost him a lot to put his child first, but he was able to manage, not only because of his strong personal finances but because of the support of his family in keeping his business going. However, he feared for others who were less fortunate and found themselves in the same position. He gave me examples of people his charity is helping—people who were losing their livelihoods to support their children in hospital. As I have said, I have raised the financial issue with Ministers in the Department for Work and Pensions and the Department of Health and Social Care, and I have been pointed to some limited help for parents such as leave entitlements, often unpaid, and bereavement leave, as well as universal credit, under which if income goes down the benefit goes up. Parents who have worked for the same employer for at least a year are entitled to 18 weeks of unpaid parental leave, and there may be help from disability and carers’ benefits after a period.</p>
+    <p pid="a1203.1/5">In this Bill, I ask for a report to be made to Parliament by the Secretary of State on the merits of providing financial support to the parents of children receiving care in hospital for extended periods. I am asking for an assessment of current policies and the likely effect of some additional support on both parents and children, and I am asking the Government to consult parents, healthcare professionals, charities and others offering support.</p>
+    <p pid="a1203.1/6">Although It’s Never You is the focus of what Ceri and Frances are doing, I have also heard from other charities, such as Together for Short Lives, which talks about the huge financial strain on families of having a child in hospital, and Young Lives vs Cancer. That charity wanted me to raise one particular issue: the NHS does offer a healthcare travel cost support scheme, but apparently the operation of that scheme is not very helpful. It is ponderous and does not deliver the money quickly enough. Perhaps that is something the report could look into.</p>
+    <p pid="a1203.1/7">I hope it will also be possible for a meeting to take place between the Minister and Mr and Mrs Menai-Davis, so that they can explain what they hope to get from the process. The Bill would not cost a great deal, as there are so few cases, but it would mean that in tragic circumstances all parents could concentrate on helping  their children rather than worrying about money. In a way, the Bill is also about Ceri Menai-Davis and his wife Frances being able to help other parents who find themselves in the situation they found themselves in.</p>
+    <p pid="a1203.1/8">The report is likely to touch on some of the other issues that families have taken up with Ministers and that I have raised in my remarks, and I hope it will inform a holistic approach to improving care for young cancer patients and their parents. It would be a legacy for Hugh—we could call it “Hugh’s report”.</p>
+    <p pid="a1203.1/9">Mr Deputy Speaker (Sir Roger Gale): I call the Opposition Front Bencher.</p>
+    <p pid="a1203.1/10">Vicky Foxcroft (Lewisham, Deptford) (Lab): I congratulate <phrase class="honfriend" person_id="uk.org.publicwhip/person/10267" name="Oliver Heald">the right hon. and learned Member for North East Hertfordshire (Sir Oliver Heald)</phrase> on putting forward such articulate arguments. I hope he will not mistake my brevity for not being absolutely serious, but I am certain that he wants to hear from the Minister, as do the families in the Gallery. As such, I will leave my remarks there—I am happy to share the notes that I had prepared if the right hon. and learned Member would like them. Labour will support the Bill.</p>
+    <p pid="a1203.1/11">The Minister for Employment (Jo Churchill): I thank <phrase class="honfriend" person_id="uk.org.publicwhip/person/25380" name="Vicky Foxcroft">the hon. Member for Lewisham, Deptford (Vicky Foxcroft)</phrase>, and thank and congratulate my right hon. and learned Friend <phrase class="honfriend" person_id="uk.org.publicwhip/person/10267" name="Oliver Heald">the Member for North East Hertfordshire (Sir Oliver Heald)</phrase> for bringing this important issue to the Floor of the House. I know, as he has explained today and in previous conversations with me, that when Ceri and Frances contacted him after the tragic loss of their son Hugh to a rare cancer at the tender age of six, he was motivated to see how he could help to ensure that parents are supported at such a difficult time. I know that I speak for everyone in this place when I say that our hearts go out to them.</p>
+    <p pid="a1203.1/12">I was moved when I read my right hon. and learned Friend’s speech from last September, and again today. I understood personally the disbelief behind the words of Frances and the name she has given to their charity to help parents of very ill children who are in hospital for extended periods: It’s Never You. The challenge is that sometimes it is. The purpose behind the Bill is to enable research and produce a report on both the emotional and tangible support that is available and that which is needed—like the support that the charity is giving, but looking at things in a more joined-up way to work better and more effectively for parents during such difficult times.</p>
+    <p pid="a1203.1/13">I stand here as somebody who has had cancer more than once. You do not choose it: it chooses you. As Ceri and Frances know, your world is turned upside down. Your days are driven by medical appointments and the need to have questions answered, juggling life’s issues alongside wanting to do anything to try to protect your child and make the pain go away. My right hon. and learned Friend has spoken to me about Ceri and Frances’s motivation to do something for parents who have also travelled the journey of their child having an extended period in hospital, and some of the financial, emotional and physical worries that that brings.</p>
+    <p pid="a1203.1/14">I wish to take a moment to lay out what support is available, but I will do so rapidly because my right hon. and learned Friend went over it. There is help to deal with some of the financial worries. The disabled child addition is available to low-income families on universal credit who are entitled to qualifying disability benefits such as the child disability living allowance. A parent of a child who qualifies for that support can also claim carer’s allowance as a result of their additional responsibilities if they and their partner are providing at least 35 hours of care each week. Additional support is available to families on universal credit who may need further help. For families sadly affected by bereavement, there are funds in England and Scotland to help with funeral expenses.</p>
+    <p pid="a1203.1/15">For people on universal credit, an open discussion with their supporting work coach allows for health and caring responsibilities to be accounted for and enables access to support. I noted that Ceri has worked with Addenbrooke’s Hospital to share his and Frances’s experience to inform the team as they plan the new children’s hospital. I know that the hospital has been keen to ensure that families and patients feed in their experience alongside clinicians. That is a pioneering world-first model of care that looks to treat the whole child—both their physical and emotional needs—as well as providing paediatric genomic medicine.</p>
+    <p pid="a1203.1/16">Behind every young patient, wherever they are treated right across the country, is a family. I recognise how difficult it is to navigate the practical and emotional challenges. That is why It’s Never You and charities like it make a huge difference and play a pivotal role in supporting families, and I thank them all for their work. I reiterate the words of the my hon. Friend <phrase class="honfriend" person_id="uk.org.publicwhip/person/25882" name="Jo Gideon">the Member for Stoke-on-Trent Central (Jo Gideon)</phrase>: parents’ voices are so important.</p>
+    <p pid="a1203.1/17">I hope that I have the House’s support, having already spoken to the Minister for Health and Secondary Care, my right hon. Friend <phrase class="honfriend" person_id="uk.org.publicwhip/person/24759" name="Andrew Stephenson">the Member for Pendle (Andrew Stephenson)</phrase> to ensure that we can work closely. He has assured me that he stands ready to look at what can be done and to support us in ensuring that the right conversations are held. I know that it is charities such as It’s Never You that most often help parents to access practical support and connect with other families who are going through comparable experiences, gain moral support and love from each other, and share ways to overcome issues and stop the pain of thinking that they are the only ones.</p>
+    <p pid="a1203.1/18">I know that nothing stops the lying awake at night, watching the clock tick through the hours and hoping for miracles, but we want to help families who are going through such difficult times. I commit from the Dispatch Box to working closely with my right hon. and learned Friend the Member for North East Hertfordshire on this important issue. In particular, we are committing to establishing a stakeholder forum to consult parents whose children have received care in hospital for an extended period, and with healthcare professionals, charities, civil society and organisations that offer related support. We want to hear about people’s experiences, understand their concerns and listen to ideas and suggestions, and then develop a set of potential proposals based on the feedback.</p>
+    <p pid="a1203.1/19">I suggest that a meeting with my office be arranged at the earliest opportunity so that Ceri and Frances’s knowledge can help to drive and determine who will be key to that consultation. I will personally ensure that the forum is established in a timely manner and that it progresses quicker than a legislative route would allow. To that end, I suggest to my right hon. and learned Friend that he withdraws the Bill, that we begin discussions now, and, in Ceri’s words, that there is purpose to the pain.</p>
+    <p pid="a1203.1/20">Mr Deputy Speaker (Sir Roger Gale): With the leave of the House, I call Sir Oliver Heald to wind up.</p>
+    <p pid="a1203.1/21">Sir Oliver Heald: I am delighted by the response, which basically gives me what I asked for in the Bill. Of course, if the Bill went through all stages in this House and the Lords, it would take many months before we could start the process. I think my hon. Friend the Minister said that she hopes to meet the six-month period for the report at the end. On that basis, I am delighted go forward with her proposal, which short-circuits the process. I beg to ask leave to withdraw the motion.</p>
+    <p pid="a1203.1/22">Motion and Bill, by leave, withdrawn.</p>
+</speech>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1207.0" newgid="uk.org.publicwhip/debate/2024-01-19b.1207.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1207.1" newgid="uk.org.publicwhip/debate/2024-01-19b.1207.3" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1207.2" newgid="uk.org.publicwhip/debate/2024-01-19b.1207.4" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1208.0" newgid="uk.org.publicwhip/debate/2024-01-19b.1208.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1208.1" newgid="uk.org.publicwhip/debate/2024-01-19b.1208.1" matchtype="multiplecover"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1208.1" newgid="uk.org.publicwhip/debate/2024-01-19b.1208.2" matchtype="multiplecover"/>
+<speech id="uk.org.publicwhip/debate/2024-01-19a.1208.1" nospeaker="true" colnum="1208" time="14:30:00" url="">
+    <p pid="a1208.1/1">Motion made, That the Bill be now read a Second time.</p>
+    <p pid="a1208.1/2">Hon. Members: Object.</p>
+    <p pid="a1208.1/3">Bill to be read a Second time on <phrase class="date" code="">Friday 23 February</phrase>.</p>
+</speech>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1208.2" newgid="uk.org.publicwhip/debate/2024-01-19b.1208.3" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1208.3" newgid="uk.org.publicwhip/debate/2024-01-19b.1208.4" matchtype="multiplecover"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1208.3" newgid="uk.org.publicwhip/debate/2024-01-19b.1208.5" matchtype="multiplecover"/>
+<speech id="uk.org.publicwhip/debate/2024-01-19a.1208.3" nospeaker="true" colnum="1208" time="14:30:00" url="">
+    <p pid="a1208.3/1">Motion made, That the Bill be now read a Second time.</p>
+    <p pid="a1208.3/2">Hon. Members: Object.</p>
+    <p pid="a1208.3/3">Bill to be read a Second time on <phrase class="date" code="">Friday 26 January</phrase>.</p>
+</speech>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1208.4" newgid="uk.org.publicwhip/debate/2024-01-19b.1208.6" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1208.5" newgid="uk.org.publicwhip/debate/2024-01-19b.1208.7" matchtype="multiplecover"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1208.5" newgid="uk.org.publicwhip/debate/2024-01-19b.1208.8" matchtype="multiplecover"/>
+<speech id="uk.org.publicwhip/debate/2024-01-19a.1208.5" nospeaker="true" colnum="1208" time="14:30:00" url="">
+    <p pid="a1208.5/1">Motion made, That the Bill be now read a Second time.</p>
+    <p pid="a1208.5/2">Hon. Members: Object.</p>
+    <p pid="a1208.5/3">Bill to be read a Second time on <phrase class="date" code="">Friday 1 March</phrase>.</p>
+</speech>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1208.6" newgid="uk.org.publicwhip/debate/2024-01-19b.1208.9" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1208.7" newgid="uk.org.publicwhip/debate/2024-01-19b.1208.10" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1208.8" newgid="uk.org.publicwhip/debate/2024-01-19b.1208.11" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1208.9" newgid="uk.org.publicwhip/debate/2024-01-19b.1208.12" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1209.0" newgid="uk.org.publicwhip/debate/2024-01-19b.1209.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1209.1" newgid="uk.org.publicwhip/debate/2024-01-19b.1209.1" matchtype="multiplecover"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1209.1" newgid="uk.org.publicwhip/debate/2024-01-19b.1209.2" matchtype="multiplecover"/>
+<speech id="uk.org.publicwhip/debate/2024-01-19a.1209.1" nospeaker="true" colnum="1209" time="14:30:00" url="">
+    <p pid="a1209.1/1">Motion made, and Question proposed, That this House do now adjourn.—(Joy Morrissey.)</p>
+    <p pid="a1209.1/2">Stella Creasy (Walthamstow) (Lab/Co-op): The Government intend to introduce a charge of £40 a time to import things from the EU into the UK from April. That might come as a surprise to many businesses, because they do not know about it, and most of our constituents likely do not. I think that is because the Government are not even sure that they want to do it. Today, I hope to get some answers about the border operating model on behalf of all those who will pay the price if it actually happens—namely, the British public.</p>
+    <p pid="a1209.1/3">Brexit is the gift that keeps giving. Like contracting recurrent food poisoning, we think we have seen the worst of it only to feel that sick feeling in our stomach again. Pints of wine and blue passports cannot make up for the inflationary impact of this latest dose of extra paperwork and delay. For the avoidance of doubt, we have left the European Union. The Government cannot make Brexit work, and it is causing problems to millions of people every day. I am not standing here advocating that we ask to rejoin, either. Frankly, with all the problems we are facing for businesses and jobs because of it, we do not have time for such treaty negotiations.</p>
+    <p pid="a1209.1/4">This debate is about what this Government are doing now to manage our borders, and the very real consequences of their decisions for food security and the cost and nutrition of food. Currently, the UK imports around 46% of our food—we are self-sufficient for 54%. Our trade with other countries is the reason why we have food to eat and are not all just eating turnips and cabbages, delicious though those home-grown delicacies are. In 2021, we imported £10 billion-worth of fruit and vegetables from the EU, £6 billion-worth of drinks and the same amount of meat. The EU accounts for 90% of all the dairy, beef, egg and pork products coming to the UK, and nearly two thirds of all food and feed not of animal origin. Some 40% of that is from just four countries: the Netherlands, Ireland, Germany and France.</p>
+    <p pid="a1209.1/5">It is little wonder that Brexit has already hit our food prices and supply. Research from the Centre for Economic Performance at the London School of Economics shows that. We all saw the empty shelves and rationing, and businesses are clear that it is Brexit, not Ukraine and the energy crisis, that is pushing up the prices of production and causing all those problems.</p>
+    <p pid="a1209.1/6">That is all before we even get to the new import controls. It is a combination of higher transport costs, supply chain designs, customs complexity and reduced volumes. Whatever we do at the border will be critical to the nation’s capacity to eat more than porridge, given that oats are one of the few things for which we produce 100% of what we consume.</p>
+    <p pid="a1209.1/7">Let us not pretend that other countries can pick up the slack for us. Although the Government are negotiating free trade agreements with six other countries and have two agreed, these will not be able to replace the food we import from the EU. And if we care about animal welfare, we should want to work with the EU because it still has equivalent animal welfare standards, contrary to Australia and New Zealand, from which food can now be imported, tariff free, without any equivalence to  our welfare standards. Frankly, geography matters, which is why adding more friction to the process will lead not only to shortages and delays but to inflation and costs for everyone.</p>
+    <p pid="a1209.1/8">Under this Tory hard Brexit, we left the EU customs union, the single market and the VAT area, and we have been threatening our own customs controls ever since. Understandably, businesses have been driven mad by the fact that those controls have been postponed five times. In the meantime, we have all been stuck with the bill at the checkouts.</p>
+    <p pid="a1209.1/9">The white elephants of Brexit stand empty at our expense, as the Government have spent more than £700 million on border facilities and jobs. Sevington in Kent cost £154 million, including £70 million on the border control post infrastructure alone, and £25 million has been spent on Portsmouth, £12 million on Holyhead and £3 million on North Weald. I am sure those communities would rather use the money for something else.</p>
+    <p pid="a1209.1/10">In theory, all of that will finally change this year. In just 12 days’ time, if businesses want to import pork, beef, reindeer, camel, frogs’ legs, cream, yoghurt, flour, beeswax—but not honey—or animal paws, they will need a health certificate. That all means finding a vet who will sign the health check.</p>
+    <p pid="a1209.1/11">Ministers have told me that more than half of the expected £330 million annual cost of the scheme to businesses will come from these certificates, but they have also said that it is not as bad as the more onerous tracking system they previously suggested, which would have cost businesses £520 million a year. Frankly, that is like me telling my kids that they should be grateful that I have let them keep the bell on their Lindt bunny because I was originally going to take that too, along with all the chocolate.</p>
+    <p pid="a1209.1/12">Health certificates are one thing, but the Government have also been consulting on introducing a charge to cover the cost of the scheme—the so-called common user charge. That is planned for April, just 100 days away. The consultation says the charge could be £43, but it might be less or more. It would be helpful for British businesses to know whether it is coming in at all in 100 days’ time, as well as knowing what the charge will be.</p>
+    <p pid="a1209.1/13">The charge is intended to apply to each consignment, whether it is one leg of lamb or a van full of reindeer and frogs’ legs. As 65% of lorries coming into this country carry multiple consignments, known as groupage, it is clear how expensive this way of applying the charge will be. The Government have therefore chosen to fund the new border by imposing fees directly on businesses that import. The pledge that Brexit would be a bonfire of regulation turned into a smouldering pile of paperwork that will kill imports for small businesses.</p>
+    <p pid="a1209.1/14">It does not have to be that way. A veterinary deal with Europe could remove the requirement for export health certificates. Joining the pan-European Mediterranean convention, which is wider than the EU and includes Israel and north African countries, would also help, as businesses could make use of the EU hubs where products from outside are often consolidated.</p>
+    <p pid="a1209.1/15">Frankly, even if businesses pay, there is no guarantee that they will get a service. The Government are planning to check just 30% of imports. Just when I thought it could not get any more complicated, in 286 days’ time  they want to introduce safety and security declarations for all EU imports. These will be required even if the pallets coming in on a truck are empty. It relies on the single trade window process not being a total disaster, yet at present businesses have no idea whether the technology is working.</p>
+    <p pid="a1209.1/16">Of course, all of this is different for businesses trading from Northern Ireland. Those “not for EU” stickers, which will help to protect the border with the EU and Ireland, reflect the lunacy of all those people who tried to argue that technology could prevent trade barriers. In a situation where we are the smaller market, it is not hard to see that, when companies trading in multiple nations are faced with such policies, they will move away from doing business with us, focusing instead on less complicated markets. Between 1999 and 2000, the EU accounted for 50% to 55% of UK exports. By 2022, that had already fallen to 42%.</p>
+    <p pid="a1209.1/17">Traders in Belgium have already publicly said that they are not going to spend any more time trying to figure out what the Government are up to. They say that they have been marched up the hill too many times, only for the scheme to be delayed at the last minute. They say that they are willing to risk friction rather than the paperwork.</p>
+    <p pid="a1209.1/18">The Institute of Export and International Trade points out that more than 20 different measures on imports will come into force between the end of last September and the end of this year. The freight representatives point out that the lorry drivers need to go through the same entry and exit systems, and will be in the queues behind the schoolkids and the holidaymakers under- going checks. They will be stuck behind those school coaches, with all the knock-on effects for the picking up and transportation of imported consignments. The representatives say they estimate that would create around 70 miles of freight traffic, turning Dover into a literal lorry park. Little wonder that Nichola Mallon, Logistics UK’s head of trade policy, says that businesses have still not been given all of the detail and guidance they need to plan and prepare and that there is a high risk of delays, traffic congestion, higher prices and reduced choice for consumers.</p>
+    <p pid="a1209.1/19">We all understand the need for checks to stop things such as African swine flu, but given that this country has not even signed up to be part of the shared biosecurity alerts, it is clear that there are other things we could do to help tackle that. Those charged with running the service certainly have their doubts. Health inspectors at Dover have had a 70% cut to their funding to do any of the work to try to stop infections reaching our shores in the first place. Those in Dover would know about all this, because they are in the frontline. Goodness knows what is happening in the west coast ports, which are operating to a different timetable. That will open up further loopholes and complications with ports such as Holyhead, Pembroke and Fishguard, which are the land bridge to Ireland, also facing confusion.</p>
+    <p pid="a1209.1/20">I have a series of questions for the Minister, and I hope that she will take interventions when she responds so that we can get to the bottom of this. First and foremost, can the Minister actually confirm whether any checks will be made to lorries on our borders in 12 days’ time to see whether the goods in them have environmental health certificates? What work is her  Government doing to ensure that there are enough vets in Europe to provide the certificates? Can she confirm whether they even exist?</p>
+    <p pid="a1209.1/21">If there are not going to be checks on lorries in 12 days’ time, as she has previously told businesses, when will the health certificate checks come in? What will happen to a lorry that does not have one? Can she confirm that the opening hours for the border control posts match the just-in-time supply chains, so that we do not see lorries of rotting foods sitting in our ports waiting to be checked? When will the common user charge be applied and what will it be? If it is common, it should be uniform, so can she tell businesses here and now whether it is happening and what it will be per consignment, or whether it will take account of groupage? The Government said in December that they would provide this information and businesses are still waiting.</p>
+    <p pid="a1209.1/22">Will the Minister confirm what the common user charge will cover? Is it in addition to all the other charges from the Port Health Authority and the Animal and Plant Health Agency, and does it cover customs fees? If the checks are not going to be made, when will they be made? What will she do about traffic management in Kent? Currently, there are 40 inspectors in the port of Dover. How many has her Department assessed are needed, and why are only 30% of them being checked, if this is about biosecurity? What will they do if a lorry goes to the wrong port, or tries to shop around? Does she expect different border control ports to charge the same fees for their services, or will they set their own? How will she stop those lorries from trying to game the system?</p>
+    <p pid="a1209.1/23">Can the Minister tell us about the status of the single trade window project, and whether Fujitsu is involved in its delivery at all? The Government have admitted that this will cause inflation, but they are trying to claim it is going to be just 0.2% over three years. In their response to me, they said that</p>
+    <p pid="a1209.1/24" class="indent" pwmotiontext="yes">“will depend greatly on how businesses adapt their business models and supply chains to integrate the new controls regimes”,</p>
+    <p pid="a1209.1/25">putting the pressure on business to pay for the Government’s scheme.</p>
+    <p pid="a1209.1/26">Will the Minister clarify what the variation might be if businesses do not do that, and what has been calculated into inflation, if they cannot get to grips with the Government’s new system? What impact is her Department predicting that the situation will have on food prices in that first year—not over three years, but in the first year? Why will this Government not come clean on the data sources they are using to make those calculations? What commercial confidentiality behind calculating inflation and the impact of the policies possibly trumps the public’s right to know how expensive it will be to put food on the table?</p>
+    <p pid="a1209.1/27">No doubt the Minister will say that an outbreak of foot and mouth disease would cost business more than this scheme, but will she set out the cost of the administration of this project, separately from the health checks that the Government have calculated? Can she clarify the timetable for the introduction of the west coast port charges and what the difference in the regime will be? Will she explain why the Government have not negotiated a veterinary deal? Are they even looking at the pan-Euro-Mediterranean convention to try to solve these problems without giving businesses all this extra  paperwork? Above all, what is she doing to warn the public about the potential impact on their food supply and costs? Or is she prepared to say here and now, on the record, that there will be no delay in food provision, no shortages and no increase in prices?</p>
+    <p pid="a1209.1/28">Nobody wants to eat meat that has been sitting in the docks or beeswax that is off, even if it had a health certificate when it started its journey. Because of what is happening, the UK has already dropped from fourth in the World Bank logistics performance index to joint 19th. The main challenges result from border friction, which is contributing to the decline in just-in-time supply chains and efficient customs.</p>
+    <p pid="a1209.1/29">It does not take a rocket scientist to work out that this scheme will clearly make things harder for British business. No wonder it has been delayed five times. With so many people struggling with the cost of living crisis, surely the best thing is to think again. The scheme will make things harder for British business; at worst, it will be a nightmare. I ask the Minister: will she give people some relief and say that it is off again?</p>
+</speech>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1213.0" newgid="uk.org.publicwhip/debate/2024-01-19b.1213.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1215.0" newgid="uk.org.publicwhip/debate/2024-01-19b.1215.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1215.1" newgid="uk.org.publicwhip/debate/2024-01-19b.1215.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1215.2" newgid="uk.org.publicwhip/debate/2024-01-19b.1215.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1215.3" newgid="uk.org.publicwhip/debate/2024-01-19b.1215.3" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1215.4" newgid="uk.org.publicwhip/debate/2024-01-19b.1215.4" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1216.0" newgid="uk.org.publicwhip/debate/2024-01-19b.1216.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1216.1" newgid="uk.org.publicwhip/debate/2024-01-19b.1216.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1216.2" newgid="uk.org.publicwhip/debate/2024-01-19b.1216.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1216.3" newgid="uk.org.publicwhip/debate/2024-01-19b.1216.3" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1216.4" newgid="uk.org.publicwhip/debate/2024-01-19b.1216.4" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1216.5" newgid="uk.org.publicwhip/debate/2024-01-19b.1216.5" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1216.6" newgid="uk.org.publicwhip/debate/2024-01-19b.1216.6" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-19a.1216.7" newgid="uk.org.publicwhip/debate/2024-01-19b.1216.7" matchtype="perfectmatch"/>
+</publicwhip>
+

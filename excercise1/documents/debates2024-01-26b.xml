@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<!DOCTYPE publicwhip
+[
+<!ENTITY ndash   "&#8211;">
+<!ENTITY mdash   "&#8212;">
+<!ENTITY iexcl   "&#161;">
+<!ENTITY divide  "&#247;">
+<!ENTITY euro    "&#8364;">
+<!ENTITY trade   "&#8482;">
+<!ENTITY bull    "&#8226;">
+<!ENTITY lsquo   "&#8216;">
+<!ENTITY rsquo   "&#8217;">
+<!ENTITY sbquo   "&#8218;">
+<!ENTITY ldquo   "&#8220;">
+<!ENTITY rdquo   "&#8221;">
+<!ENTITY bdquo   "&#8222;">
+<!ENTITY dagger  "&#8224;">
+
+<!ENTITY Ouml   "&#214;" >
+<!ENTITY szlig  "&#223;" >
+<!ENTITY agrave "&#224;" >
+<!ENTITY aacute "&#225;" >
+<!ENTITY acirc  "&#226;" >
+<!ENTITY atilde "&#227;" >
+<!ENTITY auml   "&#228;" >
+<!ENTITY ccedil "&#231;" >
+<!ENTITY egrave "&#232;" >
+<!ENTITY eacute "&#233;" >
+<!ENTITY ecirc  "&#234;" >
+<!ENTITY euml   "&#235;" >
+<!ENTITY iacute "&#237;" >
+<!ENTITY icirc  "&#238;" >
+<!ENTITY iuml	"&#239;" >
+<!ENTITY ntilde "&#241;" >
+<!ENTITY nbsp   "&#160;" >
+<!ENTITY oacute "&#243;" >
+<!ENTITY ocirc  "&#244;" >
+<!ENTITY ouml   "&#246;" >
+<!ENTITY oslash "&#248;" >
+<!ENTITY uacute "&#250;" >
+<!ENTITY uuml   "&#252;" >
+<!ENTITY thorn  "&#254;" >
+
+<!ENTITY pound  "&#163;" >
+<!ENTITY sect   "&#167;" >
+<!ENTITY copy   "&#169;" >
+<!ENTITY reg    "&#174;" >
+<!ENTITY deg    "&#176;" >
+<!ENTITY plusmn "&#177;" >
+<!ENTITY sup2   "&#178;" >
+<!ENTITY micro  "&#181;" >
+<!ENTITY para   "&#182;" >
+<!ENTITY middot "&#183;" >
+<!ENTITY ordm   "&#186;" >
+<!ENTITY frac14 "&#188;" >
+<!ENTITY frac12 "&#189;" >
+<!ENTITY frac34 "&#190;" >
+<!ENTITY oelig "&#339;" >
+<!ENTITY aelig  "&#230;" >
+
+]>
+
+<publicwhip scrapeversion="/home/twfy-live/parldata/scrapedxml/debates/debates2024-01-26b.xml" latest="no">
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26b.505.0" newgid="uk.org.publicwhip/debate/2024-01-26c.505.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26b.505.1" newgid="uk.org.publicwhip/debate/2024-01-26c.505.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26b.505.2" newgid="uk.org.publicwhip/debate/2024-01-26c.505.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26b.505.3" newgid="uk.org.publicwhip/debate/2024-01-26c.505.3" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26b.505.4" newgid="uk.org.publicwhip/debate/2024-01-26c.505.4" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26b.505.5" newgid="uk.org.publicwhip/debate/2024-01-26c.505.5" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26b.505.6" newgid="uk.org.publicwhip/debate/2024-01-26c.505.6" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26b.509.0" newgid="uk.org.publicwhip/debate/2024-01-26c.509.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26b.511.0" newgid="uk.org.publicwhip/debate/2024-01-26c.511.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26b.511.1" newgid="uk.org.publicwhip/debate/2024-01-26c.511.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26b.512.0" newgid="uk.org.publicwhip/debate/2024-01-26c.512.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26b.512.1" newgid="uk.org.publicwhip/debate/2024-01-26c.512.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26b.514.0" newgid="uk.org.publicwhip/debate/2024-01-26c.514.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26b.516.0" newgid="uk.org.publicwhip/debate/2024-01-26c.516.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26b.517.0" newgid="uk.org.publicwhip/debate/2024-01-26c.517.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26b.517.1" newgid="uk.org.publicwhip/debate/2024-01-26c.517.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26b.517.2" newgid="uk.org.publicwhip/debate/2024-01-26c.517.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26b.517.3" newgid="uk.org.publicwhip/debate/2024-01-26c.517.3" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26b.518.0" newgid="uk.org.publicwhip/debate/2024-01-26c.518.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26b.518.1" newgid="uk.org.publicwhip/debate/2024-01-26c.518.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26b.520.0" newgid="uk.org.publicwhip/debate/2024-01-26c.520.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26b.520.1" newgid="uk.org.publicwhip/debate/2024-01-26c.520.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26b.520.2" newgid="uk.org.publicwhip/debate/2024-01-26c.520.2" matchtype="changes"/>
+<speech id="uk.org.publicwhip/debate/2024-01-26b.520.2" speakername="Kevin Hollinrake" type="Start Speech" person_id="uk.org.publicwhip/person/25415" colnum="520" time="10:39:00" url="">
+    <p pid="b520.2/1">May I first thank <phrase class="honfriend" person_id="uk.org.publicwhip/person/25490" name="Chris Elmore">the hon. Member for Ogmore (Chris Elmore)</phrase> for bringing the Bill before the House, and all the other hon. Members who have spoken on this important matter today? He has been incredibly constructive and pragmatic in our  deliberations on what we should do in this area, and I thank him for that. It is always a pleasure to work with him on this issue, and we have worked together on a number of issues over the years.</p>
+    <p pid="b520.2/2">I would like to express my wholehearted agreement with the intent behind the hon. Member’s Bill. His speech was incredibly touching and he spoke passionately about the need for the Bill, but also about the devastating impact on individuals. His point about the future plans of one’s life suddenly going to ashes was incredibly powerful, and I express my sympathy for Mr Thorpe, whom he referred to in his speech.</p>
+    <p pid="b520.2/3">It is always a great pleasure to take forward legislation that makes a meaningful difference. I was lucky enough to take through Parliament two private Member’s Bills prior to becoming a Minister. One was on parental bereavement leave, and people asked, “Why does this not exist in the first place?” When people say that to us, as I am sure they have said to the hon. Member about his Bill, we know we are on the right track. In my experience, we normally do not do these things on our own—we do them jointly—and his work with my hon. Friend <phrase class="honfriend" person_id="uk.org.publicwhip/person/25871" name="Darren Henry">the Member for Broxtowe (Darren Henry)</phrase> has been really important in bringing the Bill forward.</p>
+    <p pid="b520.2/4">It is clear that we should look at what more we can do to support employed parents who lose their partner around the time of their child’s birth and who do not currently qualify for statutory leave entitlement because they do not meet continuity of service requirements—that is, they have not been in the job for the required length of time to qualify. The principle of this Bill has support across the House, and I was pleased to hear that reflected in the debate.</p>
+    <p pid="b520.2/5">Again, I thank my hon. Friend the Member for Broxtowe, who has long campaigned on this issue. We met his constituent in my early days as a Minister, and I thank him for bringing it to the House’s attention. We were always keen to do something when we could, and I am delighted to say that we now have the right time and space to do this. It was a pleasure to meet him and his constituent Mr Horsey, who is in the Gallery today, in the Department the year before last. I am sure the whole House will join me in expressing our condolences to Mr Horsey for the loss of his wife Bernadette and in sending our best wishes to him and their son Tim.</p>
+    <p pid="b520.2/6">I will take the time to address some of the points raised by hon. Members today, but I will first put on the record why the Government support the intent behind this legislation. Losing a partner is a truly devastating experience for anyone. The combination of the terrible grief and, as my hon. Friend <phrase class="honfriend" person_id="uk.org.publicwhip/person/24857" name="Fiona Bruce">the Member for Congleton (Fiona Bruce)</phrase> said, loneliness in these situations—the shadow Minister, <phrase class="honfriend" person_id="uk.org.publicwhip/person/10594" name="Gareth Thomas">the hon. Member for Harrow West (Gareth Thomas)</phrase>, called it “unimaginable”, which is an apt description—with the challenges of caring for a new baby must be incredibly hard. My deepest sympathies go out to anyone who finds themselves in this terrible position.</p>
+    <p pid="b520.2/7">The United Kingdom has a generous range of entitlements and protections designed to support parents to balance their family and work commitments and maintain their place in the labour market while raising their children—for example, maternity leave and pay, paternity leave and pay, and shared parental leave and pay, among others. Maternity leave is rightly available  from the first day of a woman’s employment, recognising the special circumstances of pregnant women and new mothers.</p>
+    <p pid="b520.2/8">Parental leave and shared parental leave are not day-one leave entitlements for mothers, fathers and partners; all parents must meet continuity of service requirements. As such, if a mother dies in the first year of a child’s life, a father or partner who has not met continuity of service requirements for paternity leave or shared parental leave will not have the statutory right to take leave so that they can care for the child. In those tragic but, thankfully, rare circumstances, they will need to rely on the compassion of their employer to provide them with adequate leave and job security. As the hon. Member for Ogmore says, though, some of these people are falling through the cracks.</p>
+    <p pid="b520.2/9">The intent of the Bill is to provide more support for the grieving and surviving parent when their spouse or partner has tragically passed away. The legislation will support people in those terrible circumstances to take time away from work to care for their new baby, without the risk and associated stress of being made to return to work before they are ready to do so. I am delighted that the Government are able to support this positive development in the parental leave and pay system.</p>
+    <p pid="b520.2/10">However, as is the case with any legislation, it is crucial to ensure that it is not only well intentioned, but practical and effective in achieving its intended effect. It is therefore important that I set out to the House today, as I have previously discussed with the hon. Member for Ogmore, the Government’s view that the Bill will require amendment in Committee to fully achieve its intended changes and operate effectively alongside existing parental leave legislation. I am delighted that the hon. Member has agreed to work with me to do that, and that we have a shared understanding of the need to create a legislative framework that not only supports families in their time of need, but does so in a way that is clear, fair and effective. Committee stage provides us with the opportunity to fine-tune the details of the Bill and address any potential gaps, issues or inconsistencies to ensure that it achieves its intended purpose. I will, of course, provide more information on the necessary changes ahead of Committee stage, but I will take a moment to highlight some of the areas in which we are considering amendments.</p>
+    <p pid="b520.2/11">First, we will need to consider what type of parental leave best meets the intention of the Bill. Secondly, we will need to analyse whether it is right to confine its scope to the death of the mother, or whether it should make broader provision for the death of other parents. Thirdly, we need to make sure that the changes we make integrate well into the wider framework of parental leave legislation. Finally, we intend to remove the pay element from this entitlement—I will explain why shortly. The hon. Member for Ogmore and I are in agreement on the removal of the pay element. As Members will have seen, the text of his Bill does not refer to pay, although I hear and understand his clear ambition to include it at a future stage. I concur with his point, though, that we should never let the perfect be the enemy of the good.</p>
+    <p pid="b520.2/12">All the UK’s statutory parental pay entitlements have a continuity of service requirement, including statutory maternity pay, statutory paternity pay, statutory shared parental pay and statutory adoption pay. They are designed to ensure that a parent has made a reasonable  contribution towards their employer’s business before that employer is required to administer statutory parental payments. Continuity of service requirements are designed to achieve a balance between the needs of employers and those of working parents.</p>
+    <p pid="b520.2/13">I will be able to give more details in Committee on the changes we intend to make to the Bill. In the spirit of collaboration, I encourage all Members to engage constructively in Committee. Our priority is to work together to deliver a piece of legislation that meets the needs of bereaved families, providing them with the support they require during one of life’s most challenging chapters.</p>
+    <p pid="b520.2/14">In response to the shadow Minister’s points about workers’ rights, the Government are committed to supporting the participation and progression of parents in the labour market to ensure that it is fair and works for parents. Our 2019 manifesto pledged changes to enhance workers’ rights and support people to stay in work. The Government have delivered on those commitments by supporting a package of six private Members’ Bills helping new parents, unpaid carers and hospitality workers; giving all employees easier access to flexible working; and giving workers a right to request a more predictable working pattern. We have been pleased with the successful progress of that legislation through Parliament, where it has received cross-party support, resulting in six Acts successfully receiving Royal Assent. The Government have already made good progress on laying secondary legislation in due course to implement those new Acts.</p>
+    <p pid="b520.2/15">The Employment Relations (Flexible Working) Act 2023, for example, will give all employees with 26 weeks’ continuous service the right to request flexible working, empowering employees to ask for a working arrangement that suits them and their unique circumstances.</p>
+    <p pid="b520.2/16">I take the point raised by my hon. Friend <phrase class="honfriend" person_id="uk.org.publicwhip/person/25905" name="James Daly">the Member for Bury North (James Daly)</phrase> about homeworking. Flexible working does not necessarily mean homeworking; it can mean different working times to suit people’s parental responsibilities—for example, different times during holidays—and it does not necessarily mean that people have to work from home. He is right to say that workers should work where they are most effective, and where employers require them to be.</p>
+    <p pid="b520.2/17">The Protections from Redundancy (Pregnancy and Family Leave) Act 2023 will provide greater protection to women who are on maternity leave or an employee who is on adoption or shared parental leave in a redundancy situation. That legislation will help to clamp down on poor or inappropriate practices, such as discriminating against pregnant women or new mothers, or waiting for a woman to return from maternity leave, and when the current protected period ends making her redundant.</p>
+    <p pid="b520.2/18">The Employment (Allocations of Tips) Act 2023 will make it unlawful for businesses to hold back tips, gratuities and service charges from employees, ensuring that staff receive the tips they have earned. This package of legislation will increase workforce participation, protect vulnerable workers, and level the playing field, ensuring that unscrupulous businesses do not have a competitive advantage. The legislation builds on the strengths of our flexible and dynamic labour market, and gives   businesses the confidence to create jobs and invest in their workforce, allowing them to generate long-term prosperity and economic growth.</p>
+    <p pid="b520.2/19">Protecting and enhancing workers’ rights while supporting business to grow remains a priority for this Government. We are determined to build a high-skilled, high-productivity, high-wage economy. A key part of the UK’s economic resilience is our strong, flexible, and dynamic labour market. It is a labour market that gives businesses the confidence to create jobs and invest in their workforce, and allows them to generate long-term prosperity and economic growth. It is a labour market that rightly bears down on unscrupulous employers, and protects those keeping to good working practices, promoting more competition in UK markets to build a high-skilled, high-productivity, high-wage economy.</p>
+</speech>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26b.524.0" newgid="uk.org.publicwhip/debate/2024-01-26c.524.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26b.524.1" newgid="uk.org.publicwhip/debate/2024-01-26c.524.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26b.525.0" newgid="uk.org.publicwhip/debate/2024-01-26c.525.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26b.525.1" newgid="uk.org.publicwhip/debate/2024-01-26c.525.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26b.526.0" newgid="uk.org.publicwhip/debate/2024-01-26c.526.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26b.526.1" newgid="uk.org.publicwhip/debate/2024-01-26c.526.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26b.526.2" newgid="uk.org.publicwhip/debate/2024-01-26c.526.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26b.528.0" newgid="uk.org.publicwhip/debate/2024-01-26c.528.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26b.528.1" newgid="uk.org.publicwhip/debate/2024-01-26c.528.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26b.528.2" newgid="uk.org.publicwhip/debate/2024-01-26c.528.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26b.528.3" newgid="uk.org.publicwhip/debate/2024-01-26c.528.3" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26b.529.0" newgid="uk.org.publicwhip/debate/2024-01-26c.529.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26b.529.1" newgid="uk.org.publicwhip/debate/2024-01-26c.529.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26b.529.2" newgid="uk.org.publicwhip/debate/2024-01-26c.529.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26b.531.0" newgid="uk.org.publicwhip/debate/2024-01-26c.531.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26b.531.1" newgid="uk.org.publicwhip/debate/2024-01-26c.531.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26b.532.0" newgid="uk.org.publicwhip/debate/2024-01-26c.532.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26b.532.1" newgid="uk.org.publicwhip/debate/2024-01-26c.532.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26b.532.2" newgid="uk.org.publicwhip/debate/2024-01-26c.532.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26b.533.0" newgid="uk.org.publicwhip/debate/2024-01-26c.533.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26b.533.1" newgid="uk.org.publicwhip/debate/2024-01-26c.533.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26b.534.0" newgid="uk.org.publicwhip/debate/2024-01-26c.534.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26b.536.0" newgid="uk.org.publicwhip/debate/2024-01-26c.536.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26b.537.0" newgid="uk.org.publicwhip/debate/2024-01-26c.537.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26b.537.1" newgid="uk.org.publicwhip/debate/2024-01-26c.537.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26b.538.0" newgid="uk.org.publicwhip/debate/2024-01-26c.538.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26b.538.1" newgid="uk.org.publicwhip/debate/2024-01-26c.538.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26b.539.0" newgid="uk.org.publicwhip/debate/2024-01-26c.539.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26b.541.0" newgid="uk.org.publicwhip/debate/2024-01-26c.541.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26b.543.0" newgid="uk.org.publicwhip/debate/2024-01-26c.543.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26b.544.0" newgid="uk.org.publicwhip/debate/2024-01-26c.544.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26b.544.1" newgid="uk.org.publicwhip/debate/2024-01-26c.544.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26b.546.0" newgid="uk.org.publicwhip/debate/2024-01-26c.546.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26b.547.0" newgid="uk.org.publicwhip/debate/2024-01-26c.547.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26b.548.0" newgid="uk.org.publicwhip/debate/2024-01-26c.548.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26b.548.1" newgid="uk.org.publicwhip/debate/2024-01-26c.548.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26b.549.0" newgid="uk.org.publicwhip/debate/2024-01-26c.549.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26b.549.1" newgid="uk.org.publicwhip/debate/2024-01-26c.549.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26b.549.2" newgid="uk.org.publicwhip/debate/2024-01-26c.549.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26b.551.0" newgid="uk.org.publicwhip/debate/2024-01-26c.551.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26b.551.1" newgid="uk.org.publicwhip/debate/2024-01-26c.551.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26b.551.2" newgid="uk.org.publicwhip/debate/2024-01-26c.551.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26b.551.3" newgid="uk.org.publicwhip/debate/2024-01-26c.551.3" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26b.552.0" newgid="uk.org.publicwhip/debate/2024-01-26c.552.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26b.552.1" newgid="uk.org.publicwhip/debate/2024-01-26c.552.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26b.554.0" newgid="uk.org.publicwhip/debate/2024-01-26c.554.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26b.556.0" newgid="uk.org.publicwhip/debate/2024-01-26c.556.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26b.556.1" newgid="uk.org.publicwhip/debate/2024-01-26c.556.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26b.556.2" newgid="uk.org.publicwhip/debate/2024-01-26c.556.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26b.557.0" newgid="uk.org.publicwhip/debate/2024-01-26c.557.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26b.557.1" newgid="uk.org.publicwhip/debate/2024-01-26c.557.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26b.559.0" newgid="uk.org.publicwhip/debate/2024-01-26c.559.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26b.560.0" newgid="uk.org.publicwhip/debate/2024-01-26c.560.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26b.560.1" newgid="uk.org.publicwhip/debate/2024-01-26c.560.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26b.561.0" newgid="uk.org.publicwhip/debate/2024-01-26c.561.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26b.563.0" newgid="uk.org.publicwhip/debate/2024-01-26c.563.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26b.563.1" newgid="uk.org.publicwhip/debate/2024-01-26c.563.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26b.564.0" newgid="uk.org.publicwhip/debate/2024-01-26c.564.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26b.564.1" newgid="uk.org.publicwhip/debate/2024-01-26c.564.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26b.564.2" newgid="uk.org.publicwhip/debate/2024-01-26c.564.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26b.565.0" newgid="uk.org.publicwhip/debate/2024-01-26c.565.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26b.565.1" newgid="uk.org.publicwhip/debate/2024-01-26c.565.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26b.568.0" newgid="uk.org.publicwhip/debate/2024-01-26c.568.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26b.569.0" newgid="uk.org.publicwhip/debate/2024-01-26c.569.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26b.571.0" newgid="uk.org.publicwhip/debate/2024-01-26c.571.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26b.571.1" newgid="uk.org.publicwhip/debate/2024-01-26c.571.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26b.573.0" newgid="uk.org.publicwhip/debate/2024-01-26c.573.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26b.575.0" newgid="uk.org.publicwhip/debate/2024-01-26c.575.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26b.575.1" newgid="uk.org.publicwhip/debate/2024-01-26c.575.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26b.576.0" newgid="uk.org.publicwhip/debate/2024-01-26c.576.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26b.576.1" newgid="uk.org.publicwhip/debate/2024-01-26c.576.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26b.576.2" newgid="uk.org.publicwhip/debate/2024-01-26c.576.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26b.578.0" newgid="uk.org.publicwhip/debate/2024-01-26c.578.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26b.579.0" newgid="uk.org.publicwhip/debate/2024-01-26c.579.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26b.579.1" newgid="uk.org.publicwhip/debate/2024-01-26c.579.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26b.579.2" newgid="uk.org.publicwhip/debate/2024-01-26c.579.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26b.579.3" newgid="uk.org.publicwhip/debate/2024-01-26c.579.3" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26b.579.4" newgid="uk.org.publicwhip/debate/2024-01-26c.579.4" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26b.579.5" newgid="uk.org.publicwhip/debate/2024-01-26c.579.5" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26b.579.6" newgid="uk.org.publicwhip/debate/2024-01-26c.579.6" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26b.579.7" newgid="uk.org.publicwhip/debate/2024-01-26c.579.7" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26b.579.8" newgid="uk.org.publicwhip/debate/2024-01-26c.579.8" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26b.579.9" newgid="uk.org.publicwhip/debate/2024-01-26c.579.9" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26b.579.10" newgid="uk.org.publicwhip/debate/2024-01-26c.579.10" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26b.580.0" newgid="uk.org.publicwhip/debate/2024-01-26c.580.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26b.580.1" newgid="uk.org.publicwhip/debate/2024-01-26c.580.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26b.580.2" newgid="uk.org.publicwhip/debate/2024-01-26c.580.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26b.583.0" newgid="uk.org.publicwhip/debate/2024-01-26c.583.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26b.584.0" newgid="uk.org.publicwhip/debate/2024-01-26c.584.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26b.584.1" newgid="uk.org.publicwhip/debate/2024-01-26c.584.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26b.584.2" newgid="uk.org.publicwhip/debate/2024-01-26c.584.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26b.585.0" newgid="uk.org.publicwhip/debate/2024-01-26c.585.0" matchtype="perfectmatch"/>
+</publicwhip>
+

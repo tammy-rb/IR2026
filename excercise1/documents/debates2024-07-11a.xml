@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<!DOCTYPE publicwhip
+[
+<!ENTITY ndash   "&#8211;">
+<!ENTITY mdash   "&#8212;">
+<!ENTITY iexcl   "&#161;">
+<!ENTITY divide  "&#247;">
+<!ENTITY euro    "&#8364;">
+<!ENTITY trade   "&#8482;">
+<!ENTITY bull    "&#8226;">
+<!ENTITY lsquo   "&#8216;">
+<!ENTITY rsquo   "&#8217;">
+<!ENTITY sbquo   "&#8218;">
+<!ENTITY ldquo   "&#8220;">
+<!ENTITY rdquo   "&#8221;">
+<!ENTITY bdquo   "&#8222;">
+<!ENTITY dagger  "&#8224;">
+
+<!ENTITY Ouml   "&#214;" >
+<!ENTITY szlig  "&#223;" >
+<!ENTITY agrave "&#224;" >
+<!ENTITY aacute "&#225;" >
+<!ENTITY acirc  "&#226;" >
+<!ENTITY atilde "&#227;" >
+<!ENTITY auml   "&#228;" >
+<!ENTITY ccedil "&#231;" >
+<!ENTITY egrave "&#232;" >
+<!ENTITY eacute "&#233;" >
+<!ENTITY ecirc  "&#234;" >
+<!ENTITY euml   "&#235;" >
+<!ENTITY iacute "&#237;" >
+<!ENTITY icirc  "&#238;" >
+<!ENTITY iuml	"&#239;" >
+<!ENTITY ntilde "&#241;" >
+<!ENTITY nbsp   "&#160;" >
+<!ENTITY oacute "&#243;" >
+<!ENTITY ocirc  "&#244;" >
+<!ENTITY ouml   "&#246;" >
+<!ENTITY oslash "&#248;" >
+<!ENTITY uacute "&#250;" >
+<!ENTITY uuml   "&#252;" >
+<!ENTITY thorn  "&#254;" >
+
+<!ENTITY pound  "&#163;" >
+<!ENTITY sect   "&#167;" >
+<!ENTITY copy   "&#169;" >
+<!ENTITY reg    "&#174;" >
+<!ENTITY deg    "&#176;" >
+<!ENTITY plusmn "&#177;" >
+<!ENTITY sup2   "&#178;" >
+<!ENTITY micro  "&#181;" >
+<!ENTITY para   "&#182;" >
+<!ENTITY middot "&#183;" >
+<!ENTITY ordm   "&#186;" >
+<!ENTITY frac14 "&#188;" >
+<!ENTITY frac12 "&#189;" >
+<!ENTITY frac34 "&#190;" >
+<!ENTITY oelig "&#339;" >
+<!ENTITY aelig  "&#230;" >
+
+]>
+
+<publicwhip scrapeversion="/home/twfy-live/parldata/scrapedxml/debates/debates2024-07-11a.xml" latest="no">
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-07-11a.31.0" newgid="uk.org.publicwhip/debate/2024-07-11b.31.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-07-11a.31.1" newgid="uk.org.publicwhip/debate/2024-07-11b.31.1" matchtype="changes"/>
+<speech id="uk.org.publicwhip/debate/2024-07-11a.31.1" speakername="Lindsay Hoyle" person_id="uk.org.publicwhip/person/10295" colnum="31" time="" url="">
+     <p pid="a31.1/1">I remind the House that I expect to be in the Chair today until 11.30 am. I will make an announcement later about when the House will meet next week.</p>
+    <p pid="a31.1/2">Can I encourage all Members who have not already taken the Oath to come to the Chamber this morning and do so?</p>
+    <p pid="a31.1/3">Will Members wishing to take their seats please come to the Table?</p>
+    <p pid="a31.1/4" class="italic">The following Members took and subscribed the Oath, or made and subscribed the Affirmation required by law:</p>
+    <p pid="a31.1/5">Right honourable David Gordon Mundell, for  Dumfriesshire, Clydesdale and Tweeddale</p>
+    <p pid="a31.1/6">Helen Elaine Maguire, Epsom and Ewell</p>
+    <p pid="a31.1/7">Tahir Ali, Birmingham Hall Green and Moseley</p>
+    <p pid="a31.1/8">Alistair Scott Carns, Birmingham Selly Oak</p>
+    <p pid="a31.1/9">Georgia Anne Rebuck Gould, Queen’s Park and  Maida Vale</p>
+    <p pid="a31.1/10">Torcuil Chrichton, Na h-Eileanan an Iar</p>
+    <p pid="a31.1/11">Rebecca Gittins, Clwyd East</p>
+    <p pid="a31.1/12">James Richard Frith, Bury North</p>
+    <p pid="a31.1/13">Nicholas James Timothy, West Suffolk</p>
+    <p pid="a31.1/14">Liam Joseph Conlon, Beckenham and Penge</p>
+    <p pid="a31.1/15">Miatta Nema Fahnbulleh, Peckham</p>
+    <p pid="a31.1/16">Joshua Cameron Simons, Makerfield</p>
+    <p pid="a31.1/17" class="italic">Sitting suspended.</p>
+    <p pid="a31.1/18" class="italic">On resuming—</p>
+    <p pid="a31.1/19">The following Members took and subscribed the Oath, or made and subscribed the Affirmation required by law:</p>
+    <p pid="a31.1/20">Lewis Malcolm Atkinson, for Sunderland Central</p>
+    <p pid="a31.1/21">Juan Timothy Charles Roca, Macclesfield</p>
+    <p pid="a31.1/22">Amanda Louise Martin, Portsmouth North</p>
+    <p pid="a31.1/23">Michelle Welsh, Sherwood Forest</p>
+    <p pid="a31.1/24">Nigel Paul Farage, Clacton</p>
+    <p pid="a31.1/25">Kirsty Ann Blackman, Aberdeen North</p>
+    <p pid="a31.1/26">Right honourable Sue-Ellen Cassiana Braverman, Fareham and Waterlooville</p>
+    <p pid="a31.1/27">Andrew Graham Cooper, Mid Cheshire</p>
+    <p pid="a31.1/28">Jennifer Craft, Thurrock</p>
+    <p pid="a31.1/29">Paul Christopher Kohler, Wimbledon</p>
+    <p pid="a31.1/30">Carolyn Harris, Neath and Swansea East</p>
+    <p pid="a31.1/31">Graham Leadbitter, Moray West, Nairn and Strathspey</p>
+    <p pid="a31.1/32">Sarah Madeleine Webster Smith, Hyndburn</p>
+    <p pid="a31.1/33">Shockat Hussain Adam, Leicester South</p>
+    <p pid="a31.1/34">Iqbal Hussain Mohamed, Dewsbury and Batley</p>
+    <p pid="a31.1/35">Right honourable Thomas Georg John Tugendhat,  Tonbridge</p>
+    <p pid="a31.1/36" class="italic">Sitting suspended.</p>
+    <p pid="a31.1/37" class="italic">On resuming—</p>
+    <p pid="a31.1/38">The following Members took and subscribed the Oath, or made and subscribed the Affirmation required by law:</p>
+    <p pid="a31.1/39">Rushanara Ali, for Bethnal Green and Stepney</p>
+    <p pid="a31.1/40">Mary Helen Creagh, Coventry East</p>
+    <p pid="a31.1/41">Natalie Sarah Fleet, Bolsover</p>
+</speech>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-07-11a.32.0" newgid="uk.org.publicwhip/debate/2024-07-11b.32.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-07-11a.32.1" newgid="uk.org.publicwhip/debate/2024-07-11b.32.1" matchtype="perfectmatch"/>
+</publicwhip>
+

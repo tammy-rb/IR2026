@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<!DOCTYPE publicwhip
+[
+<!ENTITY ndash   "&#8211;">
+<!ENTITY mdash   "&#8212;">
+<!ENTITY iexcl   "&#161;">
+<!ENTITY divide  "&#247;">
+<!ENTITY euro    "&#8364;">
+<!ENTITY trade   "&#8482;">
+<!ENTITY bull    "&#8226;">
+<!ENTITY lsquo   "&#8216;">
+<!ENTITY rsquo   "&#8217;">
+<!ENTITY sbquo   "&#8218;">
+<!ENTITY ldquo   "&#8220;">
+<!ENTITY rdquo   "&#8221;">
+<!ENTITY bdquo   "&#8222;">
+<!ENTITY dagger  "&#8224;">
+
+<!ENTITY Ouml   "&#214;" >
+<!ENTITY szlig  "&#223;" >
+<!ENTITY agrave "&#224;" >
+<!ENTITY aacute "&#225;" >
+<!ENTITY acirc  "&#226;" >
+<!ENTITY atilde "&#227;" >
+<!ENTITY auml   "&#228;" >
+<!ENTITY ccedil "&#231;" >
+<!ENTITY egrave "&#232;" >
+<!ENTITY eacute "&#233;" >
+<!ENTITY ecirc  "&#234;" >
+<!ENTITY euml   "&#235;" >
+<!ENTITY iacute "&#237;" >
+<!ENTITY icirc  "&#238;" >
+<!ENTITY iuml	"&#239;" >
+<!ENTITY ntilde "&#241;" >
+<!ENTITY nbsp   "&#160;" >
+<!ENTITY oacute "&#243;" >
+<!ENTITY ocirc  "&#244;" >
+<!ENTITY ouml   "&#246;" >
+<!ENTITY oslash "&#248;" >
+<!ENTITY uacute "&#250;" >
+<!ENTITY uuml   "&#252;" >
+<!ENTITY thorn  "&#254;" >
+
+<!ENTITY pound  "&#163;" >
+<!ENTITY sect   "&#167;" >
+<!ENTITY copy   "&#169;" >
+<!ENTITY reg    "&#174;" >
+<!ENTITY deg    "&#176;" >
+<!ENTITY plusmn "&#177;" >
+<!ENTITY sup2   "&#178;" >
+<!ENTITY micro  "&#181;" >
+<!ENTITY para   "&#182;" >
+<!ENTITY middot "&#183;" >
+<!ENTITY ordm   "&#186;" >
+<!ENTITY frac14 "&#188;" >
+<!ENTITY frac12 "&#189;" >
+<!ENTITY frac34 "&#190;" >
+<!ENTITY oelig "&#339;" >
+<!ENTITY aelig  "&#230;" >
+
+]>
+
+<publicwhip scrapeversion="/home/twfy-live/parldata/scrapedxml/debates/debates2024-01-26a.xml" latest="no">
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26a.505.0" newgid="uk.org.publicwhip/debate/2024-01-26b.505.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26a.505.1" newgid="uk.org.publicwhip/debate/2024-01-26b.505.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26a.505.2" newgid="uk.org.publicwhip/debate/2024-01-26b.505.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26a.505.3" newgid="uk.org.publicwhip/debate/2024-01-26b.505.3" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26a.505.4" newgid="uk.org.publicwhip/debate/2024-01-26b.505.4" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26a.505.5" newgid="uk.org.publicwhip/debate/2024-01-26b.505.5" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26a.505.6" newgid="uk.org.publicwhip/debate/2024-01-26b.505.6" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26a.509.0" newgid="uk.org.publicwhip/debate/2024-01-26b.509.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26a.511.0" newgid="uk.org.publicwhip/debate/2024-01-26b.511.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26a.511.1" newgid="uk.org.publicwhip/debate/2024-01-26b.511.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26a.512.0" newgid="uk.org.publicwhip/debate/2024-01-26b.512.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26a.512.1" newgid="uk.org.publicwhip/debate/2024-01-26b.512.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26a.514.0" newgid="uk.org.publicwhip/debate/2024-01-26b.514.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26a.516.0" newgid="uk.org.publicwhip/debate/2024-01-26b.516.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26a.517.0" newgid="uk.org.publicwhip/debate/2024-01-26b.517.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26a.517.1" newgid="uk.org.publicwhip/debate/2024-01-26b.517.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26a.517.2" newgid="uk.org.publicwhip/debate/2024-01-26b.517.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26a.517.3" newgid="uk.org.publicwhip/debate/2024-01-26b.517.3" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26a.518.0" newgid="uk.org.publicwhip/debate/2024-01-26b.518.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26a.518.1" newgid="uk.org.publicwhip/debate/2024-01-26b.518.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26a.520.0" newgid="uk.org.publicwhip/debate/2024-01-26b.520.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26a.520.1" newgid="uk.org.publicwhip/debate/2024-01-26b.520.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26a.520.2" newgid="uk.org.publicwhip/debate/2024-01-26b.520.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26a.524.0" newgid="uk.org.publicwhip/debate/2024-01-26b.524.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26a.524.1" newgid="uk.org.publicwhip/debate/2024-01-26b.524.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26a.525.0" newgid="uk.org.publicwhip/debate/2024-01-26b.525.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26a.525.1" newgid="uk.org.publicwhip/debate/2024-01-26b.525.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26a.526.0" newgid="uk.org.publicwhip/debate/2024-01-26b.526.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26a.526.1" newgid="uk.org.publicwhip/debate/2024-01-26b.526.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26a.526.2" newgid="uk.org.publicwhip/debate/2024-01-26b.526.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26a.528.0" newgid="uk.org.publicwhip/debate/2024-01-26b.528.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26a.528.1" newgid="uk.org.publicwhip/debate/2024-01-26b.528.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26a.528.2" newgid="uk.org.publicwhip/debate/2024-01-26b.528.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26a.528.3" newgid="uk.org.publicwhip/debate/2024-01-26b.528.3" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26a.529.0" newgid="uk.org.publicwhip/debate/2024-01-26b.529.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26a.529.1" newgid="uk.org.publicwhip/debate/2024-01-26b.529.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26a.529.2" newgid="uk.org.publicwhip/debate/2024-01-26b.529.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26a.531.0" newgid="uk.org.publicwhip/debate/2024-01-26b.531.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26a.531.1" newgid="uk.org.publicwhip/debate/2024-01-26b.531.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26a.532.0" newgid="uk.org.publicwhip/debate/2024-01-26b.532.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26a.532.1" newgid="uk.org.publicwhip/debate/2024-01-26b.532.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26a.532.2" newgid="uk.org.publicwhip/debate/2024-01-26b.532.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26a.533.0" newgid="uk.org.publicwhip/debate/2024-01-26b.533.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26a.533.1" newgid="uk.org.publicwhip/debate/2024-01-26b.533.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26a.534.0" newgid="uk.org.publicwhip/debate/2024-01-26b.534.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26a.536.0" newgid="uk.org.publicwhip/debate/2024-01-26b.536.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26a.537.0" newgid="uk.org.publicwhip/debate/2024-01-26b.537.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26a.537.1" newgid="uk.org.publicwhip/debate/2024-01-26b.537.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26a.538.0" newgid="uk.org.publicwhip/debate/2024-01-26b.538.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26a.538.1" newgid="uk.org.publicwhip/debate/2024-01-26b.538.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26a.539.0" newgid="uk.org.publicwhip/debate/2024-01-26b.539.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26a.541.0" newgid="uk.org.publicwhip/debate/2024-01-26b.541.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26a.543.0" newgid="uk.org.publicwhip/debate/2024-01-26b.543.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26a.544.0" newgid="uk.org.publicwhip/debate/2024-01-26b.544.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26a.544.1" newgid="uk.org.publicwhip/debate/2024-01-26b.544.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26a.546.0" newgid="uk.org.publicwhip/debate/2024-01-26b.546.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26a.547.0" newgid="uk.org.publicwhip/debate/2024-01-26b.547.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26a.548.0" newgid="uk.org.publicwhip/debate/2024-01-26b.548.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26a.548.1" newgid="uk.org.publicwhip/debate/2024-01-26b.548.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26a.549.0" newgid="uk.org.publicwhip/debate/2024-01-26b.549.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26a.549.1" newgid="uk.org.publicwhip/debate/2024-01-26b.549.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26a.549.2" newgid="uk.org.publicwhip/debate/2024-01-26b.549.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26a.551.0" newgid="uk.org.publicwhip/debate/2024-01-26b.551.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26a.551.1" newgid="uk.org.publicwhip/debate/2024-01-26b.551.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26a.551.2" newgid="uk.org.publicwhip/debate/2024-01-26b.551.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26a.551.3" newgid="uk.org.publicwhip/debate/2024-01-26b.551.3" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26a.552.0" newgid="uk.org.publicwhip/debate/2024-01-26b.552.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26a.552.1" newgid="uk.org.publicwhip/debate/2024-01-26b.552.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26a.554.0" newgid="uk.org.publicwhip/debate/2024-01-26b.554.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26a.556.0" newgid="uk.org.publicwhip/debate/2024-01-26b.556.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26a.556.1" newgid="uk.org.publicwhip/debate/2024-01-26b.556.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26a.556.2" newgid="uk.org.publicwhip/debate/2024-01-26b.556.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26a.557.0" newgid="uk.org.publicwhip/debate/2024-01-26b.557.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26a.557.1" newgid="uk.org.publicwhip/debate/2024-01-26b.557.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26a.559.0" newgid="uk.org.publicwhip/debate/2024-01-26b.559.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26a.560.0" newgid="uk.org.publicwhip/debate/2024-01-26b.560.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26a.560.1" newgid="uk.org.publicwhip/debate/2024-01-26b.560.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26a.561.0" newgid="uk.org.publicwhip/debate/2024-01-26b.561.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26a.563.0" newgid="uk.org.publicwhip/debate/2024-01-26b.563.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26a.563.1" newgid="uk.org.publicwhip/debate/2024-01-26b.563.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26a.564.0" newgid="uk.org.publicwhip/debate/2024-01-26b.564.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26a.564.1" newgid="uk.org.publicwhip/debate/2024-01-26b.564.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26a.564.2" newgid="uk.org.publicwhip/debate/2024-01-26b.564.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26a.565.0" newgid="uk.org.publicwhip/debate/2024-01-26b.565.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26a.565.1" newgid="uk.org.publicwhip/debate/2024-01-26b.565.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26a.568.0" newgid="uk.org.publicwhip/debate/2024-01-26b.568.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26a.569.0" newgid="uk.org.publicwhip/debate/2024-01-26b.569.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26a.571.0" newgid="uk.org.publicwhip/debate/2024-01-26b.571.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26a.571.1" newgid="uk.org.publicwhip/debate/2024-01-26b.571.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26a.573.0" newgid="uk.org.publicwhip/debate/2024-01-26b.573.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26a.575.0" newgid="uk.org.publicwhip/debate/2024-01-26b.575.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26a.575.1" newgid="uk.org.publicwhip/debate/2024-01-26b.575.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26a.576.0" newgid="uk.org.publicwhip/debate/2024-01-26b.576.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26a.576.1" newgid="uk.org.publicwhip/debate/2024-01-26b.576.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26a.576.2" newgid="uk.org.publicwhip/debate/2024-01-26b.576.2" matchtype="multiplecover"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26a.576.2" newgid="uk.org.publicwhip/debate/2024-01-26b.578.0" matchtype="multiplecover"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26a.576.2" newgid="uk.org.publicwhip/debate/2024-01-26b.579.0" matchtype="multiplecover"/>
+<speech id="uk.org.publicwhip/debate/2024-01-26a.576.2" speakername="Helen Morgan" type="Start Speech" person_id="uk.org.publicwhip/person/26056" colnum="576" time="14:17:00" url="">
+    <p pid="a576.2/1">I beg to move, That the Bill be now read the Second time.</p>
+    <p pid="a576.2/2">The Access to Telecommunications Networks Bill seeks to ensure that, wherever someone lives, they can choose which operator their mobile phone will connect to. We had a Westminster Hall debate on this on Wednesday, so there is an inevitable element of repetition, but if something is worth saying once, it is probably worth saying twice, and there was good cross-party support for improving and speeding up the roll-out of the shared rural network.</p>
+    <p pid="a576.2/3">The network is the Government’s scheme to increase 4G coverage from 91% to 95% of the UK land mass by 2025, and it is welcome, as is the Government’s investment of half a billion pounds on new masts for total notspots where no signal is available. However, the roll-out is not progressing as quickly as we would like, so this Bill seeks to improve or speed up the rate at which people in places in my constituency such as Cockshutt, Woore or West Felton get a usable phone signal from more than one provider wherever they travel in the local area.</p>
+    <p pid="a576.2/4">Improved rural coverage is really important for all sorts of reasons. Most importantly to me, it is one of the top issues raised by my constituents—I had a series of open meetings over the summer where it came up time and again as something that people find frustrating in their daily lives—and if it is their issue, it is my issue. That is one of the reasons why I have been so keen to pursue it in this place.</p>
+    <p pid="a576.2/5">According to a survey for the Country Land and Business Association, 80% of rural business owners said that improved connectivity would make the single largest improvement to their business. That is partly because they struggle to recruit, which is linked to poor public transport, but it is also important for the people they might want to employ to be able to access a wider range of job opportunities and to work flexibly from home in a way that is not always currently available to people in rural areas.</p>
+    <p pid="a576.2/6">Mobile phones have been cited as the default back-up option in a power cut once the copper landline network is switched off in the next couple of years. I emphasise how concerning that is, particularly to elderly constituents who might be a little less familiar with “voice over internet” technology, as well as everybody in the area who is worried about what happens when a big power cut occurs. Because we are rural, our power is not put back online as quickly as in some urban areas, and while back-up batteries for routers will last for one to two hours, we are sometimes off for much longer than that. Someone at home on their own in the dark and frightened might want to be able to call someone other than the emergency services in the event of a power cut. It is really important that people can access their mobile provider—whoever that might be—when the power is down.</p>
+    <p pid="a576.2/7">Respondents to a survey recently conducted by Building Digital UK cited poor mobile coverage as a major factor exacerbating poor outcomes from agricultural injuries. I do not wish to dwell on disaster, but a couple  of years ago we saw a number of combine harvester fires across my constituency. If such people are in a partial notspot, they can already ring 999 from their phone, but in that situation they might want to call all sorts of other people to help them.</p>
+    <p pid="a576.2/8">It is not just 999 calls that are needed. Just over a year ago, I did a shift with an ambulance crew, where the crew used a mobile signal to download patient data on to their tablets to help with patients’ conditions. We visited an elderly lady near Ellesmere who was very poorly, and although we were quite close to the town centre, the crew could not download her medical record, so her care was necessarily compromised compared with what somebody in an urban area might expect.</p>
+    <p pid="a576.2/9">Finally, improved rural coverage would reduce digital inequality, which is talked about a lot in this place. Many people do not feel that comfortable on a full broadband-connected computer but have learned how to use a phone—it is part of everyday life—and if they cannot use it as they move around on their daily routine, they are left out to a great extent.</p>
+    <p pid="a576.2/10">We all understand that there are technical challenges to building masts in rural areas—not least in getting a power supply out there—and that that is why there is a disparity between rural and urban areas. That is a fact of life when living in a rural area—I think people do understand that—but North Shropshire is one of the worst served areas in the country. Less than 60% of premises have coverage indoors from all operators, when the average for the whole of the UK is 86%. Once we move away from the towns and into the villages, less than one in three can choose which operator they have in their home.</p>
+    <p pid="a576.2/11">As we know—we have talked about this at length and the Minister acknowledged it in oral questions recently—the coverage data is very optimistic and does not always reflect what is happening on the ground. For example, in North Shropshire I have been to talk to people in Trefonen, where some maps say they should have coverage but that is not the lived experience. There is also a capacity issue whereby the coverage might be there but calls might drop out regularly because other people are linked up to that mast at the same time. The data we use to assess the success of the roll-out is therefore very important.</p>
+    <p pid="a576.2/12">As I mentioned, the shared rural network has involved the four mobile network operators spending half a billion pounds to end partial notspots. Because EE already had an extensive network of mobile masts, it has already met its obligations even though the deadline was June 2024—it is six months ahead—but according to reports in The Daily Telegraph, the other three providers have requested a delay. That is down to a number of reasons, some of which are difficult to overcome, such as lack of planning resource, the logistical challenges I mentioned earlier, and issues over access to land. Those are impacting the delivery of the shared rural network. It is interesting that not a single mast that will be delivered by the Government for the total notspots has been built yet, according to the House of Commons Library briefing.</p>
+    <p pid="a576.2/13">There are challenges that are difficult to overcome, but part of the problem is that EE has not shared its masts, because it has failed to reach agreement with the other mobile network operators. That is a commercial issue and was part of the commercial negotiations, so  whether EE was asking for too high a rate, or whether the other mobile operators were offering too low a rate, is a matter of perspective, but the reality is that we could have achieved better coverage without blighting the countryside with loads of additional masts if those operators had shared their network equipment effectively. That is where this Bill comes in, because it would ensure that operators share their equipment wherever possible, and would penalise them where they do not. The rate at which they would share it would be determined by Ofcom to help ease the commercial discussion along.</p>
+    <p pid="a576.2/14">Sometimes sharing is not possible—sometimes a bigger, wider, stronger mast is needed and that might not be possible—and that brings me to the solution of rural roaming, which is strongly opposed by the industry. The industry argues that it causes shortened battery life, people might drop calls, it does not deal with total notspots and, perhaps most importantly, it would undermine future investment, presumably because competitive advantage would be undermined. However, an Environment, Food and Rural Affairs Committee report in 2019 said that it would achieve an equivalent result to the shared rural network and be achievable in around 18 months. An Ofcom report in 2018 said that the cost did not appear disproportionate.</p>
+    <p pid="a576.2/15">Since those reports, the shared rural network agreement has been signed, but there are significant concerns about the speed of roll-out, the quality of the data we are using to judge success, and the fact that this is yesterday’s technology and we are not yet there in the countryside—while the rest of the country is hoping to get 5G or stand-alone 5G in the near future. The Bill would address those shortfalls by requiring the Secretary of State to improve rural roaming by incentivising companies to engage in that work.</p>
+    <p pid="a576.2/16">In conclusion, I cannot emphasise enough—separately from the mechanism of this Bill—the importance of having better data so that when the shared rural network is assessed against its objectives, we can see what people are experiencing on the ground. We know that rural roaming will not happen unless we force the companies to do it, because they have already shown such strong resistance, and the Government have acknowledged that.</p>
+    <p pid="a576.2/17">This Bill would work alongside the shared rural network by taking steps to improve the infrastructure sharing and encouraging rural roaming wherever possible. People might be with an operator that works at their home, and they could be out and about in their day when their mum falls over at home. She might call an ambulance, but she cannot get hold of that person to tell them. That is problematic in the modern age. We need to ensure that people in rural areas are connected wherever they go, not just when they are in their home or place of work.</p>
+    <p pid="a576.2/18">Matt Rodda (Reading East) (Lab): I will address a number of issues when responding for the official Opposition, and I take this opportunity to underline the importance of increasing access to broadband and the wider need for greater connectivity.</p>
+    <p pid="a576.2/19">The Bill of <phrase class="honfriend" person_id="uk.org.publicwhip/person/26056" name="Helen Morgan">the hon. Member for North Shropshire (Helen Morgan)</phrase> would have two effects, as I understand it. First, it would require mobile network operators to  share their network infrastructure for a reasonable price. Secondly, it would incentivise operators to allow customers of other companies to roam on to their network. As she mentioned, this is known as rural roaming, and it is similar to what happens when travelling abroad. These measures are intended to tackle partial notspots, but it is worth noting that the Bill would not address total notspots—areas that do not receive any coverage from any mobile network operator.</p>
+    <p pid="a576.2/20">Turning to the first of those effects, there are occasional concerns about telecom networks having infrastructure access. As I understand it, one of the main issues is in areas, such as the city of Hull, where there is a monopoly company—in that case, KCOM—or in situations across the rest of the country where Openreach is the monopoly provider. Across the country, there have been repeated issues with the use of telecoms infrastructure, in particular the repeated digging up of roads. There are legitimate questions.</p>
+    <p pid="a576.2/21">Jack Brereton (Stoke-on-Trent South) (Con): We are seeing this issue in my constituency at the moment, with roads being dug up. Virgin Media is creating absolute chaos across the constituency by digging up the roads, and the work it is doing to put things back to how they were is an utter disgrace. Does the hon. Gentleman—</p>
+    <p pid="a576.2/22">The debate stood adjourned (<phrase class="standing-order" code="11(2)">Standing Order No. 11(2)</phrase>).</p>
+    <p pid="a576.2/23">Ordered, That the debate be resumed on <phrase class="date" code="">Friday 21 June</phrase>.</p>
+</speech>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26a.579.0" newgid="uk.org.publicwhip/debate/2024-01-26b.579.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26a.579.1" newgid="uk.org.publicwhip/debate/2024-01-26b.579.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26a.579.2" newgid="uk.org.publicwhip/debate/2024-01-26b.579.3" matchtype="multiplecover"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26a.579.2" newgid="uk.org.publicwhip/debate/2024-01-26b.579.4" matchtype="multiplecover"/>
+<speech id="uk.org.publicwhip/debate/2024-01-26a.579.2" nospeaker="true" colnum="579" time="14:30:00" url="">
+    <p pid="a579.2/1">Motion made, That the Bill be now read a Second time.</p>
+    <p pid="a579.2/2">Hon. Members: Object.</p>
+    <p pid="a579.2/3">Bill to be read a Second time on <phrase class="date" code="">Friday 21 June</phrase>.</p>
+</speech>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26a.579.3" newgid="uk.org.publicwhip/debate/2024-01-26b.579.5" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26a.579.4" newgid="uk.org.publicwhip/debate/2024-01-26b.579.6" matchtype="multiplecover"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26a.579.4" newgid="uk.org.publicwhip/debate/2024-01-26b.579.7" matchtype="multiplecover"/>
+<speech id="uk.org.publicwhip/debate/2024-01-26a.579.4" nospeaker="true" colnum="579" time="14:30:00" url="">
+    <p pid="a579.4/1">Motion made, That the Bill be now read a Second time.</p>
+    <p pid="a579.4/2">Hon. Members: Object.</p>
+    <p pid="a579.4/3">Bill to be read a Second time on <phrase class="date" code="">Friday 21 June</phrase>.</p>
+</speech>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26a.579.5" newgid="uk.org.publicwhip/debate/2024-01-26b.579.8" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26a.579.6" newgid="uk.org.publicwhip/debate/2024-01-26b.579.9" matchtype="multiplecover"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26a.579.6" newgid="uk.org.publicwhip/debate/2024-01-26b.579.10" matchtype="multiplecover"/>
+<speech id="uk.org.publicwhip/debate/2024-01-26a.579.6" nospeaker="true" colnum="579" time="14:30:00" url="">
+    <p pid="a579.6/1">Motion made, That the Bill be now read a Second time.</p>
+    <p pid="a579.6/2">Hon. Members: Object.</p>
+    <p pid="a579.6/3">Bill to be read a Second time on <phrase class="date" code="">Friday 2 February</phrase>.</p>
+</speech>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26a.580.0" newgid="uk.org.publicwhip/debate/2024-01-26b.580.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26a.580.1" newgid="uk.org.publicwhip/debate/2024-01-26b.580.1" matchtype="multiplecover"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26a.580.1" newgid="uk.org.publicwhip/debate/2024-01-26b.580.2" matchtype="multiplecover"/>
+<speech id="uk.org.publicwhip/debate/2024-01-26a.580.1" nospeaker="true" colnum="580" time="14:30:00" url="">
+    <p pid="a580.1/1">Motion made, and Question proposed, That this House do now adjourn.—(Mike Wood.)</p>
+    <p pid="a580.1/2">Neale Hanvey (Kirkcaldy and Cowdenbeath) (Alba): Last night was Burns night, and I found myself reflecting over a couplet from the bard’s timeless “A Man’s a Man for a’ That”:</p>
+    <p pid="a580.1/3" class="indent" pwmotiontext="yes">“The honest man, tho’ e’er sae poor, is king o’ men for a’ that.”</p>
+    <p pid="a580.1/4">I open this debate in a spirit of honesty, truth and transparency—a trinity that has been lacking in most of my exchanges thus far with the Ministry of Defence over mounting concerns about the UK’s nuclear Trident programme. The spiralling costs of the programme, be they financial or human, demand an earnest response from Ministers—something that has hitherto eluded the MOD—but I am hoping for candour and honesty today, or in writing in the forthcoming weeks.</p>
+    <p pid="a580.1/5">The economics of the Trident programme are more straightforward. As per the House of Commons Library, the total acquisition expenditure on the four Vanguard-class submarines housing the Trident missiles was £12.52 billion, which equates to approximately £21 billion in today’s money. Additionally, annual in-service costs are currently estimated at 6% of the defence budget—based on current planned expenditure, that is another £3 billion for 2023-24.</p>
+    <p pid="a580.1/6">Further, the cost of the design and manufacture of the new Dreadnought-class submarines is estimated at £31 billion, including inflation over the life of the programme. A £10 billion contingency has also been set aside, making the current potential total for replacement £41 billion. In-service costs are expected to continue at approximately 6% of defence expenditure. The National Audit Office has raised concerns about the impact of the MOD’s nuclear programme based on the affordability of the Department’s overall equipment plan, but these astronomical figures continue to be spent.</p>
+    <p pid="a580.1/7">That brings me to the three pressing concerns surrounding the Trident programme that I will set out for the Minister today, the first of which is the dangers of radiation exposure and the issue of nuclear safety in Scotland. Secondly, based on those incidents, there is growing scepticism about the overall preparedness of the existing Vanguard fleet in the light of its allegedly dangerous and “rotting” state, referenced by Dominic Cummings, the former senior adviser to the former Prime Minister. Thirdly, as a consequence of the nuclear exposure hazards that the UK has imposed on the population of Scotland and a lack of transparency concerning the programme as a whole, I will set out why the nation of Scotland has much to gain by removing that nuclear arsenal from its waters.</p>
+    <p pid="a580.1/8">First and foremost, I would like to provide a factual context to this debate. I was contacted by a whistleblower at the Coulport armaments depot who told me that there had been an emergency evacuation at the site due to a radiation leak. I raised this matter directly with the Defence Secretary, who then wrote to me on <phrase class="date" code="">10 January 2023</phrase>. In that letter, the Defence Secretary denied that there had been any serious radiation breaches at Faslane or Coulport. He wrote:</p>
+    <p pid="a580.1/9" class="indent" pwmotiontext="yes">“I can confirm that the alleged radiation incident referred to during defence questions in the Commons did not occur.”</p>
+    <p pid="a580.1/10">However, public concerns remain about the relocation of staff from building 201 at RNAD Coulport to building 41. The MOD has failed to confirm the date on which the staff at Coulport building 201 were first informed that they were being moving to building 41. The Defence Secretary also stated:</p>
+    <p pid="a580.1/11" class="indent" pwmotiontext="yes">“no serious radiation breaches have occurred at His Majesty’s Naval Base Clyde or RNAD Coulport”.</p>
+    <p pid="a580.1/12">However, that response implies there was a threshold for reporting radiation leaks.</p>
+    <p pid="a580.1/13">As I said at the time, the Defence Secretary’s response raised more questions than it answered. It suggests that there were radiation breaches, but they fell below an unqualified serious threshold. What is that threshold? How is it defined, and what are the risks from non-serious radiation breaches? In response to a parliamentary written question about serious radiation breaches at the Clyde and Coulport ports, the Minister acknowledged:</p>
+    <p pid="a580.1/14" class="indent" pwmotiontext="yes">“There have been historical events with minor radiological consequences at both His Majesty’s Naval Base Clyde and the Royal Naval Armaments Depot (RNAD) Coulport.”</p>
+    <p pid="a580.1/15">That revealed 15 recorded radiation leaks at Coulport and a further 43 at Faslane in 2023 alone, although the MOD insists that none was considered serious. Surely further detail of each of these events and the risk they did or did not present to the immediate vicinity is necessary. Will the Minister commit to providing that information?</p>
+    <p pid="a580.1/16">Will the UK Government continue in their attempts to minimise the number and scale of such events by referring us to obscure codes and categorisations to obfuscate risk or by invoking national security as both an excuse and a smokescreen? The latter were deployed six months ago when the Alba party submitted a freedom of information request asking how many convoys there had been each year for the last five years carrying materials from Atomic Weapons Establishment Aldermaston to Royal Naval Armaments Depot Coulport. Section 24, on national security, and section 26, on defence, of the Freedom of Information Act 2000 were invoked to withhold that information from Scotland and our people—the very people who are frequently placed at risk of exposure to radiation were to be kept in the dark.</p>
+    <p pid="a580.1/17">Formulaic tests of public information versus national interest are simply not good enough. I would like to pointedly ask the Minister: approximately how much nuclear material has been transported between Aldermaston and Coulport in the last 12 months and in the past five years? How many convoys were used, and what is the frequency of such transports? How many workers are sufficiently close to be impacted by even low-level nuclear exposure? We need answers, and the people deserve the most basic of information. Even the details of potentially catastrophic incidents that have received media coverage are routinely denied to right hon. and hon. Members of the House and the public alike, on the spurious grounds that the Ministry does not comment on operational matters in respect of submarines.</p>
+    <p pid="a580.1/18">It was recently reported that a Royal Navy nuclear submarine plunged towards its crush depth due to a concerning malfunction of its main depth gauge. It was finally reported last November, but the incident took place a year before that. We still have no specifics about where it took place, despite my personal request for information from the Ministry.</p>
+    <p pid="a580.1/19">Turning to the preparedness of the Vanguard fleet itself, in September 2023, one of the Vanguard-class submarines returned from a patrol of more than six months. Defence commentators noted that it was double the three-month missions previously completed. Additionally, Navy Lookout reported that the returning submarine seemed to be missing exterior tiles and was covered in marine growth to an extent that had not been seen before. As of this year, the life expectancy of the current Vanguard fleet is repeatedly being extended, despite only three of the four vessels currently being seaworthy. I would like to credit The National newspaper in Scotland for its persistent and thorough reportage of the nuclear predicament in Scotland.</p>
+    <p pid="a580.1/20">If it is the case that submarines are failing in seaworthiness and labouring under increased operational pressures, as is indicated by the malfunctioning of vital components, extended periods of deployment and missing exterior tiles, while radiation leaks are being under-reported, I ask the Minister in good faith, how are the people of Scotland or right hon. and hon. Members to place any trust in this Government? Specifically, how is the Dreadnought class to avoid exactly the same fate and, most critically, what additional safeguards are being taken to mitigate civilian exposure to nuclear contamination, given this shocking evidence?</p>
+    <p pid="a580.1/21">Given that the chief adviser to an erstwhile Prime Minister has referred to the UK’s nuclear fleet as a “horror show”, I would hope that the Minister would come through with some degree of information and transparency, and not rely merely on obfuscation. That brings me to my third and final concern. The deficit in trust is one of the many reasons why the people of Scotland would benefit from becoming an independent state in lieu of being held in this Union against our will.</p>
+    <p pid="a580.1/22">“Bairns not bombs” was one of the galvanising messages of the independence movement in the run-up to the 2014 referendum. That slogan embodied a persisting sentiment against nuclear weapons of mass destruction and their dangerous and corrosive impact on our country and the planet. Opinion poll after opinion poll shows that the majority of Scottish people oppose WMDs being hosted in Scotland. Whenever independence is mentioned to the UK Government, their immediate reaction is to attempt to assert that the Scottish economy is better served as part of the United Kingdom. Within the realm of defence manufacturing, such an argument is as far as from reality as possible. In October, the Government signed contracts totalling £4 billion to design and manufacture the world’s most advanced submarines. However much I disagree in principle with the so-called nuclear deterrent, it illustrates perfectly the fact that Scotland receives few of the manufacturing jobs, which are located in Barrow-in-Furness, Raynesway and Derby. The jobs, the growth and the capital are yet again directed anywhere but Scotland. Meanwhile, the rotting hulks of Dreadnought subs retired in the 1980s have been rusting away at Rosyth longer than they were in service. The people of Scotland have a precarious future, in which key economic infrastructure such as the Grangemouth oil refinery is threatened with closure.</p>
+    <p pid="a580.1/23">While the current situation is bleak, I would not like to end my speech on a pessimistic note. Instead, I look towards the future with hope: a future where an independent Scotland can build on and benefit from its vast renewable energy potential, rather than host nuclear weapons;  a future where there is a safe, feasible and practicable way to ensure that an independent Scotland will begin its life as a nuclear and WMD-free state from day one of independence; a future where the Government and the people of Scotland are no longer kept in the dark about the dangers placed in their midst by a remote, arrogant London Administration.</p>
+</speech>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26a.583.0" newgid="uk.org.publicwhip/debate/2024-01-26b.583.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26a.584.0" newgid="uk.org.publicwhip/debate/2024-01-26b.584.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26a.584.1" newgid="uk.org.publicwhip/debate/2024-01-26b.584.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26a.584.2" newgid="uk.org.publicwhip/debate/2024-01-26b.584.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2024-01-26a.585.0" newgid="uk.org.publicwhip/debate/2024-01-26b.585.0" matchtype="perfectmatch"/>
+</publicwhip>
+

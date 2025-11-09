@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<!DOCTYPE publicwhip
+[
+<!ENTITY ndash   "&#8211;">
+<!ENTITY mdash   "&#8212;">
+<!ENTITY iexcl   "&#161;">
+<!ENTITY divide  "&#247;">
+<!ENTITY euro    "&#8364;">
+<!ENTITY trade   "&#8482;">
+<!ENTITY bull    "&#8226;">
+<!ENTITY lsquo   "&#8216;">
+<!ENTITY rsquo   "&#8217;">
+<!ENTITY sbquo   "&#8218;">
+<!ENTITY ldquo   "&#8220;">
+<!ENTITY rdquo   "&#8221;">
+<!ENTITY bdquo   "&#8222;">
+<!ENTITY dagger  "&#8224;">
+
+<!ENTITY Ouml   "&#214;" >
+<!ENTITY szlig  "&#223;" >
+<!ENTITY agrave "&#224;" >
+<!ENTITY aacute "&#225;" >
+<!ENTITY acirc  "&#226;" >
+<!ENTITY atilde "&#227;" >
+<!ENTITY auml   "&#228;" >
+<!ENTITY ccedil "&#231;" >
+<!ENTITY egrave "&#232;" >
+<!ENTITY eacute "&#233;" >
+<!ENTITY ecirc  "&#234;" >
+<!ENTITY euml   "&#235;" >
+<!ENTITY iacute "&#237;" >
+<!ENTITY icirc  "&#238;" >
+<!ENTITY iuml	"&#239;" >
+<!ENTITY ntilde "&#241;" >
+<!ENTITY nbsp   "&#160;" >
+<!ENTITY oacute "&#243;" >
+<!ENTITY ocirc  "&#244;" >
+<!ENTITY ouml   "&#246;" >
+<!ENTITY oslash "&#248;" >
+<!ENTITY uacute "&#250;" >
+<!ENTITY uuml   "&#252;" >
+<!ENTITY thorn  "&#254;" >
+
+<!ENTITY pound  "&#163;" >
+<!ENTITY sect   "&#167;" >
+<!ENTITY copy   "&#169;" >
+<!ENTITY reg    "&#174;" >
+<!ENTITY deg    "&#176;" >
+<!ENTITY plusmn "&#177;" >
+<!ENTITY sup2   "&#178;" >
+<!ENTITY micro  "&#181;" >
+<!ENTITY para   "&#182;" >
+<!ENTITY middot "&#183;" >
+<!ENTITY ordm   "&#186;" >
+<!ENTITY frac14 "&#188;" >
+<!ENTITY frac12 "&#189;" >
+<!ENTITY frac34 "&#190;" >
+<!ENTITY oelig "&#339;" >
+<!ENTITY aelig  "&#230;" >
+
+]>
+
+<publicwhip scrapeversion="/home/twfy-live/parldata/scrapedxml/debates/debates2023-11-07a.xml" latest="no">
+<gidredirect oldgid="uk.org.publicwhip/debate/2023-11-07a.1.0" newgid="uk.org.publicwhip/debate/2023-11-07b.1.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2023-11-07a.1.1" newgid="uk.org.publicwhip/debate/2023-11-07b.1.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2023-11-07a.1.2" newgid="uk.org.publicwhip/debate/2023-11-07b.1.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2023-11-07a.1.3" newgid="uk.org.publicwhip/debate/2023-11-07b.1.3" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2023-11-07a.3.0" newgid="uk.org.publicwhip/debate/2023-11-07b.3.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2023-11-07a.3.1" newgid="uk.org.publicwhip/debate/2023-11-07b.3.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2023-11-07a.4.0" newgid="uk.org.publicwhip/debate/2023-11-07b.4.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2023-11-07a.4.1" newgid="uk.org.publicwhip/debate/2023-11-07b.4.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2023-11-07a.7.0" newgid="uk.org.publicwhip/debate/2023-11-07b.7.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2023-11-07a.7.1" newgid="uk.org.publicwhip/debate/2023-11-07b.7.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2023-11-07a.7.2" newgid="uk.org.publicwhip/debate/2023-11-07b.7.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2023-11-07a.7.3" newgid="uk.org.publicwhip/debate/2023-11-07b.7.3" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2023-11-07a.10.0" newgid="uk.org.publicwhip/debate/2023-11-07b.10.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2023-11-07a.13.0" newgid="uk.org.publicwhip/debate/2023-11-07b.13.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2023-11-07a.13.1" newgid="uk.org.publicwhip/debate/2023-11-07b.13.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2023-11-07a.17.0" newgid="uk.org.publicwhip/debate/2023-11-07b.17.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2023-11-07a.17.1" newgid="uk.org.publicwhip/debate/2023-11-07b.17.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2023-11-07a.21.0" newgid="uk.org.publicwhip/debate/2023-11-07b.21.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2023-11-07a.21.1" newgid="uk.org.publicwhip/debate/2023-11-07b.21.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2023-11-07a.21.2" newgid="uk.org.publicwhip/debate/2023-11-07b.21.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2023-11-07a.21.3" newgid="uk.org.publicwhip/debate/2023-11-07b.21.3" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2023-11-07a.21.4" newgid="uk.org.publicwhip/debate/2023-11-07b.21.4" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2023-11-07a.21.5" newgid="uk.org.publicwhip/debate/2023-11-07b.21.5" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2023-11-07a.21.6" newgid="uk.org.publicwhip/debate/2023-11-07b.21.6" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2023-11-07a.21.7" newgid="uk.org.publicwhip/debate/2023-11-07b.21.7" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2023-11-07a.21.8" newgid="uk.org.publicwhip/debate/2023-11-07b.21.8" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2023-11-07a.22.0" newgid="uk.org.publicwhip/debate/2023-11-07b.22.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2023-11-07a.22.1" newgid="uk.org.publicwhip/debate/2023-11-07b.22.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2023-11-07a.22.2" newgid="uk.org.publicwhip/debate/2023-11-07b.22.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2023-11-07a.22.3" newgid="uk.org.publicwhip/debate/2023-11-07b.22.3" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2023-11-07a.24.0" newgid="uk.org.publicwhip/debate/2023-11-07b.24.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2023-11-07a.24.1" newgid="uk.org.publicwhip/debate/2023-11-07b.24.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2023-11-07a.26.0" newgid="uk.org.publicwhip/debate/2023-11-07b.26.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2023-11-07a.26.1" newgid="uk.org.publicwhip/debate/2023-11-07b.26.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2023-11-07a.27.0" newgid="uk.org.publicwhip/debate/2023-11-07b.27.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2023-11-07a.27.1" newgid="uk.org.publicwhip/debate/2023-11-07b.27.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2023-11-07a.27.2" newgid="uk.org.publicwhip/debate/2023-11-07b.27.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2023-11-07a.27.3" newgid="uk.org.publicwhip/debate/2023-11-07b.27.3" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2023-11-07a.29.0" newgid="uk.org.publicwhip/debate/2023-11-07b.29.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2023-11-07a.31.0" newgid="uk.org.publicwhip/debate/2023-11-07b.31.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2023-11-07a.32.0" newgid="uk.org.publicwhip/debate/2023-11-07b.32.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2023-11-07a.32.1" newgid="uk.org.publicwhip/debate/2023-11-07b.32.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2023-11-07a.33.0" newgid="uk.org.publicwhip/debate/2023-11-07b.33.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2023-11-07a.33.1" newgid="uk.org.publicwhip/debate/2023-11-07b.33.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2023-11-07a.33.2" newgid="uk.org.publicwhip/debate/2023-11-07b.33.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2023-11-07a.33.3" newgid="uk.org.publicwhip/debate/2023-11-07b.33.3" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2023-11-07a.33.4" newgid="uk.org.publicwhip/debate/2023-11-07b.33.4" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2023-11-07a.33.5" newgid="uk.org.publicwhip/debate/2023-11-07b.33.5" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2023-11-07a.33.6" newgid="uk.org.publicwhip/debate/2023-11-07b.33.6" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2023-11-07a.33.7" newgid="uk.org.publicwhip/debate/2023-11-07b.33.7" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2023-11-07a.34.0" newgid="uk.org.publicwhip/debate/2023-11-07b.34.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2023-11-07a.34.1" newgid="uk.org.publicwhip/debate/2023-11-07b.34.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2023-11-07a.34.2" newgid="uk.org.publicwhip/debate/2023-11-07b.34.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2023-11-07a.34.3" newgid="uk.org.publicwhip/debate/2023-11-07b.34.3" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2023-11-07a.34.4" newgid="uk.org.publicwhip/debate/2023-11-07b.34.4" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2023-11-07a.34.5" newgid="uk.org.publicwhip/debate/2023-11-07b.34.5" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2023-11-07a.34.6" newgid="uk.org.publicwhip/debate/2023-11-07b.34.6" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2023-11-07a.34.7" newgid="uk.org.publicwhip/debate/2023-11-07b.34.7" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2023-11-07a.36.0" newgid="uk.org.publicwhip/debate/2023-11-07b.36.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2023-11-07a.36.1" newgid="uk.org.publicwhip/debate/2023-11-07b.36.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2023-11-07a.38.0" newgid="uk.org.publicwhip/debate/2023-11-07b.38.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2023-11-07a.40.0" newgid="uk.org.publicwhip/debate/2023-11-07b.40.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2023-11-07a.40.1" newgid="uk.org.publicwhip/debate/2023-11-07b.40.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2023-11-07a.40.2" newgid="uk.org.publicwhip/debate/2023-11-07b.40.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2023-11-07a.40.3" newgid="uk.org.publicwhip/debate/2023-11-07b.40.3" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2023-11-07a.40.4" newgid="uk.org.publicwhip/debate/2023-11-07b.40.4" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2023-11-07a.41.0" newgid="uk.org.publicwhip/debate/2023-11-07b.41.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2023-11-07a.41.1" newgid="uk.org.publicwhip/debate/2023-11-07b.41.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2023-11-07a.41.2" newgid="uk.org.publicwhip/debate/2023-11-07b.41.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2023-11-07a.43.0" newgid="uk.org.publicwhip/debate/2023-11-07b.43.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2023-11-07a.43.1" newgid="uk.org.publicwhip/debate/2023-11-07b.43.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2023-11-07a.43.2" newgid="uk.org.publicwhip/debate/2023-11-07b.43.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2023-11-07a.46.0" newgid="uk.org.publicwhip/debate/2023-11-07b.46.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2023-11-07a.49.0" newgid="uk.org.publicwhip/debate/2023-11-07b.49.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2023-11-07a.51.0" newgid="uk.org.publicwhip/debate/2023-11-07b.51.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2023-11-07a.51.1" newgid="uk.org.publicwhip/debate/2023-11-07b.51.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2023-11-07a.52.0" newgid="uk.org.publicwhip/debate/2023-11-07b.52.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2023-11-07a.53.0" newgid="uk.org.publicwhip/debate/2023-11-07b.53.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2023-11-07a.53.1" newgid="uk.org.publicwhip/debate/2023-11-07b.53.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2023-11-07a.55.0" newgid="uk.org.publicwhip/debate/2023-11-07b.55.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2023-11-07a.58.0" newgid="uk.org.publicwhip/debate/2023-11-07b.58.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2023-11-07a.60.0" newgid="uk.org.publicwhip/debate/2023-11-07b.60.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2023-11-07a.60.1" newgid="uk.org.publicwhip/debate/2023-11-07b.60.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2023-11-07a.61.0" newgid="uk.org.publicwhip/debate/2023-11-07b.61.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2023-11-07a.63.0" newgid="uk.org.publicwhip/debate/2023-11-07b.63.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2023-11-07a.65.0" newgid="uk.org.publicwhip/debate/2023-11-07b.65.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2023-11-07a.67.0" newgid="uk.org.publicwhip/debate/2023-11-07b.67.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2023-11-07a.67.1" newgid="uk.org.publicwhip/debate/2023-11-07b.67.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2023-11-07a.68.0" newgid="uk.org.publicwhip/debate/2023-11-07b.68.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2023-11-07a.70.0" newgid="uk.org.publicwhip/debate/2023-11-07b.70.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2023-11-07a.70.1" newgid="uk.org.publicwhip/debate/2023-11-07b.70.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2023-11-07a.71.0" newgid="uk.org.publicwhip/debate/2023-11-07b.71.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2023-11-07a.73.0" newgid="uk.org.publicwhip/debate/2023-11-07b.73.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2023-11-07a.75.0" newgid="uk.org.publicwhip/debate/2023-11-07b.75.0" matchtype="changes"/>
+<speech id="uk.org.publicwhip/debate/2023-11-07a.75.0" speakername="Stephen Doughty" type="Start Speech" person_id="uk.org.publicwhip/person/25166" colnum="75" time="19:07:00" url="">
+    <p pid="a75.0/1">It was indeed a special occasion to be there today for His Majesty’s first King’s Speech and particularly to see him continuing the remarkable tradition of service and duty of his late mother, our dearly missed Queen  Elizabeth. I declare my interests in relation to the armed forces in Ukraine and my role as co-chair of the LGBT+ parliamentary Labour party and the relevant APPGs.</p>
+    <p pid="a75.0/2">The speech today, as an occasion, was very special; the content, I am afraid, was far from that. It was short, it was inadequate and it simply did not rise to the challenges we face as a country. This is fundamentally a Government who are out of ideas. Stuck in a high-tax, low-growth economy, they have abandoned their promises in many areas and failed to invest in our public services, and instead engage in cheap, divisive politics. What a contrast with the clear, mission-led agenda set out by the Leader of the Opposition, which would be at the heart of a future UK Labour Government.</p>
+    <p pid="a75.0/3">It is always there in the talking points for Ministers at the Dispatch Box, and we heard some barracking today from Conservative Back Benchers, but I am fed up with the cheap shots and the talking down of Wales that we regularly hear from the Government Benches. There is a stark contrast between what we have seen from this Tory Government at the UK level and what we have seen from a Labour-led Government in Wales, and indeed from my Labour-led councils in Cardiff and the Vale of Glamorgan. I have seen the reality on the doorstep and in my communities. I have seen new schools being built, such as Eastern High and Penarth Learning Community. I have seen a new further education college. I have seen new hospital facilities being built at Llandough. I have seen new stations being built, right at this moment, on a metro line into Cardiff Bay.</p>
+    <p pid="a75.0/4">I have seen new economic investment in our city centre and bay. Indeed, as the topic of homelessness has been so shamefully spoken about by the Home Secretary, I have also seen Labour councils in Cardiff and the Vale of Glamorgan building new sustainable housing to deal with the challenges facing those who tragically find themselves on the street. That is what we need to see: action on housing and action on homelessness, not divisive and shameful comments from the Home Secretary. The Leader of the Opposition was absolutely right to highlight that.</p>
+    <p pid="a75.0/5">I am conscious that there is always more to do. I have been out and about in my constituency in Cardiff South and Penarth in the last few weeks, engaging with lots of different communities and lots of different concerns. We continue our campaign to see a new station built in St Mellons, the St Mellons parkway station. I have been raising concerns about poor performance on the great western main line. I have been arguing for reforms to, and the protection of, local bus services. I have been listening to the concerns of those on low incomes struggling to make ends meet, including local taxi drivers, and those struggling with their energy bills and the rent and mortgage hikes as a result of the Conservative Government. I have also been meeting those concerned about local GP services. We need adequate and fit-for-the-future services across Cardiff and Penarth. But of course that can only come with adequate investment across the United Kingdom and a co-operative relationship between a UK Government—hopefully a UK Labour Government—and a Welsh Labour Government, along with Welsh Labour councils in Wales.</p>
+    <p pid="a75.0/6">One of the starkest contrasts in approach between Wales and those of us on the Labour Benches, and the current Government, is on climate change and the green transition. The Government have abandoned targets  and are going backwards when we need to be moving forward with green transition, green jobs, green investment, sustainable housing and adaptation. Communities in my local area, in places such as Sully and Dinas Powys, are already experiencing the consequences of severe flooding and rainfall events. But I also see the opportunities, for example in green steel, the recycled steel already in produced in my constituency, and in green industries and green technologies of the future, many being piloted at our fantastic universities in Cardiff and south Wales.</p>
+    <p pid="a75.0/7">Let me turn to some of the other issues in the King’s Speech. On leaseholder reform, I am interested to see the details of the proposals. There has been a lot of cross-party work on the issue and concern raised on behalf of many constituents. I have many leaseholders—tens of thousands—in my constituency who have been struggling with defective buildings, fire and building safety issues, extortionate and often inexplicable service charges, and being caught in mortgage prisons. There is a whole industry around conveyancing, surveying and so on, which has failed many of my residents who find themselves caught up in untenable situations. In particular, I have met some of them in recent weeks who have been telling me about shocking service charges, which I am trying to follow up with management companies. Companies are still failing to move forward quickly enough, or indeed at all, on remediation, and to take responsibility for their failings in the construction of buildings, particularly in Cardiff Bay.</p>
+    <p pid="a75.0/8">I raised concerns with the Welsh Government on those issues, but we need co-operative action across the United Kingdom. A lot of the problems predate devolution. The leasehold system is decades and decades old—I think hundreds of years old. I want Bills on this issue to come forward in this place, with co-operation between officials at the Department for Levelling Up, Housing and Communities and the Welsh Government, not the silly political gameplaying we have seen, unfortunately, from some Conservatives. There is a willingness; the Welsh Government are taking a constructive approach. Let us see that met from the other side to benefit my residents and the residents of Members from across the House.</p>
+    <p pid="a75.0/9">We also need to look at what is missing from the King’s Speech. I could talk about that for hours, but I want to highlight two issues in particular. One is, of course, the ban on conversion therapy that we were promised again and again and again by the Government. Conversion therapy is a despicable, abusive practice. Frankly, the fact that it is not included in the speech is a betrayal not only of the victims of conversion therapy across the country, but of all the campaign groups, and all the cross-party, cross-religious and cross-community groups who have argued for it to be banned. Conversion therapy is a dangerous, life-threatening practice that leads to decades of consequences for those who go through it. I contrast that again with Labour’s commitment to a fully inclusive ban on conversion therapy.</p>
+    <p pid="a75.0/10">I am sorry to say—this follows on from a debate we had in Westminster Hall in the previous Session just a few weeks ago—that this does not come as any surprise, despite some very passionate speeches from Conservative Members. I acknowledge that there were Members in that debate from, I think, all parties in the House and from all parts of the United Kingdom. The Government have abandoned their LGBT+ action plan and disbanded their LGBT+ advisory board. I was told by a Home  Office Minister that we were hysterical for raising concerns about the significant rises in hate crime faced by the LGBT+ community. The Government are failing LGBT+ people and are instead using this issue as part of their divisive culture wars. It is simply unacceptable, and I know that many Conservative Members—indeed, many Ministers, I am told—feel exactly the same way.</p>
+    <p pid="a75.0/11">Another area missing from the King’s Speech—a deep shame given the motion that was passed unanimously by the House—is an issue I raised a few weeks ago: legislation on the seizure of Russian state assets to repurpose them for reconstruction in Ukraine. The motion we passed was for legislation to be passed in  90 days. The King’s Speech would have been an apt opportunity, albeit a little bit late, but it is absent. Again, what is happening? I hope the Government will have some answers soon.</p>
+    <p pid="a75.0/12">I have to say, and it is good to see my right hon. Friend <phrase class="honfriend" person_id="uk.org.publicwhip/person/10268" name="John Healey">the Member for Wentworth and Dearne (John Healey)</phrase> the shadow Defence Secretary on the Labour Front Bench, that it was deeply disappointing to hear the Prime Minister’s divisive comments about the armed forces and security. They were a disservice to those on the Labour Benches who have served, as well as to families and communities. The reality is that Labour fully supports NATO and fully supports our independent nuclear deterrent. We want security co-operation, with NATO as our bedrock, across Europe, our Atlantic partners and other allies. This Government have slashed the Army, wasted billions and left those who served us bravely in Afghanistan languishing in hotels for months and months on end at great cost to the public purse. It would be nice to see a bit more of a consistent approach and more truth about Labour’s positions. We will defend this country, we will defend our armed forces and we will work to support our veterans as we rightly should, particularly as we are coming up to Remembrance Sunday this weekend.</p>
+    <p pid="a75.0/13">I normally talk from the Opposition Front Bench on international issues, but I want to reflect as a constituency MP on some of the challenges facing the world at the moment. That is important in a constituency such as mine, because of its nature as a port and having had people come from all over the world for over 150 years. What happens elsewhere in the world—in Israel and Palestine, Afghanistan, Sudan, Libya, the Sahel, south Asia, Yemen, Nigeria, Syria and many, many other regions and countries—matters deeply to my constituents. In the past weeks I have heard from constituents about their anguish at the deaths, loss of civilian life and destruction in Gaza, and their horror at the terrorism, hostage taking and killing that Israel and its citizens have had to endure. I have heard about the need to ensure we protect civilians, aid workers, hospitals and schools; to secure humanitarian pauses and get humanitarian aid in, particularly into Gaza; and to move back to a pathway to peace and a two-state solution, and to an adherence to international law and international humanitarian law. I have also, with other hon. Members and neighbours in Cardiff and the Vale of Glamorgan, heard face to face from those who have families who are directly affected in both Gaza and Israel—a genuine fear about what divisions can mean for us in our communities.</p>
+    <p pid="a75.0/14">I am also proud of the resilience and response from communities in Cardiff South and Penarth, whether in raising funds for aid and relief efforts in many different  situations around the world, including in the middle east at the moment, or in working to promote inter-faith and inter-cultural dialogue here in the UK. That is absolutely critical when we are faced with a shocking rise in antisemitism and Islamophobia, and a wider rise in race and religious hate crime.</p>
+    <p pid="a75.0/15">I want to conclude by saying that this weekend I saw communities in my area at their very best. I joined Indian—Hindu, Sikh and others—communities celebrating Diwali together. I joined a very diverse group of Christian and other faith communities who were celebrating with the Greek Orthodox Church 150 years of the Greek and Greek-Cypriot communities in Cardiff South and Penarth. I also met young Muslims and others with Citizens Wales to discuss their hopes and aspirations for the future. We need more dialogue in this country and less division. I would hope that that would be the heart of any Government’s programme. I know it would be the heart of a Labour Government’s programme.</p>
+</speech>
+<gidredirect oldgid="uk.org.publicwhip/debate/2023-11-07a.79.0" newgid="uk.org.publicwhip/debate/2023-11-07b.79.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2023-11-07a.82.0" newgid="uk.org.publicwhip/debate/2023-11-07b.82.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2023-11-07a.82.1" newgid="uk.org.publicwhip/debate/2023-11-07b.82.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2023-11-07a.83.0" newgid="uk.org.publicwhip/debate/2023-11-07b.83.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2023-11-07a.85.0" newgid="uk.org.publicwhip/debate/2023-11-07b.85.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2023-11-07a.90.0" newgid="uk.org.publicwhip/debate/2023-11-07b.90.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2023-11-07a.92.0" newgid="uk.org.publicwhip/debate/2023-11-07b.92.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2023-11-07a.95.0" newgid="uk.org.publicwhip/debate/2023-11-07b.95.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2023-11-07a.98.0" newgid="uk.org.publicwhip/debate/2023-11-07b.98.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2023-11-07a.100.0" newgid="uk.org.publicwhip/debate/2023-11-07b.100.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2023-11-07a.102.0" newgid="uk.org.publicwhip/debate/2023-11-07b.102.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2023-11-07a.105.0" newgid="uk.org.publicwhip/debate/2023-11-07b.105.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2023-11-07a.105.1" newgid="uk.org.publicwhip/debate/2023-11-07b.105.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2023-11-07a.105.2" newgid="uk.org.publicwhip/debate/2023-11-07b.105.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2023-11-07a.105.3" newgid="uk.org.publicwhip/debate/2023-11-07b.105.3" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2023-11-07a.105.4" newgid="uk.org.publicwhip/debate/2023-11-07b.105.4" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2023-11-07a.106.0" newgid="uk.org.publicwhip/debate/2023-11-07b.106.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2023-11-07a.106.1" newgid="uk.org.publicwhip/debate/2023-11-07b.106.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/debate/2023-11-07a.109.0" newgid="uk.org.publicwhip/debate/2023-11-07b.109.0" matchtype="perfectmatch"/>
+</publicwhip>
+
