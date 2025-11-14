@@ -1,0 +1,231 @@
+import os
+import glob
+import json
+import numpy as np
+
+import spacy
+from lxml import etree
+from sentence_transformers import SentenceTransformer
+
+
+# Global spaCy object for sentence splitting
+nlp = spacy.load("en_core_web_sm")
+
+
+# ====================== XML Loader ======================
+
+def load_raw_xml_documents(raw_dir="docs", pattern="*.xml"):
+    """
+    Load all XML documents from raw_dir and return:
+      - texts: list of full text per document
+      - filenames: list of corresponding filenames
+
+    Each document is represented as one long string
+    containing all text nodes extracted from the XML.
+    """
+    texts = []
+    filenames = []
+
+    for path in sorted(glob.glob(os.path.join(raw_dir, pattern))):
+        base = os.path.basename(path)
+        filenames.append(base)
+
+        tree = etree.parse(path)
+        all_texts = tree.xpath("//text()")
+        doc_text = " ".join(t.strip() for t in all_texts if t.strip())
+        texts.append(doc_text)
+
+    print(f"Loaded {len(texts)} raw XML documents from {raw_dir}")
+    return texts, filenames
+
+
+# ====================== Chunking helpers ======================
+
+def split_document_to_sentences(text):
+    """
+    Use spaCy to split a document into sentences.
+    """
+    doc = nlp(text)
+    sentences = [sent.text.strip() for sent in doc.sents if sent.text.strip()]
+    return sentences
+
+
+def chunk_long_sentence(sentence, max_tokens=256):
+    """
+    If a single sentence is longer than max_tokens (approx. words),
+    split it into smaller chunks.
+    """
+    words = sentence.split()
+    chunks = []
+
+    for i in range(0, len(words), max_tokens):
+        part = " ".join(words[i:i + max_tokens])
+        chunks.append(part)
+
+    return chunks
+
+
+def split_document_into_chunks(text, max_tokens=256):
+    """
+    Split a long document into smaller chunks suitable for
+    BERT-based models (SimCSE, SBERT, etc.):
+
+      1. Use spaCy to split into sentences.
+      2. If a sentence is too long, split it further.
+    """
+    final_chunks = []
+    sentences = split_document_to_sentences(text)
+
+    for sent in sentences:
+        word_count = len(sent.split())
+        if word_count > max_tokens:
+            sub_chunks = chunk_long_sentence(sent, max_tokens=max_tokens)
+            final_chunks.extend(sub_chunks)
+        else:
+            final_chunks.append(sent)
+
+    if not final_chunks and text.strip():
+        final_chunks = [text.strip()]
+
+    return final_chunks
+
+
+def build_chunks_for_all_docs(texts, max_tokens=256):
+    """
+    Build chunk lists for each document in the corpus.
+
+    Returns:
+      all_doc_chunks: list of list of strings (chunks per document)
+    """
+    all_doc_chunks = []
+    for text in texts:
+        chunks = split_document_into_chunks(text, max_tokens=max_tokens)
+        all_doc_chunks.append(chunks)
+
+    print(f"Built chunks for {len(all_doc_chunks)} documents")
+    return all_doc_chunks
+
+
+# ====================== Encoding (chunked) ======================
+
+def encode_chunked_documents(model, all_doc_chunks, batch_size=32):
+    """
+    Encode documents that were split into chunks.
+
+    For each document:
+      - encode all its chunks with the SentenceTransformer model
+      - average the chunk embeddings into one document vector
+
+    Returns:
+      doc_embeddings: np.ndarray of shape (n_docs, embedding_dim)
+    """
+    print("Encoding documents with chunked strategy...")
+
+    doc_embeddings = []
+
+    for doc_idx, chunks in enumerate(all_doc_chunks):
+        if not chunks:
+            emb_dim = model.get_sentence_embedding_dimension()
+            doc_embeddings.append(np.zeros(emb_dim, dtype=np.float32))
+            continue
+
+        chunk_embs = model.encode(
+            chunks,
+            batch_size=batch_size,
+            show_progress_bar=False,
+            convert_to_numpy=True,
+        )
+
+        doc_vec = np.mean(chunk_embs, axis=0)
+        doc_embeddings.append(doc_vec)
+
+        if (doc_idx + 1) % 10 == 0:
+            print(f"  Encoded {doc_idx + 1} / {len(all_doc_chunks)} documents")
+
+    doc_embeddings = np.vstack(doc_embeddings)
+    print(f"Finished encoding. Document embeddings shape: {doc_embeddings.shape}")
+    return doc_embeddings
+
+
+# ====================== Save helpers ======================
+
+def save_embeddings(doc_embeddings, filenames, out_dir, model_name, prefix="embeddings"):
+    """
+    Save embeddings matrix, filenames mapping, and model name.
+
+    Files:
+      - {prefix}.npy       : embeddings matrix (n_docs, embedding_dim)
+      - filenames.json     : list of filenames
+      - model_name.txt     : the model identifier used
+    """
+    os.makedirs(out_dir, exist_ok=True)
+
+    emb_path = os.path.join(out_dir, f"{prefix}.npy")
+    np.save(emb_path, doc_embeddings)
+
+    fn_path = os.path.join(out_dir, "filenames.json")
+    with open(fn_path, "w", encoding="utf-8") as f:
+        json.dump(filenames, f)
+
+    model_path = os.path.join(out_dir, "model_name.txt")
+    with open(model_path, "w", encoding="utf-8") as f:
+        f.write(model_name)
+
+    print(f"Saved embeddings to: {emb_path}")
+    print(f"Saved filenames to: {fn_path}")
+    print(f"Saved model name to: {model_path}")
+    print(f"All outputs saved in: {out_dir}")
+
+
+# ====================== Generic pipeline ======================
+
+def build_chunked_embeddings_for_xml(
+    raw_dir,
+    model_name,
+    out_dir,
+    xml_pattern="*.xml",
+    chunk_max_tokens=256,
+    batch_size=32,
+    prefix="embeddings",
+):
+    """
+    Generic pipeline for:
+      - loading raw XML debates,
+      - chunking them,
+      - encoding with a SentenceTransformer model,
+      - saving document-level embeddings.
+
+    This works for BOTH SimCSE and SBERT, only the model_name and out_dir change.
+    """
+    print("=== Starting chunked embedding pipeline on XML documents ===")
+
+    # 1) Load raw XML docs
+    texts, filenames = load_raw_xml_documents(raw_dir=raw_dir, pattern=xml_pattern)
+    if not texts:
+        print("No XML documents found. Aborting.")
+        return
+
+    # 2) Build chunks per document
+    all_doc_chunks = build_chunks_for_all_docs(texts, max_tokens=chunk_max_tokens)
+
+    # 3) Load SentenceTransformer model (SimCSE / SBERT / etc.)
+    print(f"Loading model: {model_name}")
+    model = SentenceTransformer(model_name)
+
+    # 4) Encode chunks and aggregate to document vectors
+    doc_embeddings = encode_chunked_documents(
+        model,
+        all_doc_chunks,
+        batch_size=batch_size,
+    )
+
+    # 5) Save everything
+    save_embeddings(
+        doc_embeddings,
+        filenames,
+        out_dir=out_dir,
+        model_name=model_name,
+        prefix=prefix,
+    )
+
+    print("🎉 Chunked embedding pipeline completed successfully!")
