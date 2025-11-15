@@ -84,6 +84,7 @@ def split_document_into_chunks(text, max_tokens=256):
         else:
             final_chunks.append(sent)
 
+    # Fallback: if no chunks but text is non-empty, keep the whole text
     if not final_chunks and text.strip():
         final_chunks = [text.strip()]
 
@@ -108,25 +109,28 @@ def build_chunks_for_all_docs(texts, max_tokens=256):
 
 # ====================== Encoding (chunked) ======================
 
-def encode_chunked_documents(model, all_doc_chunks, batch_size=32):
+def encode_chunked_documents(model, all_doc_chunks, batch_size=32, max_chunks_per_call=256):
     """
     Encode documents that were split into chunks.
 
     For each document:
-      - encode all its chunks with the SentenceTransformer model
-      - average the chunk embeddings into one document vector
-      - memory-efficiently process chunks in smaller batches 
-      (to avoid OOM issues with large documents)
+      - encode its chunks with the SentenceTransformer model
+      - process chunks in smaller groups (max_chunks_per_call)
+      - accumulate a running sum of all chunk embeddings
+      - average them into one document vector
+
+    This is memory-efficient and avoids OOM issues with very large documents.
 
     Returns:
       doc_embeddings: np.ndarray of shape (n_docs, embedding_dim)
     """
-    print("Encoding documents with chunked strategy...")
+    print("Encoding documents with chunked strategy (memory friendly)...")
 
     doc_embeddings = []
     emb_dim = model.get_sentence_embedding_dimension()
 
     for doc_idx, chunks in enumerate(all_doc_chunks):
+        # Empty document → zero vector
         if not chunks:
             doc_embeddings.append(np.zeros(emb_dim, dtype=np.float32))
             continue
@@ -149,6 +153,7 @@ def encode_chunked_documents(model, all_doc_chunks, batch_size=32):
             doc_sum += sub_embs.sum(axis=0)
             total_chunks += sub_embs.shape[0]
 
+        # Mean pooling over all chunk embeddings for this document
         doc_vec = doc_sum / max(total_chunks, 1)
         doc_embeddings.append(doc_vec)
 
@@ -200,6 +205,7 @@ def build_chunked_embeddings_for_xml(
     chunk_max_tokens=256,
     batch_size=32,
     prefix="embeddings",
+    max_chunks_per_call=256,
 ):
     """
     Generic pipeline for:
@@ -225,11 +231,12 @@ def build_chunked_embeddings_for_xml(
     print(f"Loading model: {model_name}")
     model = SentenceTransformer(model_name)
 
-    # 4) Encode chunks and aggregate to document vectors
+    # 4) Encode chunks and aggregate to document vectors (memory-friendly)
     doc_embeddings = encode_chunked_documents(
         model,
         all_doc_chunks,
         batch_size=batch_size,
+        max_chunks_per_call=max_chunks_per_call,
     )
 
     # 5) Save everything
