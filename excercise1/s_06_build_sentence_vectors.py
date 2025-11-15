@@ -115,6 +115,8 @@ def encode_chunked_documents(model, all_doc_chunks, batch_size=32):
     For each document:
       - encode all its chunks with the SentenceTransformer model
       - average the chunk embeddings into one document vector
+      - memory-efficiently process chunks in smaller batches 
+      (to avoid OOM issues with large documents)
 
     Returns:
       doc_embeddings: np.ndarray of shape (n_docs, embedding_dim)
@@ -122,21 +124,32 @@ def encode_chunked_documents(model, all_doc_chunks, batch_size=32):
     print("Encoding documents with chunked strategy...")
 
     doc_embeddings = []
+    emb_dim = model.get_sentence_embedding_dimension()
 
     for doc_idx, chunks in enumerate(all_doc_chunks):
         if not chunks:
-            emb_dim = model.get_sentence_embedding_dimension()
             doc_embeddings.append(np.zeros(emb_dim, dtype=np.float32))
             continue
 
-        chunk_embs = model.encode(
-            chunks,
-            batch_size=batch_size,
-            show_progress_bar=False,
-            convert_to_numpy=True,
-        )
+        doc_sum = np.zeros(emb_dim, dtype=np.float32)
+        total_chunks = 0
 
-        doc_vec = np.mean(chunk_embs, axis=0)
+        # Process chunks for THIS doc in smaller pieces
+        for start in range(0, len(chunks), max_chunks_per_call):
+            sub_chunks = chunks[start:start + max_chunks_per_call]
+
+            sub_embs = model.encode(
+                sub_chunks,
+                batch_size=batch_size,
+                show_progress_bar=False,
+                convert_to_numpy=True,
+            )
+            # sub_embs shape: (len(sub_chunks), emb_dim)
+
+            doc_sum += sub_embs.sum(axis=0)
+            total_chunks += sub_embs.shape[0]
+
+        doc_vec = doc_sum / max(total_chunks, 1)
         doc_embeddings.append(doc_vec)
 
         if (doc_idx + 1) % 10 == 0:
