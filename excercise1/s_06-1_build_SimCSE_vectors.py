@@ -1,22 +1,20 @@
-from s_06_build_sentence_vectors import build_chunked_embeddings_for_xml
+from s_06_encode_chuncks import build_embeddings_from_saved_chunks
 
-RAW_DIR = "docs"
+CHUNKS_DIR = "docs_chuncks"
 SIMCSE_OUT_DIR = "vectors/simcse_raw"
 SIMCSE_MODEL_NAME = "princeton-nlp/unsup-simcse-bert-base-uncased"
 
 
 def main():
     """
-    Build SimCSE document embeddings for the raw XML debates.
-    Uses the generic chunked XML pipeline from embeddings_base.
+    Build SimCSE document embeddings using precomputed chunks.
     """
-    build_chunked_embeddings_for_xml(
-        raw_dir=RAW_DIR,
+    build_embeddings_from_saved_chunks(
+        chunks_dir=CHUNKS_DIR,
         model_name=SIMCSE_MODEL_NAME,
         out_dir=SIMCSE_OUT_DIR,
-        xml_pattern="*.xml",
-        chunk_max_tokens=256,
-        batch_size=32,  
+        batch_size=16,
+        max_chunks_per_call=32,
         prefix="simcse_doc_embeddings",
     )
 
