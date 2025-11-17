@@ -5,7 +5,6 @@ import numpy as np
 import pandas as pd
 from scipy import sparse
 
-from sklearn.cluster import MiniBatchKMeans
 from sklearn.feature_selection import mutual_info_classif, chi2
 
 
@@ -20,6 +19,7 @@ CLEAN_DIR = "clean_docs"
 VECTORS_CLEAN_DIR = "vectors/BM25_words"
 
 OUTPUT_EXCEL = "feature_importance_bm25.xlsx"
+CLUSTER_LABELS_FILENAME = "cluster_labels_k5.npy"
 
 
 # ============================
@@ -46,8 +46,8 @@ def load_bm25_and_vocab(vectors_dir):
     if not os.path.exists(filenames_path):
         raise FileNotFoundError(f"Filenames file not found in {filenames_path}")
 
-    # Load sparse matrix
-    X = sparse.load_npz(bm25_path)
+    # Load sparse BM25 matrix
+    bm25_matrix = sparse.load_npz(bm25_path)
 
     # Load vocabulary (term -> index)
     with open(vocab_path, "r", encoding="utf-8") as f:
@@ -57,37 +57,27 @@ def load_bm25_and_vocab(vectors_dir):
     with open(filenames_path, "r", encoding="utf-8") as f:
         filenames = json.load(f)
 
-    # Convert vocabulary dict to list sorted by index
+    # Convert vocabulary dict to list sorted by index: feature_names[col] = term
     feature_names = [None] * len(vocab)
     for term, idx in vocab.items():
         feature_names[idx] = term
 
-    print(f"Loaded BM25 matrix from {vectors_dir} with shape {X.shape}")
-    return X, feature_names, filenames
+    print(f"Loaded BM25 matrix from {vectors_dir} with shape {bm25_matrix.shape}")
+    return bm25_matrix, feature_names, filenames
 
 
-# ============================
-# Create pseudo-labels using clustering
-# ============================
-
-def build_pseudo_labels_by_clustering(X, n_clusters=5, random_state=42):
+def load_cluster_labels(vectors_dir, filename=CLUSTER_LABELS_FILENAME):
     """
-    Creates pseudo-labels for documents using MiniBatchKMeans clustering.
-
-    X: sparse BM25 matrix (documents × terms)
-
-    Returns:
-        y: cluster assignment for each document (array of length n_docs)
+    Loads precomputed cluster labels (one label per document) from the vectors directory.
     """
-    print(f"Clustering documents into {n_clusters} clusters...")
-    kmeans = MiniBatchKMeans(
-        n_clusters=n_clusters,
-        random_state=random_state,
-        batch_size=256,
-        max_iter=100
-    )
-    y = kmeans.fit_predict(X)
-    print("Clustering done.")
+    path = os.path.join(vectors_dir, filename)
+    if not os.path.exists(path):
+        raise FileNotFoundError(
+            f"Cluster labels not found in {path}. "
+            f"Run the clustering script first."
+        )
+    y = np.load(path)
+    print(f"Loaded cluster labels from {path} with shape {y.shape}")
     return y
 
 
@@ -95,30 +85,30 @@ def build_pseudo_labels_by_clustering(X, n_clusters=5, random_state=42):
 # Compute Information Gain + Chi-Squared
 # ============================
 
-def compute_information_gain_and_chi2(X, y, feature_names):
+def compute_information_gain_and_chi2(bm25_matrix, y, feature_names):
     """
     Computes two feature-importance metrics for each column (term):
 
       - Information Gain (implemented via mutual_info_classif)
       - Chi-Squared statistic (chi2)
 
-    X: sparse BM25 document-term matrix
+    bm25_matrix: sparse BM25 document-term matrix
     y: cluster labels
     feature_names: list of terms (ordered by column index)
     """
-    # Convert X to binary presence/absence (important for IG and chi2)
-    X_bin = X.copy().tocsr()
-    X_bin.data = np.ones_like(X_bin.data)
+    # Convert BM25 to binary presence/absence (important for IG and chi2)
+    bm25_binary = bm25_matrix.copy().tocsr()
+    bm25_binary.data = np.ones_like(bm25_binary.data)
 
     print("Computing Information Gain (mutual information)...")
     ig_scores = mutual_info_classif(
-        X_bin, y,
+        bm25_binary, y,
         discrete_features=True,
         random_state=42
     )
 
     print("Computing Chi-Squared scores...")
-    chi2_scores, chi2_pvalues = chi2(X_bin, y)
+    chi2_scores, p_values = chi2(bm25_binary, y) 
 
     # Create sorted dataframes
     df_ig = pd.DataFrame({
@@ -128,8 +118,7 @@ def compute_information_gain_and_chi2(X, y, feature_names):
 
     df_chi2 = pd.DataFrame({
         "feature": feature_names,
-        "chi2_score": chi2_scores,
-        "p_value": chi2_pvalues
+        "chi2_score": chi2_scores
     }).sort_values("chi2_score", ascending=False)
 
     return df_ig, df_chi2
@@ -139,12 +128,12 @@ def compute_information_gain_and_chi2(X, y, feature_names):
 # Run full process and produce Excel output
 # ============================
 
-def process_dataset(vectors_dir, dataset_label, n_clusters=5):
+def process_dataset(vectors_dir, dataset_label):
     """
     Processes one dataset (e.g., lemmas or clean words):
 
       1. Loads BM25 + vocabulary
-      2. Creates cluster-based pseudo-labels
+      2. Loads precomputed cluster labels
       3. Computes Information Gain + Chi-Squared
 
     Returns:
@@ -152,40 +141,51 @@ def process_dataset(vectors_dir, dataset_label, n_clusters=5):
         df_chi2: dataframe of Chi-Squared scores
     """
     print(f"\n=== Processing dataset: {dataset_label} ===")
-    X, feature_names, filenames = load_bm25_and_vocab(vectors_dir)
-    y = build_pseudo_labels_by_clustering(X, n_clusters=n_clusters)
-    df_ig, df_chi2 = compute_information_gain_and_chi2(X, y, feature_names)
+    bm25_matrix, feature_names, filenames = load_bm25_and_vocab(vectors_dir)
+    y = load_cluster_labels(vectors_dir)
+    df_ig, df_chi2 = compute_information_gain_and_chi2(bm25_matrix, y, feature_names)
     return df_ig, df_chi2
+
+def save_feature_tables_to_excel(output_path, df_ig, df_chi2):
+    """
+    Saves IG and Chi-Squared DataFrames into a 2-sheet Excel file.
+
+    output_path : str
+        Full path to the output .xlsx file
+    df_ig : DataFrame
+        Information Gain table
+    df_chi2 : DataFrame
+        Chi-Squared score table
+    """
+    print(f"Saving results to: {output_path}")
+    with pd.ExcelWriter(output_path, engine="xlsxwriter") as writer:
+        df_ig.to_excel(writer, sheet_name="InformationGain", index=False)
+        df_chi2.to_excel(writer, sheet_name="ChiSquared", index=False)
 
 
 def main():
-    results = {}
 
-    # 1) Lemmas (BM25 on lemmatized documents)
+    # ========== 1) Lemmas ==========
+    print("\n=== Processing Lemmas ===")
     df_ig_lemmas, df_chi2_lemmas = process_dataset(
         VECTORS_LEMMAS_DIR,
-        dataset_label="TFIDF_Lemm",
-        n_clusters=5
+        dataset_label="TFIDF_Lemm"
     )
-    results["TFIDF_Lemm_InformationGain"] = df_ig_lemmas
-    results["TFIDF_Lemm_ChiSquared"] = df_chi2_lemmas
 
-    # 2) Words (BM25 on cleaned documents)
+    lemmas_excel_path = os.path.join(VECTORS_LEMMAS_DIR, "feature_importance_lemmas.xlsx")
+    save_feature_tables_to_excel(lemmas_excel_path, df_ig_lemmas, df_chi2_lemmas)
+
+    # ========== 2) Words (clean) ==========
+    print("\n=== Processing Words ===")
     df_ig_words, df_chi2_words = process_dataset(
         VECTORS_CLEAN_DIR,
-        dataset_label="TFIDF_Word",
-        n_clusters=5
+        dataset_label="TFIDF_Word"
     )
-    results["TFIDF_Word_InformationGain"] = df_ig_words
-    results["TFIDF_Word_ChiSquared"] = df_chi2_words
 
-    # Save everything to a single Excel file (4 sheets)
-    print(f"\nSaving all results to Excel: {OUTPUT_EXCEL}")
-    with pd.ExcelWriter(OUTPUT_EXCEL, engine="xlsxwriter") as writer:
-        for sheet_name, df in results.items():
-            df.to_excel(writer, sheet_name=sheet_name, index=False)
+    words_excel_path = os.path.join(VECTORS_CLEAN_DIR, "feature_importance_words.xlsx")
+    save_feature_tables_to_excel(words_excel_path, df_ig_words, df_chi2_words)
 
-    print("✅ Done! Feature importance tables saved to", OUTPUT_EXCEL)
+    print("\n✅ Done! Each dataset saved into its own Excel file.")
 
 
 if __name__ == "__main__":

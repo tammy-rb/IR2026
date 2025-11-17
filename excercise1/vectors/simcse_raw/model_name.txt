@@ -1,0 +1,1 @@
+princeton-nlp/unsup-simcse-bert-base-uncased
