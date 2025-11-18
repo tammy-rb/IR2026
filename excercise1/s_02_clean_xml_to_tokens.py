@@ -22,15 +22,11 @@ from lxml import etree
 
 RAW_DIR = "docs"     # Folder with the raw XML files
 CLEAN_DIR = "clean_docs"    # Folder to save cleaned text files
-SAMPLE_RAW_DIR = "sample_docs"    # Folder with sample XML files
-SAMPLE_CLEAN_DIR = "sample_clean"  # Folder to save sample cleaned text files
 
 os.makedirs(CLEAN_DIR, exist_ok=True)
-os.makedirs(SAMPLE_CLEAN_DIR, exist_ok=True)
 
 # Load English language model (only tokenizer enabled)
 nlp = spacy.load("en_core_web_sm", disable=["parser", "ner", "textcat"])
-
 
 def extract_text_from_xml(path):
     """
@@ -91,7 +87,6 @@ def build_clean_files():
         text = extract_text_from_xml(xml_path)
         tokens = tokenize_and_clean(text)
 
-        # Save tokens joined by spaces
         with open(clean_path, "w", encoding="utf-8") as f:
             f.write(" ".join(tokens))
 

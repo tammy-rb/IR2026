@@ -22,7 +22,6 @@ LEMMA_DIR = "lemmas"
 
 os.makedirs(LEMMA_DIR, exist_ok=True)
 
-# Load spaCy English model
 # Disabled components for faster performance – we only need tokenizer + lemmatizer
 nlp = spacy.load("en_core_web_sm", disable=["parser", "ner", "textcat"])
 
