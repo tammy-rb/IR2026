@@ -7,16 +7,15 @@ import spacy
 from gensim.models import Word2Vec
 from sklearn.feature_extraction.text import ENGLISH_STOP_WORDS
 
-# === Directories (adjust if your folder names are different) ===
+# === Directories ===
 LEMMA_DIR = "lemmas"          # directory with lemma files (xxx.lemma.txt)
 CLEAN_DIR = "clean_docs"      # directory with cleaned text files (xxx.clean.txt)
 
 VECTORS_W2V_LEMMAS_DIR = "vectors/word2vec_lemmas"
 VECTORS_W2V_CLEAN_DIR = "vectors/word2vec_words"
 
-# Load spaCy English model (make sure you ran: python -m spacy download en_core_web_sm)
+# Load spaCy English model 
 nlp = spacy.load("en_core_web_sm", disable=["parser", "ner"])
-
 
 # ====================== Document loading ======================
 
@@ -62,18 +61,23 @@ def tokenize_for_embeddings(text):
     """
     Tokenize text for Word2Vec / Gensim using spaCy.
 
-    Requirements from the assignment:
+    Cleaning steps:
     - No punctuation
     - No numbers, digits, dates
     - Remove English stop-words
+    - No tokens with digits
     - Everything in lowercase
     """
     doc = nlp(text)
     tokens = []
 
     for token in doc:
-        # Skip punctuation, spaces, numbers, symbols
+        # Skip punctuation, spaces and numbers
         if token.is_punct or token.is_space or token.like_num:
+            continue
+
+        # Skip tokens containing ANY digit
+        if any(ch.isdigit() for ch in token.text):
             continue
 
         tok = token.text.lower()
@@ -120,7 +124,7 @@ def train_word2vec(tokenized_docs,
         workers=workers,
         sg=sg
     )
-    # Extra training pass (optional, but keeps your previous code behaviour)
+    # Extra training pass to ensure convergence
     model.train(tokenized_docs, total_examples=len(tokenized_docs), epochs=epochs)
     print(f"Finished training Word2Vec. Vocab size: {len(model.wv)}")
     return model

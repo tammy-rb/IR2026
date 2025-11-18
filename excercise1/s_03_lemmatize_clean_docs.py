@@ -6,9 +6,6 @@
 This script reads all pre-cleaned text files (in the folder "clean")
 and creates, for each file, a corresponding lemma file in "lemmas".
 
-Each lemma file contains the base form (lemma) of every word, filtered to include
-only alphabetic tokens of length ≥ 2. Punctuation, numbers, and whitespace are excluded.
-
 Tool used:
     spaCy "en_core_web_sm" model for lemmatization.
 """
@@ -48,14 +45,13 @@ def build_lemma_files():
         doc = nlp(text)
         lemmas = []
         for t in doc:
-            if t.is_space or t.is_punct:
+            if t.is_space:
                 continue
             token = t.lemma_.lower()
             # Handle special case for pronouns, replace "-PRON-" with the original token
             if token == "-pron-":
                 token = t.lower_
-            if token.isalpha() and len(token) >= 2:
-                lemmas.append(token)
+            lemmas.append(token.lower())
 
         with open(lemma_path, "w", encoding="utf-8") as f:
             f.write(" ".join(lemmas))

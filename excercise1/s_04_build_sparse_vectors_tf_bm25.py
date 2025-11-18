@@ -200,7 +200,7 @@ def build_sparse_vectors():
     Main function to build both TF and BM25 sparse matrices for all datasets.
 
     This function processes both:
-    1. Lemmatized documents -> vectors/
+    1. Lemmatized documents -> vectors/BM25_lemmas/
     2. Clean documents      -> vectors/BM25_words/
     """
     print("Starting sparse vector construction for all datasets...")

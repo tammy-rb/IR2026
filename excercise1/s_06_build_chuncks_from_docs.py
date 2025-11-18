@@ -145,11 +145,10 @@ def split_document_into_chunks(text, max_tokens=512):
                 current_chunk = [sent]
                 current_word_count = sent_word_count
             else:
-                # Add sentence to current chunk
                 current_chunk.append(sent)
                 current_word_count += sent_word_count
 
-    # Don't forget the last chunk
+    # last chunk
     if current_chunk:
         final_chunks.append(" ".join(current_chunk))
 
@@ -204,7 +203,7 @@ def build_and_save_chunks_for_xml(
     
     Args:
         raw_dir: Directory containing XML files.
-        out_dir: Output directory for saving chunk files (e.g., 'docs_chuncks').
+        out_dir: Output directory for saving chunk files.
         xml_pattern: Glob pattern for matching XML files.
         chunk_max_tokens: Maximum words per chunk.
     """
