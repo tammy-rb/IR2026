@@ -12,12 +12,13 @@ from s_03_clustering_utils import (
     save_clustering_result,
     assign_noise_to_nearest_cluster,
     get_cluster_size_dict,
+    count_noise_points,
 )
 
 
 # Toggle post-processing of noise points
 POSTPROCESS_ASSIGN_NOISE = True
-NOISE_MAX_DISTANCE = None  # see HDBSCAN script comment
+NOISE_MAX_DISTANCE = None  # If None: assign every noise point to the nearest cluster
 
 
 # ============================
@@ -137,6 +138,9 @@ def main():
         min_samples=min_samples,
     )
 
+    # Count original noise points before reassignment
+    n_original_noise = count_noise_points(labels, noise_label=NOISE_LABEL)
+
     # ==========================================
     # Optional: reassign noise to nearest cluster
     # ==========================================
@@ -195,6 +199,7 @@ def main():
         "noise_reassignment": {
             "enabled": POSTPROCESS_ASSIGN_NOISE,
             "max_distance": NOISE_MAX_DISTANCE,
+            "original_noise_count": int(n_original_noise),
         },
     }
     save_clustering_result(dbscan_output_dir, labels, "DBSCAN", params)

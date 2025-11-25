@@ -127,6 +127,7 @@ def compute_cluster_centroids(matrix, labels, noise_label=NOISE_LABEL, normalize
     centroids = []
 
     for cid in cluster_ids:
+        # all docs indices in this cluster
         idx = np.where(labels == cid)[0]
         if idx.size == 0:
             continue
@@ -140,6 +141,7 @@ def compute_cluster_centroids(matrix, labels, noise_label=NOISE_LABEL, normalize
         else:
             centroid = np.asarray(centroid).ravel()
 
+        # normalize centroid
         if normalize:
             norm = np.linalg.norm(centroid)
             if norm > 0:
@@ -158,6 +160,21 @@ def get_cluster_size_dict(labels):
     labels = np.asarray(labels)
     unique, counts = np.unique(labels, return_counts=True)
     return {int(k): int(v) for k, v in zip(unique, counts)}
+
+
+def count_noise_points(labels, noise_label=NOISE_LABEL):
+    """
+    Count the number of noise points in the given labels.
+    
+    Args:
+        labels: 1D array of cluster labels.
+        noise_label: label used for noise (default: -1).
+    
+    Returns:
+        int: Number of noise points.
+    """
+    labels = np.asarray(labels)
+    return int(np.sum(labels == noise_label))
 
 
 def relabel_clusters_consecutively(labels, noise_label=NOISE_LABEL, start_from=0):
@@ -235,7 +252,10 @@ def assign_noise_to_nearest_cluster(
     )
 
     # 2. Distances from each noise point to each centroid
+
+    # noise docs indices
     noise_indices = np.where(noise_mask)[0]
+    # all noise docs vectors to reassign
     X_noise = matrix[noise_indices]
 
     if verbose:
@@ -244,8 +264,11 @@ def assign_noise_to_nearest_cluster(
             f"to {len(cluster_ids)} non-noise clusters using {metric} distance..."
         )
 
+    # for each noise point, compute distance to each centroid
     dist_matrix = pairwise_distances(X_noise, centroids, metric=metric)
+    # for each noise point, find the nearest centroid
     best_idx = np.argmin(dist_matrix, axis=1)
+    # first line is the rows (docs), second line is the corresponding best centroid for each doc
     best_dist = dist_matrix[np.arange(best_idx.size), best_idx]
     best_cluster_ids = np.array(cluster_ids)[best_idx]
 

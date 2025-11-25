@@ -11,6 +11,7 @@ from s_03_clustering_utils import (
     save_clustering_result,
     assign_noise_to_nearest_cluster,
     get_cluster_size_dict,
+    count_noise_points,
 )
 
 
@@ -97,6 +98,9 @@ def main():
         cluster_selection_method="eom",
     )
 
+    # Count original noise points before reassignment
+    n_original_noise = count_noise_points(labels, noise_label=NOISE_LABEL)
+
     # ==========================================
     # Optional: reassign noise to nearest cluster
     # ==========================================
@@ -142,6 +146,7 @@ def main():
         "noise_reassignment": {
             "enabled": POSTPROCESS_ASSIGN_NOISE,
             "max_distance": NOISE_MAX_DISTANCE,
+            "original_noise_count": int(n_original_noise),
         },
         "description": (
             "HDBSCAN run on joint BM25 (lemmas) for UK+US documents. "
