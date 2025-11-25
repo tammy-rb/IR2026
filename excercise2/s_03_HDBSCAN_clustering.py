@@ -6,9 +6,19 @@ import hdbscan
 from s_03_clustering_utils import (
     VECTORS_LEMMAS_DIR,
     CLUSTERS_ROOT_DIR,
+    NOISE_LABEL,
     load_bm25_and_metadata,
     save_clustering_result,
+    assign_noise_to_nearest_cluster,
+    get_cluster_size_dict,
 )
+
+
+# Toggle post-processing of noise points
+POSTPROCESS_ASSIGN_NOISE = True
+# If None: assign every noise point to the nearest cluster
+# Else: only assign noise points whose nearest distance <= NOISE_MAX_DISTANCE
+NOISE_MAX_DISTANCE = None
 
 
 # ============================
@@ -18,7 +28,7 @@ from s_03_clustering_utils import (
 def run_hdbscan_clustering(
     bm25_matrix,
     min_cluster_size=30,
-    min_samples=10,
+    min_samples=8,
     metric="cosine",
     cluster_selection_method="eom",
 ):
@@ -35,7 +45,7 @@ def run_hdbscan_clustering(
 
     Returns:
         labels: 1D array of cluster assignments (length = n_docs)
-                noise points are labeled as -1.
+                noise points are labeled as NOISE_LABEL.
         clusterer: fitted HDBSCAN object.
     """
     print(
@@ -76,7 +86,7 @@ def main():
     # Choose min_cluster_size as ~3–5% of dataset size (~600 docs)
     # Choose min_samples to require reasonable local density without being overly strict
     min_cluster_size = 30
-    min_samples = 10
+    min_samples = 8
 
     # 2. Run HDBSCAN
     labels, clusterer = run_hdbscan_clustering(
@@ -87,20 +97,33 @@ def main():
         cluster_selection_method="eom",
     )
 
+    # ==========================================
+    # Optional: reassign noise to nearest cluster
+    # ==========================================
+    if POSTPROCESS_ASSIGN_NOISE:
+        labels = assign_noise_to_nearest_cluster(
+            bm25_matrix,
+            labels,
+            metric="cosine",
+            noise_label=NOISE_LABEL,
+            max_distance=NOISE_MAX_DISTANCE,
+            normalize_centroids=True,
+            inplace=False,
+            verbose=True,
+        )
+
     # ===========================
     # Summary statistics
     # ===========================
-    unique, counts = np.unique(labels, return_counts=True)
-    # Convert numpy types to regular Python types for JSON serialization
-    cluster_sizes = {int(k): int(v) for k, v in zip(unique, counts)}
+    cluster_sizes = get_cluster_size_dict(labels)
+
+    # Number of noise points
+    n_noise = int(cluster_sizes.get(NOISE_LABEL, 0))
+
+    # Number of real clusters (excluding noise)
+    n_clusters = len([c for c in cluster_sizes.keys() if c != NOISE_LABEL])
+
     print("Cluster sizes (label -> count):", cluster_sizes)
-
-    # Number of noise points (label == -1)
-    n_noise = int(cluster_sizes.get(-1, 0))
-
-    # Number of real clusters (excluding noise label -1)
-    n_clusters = len([c for c in unique if c != -1])
-
     print(f"Number of clusters (excluding noise): {n_clusters}")
     print(f"Number of noise points: {n_noise}")
 
@@ -116,11 +139,15 @@ def main():
         "n_clusters_excl_noise": n_clusters,
         "n_noise_points": n_noise,
         "cluster_sizes": cluster_sizes,
+        "noise_reassignment": {
+            "enabled": POSTPROCESS_ASSIGN_NOISE,
+            "max_distance": NOISE_MAX_DISTANCE,
+        },
         "description": (
             "HDBSCAN run on joint BM25 (lemmas) for UK+US documents. "
             "min_cluster_size chosen as ~3–5% of dataset size (~600 docs). "
-            "min_samples set to 10 to require a reasonable local density "
-            "without being overly strict, (balancing noise and cluster formation)."
+            "min_samples set to 8 to require a reasonable local density "
+            "without being overly strict, balancing noise and cluster formation."
         ),
     }
 
