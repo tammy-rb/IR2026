@@ -1,0 +1,10 @@
+{
+  "algorithm": "MiniBatchKMeans",
+  "n_documents": 689,
+  "params": {
+    "n_clusters": 2,
+    "random_state": 42,
+    "batch_size": 256,
+    "max_iter": 100
+  }
+}

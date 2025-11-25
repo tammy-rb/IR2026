@@ -1,0 +1,19 @@
+{
+  "algorithm": "HDBSCAN",
+  "n_documents": 689,
+  "params": {
+    "min_cluster_size": 30,
+    "min_samples": 10,
+    "metric": "cosine",
+    "cluster_selection_method": "eom",
+    "n_documents": 689,
+    "n_clusters_excl_noise": 2,
+    "n_noise_points": 120,
+    "cluster_sizes": {
+      "-1": 120,
+      "0": 330,
+      "1": 239
+    },
+    "description": "HDBSCAN run on joint BM25 (lemmas) for UK+US documents. min_cluster_size chosen as ~3\u20135% of dataset size (~600 docs). min_samples set to 10 to require a reasonable local density without being overly strict, (balancing noise and cluster formation)."
+  }
+}
