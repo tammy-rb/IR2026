@@ -346,10 +346,16 @@ The following table summarizes the performance of all three clustering methods:
 - **UK**: Precision = 1.000, Recall = 1.000 (329/329 correctly identified)
 - **US**: Precision = 1.000, Recall = 1.000 (360/360 correctly identified)
 
+**Algorithm Parameters:**
+- `n_clusters = 2` — Pre-specified number of clusters
+- `batch_size = 256` — Documents processed per iteration
+- `max_iter = 100` — Maximum iterations
+- `random_state = 42` — For reproducibility
+
 **Analysis:**
 MiniBatchKMeans achieved perfect clustering results, successfully separating all UK and US documents into two distinct clusters. The algorithm correctly assigned each document to its true origin without any misclassifications. This exceptional performance indicates that the BM25 lemmatized vectors capture strong linguistic and stylistic differences between British Parliament and US Congress debates.
 
-**Key Insight:** Despite being a simple centroid-based method, K-Means proved highly effective for this binary classification task, benefiting from the clear separation in the high-dimensional BM25 feature space.
+**Key Insight:** Despite being a simple centroid-based method, K-Means proved highly effective for this binary classification task, benefiting from the clear separation in the high-dimensional BM25 feature space. The mini-batch approach provided computational efficiency while maintaining perfect accuracy.
 
 ---
 
@@ -362,14 +368,26 @@ MiniBatchKMeans achieved perfect clustering results, successfully separating all
 - **UK**: Precision = 0.997, Recall = 1.000 (329/329 identified, 1 false positive)
 - **US**: Precision = 1.000, Recall = 0.997 (359/360 correctly identified, 1 missed)
 
+**Algorithm Parameters:**
+- `eps = 0.877` — Automatically determined via k-distance heuristic (80th percentile)
+- `min_samples = 5` — Minimum neighbors for core points
+- `metric = cosine` — Distance measure for BM25 vectors
+
 **Analysis:**
-DBSCAN achieved near-perfect results with only 1 misclassification out of 689 documents. The algorithm successfully identified 2 density-based clusters without requiring the number of clusters as input. The eps parameter, automatically determined using the k-distance heuristic (80th percentile), effectively captured the natural density structure of the data.
+DBSCAN achieved near-perfect results with only 1 misclassification out of 689 documents. The algorithm successfully identified 2 density-based clusters without requiring the number of clusters as input. 
+
+**Noise Handling:**
+- **Initial noise points**: 39 documents (5.7% of dataset) were originally classified as noise
+- **After reassignment**: All 39 noise points were reassigned to their nearest cluster using cosine distance
+- **Final clusters**: Cluster 0 = 330 documents, Cluster 1 = 359 documents
+
+The k-distance heuristic with `eps=0.877` proved slightly conservative, initially marking some boundary documents as noise. However, the post-processing noise reassignment step successfully incorporated these documents into appropriate clusters.
 
 **Misclassification Details:**
 - 1 US document was assigned to the UK cluster (false negative for US, false positive for UK)
-- This represents 0.15% error rate
+- This represents a 0.15% error rate
 
-**Key Insight:** The k-distance heuristic successfully automated parameter selection, and the density-based approach proved robust. The single misclassification may indicate a US document with linguistic characteristics more similar to UK parliamentary language, or an outlier in the feature space.
+**Key Insight:** The automatic eps selection via k-distance heuristic worked well, though it initially identified some borderline cases as noise. The noise reassignment strategy ensured all documents received cluster assignments while maintaining near-perfect accuracy. The single misclassification likely represents a US document with linguistic features more similar to UK parliamentary language.
 
 ---
 
@@ -382,10 +400,23 @@ DBSCAN achieved near-perfect results with only 1 misclassification out of 689 do
 - **UK**: Precision = 1.000, Recall = 1.000 (329/329 correctly identified)
 - **US**: Precision = 1.000, Recall = 1.000 (360/360 correctly identified)
 
-**Analysis:**
-HDBSCAN achieved flawless clustering results by leveraging its hierarchical density-based approach. The algorithm automatically adapted to varying density levels across the feature space and selected the most stable clusters. With `min_cluster_size=30` (~4% of dataset) and `cluster_selection_method='eom'`, HDBSCAN successfully identified two large, stable clusters corresponding exactly to the UK/US division.
+**Algorithm Parameters:**
+- `min_cluster_size = 30` — Minimum documents for valid cluster (~4.4% of dataset)
+- `min_samples = 8` — Controls clustering conservativeness
+- `cluster_selection_method = eom` — Excess of Mass (stable, large clusters)
+- `metric = cosine` — Distance measure for BM25 vectors
 
-**Key Insight:** HDBSCAN's ability to handle varying densities and automatically select optimal parameters made it the most robust method. The hierarchical approach provided better adaptability than standard DBSCAN's fixed eps, resulting in perfect separation.
+**Analysis:**
+HDBSCAN achieved flawless clustering results by leveraging its hierarchical density-based approach. The algorithm automatically adapted to varying density levels across the feature space and selected the most stable clusters.
+
+**Noise Handling:**
+- **Initial noise points**: 105 documents (15.2% of dataset) were originally classified as noise during hierarchical clustering
+- **After reassignment**: All 105 noise points were reassigned to their nearest cluster using cosine distance
+- **Final clusters**: Cluster 0 = 329 documents (UK), Cluster 1 = 360 documents (US)
+
+Despite initially identifying a significant number of noise points, HDBSCAN's hierarchical approach combined with the noise reassignment strategy resulted in perfect separation. The final cluster assignments exactly matched the ground truth labels.
+
+**Key Insight:** HDBSCAN's ability to build a cluster hierarchy and select stable clusters via EOM proved highly effective. While the algorithm was conservative in its initial clustering (marking 15% as noise), the hierarchical structure captured the true data organization. The noise reassignment step, guided by cosine distances to cluster centroids, perfectly placed all boundary documents into their correct classes. This demonstrates the robustness of combining hierarchical density analysis with post-processing refinement.
 
 ---
 
@@ -400,9 +431,9 @@ HDBSCAN achieved flawless clustering results by leveraging its hierarchical dens
 1. **Excellent Separability**: All three methods achieved ≥99.85% accuracy, indicating that UK and US parliamentary debates have highly distinguishable linguistic features in the BM25 vector space.
 
 2. **Method Comparison**:
-   - **KMeans**: Simplest algorithm, perfect results. Efficient and effective when the number of clusters is known.
-   - **DBSCAN**: Nearly perfect with automated cluster discovery. Single misclassification suggests slight sensitivity to the eps parameter or presence of a borderline document.
-   - **HDBSCAN**: Most sophisticated, perfect results. Hierarchical approach provided the best adaptability without requiring extensive parameter tuning.
+   - **KMeans**: Simplest algorithm, perfect results. Required knowing k=2 in advance but achieved flawless separation with no noise points.
+   - **DBSCAN**: Nearly perfect with automated cluster discovery. Initially identified 39 noise points (5.7%) which were successfully reassigned. Single misclassification after reassignment suggests one borderline document.
+   - **HDBSCAN**: Most sophisticated, perfect results after noise reassignment. Initially marked 105 documents (15.2%) as noise, demonstrating conservative clustering, but the hierarchical approach combined with noise reassignment achieved perfect class separation.
 
 3. **Feature Space Quality**: The near-perfect results across all methods validate the effectiveness of:
    - BM25 weighting for capturing document importance
