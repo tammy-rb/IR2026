@@ -316,3 +316,113 @@ High-dimensional BM25 vectors (thousands of dimensions) are reduced to 2D space 
 - High-resolution PNG files suitable for reports and presentations
 
 ---
+
+## Results and Analysis
+
+### Evaluation Summary
+
+The following table summarizes the performance of all three clustering methods:
+
+| Method | Clusters | Accuracy | F1-Macro | UK Precision | UK Recall | US Precision | US Recall |
+|--------|----------|----------|----------|--------------|-----------|--------------|-----------|
+| **KMeans** | 2    | 1.000    | 1.000    | 1.000        | 1.000     | 1.000        | 1.000 |
+| **DBSCAN** | 2    | 0.999    | 0.999    | 0.997        | 1.000     | 1.000        | 0.997 |
+| **HDBSCAN** | 2   | 1.000    | 1.000    | 1.000        | 1.000     | 1.000        | 1.000 |
+
+**Dataset Composition:**
+- Total documents: 689
+- UK documents: 329 (47.8%)
+- US documents: 360 (52.2%)
+- Balanced dataset (no significant class imbalance)
+
+### Detailed Analysis by Method
+
+#### MiniBatchKMeans
+![MiniBatchKMeans Clustering](clusters/visualizations/umap_kmeans.png)
+
+**Performance:**
+- **Accuracy: 100%** — Perfect classification of all documents
+- **F1-Macro: 1.000** — Excellent performance on both classes
+- **UK**: Precision = 1.000, Recall = 1.000 (329/329 correctly identified)
+- **US**: Precision = 1.000, Recall = 1.000 (360/360 correctly identified)
+
+**Analysis:**
+MiniBatchKMeans achieved perfect clustering results, successfully separating all UK and US documents into two distinct clusters. The algorithm correctly assigned each document to its true origin without any misclassifications. This exceptional performance indicates that the BM25 lemmatized vectors capture strong linguistic and stylistic differences between British Parliament and US Congress debates.
+
+**Key Insight:** Despite being a simple centroid-based method, K-Means proved highly effective for this binary classification task, benefiting from the clear separation in the high-dimensional BM25 feature space.
+
+---
+
+#### DBSCAN
+![DBSCAN Clustering](clusters/visualizations/umap_dbscan.png)
+
+**Performance:**
+- **Accuracy: 99.85%** — Near-perfect classification with minimal errors
+- **F1-Macro: 0.999** — Balanced performance across both classes
+- **UK**: Precision = 0.997, Recall = 1.000 (329/329 identified, 1 false positive)
+- **US**: Precision = 1.000, Recall = 0.997 (359/360 correctly identified, 1 missed)
+
+**Analysis:**
+DBSCAN achieved near-perfect results with only 1 misclassification out of 689 documents. The algorithm successfully identified 2 density-based clusters without requiring the number of clusters as input. The eps parameter, automatically determined using the k-distance heuristic (80th percentile), effectively captured the natural density structure of the data.
+
+**Misclassification Details:**
+- 1 US document was assigned to the UK cluster (false negative for US, false positive for UK)
+- This represents 0.15% error rate
+
+**Key Insight:** The k-distance heuristic successfully automated parameter selection, and the density-based approach proved robust. The single misclassification may indicate a US document with linguistic characteristics more similar to UK parliamentary language, or an outlier in the feature space.
+
+---
+
+#### HDBSCAN
+![HDBSCAN Clustering](clusters/visualizations/umap_hdbscan.png)
+
+**Performance:**
+- **Accuracy: 100%** — Perfect classification of all documents
+- **F1-Macro: 1.000** — Excellent performance on both classes
+- **UK**: Precision = 1.000, Recall = 1.000 (329/329 correctly identified)
+- **US**: Precision = 1.000, Recall = 1.000 (360/360 correctly identified)
+
+**Analysis:**
+HDBSCAN achieved flawless clustering results by leveraging its hierarchical density-based approach. The algorithm automatically adapted to varying density levels across the feature space and selected the most stable clusters. With `min_cluster_size=30` (~4% of dataset) and `cluster_selection_method='eom'`, HDBSCAN successfully identified two large, stable clusters corresponding exactly to the UK/US division.
+
+**Key Insight:** HDBSCAN's ability to handle varying densities and automatically select optimal parameters made it the most robust method. The hierarchical approach provided better adaptability than standard DBSCAN's fixed eps, resulting in perfect separation.
+
+---
+
+### Comparative Analysis
+
+**Overall Rankings (Best to Good):**
+1. **KMeans & HDBSCAN (tied)**: 100% accuracy, perfect F1-Macro
+2. **DBSCAN**: 99.85% accuracy, 0.999 F1-Macro (1 error)
+
+**Key Findings:**
+
+1. **Excellent Separability**: All three methods achieved ≥99.85% accuracy, indicating that UK and US parliamentary debates have highly distinguishable linguistic features in the BM25 vector space.
+
+2. **Method Comparison**:
+   - **KMeans**: Simplest algorithm, perfect results. Efficient and effective when the number of clusters is known.
+   - **DBSCAN**: Nearly perfect with automated cluster discovery. Single misclassification suggests slight sensitivity to the eps parameter or presence of a borderline document.
+   - **HDBSCAN**: Most sophisticated, perfect results. Hierarchical approach provided the best adaptability without requiring extensive parameter tuning.
+
+3. **Feature Space Quality**: The near-perfect results across all methods validate the effectiveness of:
+   - BM25 weighting for capturing document importance
+   - Lemmatization for reducing noise and focusing on root words
+   - Cosine distance for measuring semantic similarity in sparse high-dimensional space
+
+4. **No Class Imbalance Issues**: The balanced dataset (47.8% UK, 52.2% US) contributed to reliable performance. F1-Macro effectively captured per-class performance without bias.
+
+5. **Practical Implications**: Any of these three methods would be suitable for automatically classifying parliamentary debate documents by origin, with KMeans offering the best speed-to-accuracy tradeoff and HDBSCAN providing the most robust parameter-free solution.
+
+---
+
+### Visualizations
+
+**UMAP Projections:**
+The 2D UMAP visualizations (available in `clusters/visualizations/`) show clear separation between UK and US document clusters across all methods. The tight, non-overlapping clusters in the visualizations confirm the strong separability observed in the quantitative metrics.
+
+**Ground Truth Reference:**
+![Ground Truth Labels](clusters/visualizations/umap_true_labels.png)
+
+The ground truth visualization demonstrates the inherent separability of the two corpora in the reduced 2D space, which all clustering methods successfully captured.
+
+---
