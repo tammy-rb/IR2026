@@ -82,8 +82,12 @@ def load_cluster_labels(method_name):
 def compute_umap_embedding(bm25_matrix, n_components=2, random_state=42, metric="cosine"):
     """
     Compute a 2D UMAP embedding from the BM25 matrix.
+    n_components: number of UMAP dimensions (2 for visualization)
+    metric: distance metric for UMAP (e.g. "cosine", "euclidean
+    random_state: for reproducibility
 
-    Requires: pip install umap-learn
+    returns:
+        embedding: np.ndarray of shape (n_docs, n_components) (2D coordinates)
     """
     try:
         import umap
@@ -119,7 +123,7 @@ def plot_umap_scatter(
     x = embedding[:, 0]
     y = embedding[:, 1]
 
-    plt.figure(figsize=(8, 6))
+    plt.figure(figsize=(8, 6)) # size of figure
     unique_labels = np.unique(labels)
 
     # Separate noise if needed
@@ -129,11 +133,11 @@ def plot_umap_scatter(
         sns.scatterplot(
             x=x[mask_core],
             y=y[mask_core],
-            hue=labels[mask_core].astype(str),
-            palette=palette,
-            s=30,
-            alpha=0.8,
-            legend="full",
+            hue=labels[mask_core].astype(str), # color by cluster
+            palette=palette, 
+            s=30, # size of points
+            alpha=0.8, # transparency
+            legend="full", # 
         )
 
         # Noise as gray crosses

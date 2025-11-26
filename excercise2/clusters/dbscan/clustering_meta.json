@@ -21,7 +21,8 @@
     },
     "noise_reassignment": {
       "enabled": true,
-      "max_distance": null
+      "max_distance": null,
+      "original_noise_count": 39
     }
   }
 }

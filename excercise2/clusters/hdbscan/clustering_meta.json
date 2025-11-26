@@ -15,7 +15,8 @@
     },
     "noise_reassignment": {
       "enabled": true,
-      "max_distance": null
+      "max_distance": null,
+      "original_noise_count": 105
     },
     "description": "HDBSCAN run on joint BM25 (lemmas) for UK+US documents. min_cluster_size chosen as ~3\u20135% of dataset size (~600 docs). min_samples set to 8 to require a reasonable local density without being overly strict, balancing noise and cluster formation."
   }

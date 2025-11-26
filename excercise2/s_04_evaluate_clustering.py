@@ -117,7 +117,7 @@ def majority_vote_mapping(true_labels, cluster_labels):
     true_labels = np.array(true_labels)
     cluster_labels = np.array(cluster_labels)
 
-    # All points are used
+    # All points are used (enable masking noise if desired later)
     mask = np.ones_like(cluster_labels, dtype=bool)
 
     # Classes that exist in the ground truth
