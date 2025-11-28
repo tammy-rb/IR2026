@@ -10,9 +10,10 @@ from sklearn.metrics import pairwise_distances
 # Paths
 # ============================
 
-# BM25 vector directories
-VECTORS_LEMMAS_DIR = "vectors/BM25_lemmas"
-VECTORS_CLEAN_DIR = "vectors/BM25_clean"
+# BM25 vector directories (paths made relative to this module file so scripts
+BASE_DIR = os.path.dirname(__file__)
+VECTORS_LEMMAS_DIR = os.path.join(BASE_DIR, "vectors", "BM25_lemmas")
+VECTORS_CLEAN_DIR = os.path.join(BASE_DIR, "vectors", "BM25_clean")
 
 # Root folder for clustering results (subfolders per algorithm)
 CLUSTERS_ROOT_DIR = "clusters"

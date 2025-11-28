@@ -1,5 +1,5 @@
 """
-s_05_logistic_regression_supervised.py
+s_06_LoR_classification.py
 
 Supervised classification of UK vs US parliamentary debates
 using Logistic Regression on the BM25 (lemmas) matrix.
@@ -20,25 +20,26 @@ Steps:
 import os
 
 from sklearn.linear_model import LogisticRegression
+import pandas as pd
 
-from classification_utils import (
+from s_06_classification_utils import (
     CLASSIFICATION_ROOT_DIR,
     load_bm25_and_labels,
     run_cross_validation,
     save_cv_results_to_excel,
-    extract_top_features_from_linear_model,
+    extract_top_features,
     save_top_features_to_excel,
 )
 
 # Directory where we will save supervised results for Logistic Regression
-SUPERVISED_ROOT_DIR = os.path.join(CLASSIFICATION_ROOT_DIR, "logistic_regression")
+SUPERVISED_ROOT_DIR = os.path.join(CLASSIFICATION_ROOT_DIR, "LoR")
 
 
 # ============================
 # Train final model
 # ============================
 
-def train_final_logreg_model(X, y):
+def train_final_LoR_model(X, y):
     """
     Train Logistic Regression on ALL data (no split).
     This model will be used to extract feature importances.
@@ -48,7 +49,7 @@ def train_final_logreg_model(X, y):
         y: labels array
 
     Returns:
-        clf: fitted LogisticRegression instance
+        clf: fitted LogisticRegression instance 
         classes_: np.ndarray of class labels in the same order as clf.coef_
     """
     print("\n" + "=" * 70)
@@ -56,10 +57,10 @@ def train_final_logreg_model(X, y):
     print("=" * 70)
 
     clf = LogisticRegression(
-        penalty="l2",
-        solver="liblinear",
+        penalty="l2", # prevent overfitting, keep stable weights
+        solver="liblinear", # binary classification
         max_iter=1000,
-        class_weight=None,  # or "balanced" if needed
+        class_weight=None,  # the clusters are roughly balanced
     )
     clf.fit(X, y)
 
@@ -76,7 +77,7 @@ def train_final_logreg_model(X, y):
 
 def main():
     print("=" * 70)
-    print("LOGISTIC REGRESSION SUPERVISED CLASSIFICATION (UK vs US)")
+    print("LoR SUPERVISED CLASSIFICATION (UK vs US)")
     print("=" * 70)
 
     # 1. Load BM25 matrix + metadata and labels
@@ -87,37 +88,43 @@ def main():
     print(f"  → Classes: {sorted(set(y))}")
 
     # 2. Run 10-fold cross-validation and report performance
-    print("\n[2] Running 10-fold cross-validation for Logistic Regression...")
-    logreg_for_cv = LogisticRegression(
+    print("\n[2] Running 10-fold cross-validation for LoR...")
+    lor_for_cv = LogisticRegression(
         penalty="l2",
         solver="liblinear",
         max_iter=1000,
-        class_weight=None,  # or "balanced"
+        class_weight=None,  
     )
 
     cv_results = run_cross_validation(
-        estimator=logreg_for_cv,
+        estimator=lor_for_cv,
         X=X,
         y=y,
         n_splits=10,
         random_state=42,
         scoring=None,              # use default scoring from utils
-        model_name="Logistic Regression",
+        model_name="LoR",
     )
     print("\n[2] Saving cross-validation results to Excel...")
     save_cv_results_to_excel(cv_results, SUPERVISED_ROOT_DIR, "LoR_cv_results.xlsx")
 
     # 3. Train final model on ALL data to extract feature importances
     print("\n[3] Training final model on ALL data...")
-    clf, classes = train_final_logreg_model(X, y)
+    clf, classes = train_final_LoR_model(X, y)
 
     # 4. Extract top features per class using the generic utils function
     print("\n[4] Extracting top features per class...")
-    df_features = extract_top_features_from_linear_model(
+    features_dict = extract_top_features(
         estimator=clf,
         classes=classes,
         feature_names=feature_names,
         top_n=20,
+    )
+
+    # combine per-class DataFrames into a single DataFrame with a `class_label` column
+    df_features = pd.concat(
+        [df.assign(class_label=label) for label, df in features_dict.items()],
+        ignore_index=True,
     )
 
     print("\nTop features per class (first few rows):")
@@ -128,7 +135,7 @@ def main():
     save_top_features_to_excel(
         df_features,
         SUPERVISED_ROOT_DIR,
-        filename="logreg_top_features.xlsx",
+        filename="LoR_top_features.xlsx",
     )
 
 

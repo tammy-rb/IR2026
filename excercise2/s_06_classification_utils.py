@@ -20,9 +20,8 @@ from s_03_clustering_utils import (
     load_bm25_and_metadata,
 )
 
-# Root directory for all classification results (shared by all models)
-CLASSIFICATION_ROOT_DIR = "classification"
-
+BASE_DIR = os.path.dirname(__file__)
+CLASSIFICATION_ROOT_DIR = os.path.join(BASE_DIR, "classification")
 
 # ============================
 # Load BM25 + labels
@@ -266,7 +265,7 @@ def _extract_multiclass_top_features(
     """
     Multiclass:
       coef.shape = (n_classes, n_features), len(classes) = n_classes
-      
+
     Args:
         coef: np.ndarray of shape (n_classes, n_features)
         classes: np.ndarray of shape (n_classes,), class labels
