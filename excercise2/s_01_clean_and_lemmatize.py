@@ -7,16 +7,14 @@ This script processes folders of text files (e.g., British and US debates),
 cleans and tokenizes them using spaCy, and writes the results into
 corresponding "clean" and "lemma" folders.
 
-Pipeline:
-1. Read raw .txt.
-2. Remove trivial classification signals:
-   - Remove US/UK tokens.
-   - For US Congressional files: strip headers per <pre> block and keep bodies.
-3. Tokenize with spaCy.
-4. Remove whitespace tokens.
-5. Save:
-   - tokens  → CLEAN_DIR/<corpus_name>/*.clean.txt
-   - lemmas  → LEMMA_DIR/<corpus_name>/*.lemma.txt
+Process summary:
+1️⃣ Reads each text file in the given raw directory.
+2️⃣ Extracts all text content from the file.
+3️⃣ Tokenizes the text using spaCy.
+4️⃣ Removes pure whitespace tokens.
+5️⃣ Saves:
+   - cleaned tokens to CLEAN_DIR/<corpus_name>/*.clean.txt
+   - lemmatized tokens to LEMMA_DIR/<corpus_name>/*.lemma.txt
 """
 
 import os
@@ -25,17 +23,27 @@ import spacy
 
 from s_00_clean_classification_words import remove_classification_words
 
+
 # =========================
 # Configuration
 # =========================
 
 DATA_DIR = "data"  # Root folder that contains subfolders with raw text files
 
+import os
+
+# Base directory for this script file. This ensures running the script from
+# the repo root (or any other CWD) still locates the bundled `data/` folder.
+BASE_DIR = os.path.dirname(__file__)
+
 BRITISH = "british_parliament_debates"
 US = "US_congress_debates"
 
-CLEAN_DIR = "clean_docs"
-LEMMA_DIR = "lemmas"
+DATA_DIR = os.path.join(BASE_DIR, "data")
+
+# Output dirs inside the exercise folder
+CLEAN_DIR = os.path.join(BASE_DIR, "clean_docs")
+LEMMA_DIR = os.path.join(BASE_DIR, "lemmas")
 
 os.makedirs(CLEAN_DIR, exist_ok=True)
 os.makedirs(LEMMA_DIR, exist_ok=True)
@@ -49,7 +57,15 @@ nlp = spacy.load("en_core_web_sm", disable=["parser", "ner", "textcat"])
 # =========================
 
 def extract_text(file_path: str) -> str:
-    """Extract text content from a text file."""
+    """
+    Extract text content from a text file.
+
+    Args:
+        file_path: Path to the text file.
+
+    Returns:
+        The file contents as a string.
+    """
     with open(file_path, "r", encoding="utf-8") as f:
         return f.read()
 
@@ -58,9 +74,15 @@ def tokenize_and_clean(text: str):
     """
     Tokenize and clean the given text using spaCy.
 
+    Args:
+        text: The input text to tokenize.
+
     Returns:
-        tokens: list of token texts (words and punctuation), excluding pure whitespace tokens.
-        lemmas: list of lemmatized tokens (lowercased), with pronouns handled specially.
+        (tokens, lemmas):
+            tokens: list of token texts (words and punctuation),
+                    excluding pure whitespace tokens.
+            lemmas: list of lemmatized tokens (lowercased),
+                    with pronouns handled specially.
     """
     doc = nlp(text)
     tokens = []
@@ -90,9 +112,14 @@ def build_clean_and_lemmatized_files(
     """
     Process all text files in raw_dir and create cleaned / lemmatized files.
 
-    Output structure:
-      clean_root/<corpus_name>/<filename>.clean.txt
-      lemma_root/<corpus_name>/<filename>.lemma.txt
+    The structure will be:
+        clean_root/<corpus_name>/<filename>.clean.txt
+        lemma_root/<corpus_name>/<filename>.lemma.txt
+
+    Args:
+        raw_dir: Directory with raw .txt files.
+        clean_root: Root directory for cleaned files.
+        lemma_root: Root directory for lemma files.
     """
     corpus_name = os.path.basename(os.path.normpath(raw_dir))
     clean_dir = os.path.join(clean_root, corpus_name)
@@ -100,18 +127,11 @@ def build_clean_and_lemmatized_files(
     os.makedirs(clean_dir, exist_ok=True)
     os.makedirs(lemma_dir, exist_ok=True)
 
-    # Decide which country logic to apply for classification cleaning
-    if corpus_name == US:
-        country = "us"
-    elif corpus_name == BRITISH:
-        country = "uk"
-    else:
-        country = ""
-
     processed = 0
     skipped = 0
 
     pattern = os.path.join(raw_dir, "*.txt")
+
     for text_path in sorted(glob.glob(pattern)):
         base = os.path.basename(text_path)
         clean_path = os.path.join(clean_dir, base + ".clean.txt")
@@ -122,10 +142,17 @@ def build_clean_and_lemmatized_files(
             skipped += 1
             continue
 
+        corpus_lower = corpus_name.lower()
+        if "congress" in corpus_lower or corpus_lower.startswith("us"):
+            country = "us"
+        else:
+            country = "uk"
+            
         print(f"Processing {text_path}...")
 
         text = extract_text(text_path)
-        text = remove_classification_words(text, country=country)
+        
+        text = remove_classification_words(text,country)
 
         tokens, lemmas = tokenize_and_clean(text)
 

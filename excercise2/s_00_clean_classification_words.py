@@ -7,19 +7,11 @@ Cleaning helpers to remove classification-leak information:
    (case-insensitive) from ALL texts.
 
 2. For US Congressional debate files:
-   - Many files contain multiple records.
-   - Each record is wrapped in a <pre>...</pre> block.
-   - We want to DROP all surrounding and internal boilerplate/header lines
-     and KEEP only the actual body text for EACH <pre> block.
-
-   Strategy for US files:
-   - Find every <pre ...> ... </pre> block.
-   - Inside each block, skip initial lines that are boilerplate:
-       * empty lines
-       * [Extensions of Remarks], [Page E###], etc.  (lines starting with '[' and ending with ']')
-       * the "From the Congressional Record Online through the Government Publishing Office ..." line
-   - Keep everything after that as the body.
-   - Concatenate all bodies from all <pre> blocks with a blank line between them.
+   - Extract text from each <pre>...</pre> block
+   - Remove the 3 specific header lines:
+     * [Extensions of Remarks]
+     * [Page E###]
+     * From the Congressional Record Online through the Government Publishing Office [<a href...>]
 """
 
 import re
@@ -48,18 +40,15 @@ def remove_country_tokens(text: str) -> str:
 def _extract_us_bodies_from_pre_blocks(text: str) -> str:
     """
     Extract all bodies from <pre>...</pre> blocks in a US Congressional file.
-
+    
     For each <pre> block:
-    - Ignore everything before <pre> and after </pre>.
-    - Inside the block, skip initial boilerplate lines:
-        * blank lines
-        * lines like "[Extensions of Remarks]", "[Page E642]" etc.
-        * the line starting with "From the Congressional Record Online
-          through the Government Publishing Office"
-    - Keep all remaining lines as the body for that block.
-
-    Return all bodies joined with a blank line between them.
-    If no <pre> is found, fall back to the original text.
+    1. Extract everything between <pre> and </pre>
+    2. Remove the 3 specific header lines:
+       - Lines starting with [Extensions of Remarks]
+       - Lines starting with [Page E###] or similar
+       - The GPO line: "From the Congressional Record Online..."
+    
+    Return all cleaned bodies joined with blank lines.
     """
     bodies = []
     pos = 0
@@ -72,48 +61,37 @@ def _extract_us_bodies_from_pre_blocks(text: str) -> str:
             break
         start_content = m_open.end()
         m_close = PRE_CLOSE_RE.search(text, start_content)
-        # Find </pre> or end of text
+        
         if m_close:
             end_content = m_close.start()
             pos = m_close.end()
         else:
-            # No closing tag found; take until end of text
             end_content = n_text
             pos = n_text
 
         block = text[start_content:end_content]
-        lines = block.splitlines()
-
-        cleaned_lines = []
-        skipping = True
-
-        for ln in lines:
-            stripped = ln.strip()
-
-            if skipping:
-                # Skip boilerplate at top of <pre> block
-                if (
-                    stripped == ""
-                    or (stripped.startswith("[") and stripped.endswith("]"))
-                    or stripped.startswith(
-                        "From the Congressional Record Online through the Government Publishing Office"
-                    )
-                ):
-                    continue
-                # First non-boilerplate line – from here on we keep everything
-                skipping = False
-
-            cleaned_lines.append(ln)
-
-        cleaned_block = "\n".join(cleaned_lines).strip()
-        if cleaned_block:
-            bodies.append(cleaned_block)
+        
+        # Remove the 3 specific header lines
+        # Line 1: [Extensions of Remarks]
+        block = re.sub(r'^\s*\[Extensions of Remarks\]\s*$', '', block, flags=re.MULTILINE | re.IGNORECASE)
+        
+        # Line 2: [Page E###] or [Pages E###-E###] or similar page references
+        block = re.sub(r'^\s*\[Pages? [^\]]+\]\s*$', '', block, flags=re.MULTILINE | re.IGNORECASE)
+        
+        # Line 3: From the Congressional Record Online... (with or without the link)
+        block = re.sub(r'^.*From the Congressional Record Online through the Government Publishing Office.*$', '', block, flags=re.MULTILINE | re.IGNORECASE)
+        
+        # Clean up multiple blank lines and strip
+        block = re.sub(r'\n\s*\n\s*\n+', '\n\n', block)
+        block = block.strip()
+        
+        if block:
+            bodies.append(block)
 
     if bodies:
-        # Join all speech bodies from the file
         return "\n\n".join(bodies)
     else:
-        # Fallback: nothing matched, return original
+        # Fallback: return original if no <pre> blocks found
         return text
 
 
@@ -122,8 +100,7 @@ def remove_classification_words(text: str, country: str) -> str:
     Apply all cleaning steps that remove trivial US/UK classification signals.
 
     - Always remove US/UK country tokens.
-    - For US files, also strip Congressional headers and keep only bodies
-      from <pre> blocks.
+    - For US files, extract <pre> blocks and remove the 3 header lines.
     """
     cleaned = remove_country_tokens(text)
 

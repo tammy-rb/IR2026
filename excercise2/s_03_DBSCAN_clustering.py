@@ -25,7 +25,7 @@ NOISE_MAX_DISTANCE = None  # If None: assign every noise point to the nearest cl
 # Heuristic for DBSCAN params
 # ============================
 
-def estimate_eps_with_kdist(matrix, min_samples=5, quantile=0.80):
+def estimate_eps_with_kdist(matrix, min_samples=5, quantile=0.70):
     """
     Estimate a reasonable eps for DBSCAN using the k-distance heuristic.
 
@@ -127,7 +127,7 @@ def main():
     eps, k_distances = estimate_eps_with_kdist(
         bm25_matrix,
         min_samples=min_samples,
-        quantile=0.80,
+        quantile=0.75,
     )
 
     # 2. Run DBSCAN with the estimated eps
