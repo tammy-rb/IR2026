@@ -460,26 +460,44 @@ The ground truth visualization demonstrates the inherent separability of the two
 
 
 ### classification
-10-fold cross validation
-For every supervised method we perform stratified 10-fold cross-validation. The dataset is shuffled and split into 10 folds while preserving class proportions (StratifiedKFold). For each fold the model is trained on 9 folds and tested on the remaining fold; we compute per-fold metrics such as accuracy, precision (macro), recall (macro) and F1 (macro).
-
-Per-model results are saved to Excel (one file per model with per-fold scores) and a summary file containing mean ± std for each metric is also produced for easy comparison (for example `LoR_cv_results.xlsx` and `LoR_cv_summary.xlsx`). After CV we retrain the chosen model on the entire dataset and save its outputs.
-
-Feature ranking: for linear models we extract the top-20 features per class by ranking coefficients by absolute value. Positive coefficients point to features predictive of one class, while negative coefficients point to features predictive of the other class.
+10 cross validation:
+for any method, we part it to 10 folds,
+for each fold we run the model on ..% and test on ..%
+then compute for each fold metrics like: F1, ...
+then save in .. for each model (LoR, svm ...):
+excel file with F1 MACRO... mean and of all folds 
+for estimation and further comparison between..
+using:
+... to separate the folds balnced,
+so there is no folds like 0 uk and 100% us.
+randonlt shuffle the docs and then part.
+then compute the runningmmodel on all data 
+and save resukts.
+find the top 20 features for any class,
+by taking the tems with highest weights.
 
 ### LoR
-Logistic Regression (LoR)
-Logistic Regression models the probability of a binary outcome using the logistic (sigmoid) function. The model computes a score z = w0 + w1*x1 + w2*x2 + ... + wn*xn; the sigmoid maps z to a probability in (0,1). A common decision rule is: if z > 0 predict class 1, otherwise predict class 0.
-
-Each feature (term) xi contributes linearly via its weight wi. Training finds the weights that minimize the regularized logistic loss: this balances data fit and model complexity.
-
-Practical settings used in the scripts:
-- `penalty="l2"`: L2 regularization to stabilize weights and reduce overfitting.
-- `solver="liblinear"`: suitable for binary problems and smaller datasets.
-- `max_iter=1000`: increase iterations to ensure convergence.
-- `class_weight=None`: left unset because the dataset is roughly balanced (enable to handle class imbalance when needed).
-
-Top features extraction: we sort the learned coefficients — the largest positive weights indicate terms most predictive of one class, while the most negative weights indicate terms predictive of the other class. We report the top 20 terms per class.
+logistic regressios.
+method:
+sigmoid function : ...
+where z = w0x0+wx1...
+so when z > 0 take it to 1, < 0 to 0.
+so we can classify to 2 classes: 1=... 0 =... 
+so each term is x
+try to find what best w's to minimize the mistake
+mistage function (punishment):
+...
+take 20 terms by:
+first class: lowest weights
+secod: highest weights.
+(lower weights -> moving the polinom to -.. so sigmoid will be 0 and..)
+  penalty="l2", # prevent overfitting, keep stable weights pu punishing ....
+        solver="liblinear", # binary classification, good for small datasets
+        max_iter=1000,
+        class_weight=None,  # the clusters are roughly balanced
+        is to balance if there are rare cluster so give it more weight...
+takes....
+  output:....
 
 
       
