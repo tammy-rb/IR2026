@@ -1,0 +1,29 @@
+{
+  "algorithm": "GMM",
+  "n_documents": 689,
+  "params": {
+    "umap": {
+      "enabled": true,
+      "n_components": 10,
+      "metric": "cosine"
+    },
+    "gmm": {
+      "n_components": 2,
+      "covariance_type": "tied",
+      "max_iter": 100
+    },
+    "n_documents": 689,
+    "n_clusters_excl_noise": 2,
+    "n_noise_points": 0,
+    "cluster_sizes": {
+      "0": 329,
+      "1": 360
+    },
+    "noise_reassignment": {
+      "enabled": true,
+      "max_distance": null,
+      "original_noise_count": 0
+    },
+    "description": "GMM clustering applied on UMAP-reduced BM25 (lemmas). UMAP reduces dimensionality to 10D with cosine metric. GMM then performs probabilistic clustering on the reduced space. Includes optional noise reassignment for completeness."
+  }
+}
