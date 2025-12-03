@@ -1,0 +1,31 @@
+{
+    "models": {
+        "ann_relu": {
+            "model_name": "ann_relu",
+            "accuracy": 1.0,
+            "precision_macro": 1.0,
+            "recall_macro": 1.0,
+            "f1_macro": 1.0,
+            "train_size": 495,
+            "val_size": 56,
+            "test_size": 138,
+            "model_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\classification\\ANN\\relu\\ann_relu.keras"
+        },
+        "ann_gelu": {
+            "model_name": "ann_gelu",
+            "accuracy": 1.0,
+            "precision_macro": 1.0,
+            "recall_macro": 1.0,
+            "f1_macro": 1.0,
+            "train_size": 495,
+            "val_size": 56,
+            "test_size": 138,
+            "model_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\classification\\ANN\\gelu\\ann_gelu.keras"
+        }
+    },
+    "best_model_by_accuracy": {
+        "model_name": "ann_relu",
+        "accuracy": 1.0,
+        "model_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\classification\\ANN\\relu\\ann_relu.keras"
+    }
+}

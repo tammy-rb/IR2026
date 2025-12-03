@@ -500,5 +500,132 @@ takes....
   output:....
 
 
-      
-    
+### ANN Classification (Keras)
+
+**Algorithm:** Feed-forward Artificial Neural Network with Keras/TensorFlow
+
+This stage trains deep learning models to classify each document as UK or US based on its BM25 vector representation. Two variants are trained with different activation functions (ReLU and GELU) to compare performance.
+
+#### 1. Data Preparation
+
+**Input Data:**
+- BM25 lemmatized vectors (sparse format from Stage 2)
+- Ground truth labels (UK/US)
+
+**Preprocessing Steps:**
+1. Convert sparse BM25 matrix to dense float32 arrays (required for Keras)
+2. Encode labels as integers: `UK → 0`, `US → 1`
+3. Stratified train/validation/test split:
+   - **80% training data** (further split into 90% train / 10% validation)
+   - **20% test data** (held out for final evaluation)
+
+**Rationale for Stratified Split:**
+- Ensures balanced class distribution across all splits
+- Prevents training bias toward the majority class
+- Maintains dataset proportions in validation/test sets
+
+---
+
+#### 2. ANN Architecture
+
+Both models share the same multi-layer structure:
+
+```
+Input Layer (BM25 vector, dim = vocabulary size)
+    ↓
+Dense(128) + activation         ← Projection layer (dimensionality reduction)
+    ↓
+Dense(10) + activation          ← Hidden layer 1
+    ↓
+Dense(10) + activation          ← Hidden layer 2
+    ↓
+Dense(7) + activation           ← Hidden layer 3
+    ↓
+Dense(2, softmax)               ← Output layer (UK vs US probabilities)
+```
+
+**Layer Details:**
+- **Projection layer (Dense 128)**: Reduces high-dimensional BM25 vectors (~thousands of features) to compact representation
+- **Hidden layers (10 → 10 → 7)**: Progressively refine feature extraction with decreasing dimensions
+- **Output layer (Dense 2, softmax)**: Produces probability distribution over UK/US classes
+
+**Two Activation Function Variants:**
+
+1. **ReLU Model** (`activation='relu'`)
+   - ReLU(x) = max(0, x)
+   - Fast computation, widely used
+   - Addresses vanishing gradient problem
+   - Can suffer from "dying ReLU" issue (neurons outputting 0)
+
+2. **GELU Model** (`activation='gelu'`)
+   - GELU(x) = x · Φ(x), where Φ is the Gaussian cumulative distribution
+   - Smoother activation than ReLU
+   - Better gradient flow in deep networks
+   - Often used in transformer models (BERT, GPT)
+
+---
+
+#### 3. Training Configuration
+
+**Optimizer:** Adam (Adaptive Moment Estimation)
+- Learning rate: default (0.001)
+- Combines benefits of AdaGrad and RMSprop
+- Adapts learning rates for each parameter
+
+**Loss Function:** `sparse_categorical_crossentropy`
+- Suitable for integer-encoded labels (0/1)
+- Computes cross-entropy between true labels and predicted probabilities
+
+**Training Parameters:**
+- **Epochs**: Up to 15 (early stopping may terminate earlier)
+- **Batch size**: 16 documents per gradient update
+- **Validation split**: 10% of training data
+
+**Regularization & Callbacks:**
+
+1. **EarlyStopping** (monitor: `val_accuracy`, patience: 3)
+   - Stops training if validation accuracy doesn't improve for 3 consecutive epochs
+   - Prevents overfitting and saves computation time
+
+2. **ModelCheckpoint**
+   - Saves the model with best validation accuracy
+   - Ensures the final model is the best-performing version during training
+
+---
+
+#### 4. Evaluation Metrics
+
+After training, each model is evaluated on the held-out **test set** (20% of data) using:
+
+- **Accuracy**: Overall proportion of correct predictions
+- **Precision (macro)**: Average precision across UK and US classes
+- **Recall (macro)**: Average recall across UK and US classes
+- **F1-Score (macro)**: Harmonic mean of precision and recall, averaged per class
+
+**Why Macro Averaging?**
+- Treats both UK and US classes equally
+- Prevents majority class from dominating metrics
+- Essential for balanced evaluation (similar to clustering evaluation in Stage 4)
+
+---
+
+#### 5. Outputs
+
+**Individual Model Results:**
+- `classification/ANN/relu/ann_relu_results.json` — ReLU model metrics
+- `classification/ANN/gelu/ann_gelu_results.json` — GELU model metrics
+
+Each JSON file contains:
+- Test accuracy, precision, recall, F1-score
+- Training history (loss and accuracy per epoch)
+- Model configuration parameters
+
+**Summary File:**
+- `classification/ANN/ann_summary.json`
+
+Contains:
+- Side-by-side comparison of ReLU vs GELU performance
+- Identification of best-performing model based on test accuracy
+- Recommended activation function for this classification task
+
+---
