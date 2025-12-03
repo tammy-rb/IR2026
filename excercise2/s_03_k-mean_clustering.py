@@ -2,6 +2,7 @@ import os
 
 import numpy as np
 from sklearn.cluster import MiniBatchKMeans
+from sklearn.preprocessing import normalize
 
 from s_03_clustering_utils import (
     VECTORS_LEMMAS_DIR,
@@ -37,7 +38,8 @@ def run_kmeans_clustering(bm25_matrix, n_clusters=2, random_state=42,
         random_state=random_state,
         batch_size=batch_size,
         max_iter=max_iter,
-        n_init="auto",
+        n_init=30, # number of initializations to choose best from
+        init="k-means++", # smarter initialization - spreads initial centroids
     )
     labels = kmeans.fit_predict(bm25_matrix)
     print("K-Means clustering completed.")
@@ -54,8 +56,11 @@ def main():
 
     # 2. Run K-Means with k=2
     n_clusters = 2
+    # Normalize BM25 vectors before clustering
+    bm25_norm = normalize(bm25_matrix, norm="l2", axis=1)
+
     labels, kmeans_model = run_kmeans_clustering(
-        bm25_matrix,
+        bm25_norm,
         n_clusters=n_clusters,
         random_state=42,
         batch_size=256,

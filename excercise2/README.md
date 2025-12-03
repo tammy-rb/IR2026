@@ -96,10 +96,20 @@ Multiple clustering algorithms are applied to the BM25 lemmatized vectors. Each 
 
 MiniBatchKMeans is a scalable variant of K-Means that processes data in mini-batches, making it efficient for large corpora. It iteratively updates cluster centroids based on subsets of the data.
 
+**Vector Normalization:**
+- Initially, the model tended to assign all documents to one cluster with the other cluster containing only noise/outliers
+- **Solution**: L2-normalization of BM25 vectors before clustering
+- **Rationale**: K-Means is sensitive to vector magnitude; longer vectors dominate distance calculations
+- Normalization ensures all documents are compared based on direction (content similarity) rather than length
+- **Effect**: Even though K-Means uses Euclidean distance, normalization makes it behave like cosine similarity by removing document length effects
+
 **Parameters:**
 - `n_clusters = 2` — Target number of clusters (US vs UK)
 - `batch_size = 256` — Number of documents per batch
-- `max_iter = 100` — Maximum number of iterations
+- `max_iter = 100` — Maximum iterations for convergence
+- `n_init = 30` — Number of initializations; best result is selected
+- `init = "k-means++"` — Smart initialization that spreads initial centroids to improve convergence
+
 
 **Outputs:**
 - Cluster labels: [`clusters/kmeans/cluster_labels.npy`](clusters/kmeans/cluster_labels.npy)
