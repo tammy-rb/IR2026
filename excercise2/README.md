@@ -199,6 +199,149 @@ This approach handles datasets with **varying cluster densities** more effective
 ---
 
 ### Method 4: GMM (Gaussian Mixture Model)
+Method 4: GMM (Gaussian Mixture Model)
+
+Algorithm: GaussianMixture from scikit-learn
+Dimensionality reduction: UMAP (10-dimensional embedding)
+
+Gaussian Mixture Model (GMM) is a probabilistic clustering method that assumes the data is generated from a mixture of Gaussian distributions. Unlike hard clustering algorithms (such as K-Means), GMM provides soft assignments — each document receives probabilities for belonging to each cluster.
+
+However, running GMM directly on BM25 vectors (with 15,000–25,000 dimensions) is computationally expensive and often unstable.
+Therefore, before applying GMM, the BM25 vectors are reduced using UMAP to a compact 10-dimensional representation.
+
+Why UMAP?
+
+BM25 produces extremely high-dimensional sparse vectors (one dimension per term in the unified vocabulary).
+GMM requires a dense matrix and performs best in low- to medium-dimensional spaces.
+
+Directly fitting GMM on the full BM25 matrix would cause:
+
+• Huge RAM consumption
+• Very slow EM iterations
+• Poor covariance estimation
+• Risk of numerical instability
+
+UMAP solves these issues by:
+
+✔ Reducing dimensionality from ~20,000 → 10 dimensions
+✔ Preserving global + local structure in the document space
+✔ Operating natively with cosine distance (matching our BM25-based methods)
+✔ Producing a smooth Euclidean space ideal for GMM
+
+Thus, the pipeline for this method becomes:
+
+BM25 sparse vectors (≈20,000 dims)
+            ↓ UMAP (cosine)
+UMAP 10D embedding
+            ↓
+Gaussian Mixture Model (tied covariance)
+            ↓
+Hard cluster assignments (UK / US)
+
+
+This two-stage approach gives high accuracy, runs significantly faster, and prevents memory crashes.
+
+How UMAP Works in This Pipeline
+
+UMAP parameters used:
+
+n_components = 10
+→ reduces each document to a 10-dimensional vector
+
+metric = "cosine"
+→ consistent with previous clustering methods
+
+n_neighbors = 15, min_dist = 0.0
+→ produces well-separated clusters in the reduced space
+
+random_state = 42
+→ reproducibility
+
+UMAP outputs a dense 10D matrix where distances between documents approximate their relationships in the original BM25 space.
+
+This embedding is then fed into GMM.
+
+GMM Parameters
+
+GaussianMixture is run with the following configuration:
+
+n_components = 2
+→ two clusters: UK vs US
+
+covariance_type = "tied"
+→ a single shared covariance matrix for both clusters
+→ recommended in medium-dimensional spaces and prevents overfitting
+
+max_iter = 100
+→ maximum EM optimization iterations
+
+random_state = 42
+→ reproducibility
+
+GMM learns:
+
+A mean vector (μ₁, μ₂)
+
+A shared covariance matrix Σ
+
+Mixture weights π₁, π₂
+
+Per-document probabilities P(cluster=i | x)
+
+Hard labels are obtained with:
+
+labels = gmm.predict(X)
+
+Noise Handling
+
+Unlike DBSCAN/HDBSCAN, GMM never outputs noise points (−1).
+However, for consistency across all clustering methods, a noise-reassignment mechanism is included:
+
+If any label equals −1 (unlikely),
+
+the document is reassigned to the nearest cluster based on Euclidean distance in the 10D UMAP space.
+
+This ensures:
+
+No missing cluster assignments
+
+Uniform structure across all algorithms
+
+Outputs
+
+The GMM method produces:
+
+Cluster labels:
+clusters/gmm/cluster_labels.npy
+
+Metadata:
+clusters/gmm/clustering_meta.json
+
+Metadata includes:
+
+UMAP configuration
+
+GMM parameters
+
+Number of clusters
+
+Noise reassignment summary
+
+Cluster size distribution
+
+Visualization of results appears in:
+
+clusters/visualizations/umap_gmm.png
+
+Which shows how well the 10-dimensional UMAP space separates the two clusters.
+
+Summary — Why GMM + UMAP is Needed
+Step	Purpose
+UMAP (10 dims)	Makes the data dense, compact, smooth → suitable for Gaussian models
+GMM	Models UK/US debate style with probabilistic clustering
+Combined	Fast, stable, memory-efficient, high accuracy
+
+This method complements the other clustering algorithms by providing a fundamentally different (probabilistic) view of the document space.
 
 **Algorithm:** `GaussianMixture` from scikit-learn
 
