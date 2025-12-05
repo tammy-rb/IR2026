@@ -629,28 +629,53 @@ and save resukts.
 find the top 20 features for any class,
 by taking the tems with highest weights.
 
-### LoR
-logistic regressios.
-method:
-sigmoid function : ...
-where z = w0x0+wx1...
-so when z > 0 take it to 1, < 0 to 0.
-so we can classify to 2 classes: 1=... 0 =... 
-so each term is x
-try to find what best w's to minimize the mistake
-mistage function (punishment):
-...
-take 20 terms by:
-first class: lowest weights
-secod: highest weights.
-(lower weights -> moving the polinom to -.. so sigmoid will be 0 and..)
-  penalty="l2", # prevent overfitting, keep stable weights pu punishing ....
-        solver="liblinear", # binary classification, good for small datasets
-        max_iter=1000,
-        class_weight=None,  # the clusters are roughly balanced
-        is to balance if there are rare cluster so give it more weight...
-takes....
-  output:....
+### LoR (Logistic Regression)
+
+Logistic Regression is a linear probabilistic classifier that models the probability
+of the positive class with the sigmoid function:
+
+P(y=1 | x) = sigma(w · x + b)  where sigma(z) = 1 / (1 + exp(-z)).
+
+Decision rule: predict class 1 when w · x + b > 0 (equivalently sigma > 0.5).
+
+Training objective
+- Logistic Regression is trained by minimizing the regularized log-loss (negative
+   log-likelihood) over the training set. With L2 regularization the objective becomes:
+
+   minimize_w  sum_i L(y_i, w · x_i + b)  +  (lambda / 2) ||w||_2^2
+
+   where L is the log-loss for each example and ||w||_2^2 = sum_j w_j^2. In
+   scikit-learn the regularization strength is specified with `C` where
+   `lambda = 1 / C` (larger `C` → weaker regularization).
+
+Why L2 regularization?
+- L2 (squared L2 norm) penalizes large weights and acts as a form of weight decay.
+- It improves numerical stability and reduces overfitting on high-dimensional text
+   features by shrinking coefficients toward zero, but it does not produce sparse
+   weight vectors (weights are rarely exactly zero).
+
+Procedure in this repository
+- Preprocessing: BM25 (lemmas) vectors are L2-normalized before training so that
+   dot-products approximate cosine similarity and document length does not dominate.
+- Evaluation: a 10-fold stratified cross-validation is run to estimate performance
+   (accuracy and macro F1 are reported per fold and averaged).
+- Final model: after CV a final Logistic Regression model is trained on the full
+   dataset and its `coef_` is used to extract top discriminative features for each class.
+
+Parameters used (see `s_06_LoR_classification.py`):
+- `penalty='l2'` — L2 regularization to stabilize weights
+- `solver='liblinear'` — suitable for binary problems and sparse inputs
+- `max_iter=1000` — iteration limit to ensure convergence
+- `class_weight=None` — dataset is roughly balanced; change to `'balanced'` if needed
+
+Outputs produced
+- Cross-validation results: `classification/LoR/LoR_cv_results.xlsx`
+- Top features (per class): `classification/LoR/LoR_top_features.xlsx`
+
+Interpretation of top features
+- The final model's coefficients rank features: large positive weights indicate
+   strong evidence for the positive class; large negative weights indicate evidence
+   for the negative class. We save the top-N features per class for inspection.
 
 
 ### ANN Classification (Keras)
@@ -782,3 +807,47 @@ Contains:
 - Recommended activation function for this classification task
 
 ---
+
+
+### SVM (LinearSVC) — Supervised classification
+
+This repository also contains a supervised classification experiment that trains a linear SVM (`LinearSVC`) on the BM25 (lemmas) vectors to predict document origin (UK vs US).
+
+SVM objective (intuitive)
+
+Support Vector Machines find a decision boundary that maximizes the margin between classes while allowing some violations (soft margin). The standard soft-margin formulation is:
+
+minimize  (1/2) ||w||^2  +  C * sum_i xi_i
+subject to  y_i (w · x_i + b)  >=  1 − xi_i,   xi_i >= 0
+
+Here xi_i (often written \xi_i) are slack variables that measure how much a point violates the margin, and `C > 0` controls the trade-off between a wide margin and training errors:
+- Large `C`: penalizes slack heavily → fewer training errors, smaller margin → risk of overfitting.
+- Small `C`: allows more slack → larger margin, more regularization → may underfit if too small.
+
+In our implementation we use `L2` regularization (the ||w||^2 term) and the squared-hinge loss via `LinearSVC` (`loss='squared_hinge'`, `penalty='l2'`). This combination yields a stable linear classifier suited to high-dimensional sparse text features.
+
+Why use a linear SVM?
+- Fast and robust on high-dimensional sparse text features.
+- Produces interpretable linear weights for inspecting top terms per class.
+
+Preprocessing
+- **L2 normalization** of BM25 vectors is applied before training. This makes dot-products approximate cosine similarity and prevents document length from dominating the linear decision boundary.
+
+Model & chosen parameters (in `s_06_SVM_classification.py`)
+- `penalty='l2'`: L2 regularization prevents large weights and reduces overfitting in high-dimensional spaces.
+- `loss='squared_hinge'`: Standard SVM loss (squared hinge) for stable optimization.
+- `C=1.0`: Regularization strength; `C=1.0` balances margin size and training error (a practical default for text tasks).
+- `class_weight=None`: No class re-weighting (dataset roughly balanced). Switch to `'balanced'` if needed.
+- `max_iter=5000`: Increased iteration limit to ensure convergence on large sparse data.
+
+Training & evaluation
+- A 10-fold stratified cross-validation is run to estimate performance; per-fold metrics (accuracy, macro F1) are recorded and saved to Excel.
+- After cross-validation, a final model is trained on the entire dataset to extract feature weights and top discriminative terms per class.
+
+Feature interpretation
+- The final model's `coef_` are used to extract the top positive/negative features for each class. These top features are saved to Excel for inspection.
+
+Outputs
+- Cross-validation results: `classification/SVM/SVM_cv_results.xlsx`
+- Top features: `classification/SVM/SVM_top_features.xlsx`
+
