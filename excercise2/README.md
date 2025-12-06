@@ -851,3 +851,79 @@ Outputs
 - Cross-validation results: `classification/SVM/SVM_cv_results.xlsx`
 - Top features: `classification/SVM/SVM_top_features.xlsx`
 
+
+### Naive Bayes (NB)
+
+Algorithm Choice
+ We used **MultinomialNB** from scikit-learn, which is the most suitable Naive Bayes variant for text classification with count-based features like BM25.
+
+Hyperparameters
+- **alpha=1.0**: Laplace (additive) smoothing to prevent zero probabilities for unseen features
+- **fit_prior=True**: Learn class prior probabilities from the training data
+
+Rationale
+- MultinomialNB assumes features are counts/frequencies, matching our BM25 representation
+- It works well with sparse matrices (efficient memory usage)
+- Fast training and prediction
+- The "naive" independence assumption works surprisingly well for text classification despite being unrealistic
+
+Feature Importance Extraction
+Unlike linear models (LoR/SVM) that have coefficient weights, Naive Bayes uses probabilistic features. We extracted the top-20 most discriminative features per class using:
+
+Method: Log-probability differences
+```
+importance(feature, class) = log P(feature|class_US) - log P(feature|class_UK)
+```
+
+- **Positive differences** → feature is more indicative of US parliament
+- **Negative differences** → feature is more indicative of UK parliament
+- We ranked features by absolute difference value
+
+This approach reflects exactly how Naive Bayes makes classification decisions - by comparing log-probabilities.
+
+
+
+
+### Random Forest (RF)
+
+Algorithm Choice
+We used **RandomForestClassifier** from scikit-learn, an ensemble method that combines multiple decision trees.
+
+Hyperparameters
+- **n_estimators=200**: Number of trees in the forest (balance between performance and speed)
+- **max_depth=None**: Trees can grow until leaves are pure (RF handles overfitting through ensemble averaging)
+- **min_samples_split=5**: Minimum samples required to split an internal node (prevents over-granular splits)
+- **min_samples_leaf=2**: Minimum samples required at leaf nodes (smoothing, reduces noise sensitivity)
+- **max_features='sqrt'**: Number of features to consider per split = sqrt(total_features) - standard for classification
+- **bootstrap=True**: Use bootstrap sampling to create diverse trees
+- **class_weight=None**: Classes are balanced (UK ~330, US ~360 documents)
+- **random_state=42**: For reproducibility
+- **n_jobs=-1**: Use all CPU cores for parallel training
+
+Rationale
+- **Ensemble strength**: Combines predictions from 200 diverse trees → robust, stable results
+- **Handles high dimensionality**: Works well with thousands of BM25 features
+- **Overfitting resistance**: Individual trees may overfit, but averaging reduces this
+- **No scaling needed**: Tree-based methods are invariant to feature scaling
+- **Built-in feature importance**: Provides Gini importance scores
+
+Feature Importance Extraction
+Random Forest provides **Gini importance** (feature_importances_), which measures how much each feature contributes to reducing impurity across all trees.
+
+We used **two approaches**:
+
+1. **Global Feature Importance**:
+   - Ranked all features by their overall importance across both classes
+   - Extracted top-20 most important features globally
+
+2. **Class-Weighted Feature Importance**:
+   - Weighted global importance by mean feature values in each class
+```
+   class_importance = global_importance × mean_feature_value_in_class
+```
+   - This identifies features that are both **globally important** AND **prevalent in a specific class**
+   - Provides class-specific perspective (similar to LoR/SVM coefficients)
+
+Both approaches are saved to separate Excel files.
+
+
