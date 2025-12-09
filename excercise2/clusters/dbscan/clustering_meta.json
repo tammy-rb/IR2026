@@ -2,7 +2,7 @@
   "algorithm": "DBSCAN",
   "n_documents": 689,
   "params": {
-    "eps": 0.875091834462366,
+    "eps": 0.8756108928478825,
     "min_samples": 5,
     "metric": "cosine",
     "n_jobs": -1,
@@ -22,7 +22,7 @@
     "noise_reassignment": {
       "enabled": true,
       "max_distance": null,
-      "original_noise_count": 68
+      "original_noise_count": 65
     }
   }
 }

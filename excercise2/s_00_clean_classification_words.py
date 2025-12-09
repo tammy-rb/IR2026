@@ -47,6 +47,7 @@ def _extract_us_bodies_from_pre_blocks(text: str) -> str:
        - Lines starting with [Extensions of Remarks]
        - Lines starting with [Page E###] or similar
        - The GPO line: "From the Congressional Record Online..."
+    3. Remove HTML entities like &#x27; (apostrophe)
     
     Return all cleaned bodies joined with blank lines.
     """
@@ -80,6 +81,9 @@ def _extract_us_bodies_from_pre_blocks(text: str) -> str:
         
         # Line 3: From the Congressional Record Online... (with or without the link)
         block = re.sub(r'^.*From the Congressional Record Online through the Government Publishing Office.*$', '', block, flags=re.MULTILINE | re.IGNORECASE)
+        
+        # Remove HTML entity &#x27; (apostrophe)
+        block = block.replace('&#x27;', "'")
         
         # Clean up multiple blank lines and strip
         block = re.sub(r'\n\s*\n\s*\n+', '\n\n', block)
