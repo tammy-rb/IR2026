@@ -22,7 +22,7 @@ from s_03_clustering_utils import (
 POSTPROCESS_ASSIGN_NOISE = True
 NOISE_MAX_DISTANCE = None      # If None → assign every point to the nearest cluster
 
-UMAP_N_COMPONENTS = 10         # ← as requested
+UMAP_N_COMPONENTS = 10        # ← as requested
 UMAP_METRIC = "cosine"
 
 

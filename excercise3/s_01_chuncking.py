@@ -12,17 +12,11 @@ from typing import List, Dict, Tuple
 # Configuration
 # ============================================================
 
-# Project root: adjust if your repo structure differs.
-# Expected layout:
-#   excercise2/
-#     data/
-#       british_parliament_debates/...
-#       US_congress_debates/...
-BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "excercise2"))
-
+BASE_DIR = os.path.abspath(os.path.dirname(__file__))
 BRITISH = "british_parliament_debates"
 US = "US_congress_debates"
-DATA_DIR = os.path.join(BASE_DIR, "data")
+DATA_DIR = os.path.join(BASE_DIR, "..", "excercise2", "data")
+OUTPUT_CHUNCKS_DIR = os.path.join(BASE_DIR, "outputs", "chunks")
 
 # Fixed chunking requirements (assignment):
 # - chunks contain full sentences only
@@ -540,19 +534,19 @@ def main() -> None:
     all_fixed: List[Chunk] = []
     all_sem: List[Chunk] = []
 
-    for fp in files:
+    for idx, fp in enumerate(files, 1):
+        print(f"Processing file {idx}/{len(files)}: {os.path.basename(fp)}")
         result = build_chunks_for_file(fp)
         all_fixed.extend(result["fixed"])
         all_sem.extend(result["semantic"])
 
-    out_dir = os.path.join(BASE_DIR, "outputs", "chunks")
-    write_jsonl(all_fixed, os.path.join(out_dir, "chunks_fixed.jsonl"))
-    write_jsonl(all_sem, os.path.join(out_dir, "chunks_semantic.jsonl"))
+    write_jsonl(all_fixed, os.path.join(OUTPUT_CHUNCKS_DIR, "chunks_fixed.jsonl"))
+    write_jsonl(all_sem, os.path.join(OUTPUT_CHUNCKS_DIR, "chunks_semantic.jsonl"))
 
     run_sanity_checks(all_fixed, all_sem)
 
     print(f"Done. Fixed chunks: {len(all_fixed)} | Semantic chunks: {len(all_sem)}")
-    print(f"Saved to: {out_dir}")
+    print(f"Saved to: {OUTPUT_CHUNCKS_DIR}")
 
 
 if __name__ == "__main__":

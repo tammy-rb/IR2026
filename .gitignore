@@ -1,15 +1,35 @@
-# Ignore all files in data folders but keep the folder structure
+# =========================
+# Python Environment
+# =========================
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+# =========================
+# Secrets & Environment
+# =========================
+.env
+.env.*
+!.env.example
+
+# =========================
+# Exercise 2
+# =========================
+# Data folders - ignore all files but keep folder structure
 excercise2/data/british_parliament_debates/*
 excercise2/data/US_congress_debates/*
-
-# Keep the directories themselves
 !excercise2/data/british_parliament_debates/
 !excercise2/data/US_congress_debates/
 
-# Ignore all files in lemmas and clean_docs folders but keep the folder structure
+# Lemmas and clean docs - ignore all files but keep folder structure
 excercise2/lemmas/*/*
 excercise2/clean_docs/*/*
-
-# Keep the subdirectories themselves
 !excercise2/lemmas/*/
 !excercise2/clean_docs/*/
+
+# =========================
+# Exercise 3
+# =========================
+# Generated artifacts and outputs
+excercise3/outputs/
