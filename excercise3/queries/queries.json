@@ -1,0 +1,38 @@
+{
+  "factual": [
+    {
+      "query": "What is the name of the bill introduced as an \"INTRODUCTION OF ... ACT\", and what change does it propose regarding the Commission of Fine Arts (CFA) in Washington, D.C.?",
+      "expected_source": ["2025-07-07.txt"]
+    },
+    {
+      "query": "According to the debate on fuel prices, what were the exact per-liter prices of unleaded petrol and diesel as of Monday, 26 June?",
+      "expected_source": ["debates2023-07-03.txt"]
+    },
+    {
+      "query": "In the discussion of the Gaza peace plan, which three steps are mentioned as part of Phase 2 of the plan?",
+      "expected_source": ["debates2025-10-28.txt"]
+    },
+    {
+      "query": "In the debate concerning El Fasher, how many civilians and how many children are said to be trapped in the city?",
+      "expected_source": ["debates2025-10-28.txt"]
+    }
+  ],
+  "conceptual": [
+    {
+      "query": "What is the main argument presented for increasing economic pressure on Russia in order to end the war in Ukraine?",
+      "expected_source": ["debates2025-10-28.txt"]
+    },
+    {
+      "query": "What is the main criticism raised in the debate about the Rwanda plan in the context of \"stop the boats\", and why is it argued that the plan would not act as a deterrent?",
+      "expected_source": ["debates2023-07-03.txt"]
+    },
+    {
+      "query": "What is the purpose of the fuel price open-data scheme according to the debate, and what benefit is it expected to provide to the public or the government?",
+      "expected_source": ["debates2023-07-03.txt"]
+    },
+    {
+      "query": "According to the congressional debate, why is federal control over planning decisions for non-federal properties in Washington, D.C. considered problematic?",
+      "expected_source": ["2025-07-07.txt"]
+    }
+  ]
+}
