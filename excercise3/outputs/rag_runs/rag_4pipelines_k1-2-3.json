@@ -1,0 +1,2786 @@
+[
+  {
+    "query_type": "factual",
+    "query": "What is the name of the bill introduced as an \"INTRODUCTION OF ... ACT\", and what change does it propose regarding the Commission of Fine Arts (CFA) in Washington, D.C.?",
+    "expected_source": [
+      "2025-07-07.txt"
+    ],
+    "pipeline": {
+      "chunking": "fixed",
+      "representation": "bm25"
+    },
+    "k": 1,
+    "references": [
+      {
+        "corpus": "us",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-10-02.txt",
+        "start_char": 9048,
+        "end_char": 13674,
+        "chunk_index": 2
+      }
+    ],
+    "answer": "The bill introduced is the \"Commission of Fine Arts District of Columbia Residency Act.\" It proposes that a majority of the members of the Commission of Fine Arts (CFA) be residents of the District of Columbia [source: Congressional Record Vol. 169, No. 161]."
+  },
+  {
+    "query_type": "factual",
+    "query": "What is the name of the bill introduced as an \"INTRODUCTION OF ... ACT\", and what change does it propose regarding the Commission of Fine Arts (CFA) in Washington, D.C.?",
+    "expected_source": [
+      "2025-07-07.txt"
+    ],
+    "pipeline": {
+      "chunking": "fixed",
+      "representation": "bm25"
+    },
+    "k": 2,
+    "references": [
+      {
+        "corpus": "us",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-10-02.txt",
+        "start_char": 9048,
+        "end_char": 13674,
+        "chunk_index": 2
+      },
+      {
+        "corpus": "us",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2025-07-07.txt",
+        "start_char": 0,
+        "end_char": 4547,
+        "chunk_index": 0
+      }
+    ],
+    "answer": "The bill introduced as the \"Commission of Fine Arts District of Columbia Residency Act\" proposes that a majority of the members of the Commission of Fine Arts (CFA) be residents of the District of Columbia [source: Congressional Record Vol. 169, No. 161]."
+  },
+  {
+    "query_type": "factual",
+    "query": "What is the name of the bill introduced as an \"INTRODUCTION OF ... ACT\", and what change does it propose regarding the Commission of Fine Arts (CFA) in Washington, D.C.?",
+    "expected_source": [
+      "2025-07-07.txt"
+    ],
+    "pipeline": {
+      "chunking": "fixed",
+      "representation": "bm25"
+    },
+    "k": 3,
+    "references": [
+      {
+        "corpus": "us",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-10-02.txt",
+        "start_char": 9048,
+        "end_char": 13674,
+        "chunk_index": 2
+      },
+      {
+        "corpus": "us",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2025-07-07.txt",
+        "start_char": 0,
+        "end_char": 4547,
+        "chunk_index": 0
+      },
+      {
+        "corpus": "us",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-08-08.txt",
+        "start_char": 22191,
+        "end_char": 26742,
+        "chunk_index": 5
+      }
+    ],
+    "answer": "The bill introduced as the \"Commission of Fine Arts District of Columbia Residency Act\" proposes that a majority of the members of the Commission of Fine Arts (CFA) be residents of the District of Columbia [source: Congressional Record Vol. 169, No. 161]."
+  },
+  {
+    "query_type": "factual",
+    "query": "What is the name of the bill introduced as an \"INTRODUCTION OF ... ACT\", and what change does it propose regarding the Commission of Fine Arts (CFA) in Washington, D.C.?",
+    "expected_source": [
+      "2025-07-07.txt"
+    ],
+    "pipeline": {
+      "chunking": "semantic",
+      "representation": "bm25"
+    },
+    "k": 1,
+    "references": [
+      {
+        "corpus": "us",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-10-02.txt",
+        "start_char": 14221,
+        "end_char": 14539,
+        "chunk_index": 20
+      }
+    ],
+    "answer": "The bill introduced is the \"Commission of Fine Arts District of Columbia Home Rule Act.\" It proposes to remove the authority of the Commission of Fine Arts (CFA) over non-federal real property in Washington, D.C., while also suggesting that a majority of the members should be D.C. residents as long as the CFA maintains that authority [source]."
+  },
+  {
+    "query_type": "factual",
+    "query": "What is the name of the bill introduced as an \"INTRODUCTION OF ... ACT\", and what change does it propose regarding the Commission of Fine Arts (CFA) in Washington, D.C.?",
+    "expected_source": [
+      "2025-07-07.txt"
+    ],
+    "pipeline": {
+      "chunking": "semantic",
+      "representation": "bm25"
+    },
+    "k": 2,
+    "references": [
+      {
+        "corpus": "us",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-10-02.txt",
+        "start_char": 14221,
+        "end_char": 14539,
+        "chunk_index": 20
+      },
+      {
+        "corpus": "us",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2025-07-07.txt",
+        "start_char": 880,
+        "end_char": 1119,
+        "chunk_index": 1
+      }
+    ],
+    "answer": "The name of the bill is the \"Commission of Fine Arts District of Columbia Home Rule Act.\" It proposes to remove the authority of the Commission of Fine Arts (CFA) over non-federal real property in Washington, D.C. [source: us:2023-10-02.txt]"
+  },
+  {
+    "query_type": "factual",
+    "query": "What is the name of the bill introduced as an \"INTRODUCTION OF ... ACT\", and what change does it propose regarding the Commission of Fine Arts (CFA) in Washington, D.C.?",
+    "expected_source": [
+      "2025-07-07.txt"
+    ],
+    "pipeline": {
+      "chunking": "semantic",
+      "representation": "bm25"
+    },
+    "k": 3,
+    "references": [
+      {
+        "corpus": "us",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-10-02.txt",
+        "start_char": 14221,
+        "end_char": 14539,
+        "chunk_index": 20
+      },
+      {
+        "corpus": "us",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2025-07-07.txt",
+        "start_char": 880,
+        "end_char": 1119,
+        "chunk_index": 1
+      },
+      {
+        "corpus": "us",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-08-08.txt",
+        "start_char": 25832,
+        "end_char": 26433,
+        "chunk_index": 52
+      }
+    ],
+    "answer": "The name of the bill is the \"Commission of Fine Arts District of Columbia Home Rule Act.\" It proposes to remove the authority of the Commission of Fine Arts (CFA) over non-federal real property in Washington, D.C. [source: us:2025-07-07.txt]"
+  },
+  {
+    "query_type": "factual",
+    "query": "What is the name of the bill introduced as an \"INTRODUCTION OF ... ACT\", and what change does it propose regarding the Commission of Fine Arts (CFA) in Washington, D.C.?",
+    "expected_source": [
+      "2025-07-07.txt"
+    ],
+    "pipeline": {
+      "chunking": "fixed",
+      "representation": "dense"
+    },
+    "k": 1,
+    "references": [
+      {
+        "corpus": "us",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-08-08.txt",
+        "start_char": 22191,
+        "end_char": 26742,
+        "chunk_index": 5
+      }
+    ],
+    "answer": "The bill introduced is called the \"Commission of Fine Arts District of Columbia Home Rule Act.\" It proposes to remove the authority of the Commission of Fine Arts (CFA) over non-federal real property in the District of Columbia, which includes D.C.-owned parks and buildings, as well as certain private land in D.C. [source: Congressional Record Vol. 169, No. 134, 2023-08-08]."
+  },
+  {
+    "query_type": "factual",
+    "query": "What is the name of the bill introduced as an \"INTRODUCTION OF ... ACT\", and what change does it propose regarding the Commission of Fine Arts (CFA) in Washington, D.C.?",
+    "expected_source": [
+      "2025-07-07.txt"
+    ],
+    "pipeline": {
+      "chunking": "fixed",
+      "representation": "dense"
+    },
+    "k": 2,
+    "references": [
+      {
+        "corpus": "us",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-08-08.txt",
+        "start_char": 22191,
+        "end_char": 26742,
+        "chunk_index": 5
+      },
+      {
+        "corpus": "us",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-10-02.txt",
+        "start_char": 9048,
+        "end_char": 13674,
+        "chunk_index": 2
+      }
+    ],
+    "answer": "The bill introduced as the \"INTRODUCTION OF THE COMMISSION OF FINE ARTS DISTRICT OF COLUMBIA HOME RULE ACT\" proposes to remove the authority of the Commission of Fine Arts (CFA) over non-federal real property in the District of Columbia [source: Congressional Record Vol. 169, No. 134]."
+  },
+  {
+    "query_type": "factual",
+    "query": "What is the name of the bill introduced as an \"INTRODUCTION OF ... ACT\", and what change does it propose regarding the Commission of Fine Arts (CFA) in Washington, D.C.?",
+    "expected_source": [
+      "2025-07-07.txt"
+    ],
+    "pipeline": {
+      "chunking": "fixed",
+      "representation": "dense"
+    },
+    "k": 3,
+    "references": [
+      {
+        "corpus": "us",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-08-08.txt",
+        "start_char": 22191,
+        "end_char": 26742,
+        "chunk_index": 5
+      },
+      {
+        "corpus": "us",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-10-02.txt",
+        "start_char": 9048,
+        "end_char": 13674,
+        "chunk_index": 2
+      },
+      {
+        "corpus": "us",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-07-24.txt",
+        "start_char": 12800,
+        "end_char": 17359,
+        "chunk_index": 3
+      }
+    ],
+    "answer": "The bill introduced as the \"INTRODUCTION OF THE COMMISSION OF FINE ARTS DISTRICT OF COLUMBIA HOME RULE ACT\" proposes to remove the authority of the Commission of Fine Arts (CFA) over non-federal real property in the District of Columbia [source: Congressional Record Vol. 169, No. 134]."
+  },
+  {
+    "query_type": "factual",
+    "query": "What is the name of the bill introduced as an \"INTRODUCTION OF ... ACT\", and what change does it propose regarding the Commission of Fine Arts (CFA) in Washington, D.C.?",
+    "expected_source": [
+      "2025-07-07.txt"
+    ],
+    "pipeline": {
+      "chunking": "semantic",
+      "representation": "dense"
+    },
+    "k": 1,
+    "references": [
+      {
+        "corpus": "us",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-08-08.txt",
+        "start_char": 25832,
+        "end_char": 26433,
+        "chunk_index": 52
+      }
+    ],
+    "answer": "The name of the bill is the \"Commission of Fine Arts District of Columbia Home Rule Act.\" It proposes to remove the authority of the Commission of Fine Arts (CFA) over non-federal real property in the District of Columbia [source]."
+  },
+  {
+    "query_type": "factual",
+    "query": "What is the name of the bill introduced as an \"INTRODUCTION OF ... ACT\", and what change does it propose regarding the Commission of Fine Arts (CFA) in Washington, D.C.?",
+    "expected_source": [
+      "2025-07-07.txt"
+    ],
+    "pipeline": {
+      "chunking": "semantic",
+      "representation": "dense"
+    },
+    "k": 2,
+    "references": [
+      {
+        "corpus": "us",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-08-08.txt",
+        "start_char": 25832,
+        "end_char": 26433,
+        "chunk_index": 52
+      },
+      {
+        "corpus": "us",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2025-08-12.txt",
+        "start_char": 23071,
+        "end_char": 23724,
+        "chunk_index": 41
+      }
+    ],
+    "answer": "The bill introduced is the \"Commission of Fine Arts District of Columbia Home Rule Act.\" It proposes to remove the authority of the Commission of Fine Arts (CFA) over non-federal real property in the District of Columbia [source: us:2023-08-08.txt]."
+  },
+  {
+    "query_type": "factual",
+    "query": "What is the name of the bill introduced as an \"INTRODUCTION OF ... ACT\", and what change does it propose regarding the Commission of Fine Arts (CFA) in Washington, D.C.?",
+    "expected_source": [
+      "2025-07-07.txt"
+    ],
+    "pipeline": {
+      "chunking": "semantic",
+      "representation": "dense"
+    },
+    "k": 3,
+    "references": [
+      {
+        "corpus": "us",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-08-08.txt",
+        "start_char": 25832,
+        "end_char": 26433,
+        "chunk_index": 52
+      },
+      {
+        "corpus": "us",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2025-08-12.txt",
+        "start_char": 23071,
+        "end_char": 23724,
+        "chunk_index": 41
+      },
+      {
+        "corpus": "us",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-10-02.txt",
+        "start_char": 14221,
+        "end_char": 14539,
+        "chunk_index": 20
+      }
+    ],
+    "answer": "The name of the bill is the \"Commission of Fine Arts District of Columbia Home Rule Act.\" It proposes to remove the authority of the Commission of Fine Arts (CFA) over non-federal real property in the District of Columbia [source: us:2023-08-08.txt]."
+  },
+  {
+    "query_type": "factual",
+    "query": "According to the debate on fuel prices, what were the exact per-liter prices of unleaded petrol and diesel as of Monday, 26 June?",
+    "expected_source": [
+      "debates2023-07-03.txt"
+    ],
+    "pipeline": {
+      "chunking": "fixed",
+      "representation": "bm25"
+    },
+    "k": 1,
+    "references": [
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2023-07-03.txt",
+        "start_char": 85379,
+        "end_char": 89058,
+        "chunk_index": 25
+      }
+    ],
+    "answer": "As of Monday, 26 June, the price of unleaded petrol was 143.43p per litre, and the price of diesel was 145.6p per litre [source]."
+  },
+  {
+    "query_type": "factual",
+    "query": "According to the debate on fuel prices, what were the exact per-liter prices of unleaded petrol and diesel as of Monday, 26 June?",
+    "expected_source": [
+      "debates2023-07-03.txt"
+    ],
+    "pipeline": {
+      "chunking": "fixed",
+      "representation": "bm25"
+    },
+    "k": 2,
+    "references": [
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2023-07-03.txt",
+        "start_char": 85379,
+        "end_char": 89058,
+        "chunk_index": 25
+      },
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2023-07-03.txt",
+        "start_char": 68590,
+        "end_char": 72348,
+        "chunk_index": 20
+      }
+    ],
+    "answer": "As of Monday, 26 June, the price of unleaded petrol was 143.43p per litre, and diesel was 145.6p per litre [british:debates2023-07-03.txt [68590,72348]]."
+  },
+  {
+    "query_type": "factual",
+    "query": "According to the debate on fuel prices, what were the exact per-liter prices of unleaded petrol and diesel as of Monday, 26 June?",
+    "expected_source": [
+      "debates2023-07-03.txt"
+    ],
+    "pipeline": {
+      "chunking": "fixed",
+      "representation": "bm25"
+    },
+    "k": 3,
+    "references": [
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2023-07-03.txt",
+        "start_char": 85379,
+        "end_char": 89058,
+        "chunk_index": 25
+      },
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2023-07-03.txt",
+        "start_char": 68590,
+        "end_char": 72348,
+        "chunk_index": 20
+      },
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2023-12-14.txt",
+        "start_char": 38173,
+        "end_char": 42027,
+        "chunk_index": 11
+      }
+    ],
+    "answer": "As of Monday, 26 June, the price of unleaded petrol was 143.43p per litre, and diesel was 145.6p per litre [british:debates2023-07-03.txt]."
+  },
+  {
+    "query_type": "factual",
+    "query": "According to the debate on fuel prices, what were the exact per-liter prices of unleaded petrol and diesel as of Monday, 26 June?",
+    "expected_source": [
+      "debates2023-07-03.txt"
+    ],
+    "pipeline": {
+      "chunking": "semantic",
+      "representation": "bm25"
+    },
+    "k": 1,
+    "references": [
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2023-07-03.txt",
+        "start_char": 88265,
+        "end_char": 88952,
+        "chunk_index": 182
+      }
+    ],
+    "answer": "As of Monday, 26 June, the price of unleaded petrol was 143.43p per litre, and the price of diesel was 145.6p per litre [british:debates2023-07-03.txt [88265,88952]]."
+  },
+  {
+    "query_type": "factual",
+    "query": "According to the debate on fuel prices, what were the exact per-liter prices of unleaded petrol and diesel as of Monday, 26 June?",
+    "expected_source": [
+      "debates2023-07-03.txt"
+    ],
+    "pipeline": {
+      "chunking": "semantic",
+      "representation": "bm25"
+    },
+    "k": 2,
+    "references": [
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2023-07-03.txt",
+        "start_char": 88265,
+        "end_char": 88952,
+        "chunk_index": 182
+      },
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2024-01-16.txt",
+        "start_char": 61198,
+        "end_char": 61620,
+        "chunk_index": 119
+      }
+    ],
+    "answer": "As of Monday, 26 June, the price of unleaded petrol was 143.43p per litre, and diesel was 145.6p per litre [source]."
+  },
+  {
+    "query_type": "factual",
+    "query": "According to the debate on fuel prices, what were the exact per-liter prices of unleaded petrol and diesel as of Monday, 26 June?",
+    "expected_source": [
+      "debates2023-07-03.txt"
+    ],
+    "pipeline": {
+      "chunking": "semantic",
+      "representation": "bm25"
+    },
+    "k": 3,
+    "references": [
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2023-07-03.txt",
+        "start_char": 88265,
+        "end_char": 88952,
+        "chunk_index": 182
+      },
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2024-01-16.txt",
+        "start_char": 61198,
+        "end_char": 61620,
+        "chunk_index": 119
+      },
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2023-07-03.txt",
+        "start_char": 87129,
+        "end_char": 87652,
+        "chunk_index": 180
+      }
+    ],
+    "answer": "As of Monday, 26 June, the price of unleaded petrol was 143.43p per litre, and diesel was 145.6p per litre [british:debates2023-07-03.txt [88265,88952]]."
+  },
+  {
+    "query_type": "factual",
+    "query": "According to the debate on fuel prices, what were the exact per-liter prices of unleaded petrol and diesel as of Monday, 26 June?",
+    "expected_source": [
+      "debates2023-07-03.txt"
+    ],
+    "pipeline": {
+      "chunking": "fixed",
+      "representation": "dense"
+    },
+    "k": 1,
+    "references": [
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2023-07-03.txt",
+        "start_char": 85379,
+        "end_char": 89058,
+        "chunk_index": 25
+      }
+    ],
+    "answer": "As of Monday, 26 June, the price of unleaded petrol was 143.43p per litre, and the price of diesel was 145.6p per litre [british:debates2023-07-03.txt [85379,89058]]."
+  },
+  {
+    "query_type": "factual",
+    "query": "According to the debate on fuel prices, what were the exact per-liter prices of unleaded petrol and diesel as of Monday, 26 June?",
+    "expected_source": [
+      "debates2023-07-03.txt"
+    ],
+    "pipeline": {
+      "chunking": "fixed",
+      "representation": "dense"
+    },
+    "k": 2,
+    "references": [
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2023-07-03.txt",
+        "start_char": 85379,
+        "end_char": 89058,
+        "chunk_index": 25
+      },
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2023-07-03.txt",
+        "start_char": 75439,
+        "end_char": 79004,
+        "chunk_index": 22
+      }
+    ],
+    "answer": "As of Monday, 26 June, the price of unleaded petrol was 143.43p per litre, and the price of diesel was 145.6p per litre [british:debates2023-07-03.txt [75439,79004]]."
+  },
+  {
+    "query_type": "factual",
+    "query": "According to the debate on fuel prices, what were the exact per-liter prices of unleaded petrol and diesel as of Monday, 26 June?",
+    "expected_source": [
+      "debates2023-07-03.txt"
+    ],
+    "pipeline": {
+      "chunking": "fixed",
+      "representation": "dense"
+    },
+    "k": 3,
+    "references": [
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2023-07-03.txt",
+        "start_char": 85379,
+        "end_char": 89058,
+        "chunk_index": 25
+      },
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2023-07-03.txt",
+        "start_char": 75439,
+        "end_char": 79004,
+        "chunk_index": 22
+      },
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2023-07-03.txt",
+        "start_char": 78737,
+        "end_char": 82355,
+        "chunk_index": 23
+      }
+    ],
+    "answer": "As of Monday, 26 June, the price of unleaded petrol was 143.43p per litre, and diesel was 145.6p per litre [british:debates2023-07-03.txt [85379,89058]]."
+  },
+  {
+    "query_type": "factual",
+    "query": "According to the debate on fuel prices, what were the exact per-liter prices of unleaded petrol and diesel as of Monday, 26 June?",
+    "expected_source": [
+      "debates2023-07-03.txt"
+    ],
+    "pipeline": {
+      "chunking": "semantic",
+      "representation": "dense"
+    },
+    "k": 1,
+    "references": [
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2023-07-03.txt",
+        "start_char": 88265,
+        "end_char": 88952,
+        "chunk_index": 182
+      }
+    ],
+    "answer": "As of Monday, 26 June, the price of unleaded petrol was 143.43p per litre, and the price of diesel was 145.6p per litre [british:debates2023-07-03.txt [88265,88952]]."
+  },
+  {
+    "query_type": "factual",
+    "query": "According to the debate on fuel prices, what were the exact per-liter prices of unleaded petrol and diesel as of Monday, 26 June?",
+    "expected_source": [
+      "debates2023-07-03.txt"
+    ],
+    "pipeline": {
+      "chunking": "semantic",
+      "representation": "dense"
+    },
+    "k": 2,
+    "references": [
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2023-07-03.txt",
+        "start_char": 88265,
+        "end_char": 88952,
+        "chunk_index": 182
+      },
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2024-01-16.txt",
+        "start_char": 60922,
+        "end_char": 61197,
+        "chunk_index": 118
+      }
+    ],
+    "answer": "As of Monday, 26 June, the price of unleaded petrol was 143.43p per litre, and diesel was 145.6p per litre [british:debates2023-07-03.txt [88265,88952]]."
+  },
+  {
+    "query_type": "factual",
+    "query": "According to the debate on fuel prices, what were the exact per-liter prices of unleaded petrol and diesel as of Monday, 26 June?",
+    "expected_source": [
+      "debates2023-07-03.txt"
+    ],
+    "pipeline": {
+      "chunking": "semantic",
+      "representation": "dense"
+    },
+    "k": 3,
+    "references": [
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2023-07-03.txt",
+        "start_char": 88265,
+        "end_char": 88952,
+        "chunk_index": 182
+      },
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2024-01-16.txt",
+        "start_char": 60922,
+        "end_char": 61197,
+        "chunk_index": 118
+      },
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2024-01-16.txt",
+        "start_char": 61198,
+        "end_char": 61620,
+        "chunk_index": 119
+      }
+    ],
+    "answer": "As of Monday, 26 June, the price of unleaded petrol was 143.43p per litre, and diesel was 145.6p per litre [british:debates2023-07-03.txt [88265,88952]]."
+  },
+  {
+    "query_type": "factual",
+    "query": "In the discussion of the Gaza peace plan, which three steps are mentioned as part of Phase 2 of the plan?",
+    "expected_source": [
+      "debates2025-10-28.txt"
+    ],
+    "pipeline": {
+      "chunking": "fixed",
+      "representation": "bm25"
+    },
+    "k": 1,
+    "references": [
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2025-10-28.txt",
+        "start_char": 6721,
+        "end_char": 10536,
+        "chunk_index": 2
+      }
+    ],
+    "answer": "The three steps mentioned as part of Phase 2 of the Gaza peace plan are the disarming of Hamas, the establishment of a Palestinian committee as a transitional government, and a pathway to two states living side by side [6721,10536]."
+  },
+  {
+    "query_type": "factual",
+    "query": "In the discussion of the Gaza peace plan, which three steps are mentioned as part of Phase 2 of the plan?",
+    "expected_source": [
+      "debates2025-10-28.txt"
+    ],
+    "pipeline": {
+      "chunking": "fixed",
+      "representation": "bm25"
+    },
+    "k": 2,
+    "references": [
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2025-10-28.txt",
+        "start_char": 6721,
+        "end_char": 10536,
+        "chunk_index": 2
+      },
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2025-10-28.txt",
+        "start_char": 10029,
+        "end_char": 13875,
+        "chunk_index": 3
+      }
+    ],
+    "answer": "The three steps mentioned as part of Phase 2 of the Gaza peace plan are: the disarming of Hamas, the establishment of a Palestinian committee as a transitional government, and a pathway to two states living side by side [6721,10536]."
+  },
+  {
+    "query_type": "factual",
+    "query": "In the discussion of the Gaza peace plan, which three steps are mentioned as part of Phase 2 of the plan?",
+    "expected_source": [
+      "debates2025-10-28.txt"
+    ],
+    "pipeline": {
+      "chunking": "fixed",
+      "representation": "bm25"
+    },
+    "k": 3,
+    "references": [
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2025-10-28.txt",
+        "start_char": 6721,
+        "end_char": 10536,
+        "chunk_index": 2
+      },
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2025-10-28.txt",
+        "start_char": 10029,
+        "end_char": 13875,
+        "chunk_index": 3
+      },
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2023-12-04.txt",
+        "start_char": 65580,
+        "end_char": 69359,
+        "chunk_index": 19
+      }
+    ],
+    "answer": "The three steps mentioned as part of Phase 2 of the Gaza peace plan are: the disarming of Hamas, the establishment of a Palestinian committee as a transitional government, and a pathway to two states living side by side [british:debates2025-10-28.txt [6721,10536]]."
+  },
+  {
+    "query_type": "factual",
+    "query": "In the discussion of the Gaza peace plan, which three steps are mentioned as part of Phase 2 of the plan?",
+    "expected_source": [
+      "debates2025-10-28.txt"
+    ],
+    "pipeline": {
+      "chunking": "semantic",
+      "representation": "bm25"
+    },
+    "k": 1,
+    "references": [
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2025-10-28.txt",
+        "start_char": 6411,
+        "end_char": 6862,
+        "chunk_index": 14
+      }
+    ],
+    "answer": "I don't know based on the retrieved chunks."
+  },
+  {
+    "query_type": "factual",
+    "query": "In the discussion of the Gaza peace plan, which three steps are mentioned as part of Phase 2 of the plan?",
+    "expected_source": [
+      "debates2025-10-28.txt"
+    ],
+    "pipeline": {
+      "chunking": "semantic",
+      "representation": "bm25"
+    },
+    "k": 2,
+    "references": [
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2025-10-28.txt",
+        "start_char": 6411,
+        "end_char": 6862,
+        "chunk_index": 14
+      },
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2025-10-28.txt",
+        "start_char": 6863,
+        "end_char": 7576,
+        "chunk_index": 15
+      }
+    ],
+    "answer": "The three steps mentioned as part of Phase 2 of the Gaza peace plan are: the disarming of Hamas, the establishment of a Palestinian committee as a transitional government, and a pathway to two states living side by side [british:debates2025-10-28.txt [6863,7576]]."
+  },
+  {
+    "query_type": "factual",
+    "query": "In the discussion of the Gaza peace plan, which three steps are mentioned as part of Phase 2 of the plan?",
+    "expected_source": [
+      "debates2025-10-28.txt"
+    ],
+    "pipeline": {
+      "chunking": "semantic",
+      "representation": "bm25"
+    },
+    "k": 3,
+    "references": [
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2025-10-28.txt",
+        "start_char": 6411,
+        "end_char": 6862,
+        "chunk_index": 14
+      },
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2025-10-28.txt",
+        "start_char": 6863,
+        "end_char": 7576,
+        "chunk_index": 15
+      },
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2025-10-29.txt",
+        "start_char": 57368,
+        "end_char": 57826,
+        "chunk_index": 132
+      }
+    ],
+    "answer": "The three steps mentioned as part of Phase 2 of the Gaza peace plan are: the disarming of Hamas, the establishment of a Palestinian committee as a transitional government, and a pathway to two states living side by side [british:debates2025-10-28.txt [6863,7576]]."
+  },
+  {
+    "query_type": "factual",
+    "query": "In the discussion of the Gaza peace plan, which three steps are mentioned as part of Phase 2 of the plan?",
+    "expected_source": [
+      "debates2025-10-28.txt"
+    ],
+    "pipeline": {
+      "chunking": "fixed",
+      "representation": "dense"
+    },
+    "k": 1,
+    "references": [
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2025-10-28.txt",
+        "start_char": 6721,
+        "end_char": 10536,
+        "chunk_index": 2
+      }
+    ],
+    "answer": "The three steps mentioned as part of Phase 2 of the Gaza peace plan are: the disarming of Hamas, the establishment of a Palestinian committee as a transitional government, and a pathway to two states living side by side [6721,10536]."
+  },
+  {
+    "query_type": "factual",
+    "query": "In the discussion of the Gaza peace plan, which three steps are mentioned as part of Phase 2 of the plan?",
+    "expected_source": [
+      "debates2025-10-28.txt"
+    ],
+    "pipeline": {
+      "chunking": "fixed",
+      "representation": "dense"
+    },
+    "k": 2,
+    "references": [
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2025-10-28.txt",
+        "start_char": 6721,
+        "end_char": 10536,
+        "chunk_index": 2
+      },
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2024-03-12.txt",
+        "start_char": 13610,
+        "end_char": 17359,
+        "chunk_index": 4
+      }
+    ],
+    "answer": "The three steps mentioned as part of Phase 2 of the Gaza peace plan are: the disarming of Hamas, the establishment of a Palestinian committee as a transitional government, and a pathway to two states living side by side [british:debates2025-10-28.txt [6721,10536]]."
+  },
+  {
+    "query_type": "factual",
+    "query": "In the discussion of the Gaza peace plan, which three steps are mentioned as part of Phase 2 of the plan?",
+    "expected_source": [
+      "debates2025-10-28.txt"
+    ],
+    "pipeline": {
+      "chunking": "fixed",
+      "representation": "dense"
+    },
+    "k": 3,
+    "references": [
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2025-10-28.txt",
+        "start_char": 6721,
+        "end_char": 10536,
+        "chunk_index": 2
+      },
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2024-03-12.txt",
+        "start_char": 13610,
+        "end_char": 17359,
+        "chunk_index": 4
+      },
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2025-10-28.txt",
+        "start_char": 10029,
+        "end_char": 13875,
+        "chunk_index": 3
+      }
+    ],
+    "answer": "The three steps mentioned as part of Phase 2 of the Gaza peace plan are: the disarming of Hamas, the establishment of a Palestinian committee as a transitional government, and a pathway to two states living side by side [british:debates2025-10-28.txt [6721,10536]]."
+  },
+  {
+    "query_type": "factual",
+    "query": "In the discussion of the Gaza peace plan, which three steps are mentioned as part of Phase 2 of the plan?",
+    "expected_source": [
+      "debates2025-10-28.txt"
+    ],
+    "pipeline": {
+      "chunking": "semantic",
+      "representation": "dense"
+    },
+    "k": 1,
+    "references": [
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2025-10-29.txt",
+        "start_char": 57368,
+        "end_char": 57826,
+        "chunk_index": 132
+      }
+    ],
+    "answer": "The three steps mentioned as part of Phase 2 of the Gaza peace plan are the disarmament of Hamas, the deployment of a ceasefire monitoring mission, and the implementation of transitional governance arrangements in Gaza [57368,57826]."
+  },
+  {
+    "query_type": "factual",
+    "query": "In the discussion of the Gaza peace plan, which three steps are mentioned as part of Phase 2 of the plan?",
+    "expected_source": [
+      "debates2025-10-28.txt"
+    ],
+    "pipeline": {
+      "chunking": "semantic",
+      "representation": "dense"
+    },
+    "k": 2,
+    "references": [
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2025-10-29.txt",
+        "start_char": 57368,
+        "end_char": 57826,
+        "chunk_index": 132
+      },
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2024-01-23.txt",
+        "start_char": 75863,
+        "end_char": 76207,
+        "chunk_index": 163
+      }
+    ],
+    "answer": "The three steps mentioned as part of Phase 2 of the Gaza peace plan are: the disarmament of Hamas, the deployment of a ceasefire monitoring mission and an international security force, and the implementation of transitional governance arrangements in Gaza [57368,57826]."
+  },
+  {
+    "query_type": "factual",
+    "query": "In the discussion of the Gaza peace plan, which three steps are mentioned as part of Phase 2 of the plan?",
+    "expected_source": [
+      "debates2025-10-28.txt"
+    ],
+    "pipeline": {
+      "chunking": "semantic",
+      "representation": "dense"
+    },
+    "k": 3,
+    "references": [
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2025-10-29.txt",
+        "start_char": 57368,
+        "end_char": 57826,
+        "chunk_index": 132
+      },
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2024-01-23.txt",
+        "start_char": 75863,
+        "end_char": 76207,
+        "chunk_index": 163
+      },
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2025-10-28.txt",
+        "start_char": 6863,
+        "end_char": 7576,
+        "chunk_index": 15
+      }
+    ],
+    "answer": "The three steps mentioned as part of Phase 2 of the Gaza peace plan are the disarmament of Hamas, the deployment of a ceasefire monitoring mission and an international security force, and the implementation of transitional governance arrangements in Gaza [57368]."
+  },
+  {
+    "query_type": "factual",
+    "query": "In the debate concerning El Fasher, how many civilians and how many children are said to be trapped in the city?",
+    "expected_source": [
+      "debates2025-10-28.txt"
+    ],
+    "pipeline": {
+      "chunking": "fixed",
+      "representation": "bm25"
+    },
+    "k": 1,
+    "references": [
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2025-10-28.txt",
+        "start_char": 3441,
+        "end_char": 7088,
+        "chunk_index": 1
+      }
+    ],
+    "answer": "About a quarter of a million civilians, including 130,000 children, are trapped in the city of El Fasher following a brutal siege that has lasted 18 months [3441]."
+  },
+  {
+    "query_type": "factual",
+    "query": "In the debate concerning El Fasher, how many civilians and how many children are said to be trapped in the city?",
+    "expected_source": [
+      "debates2025-10-28.txt"
+    ],
+    "pipeline": {
+      "chunking": "fixed",
+      "representation": "bm25"
+    },
+    "k": 2,
+    "references": [
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2025-10-28.txt",
+        "start_char": 3441,
+        "end_char": 7088,
+        "chunk_index": 1
+      },
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2024-04-30.txt",
+        "start_char": 34455,
+        "end_char": 38229,
+        "chunk_index": 10
+      }
+    ],
+    "answer": "About a quarter of a million civilians, including 130,000 children, are said to be trapped in the city of El Fasher following a brutal siege that has lasted 18 months [british:debates2025-10-28.txt]."
+  },
+  {
+    "query_type": "factual",
+    "query": "In the debate concerning El Fasher, how many civilians and how many children are said to be trapped in the city?",
+    "expected_source": [
+      "debates2025-10-28.txt"
+    ],
+    "pipeline": {
+      "chunking": "fixed",
+      "representation": "bm25"
+    },
+    "k": 3,
+    "references": [
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2025-10-28.txt",
+        "start_char": 3441,
+        "end_char": 7088,
+        "chunk_index": 1
+      },
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2024-04-30.txt",
+        "start_char": 34455,
+        "end_char": 38229,
+        "chunk_index": 10
+      },
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2024-05-16.txt",
+        "start_char": 69285,
+        "end_char": 73309,
+        "chunk_index": 20
+      }
+    ],
+    "answer": "About a quarter of a million civilians, including 130,000 children, are said to be trapped in the city of El Fasher following a brutal siege that has lasted 18 months [british:debates2025-10-28.txt]."
+  },
+  {
+    "query_type": "factual",
+    "query": "In the debate concerning El Fasher, how many civilians and how many children are said to be trapped in the city?",
+    "expected_source": [
+      "debates2025-10-28.txt"
+    ],
+    "pipeline": {
+      "chunking": "semantic",
+      "representation": "bm25"
+    },
+    "k": 1,
+    "references": [
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2025-09-02.txt",
+        "start_char": 11979,
+        "end_char": 12252,
+        "chunk_index": 23
+      }
+    ],
+    "answer": "In El Fasher, 260,000 civilians are said to be trapped, with half of them being children [11979,12252]."
+  },
+  {
+    "query_type": "factual",
+    "query": "In the debate concerning El Fasher, how many civilians and how many children are said to be trapped in the city?",
+    "expected_source": [
+      "debates2025-10-28.txt"
+    ],
+    "pipeline": {
+      "chunking": "semantic",
+      "representation": "bm25"
+    },
+    "k": 2,
+    "references": [
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2025-09-02.txt",
+        "start_char": 11979,
+        "end_char": 12252,
+        "chunk_index": 23
+      },
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2025-10-28.txt",
+        "start_char": 5527,
+        "end_char": 6126,
+        "chunk_index": 12
+      }
+    ],
+    "answer": "In El Fasher, about a quarter of a million civilians are trapped, including 130,000 children [source: british:debates2025-10-28.txt]."
+  },
+  {
+    "query_type": "factual",
+    "query": "In the debate concerning El Fasher, how many civilians and how many children are said to be trapped in the city?",
+    "expected_source": [
+      "debates2025-10-28.txt"
+    ],
+    "pipeline": {
+      "chunking": "semantic",
+      "representation": "bm25"
+    },
+    "k": 3,
+    "references": [
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2025-09-02.txt",
+        "start_char": 11979,
+        "end_char": 12252,
+        "chunk_index": 23
+      },
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2025-10-28.txt",
+        "start_char": 5527,
+        "end_char": 6126,
+        "chunk_index": 12
+      },
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2025-10-28.txt",
+        "start_char": 6127,
+        "end_char": 6410,
+        "chunk_index": 13
+      }
+    ],
+    "answer": "In El Fasher, about a quarter of a million civilians are trapped, including 130,000 children [source: british:debates2025-10-28.txt]."
+  },
+  {
+    "query_type": "factual",
+    "query": "In the debate concerning El Fasher, how many civilians and how many children are said to be trapped in the city?",
+    "expected_source": [
+      "debates2025-10-28.txt"
+    ],
+    "pipeline": {
+      "chunking": "fixed",
+      "representation": "dense"
+    },
+    "k": 1,
+    "references": [
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2025-07-16.txt",
+        "start_char": 56038,
+        "end_char": 60110,
+        "chunk_index": 16
+      }
+    ],
+    "answer": "I don't know based on the retrieved chunks."
+  },
+  {
+    "query_type": "factual",
+    "query": "In the debate concerning El Fasher, how many civilians and how many children are said to be trapped in the city?",
+    "expected_source": [
+      "debates2025-10-28.txt"
+    ],
+    "pipeline": {
+      "chunking": "fixed",
+      "representation": "dense"
+    },
+    "k": 2,
+    "references": [
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2025-07-16.txt",
+        "start_char": 56038,
+        "end_char": 60110,
+        "chunk_index": 16
+      },
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2024-05-16.txt",
+        "start_char": 79588,
+        "end_char": 83498,
+        "chunk_index": 23
+      }
+    ],
+    "answer": "I don't know based on the retrieved chunks."
+  },
+  {
+    "query_type": "factual",
+    "query": "In the debate concerning El Fasher, how many civilians and how many children are said to be trapped in the city?",
+    "expected_source": [
+      "debates2025-10-28.txt"
+    ],
+    "pipeline": {
+      "chunking": "fixed",
+      "representation": "dense"
+    },
+    "k": 3,
+    "references": [
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2025-07-16.txt",
+        "start_char": 56038,
+        "end_char": 60110,
+        "chunk_index": 16
+      },
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2024-05-16.txt",
+        "start_char": 79588,
+        "end_char": 83498,
+        "chunk_index": 23
+      },
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2024-05-16.txt",
+        "start_char": 69285,
+        "end_char": 73309,
+        "chunk_index": 20
+      }
+    ],
+    "answer": "In El Fasher, more than 1 million civilians are said to be under immediate threat of massacre, and there are reports of children being recruited from across Darfur, although the exact number of children trapped in the city is not specified in the provided context [british:debates2024-05-16.txt [69285,73309]]."
+  },
+  {
+    "query_type": "factual",
+    "query": "In the debate concerning El Fasher, how many civilians and how many children are said to be trapped in the city?",
+    "expected_source": [
+      "debates2025-10-28.txt"
+    ],
+    "pipeline": {
+      "chunking": "semantic",
+      "representation": "dense"
+    },
+    "k": 1,
+    "references": [
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2025-09-02.txt",
+        "start_char": 11979,
+        "end_char": 12252,
+        "chunk_index": 23
+      }
+    ],
+    "answer": "In El Fasher, 260,000 civilians are said to be trapped, with half of them being children [11979,12252]."
+  },
+  {
+    "query_type": "factual",
+    "query": "In the debate concerning El Fasher, how many civilians and how many children are said to be trapped in the city?",
+    "expected_source": [
+      "debates2025-10-28.txt"
+    ],
+    "pipeline": {
+      "chunking": "semantic",
+      "representation": "dense"
+    },
+    "k": 2,
+    "references": [
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2025-09-02.txt",
+        "start_char": 11979,
+        "end_char": 12252,
+        "chunk_index": 23
+      },
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2025-09-02.txt",
+        "start_char": 9425,
+        "end_char": 9719,
+        "chunk_index": 18
+      }
+    ],
+    "answer": "In El Fasher, 260,000 civilians are said to be trapped, half of whom are children, meaning approximately 130,000 children are trapped in the city [british:debates2025-09-02.txt [11979,12252]]."
+  },
+  {
+    "query_type": "factual",
+    "query": "In the debate concerning El Fasher, how many civilians and how many children are said to be trapped in the city?",
+    "expected_source": [
+      "debates2025-10-28.txt"
+    ],
+    "pipeline": {
+      "chunking": "semantic",
+      "representation": "dense"
+    },
+    "k": 3,
+    "references": [
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2025-09-02.txt",
+        "start_char": 11979,
+        "end_char": 12252,
+        "chunk_index": 23
+      },
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2025-09-02.txt",
+        "start_char": 9425,
+        "end_char": 9719,
+        "chunk_index": 18
+      },
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2025-10-28.txt",
+        "start_char": 5527,
+        "end_char": 6126,
+        "chunk_index": 12
+      }
+    ],
+    "answer": "In El Fasher, it is reported that about 260,000 civilians are trapped, half of whom are children, which amounts to approximately 130,000 children [british:debates2025-09-02.txt]."
+  },
+  {
+    "query_type": "conceptual",
+    "query": "What is the main argument presented for increasing economic pressure on Russia in order to end the war in Ukraine?",
+    "expected_source": [
+      "debates2025-10-28.txt"
+    ],
+    "pipeline": {
+      "chunking": "fixed",
+      "representation": "bm25"
+    },
+    "k": 1,
+    "references": [
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2024-09-10.txt",
+        "start_char": 61695,
+        "end_char": 65827,
+        "chunk_index": 18
+      }
+    ],
+    "answer": "The main argument for increasing economic pressure on Russia to end the war in Ukraine is that if President Putin prevails, he will not stop at Ukraine, which would undermine the sovereignty and security of all nations. The argument emphasizes that military, economic, industrial, and diplomatic support for Ukraine is crucial to deter Russian aggression, as it poses a threat not only to Ukraine but also to global security. The UK and its allies must act to prevent a scenario where larger nations can redraw international boundaries by force, which would have far-reaching implications for international stability and safety [61695,65827]."
+  },
+  {
+    "query_type": "conceptual",
+    "query": "What is the main argument presented for increasing economic pressure on Russia in order to end the war in Ukraine?",
+    "expected_source": [
+      "debates2025-10-28.txt"
+    ],
+    "pipeline": {
+      "chunking": "fixed",
+      "representation": "bm25"
+    },
+    "k": 2,
+    "references": [
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2024-09-10.txt",
+        "start_char": 61695,
+        "end_char": 65827,
+        "chunk_index": 18
+      },
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2024-12-03.txt",
+        "start_char": 59330,
+        "end_char": 63236,
+        "chunk_index": 17
+      }
+    ],
+    "answer": "The main argument for increasing economic pressure on Russia to end the war in Ukraine is that a Russian victory would diminish the West's global standing, create instability on the eastern flank, and embolden Putin and other autocrats. This situation could necessitate significantly increased defense spending akin to Cold War levels. The UK has already sanctioned over 2,100 individuals and entities, depriving Russia of over $400 billion since February 2022, which is seen as crucial to weakening Putin's war machine and supporting Ukraine's defense efforts. The UK government emphasizes that supporting Ukraine is a core national interest, as it is essential for maintaining global security and deterring future aggression from Russia and similar regimes [british:debates2024-12-03.txt]."
+  },
+  {
+    "query_type": "conceptual",
+    "query": "What is the main argument presented for increasing economic pressure on Russia in order to end the war in Ukraine?",
+    "expected_source": [
+      "debates2025-10-28.txt"
+    ],
+    "pipeline": {
+      "chunking": "fixed",
+      "representation": "bm25"
+    },
+    "k": 3,
+    "references": [
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2024-09-10.txt",
+        "start_char": 61695,
+        "end_char": 65827,
+        "chunk_index": 18
+      },
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2024-12-03.txt",
+        "start_char": 59330,
+        "end_char": 63236,
+        "chunk_index": 17
+      },
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2025-10-28.txt",
+        "start_char": 17160,
+        "end_char": 20918,
+        "chunk_index": 5
+      }
+    ],
+    "answer": "The main argument for increasing economic pressure on Russia to end the war in Ukraine is that tightening the economic vice on Russia is essential to bring President Putin to the negotiating table and create a pathway to peace. This includes mobilizing Russian sovereign assets to support Ukraine and implementing sanctions to choke off access to the market for Russian oil and gas. The idea is that by increasing economic pressure, Russia will be compelled to address the consequences of its actions and contribute to reparations for the damage caused to Ukraine [british:debates2025-10-28.txt [17160,20918]]."
+  },
+  {
+    "query_type": "conceptual",
+    "query": "What is the main argument presented for increasing economic pressure on Russia in order to end the war in Ukraine?",
+    "expected_source": [
+      "debates2025-10-28.txt"
+    ],
+    "pipeline": {
+      "chunking": "semantic",
+      "representation": "bm25"
+    },
+    "k": 1,
+    "references": [
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2025-03-03.txt",
+        "start_char": 63506,
+        "end_char": 64003,
+        "chunk_index": 120
+      }
+    ],
+    "answer": "The main argument for increasing economic pressure on Russia to end the war in Ukraine is that it is part of a clear strategy to support Ukraine, which includes keeping military aid flowing and enhancing economic sanctions against Russia. This approach aims to weaken Russia's capacity to sustain the conflict and ultimately contribute to stopping the fighting [63506,64003]."
+  },
+  {
+    "query_type": "conceptual",
+    "query": "What is the main argument presented for increasing economic pressure on Russia in order to end the war in Ukraine?",
+    "expected_source": [
+      "debates2025-10-28.txt"
+    ],
+    "pipeline": {
+      "chunking": "semantic",
+      "representation": "bm25"
+    },
+    "k": 2,
+    "references": [
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2025-03-03.txt",
+        "start_char": 63506,
+        "end_char": 64003,
+        "chunk_index": 120
+      },
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2025-10-28.txt",
+        "start_char": 47247,
+        "end_char": 47821,
+        "chunk_index": 93
+      }
+    ],
+    "answer": "The main argument for increasing economic pressure on Russia to end the war in Ukraine is that it will force President Putin to the negotiating table, thereby bringing an end to Russia's illegal war in Ukraine. This perspective emphasizes that sustained economic pressure is essential for achieving a resolution to the conflict [british:debates2025-10-28.txt [47247,47821]]."
+  },
+  {
+    "query_type": "conceptual",
+    "query": "What is the main argument presented for increasing economic pressure on Russia in order to end the war in Ukraine?",
+    "expected_source": [
+      "debates2025-10-28.txt"
+    ],
+    "pipeline": {
+      "chunking": "semantic",
+      "representation": "bm25"
+    },
+    "k": 3,
+    "references": [
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2025-03-03.txt",
+        "start_char": 63506,
+        "end_char": 64003,
+        "chunk_index": 120
+      },
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2025-10-28.txt",
+        "start_char": 47247,
+        "end_char": 47821,
+        "chunk_index": 93
+      },
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2025-04-24.txt",
+        "start_char": 91130,
+        "end_char": 91966,
+        "chunk_index": 187
+      }
+    ],
+    "answer": "The main argument for increasing economic pressure on Russia to end the war in Ukraine is that it is essential to force Russia to the negotiating table and hinder its ability to wage war. By maintaining and increasing sanctions, the goal is to stop Russia from threatening Ukraine's sovereignty and to ensure that Russia pays for the damage caused by its actions. This strategy aims to place Ukraine in the best position to secure a just and lasting peace [british:debates2025-10-28.txt; british:debates2025-04-24.txt]."
+  },
+  {
+    "query_type": "conceptual",
+    "query": "What is the main argument presented for increasing economic pressure on Russia in order to end the war in Ukraine?",
+    "expected_source": [
+      "debates2025-10-28.txt"
+    ],
+    "pipeline": {
+      "chunking": "fixed",
+      "representation": "dense"
+    },
+    "k": 1,
+    "references": [
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2025-02-24.txt",
+        "start_char": 79904,
+        "end_char": 83615,
+        "chunk_index": 23
+      }
+    ],
+    "answer": "The main argument for increasing economic pressure on Russia to end the war in Ukraine is that a strong response is necessary to deter further aggression from the Kremlin, which has a history of betraying agreements and operating through deception. By imposing economic sanctions and denying Russia access to significant financial resources, the aim is to make its war economy unsustainable, thereby weakening its capacity to continue the conflict. The UK, along with its international partners, has already made strides in this direction, and the argument posits that continued economic pressure is essential for securing a lasting peace and ensuring that Putin does not invade again [79904,83615]."
+  },
+  {
+    "query_type": "conceptual",
+    "query": "What is the main argument presented for increasing economic pressure on Russia in order to end the war in Ukraine?",
+    "expected_source": [
+      "debates2025-10-28.txt"
+    ],
+    "pipeline": {
+      "chunking": "fixed",
+      "representation": "dense"
+    },
+    "k": 2,
+    "references": [
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2025-02-24.txt",
+        "start_char": 79904,
+        "end_char": 83615,
+        "chunk_index": 23
+      },
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2025-10-28.txt",
+        "start_char": 17160,
+        "end_char": 20918,
+        "chunk_index": 5
+      }
+    ],
+    "answer": "The main argument for increasing economic pressure on Russia to end the war in Ukraine is that it is necessary to bring Putin to the negotiating table and create a pathway to peace. This involves tightening the economic vice on Russia, which has already faced significant financial losses and unsustainable economic conditions due to sanctions and the denial of access to international markets. The UK and its allies are focused on mobilizing Russian sovereign assets to support Ukraine and implementing sanctions that choke off access to Russian oil and gas markets. The goal is to ensure that Russia pays for the damage it has caused and to compel a change in its aggressive behavior through sustained economic pressure [british:debates2025-10-28.txt [17160,20918]]."
+  },
+  {
+    "query_type": "conceptual",
+    "query": "What is the main argument presented for increasing economic pressure on Russia in order to end the war in Ukraine?",
+    "expected_source": [
+      "debates2025-10-28.txt"
+    ],
+    "pipeline": {
+      "chunking": "fixed",
+      "representation": "dense"
+    },
+    "k": 3,
+    "references": [
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2025-02-24.txt",
+        "start_char": 79904,
+        "end_char": 83615,
+        "chunk_index": 23
+      },
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2025-10-28.txt",
+        "start_char": 17160,
+        "end_char": 20918,
+        "chunk_index": 5
+      },
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2024-09-10.txt",
+        "start_char": 61695,
+        "end_char": 65827,
+        "chunk_index": 18
+      }
+    ],
+    "answer": "The main argument for increasing economic pressure on Russia to end the war in Ukraine is that such pressure is necessary to bring Putin to the negotiating table and create a pathway to peace. It is emphasized that tightening the economic vice on Russia will help to weaken its war economy, which is becoming increasingly unsustainable due to high inflation and significant budget allocations for defense. The UK and its allies are urged to mobilize Russian sovereign assets to support Ukraine and to implement sanctions that restrict Russia's access to oil and gas markets. This economic pressure is seen as crucial for compelling Russia to acknowledge the consequences of its actions and to engage in meaningful negotiations for peace [british:debates2025-10-28.txt [17160,20918]]."
+  },
+  {
+    "query_type": "conceptual",
+    "query": "What is the main argument presented for increasing economic pressure on Russia in order to end the war in Ukraine?",
+    "expected_source": [
+      "debates2025-10-28.txt"
+    ],
+    "pipeline": {
+      "chunking": "semantic",
+      "representation": "dense"
+    },
+    "k": 1,
+    "references": [
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2025-01-20.txt",
+        "start_char": 72088,
+        "end_char": 72681,
+        "chunk_index": 143
+      }
+    ],
+    "answer": "The main argument for increasing economic pressure on Russia to end the war in Ukraine is that Russia's economy is struggling to sustain the war effort, with spiraling inflation making basic goods unaffordable, welfare cuts affecting the most vulnerable, and record-high interest rates. This economic strain suggests that intensifying pressure could weaken Russia's ability to continue the conflict, thereby contributing to a resolution of the war [british:debates2025-01-20.txt [72088,72681]]."
+  },
+  {
+    "query_type": "conceptual",
+    "query": "What is the main argument presented for increasing economic pressure on Russia in order to end the war in Ukraine?",
+    "expected_source": [
+      "debates2025-10-28.txt"
+    ],
+    "pipeline": {
+      "chunking": "semantic",
+      "representation": "dense"
+    },
+    "k": 2,
+    "references": [
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2025-01-20.txt",
+        "start_char": 72088,
+        "end_char": 72681,
+        "chunk_index": 143
+      },
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2025-10-28.txt",
+        "start_char": 20601,
+        "end_char": 21066,
+        "chunk_index": 40
+      }
+    ],
+    "answer": "The main argument for increasing economic pressure on Russia to end the war in Ukraine is that such pressure, particularly on oil and gas, is necessary to compel President Putin to return to negotiations. The context highlights that while Ukraine is willing to negotiate and support a ceasefire, Putin is escalating the conflict, indicating that economic sanctions could be a crucial tool in changing his stance and bringing him back to the negotiating table [british:debates2025-10-28.txt]."
+  },
+  {
+    "query_type": "conceptual",
+    "query": "What is the main argument presented for increasing economic pressure on Russia in order to end the war in Ukraine?",
+    "expected_source": [
+      "debates2025-10-28.txt"
+    ],
+    "pipeline": {
+      "chunking": "semantic",
+      "representation": "dense"
+    },
+    "k": 3,
+    "references": [
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2025-01-20.txt",
+        "start_char": 72088,
+        "end_char": 72681,
+        "chunk_index": 143
+      },
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2025-10-28.txt",
+        "start_char": 20601,
+        "end_char": 21066,
+        "chunk_index": 40
+      },
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2023-11-09.txt",
+        "start_char": 38309,
+        "end_char": 38748,
+        "chunk_index": 76
+      }
+    ],
+    "answer": "The main argument for increasing economic pressure on Russia to end the war in Ukraine is that it is essential to starve Putin of the resources necessary to fund the war. This includes implementing sanctions that limit Russia's access to Western components and technology, which have contributed to a significant decline in Russian oil revenues and left the Russian budget in deficit. The goal is to create sufficient economic pressure, particularly on oil and gas, to compel Putin to negotiate and potentially bring an end to the conflict, especially as President Zelensky has expressed willingness to negotiate for a ceasefire [british:debates2025-10-28.txt; british:debates2023-11-09.txt]."
+  },
+  {
+    "query_type": "conceptual",
+    "query": "What is the main criticism raised in the debate about the Rwanda plan in the context of \"stop the boats\", and why is it argued that the plan would not act as a deterrent?",
+    "expected_source": [
+      "debates2023-07-03.txt"
+    ],
+    "pipeline": {
+      "chunking": "fixed",
+      "representation": "bm25"
+    },
+    "k": 1,
+    "references": [
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2024-03-14.txt",
+        "start_char": 59816,
+        "end_char": 63698,
+        "chunk_index": 17
+      }
+    ],
+    "answer": "The main criticism raised in the debate about the Rwanda plan in the context of \"stop the boats\" is that there is no evidence that the threat of deportation to Rwanda acts as a deterrent to those crossing the channel in small boats. Despite the government's assertions, the continued increase in crossings suggests that the plan is ineffective. Additionally, the government has resorted to offering a £3,000 incentive for refugees to voluntarily travel to Rwanda, which further indicates a lack of confidence in the deterrent effect of the plan. Critics argue that the only effective way to stop the boats is to dismantle the trafficking gangs and prosecute the criminals involved, rather than relying on the Rwanda plan [source: british:debates2024-03-14.txt]."
+  },
+  {
+    "query_type": "conceptual",
+    "query": "What is the main criticism raised in the debate about the Rwanda plan in the context of \"stop the boats\", and why is it argued that the plan would not act as a deterrent?",
+    "expected_source": [
+      "debates2023-07-03.txt"
+    ],
+    "pipeline": {
+      "chunking": "fixed",
+      "representation": "bm25"
+    },
+    "k": 2,
+    "references": [
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2024-03-14.txt",
+        "start_char": 59816,
+        "end_char": 63698,
+        "chunk_index": 17
+      },
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2023-11-27.txt",
+        "start_char": 6837,
+        "end_char": 10494,
+        "chunk_index": 2
+      }
+    ],
+    "answer": "The main criticism raised in the debate about the Rwanda plan in the context of \"stop the boats\" is that there is no evidence to support the claim that the threat of deportation to Rwanda acts as a deterrent to illegal crossings. Despite the government's assertions, the number of people crossing the channel in small boats has continued to rise, indicating that the plan is not effective in stopping these crossings. Additionally, the government's shift to offering a £3,000 incentive for refugees to voluntarily travel to Rwanda further suggests a lack of confidence in the deterrent effect of the original plan [british:debates2024-03-14.txt [59816,63698]]."
+  },
+  {
+    "query_type": "conceptual",
+    "query": "What is the main criticism raised in the debate about the Rwanda plan in the context of \"stop the boats\", and why is it argued that the plan would not act as a deterrent?",
+    "expected_source": [
+      "debates2023-07-03.txt"
+    ],
+    "pipeline": {
+      "chunking": "fixed",
+      "representation": "bm25"
+    },
+    "k": 3,
+    "references": [
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2024-03-14.txt",
+        "start_char": 59816,
+        "end_char": 63698,
+        "chunk_index": 17
+      },
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2023-11-27.txt",
+        "start_char": 6837,
+        "end_char": 10494,
+        "chunk_index": 2
+      },
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2023-09-18.txt",
+        "start_char": 44443,
+        "end_char": 47938,
+        "chunk_index": 13
+      }
+    ],
+    "answer": "The main criticism raised in the debate about the Rwanda plan in the context of \"stop the boats\" is that there is no evidence that the threat of deportation to Rwanda acts as a deterrent to illegal crossings. Despite the government's assertions, the number of people crossing the channel in small boats continues to rise, indicating that the plan is not effective in stopping these crossings. Additionally, the government's shift to offering a £3,000 incentive for refugees to voluntarily travel to Rwanda further suggests a lack of confidence in the deterrent effect of the original plan. Critics argue that the real solution lies in addressing the root problem of trafficking gangs rather than relying on the Rwanda policy, which they view as flawed and ineffective [british:debates2024-03-14.txt [59816,63698]]."
+  },
+  {
+    "query_type": "conceptual",
+    "query": "What is the main criticism raised in the debate about the Rwanda plan in the context of \"stop the boats\", and why is it argued that the plan would not act as a deterrent?",
+    "expected_source": [
+      "debates2023-07-03.txt"
+    ],
+    "pipeline": {
+      "chunking": "semantic",
+      "representation": "bm25"
+    },
+    "k": 1,
+    "references": [
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2024-03-14.txt",
+        "start_char": 60391,
+        "end_char": 60800,
+        "chunk_index": 121
+      }
+    ],
+    "answer": "The main criticism raised in the debate about the Rwanda plan in the context of \"stop the boats\" is that there is no evidence to support the claim that the threat of deportation to Rwanda would act as a deterrent. This skepticism is further emphasized by the government's shift in strategy, which includes offering a £3,000 incentive for refugees to voluntarily travel to Rwanda. It is argued that the only effective way to stop the boats is to address the root issue by crushing the trafficking gangs and prosecuting the criminals involved, rather than relying on the Rwanda plan as a deterrent [60391,60800]."
+  },
+  {
+    "query_type": "conceptual",
+    "query": "What is the main criticism raised in the debate about the Rwanda plan in the context of \"stop the boats\", and why is it argued that the plan would not act as a deterrent?",
+    "expected_source": [
+      "debates2023-07-03.txt"
+    ],
+    "pipeline": {
+      "chunking": "semantic",
+      "representation": "bm25"
+    },
+    "k": 2,
+    "references": [
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2024-03-14.txt",
+        "start_char": 60391,
+        "end_char": 60800,
+        "chunk_index": 121
+      },
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2023-11-15.txt",
+        "start_char": 58139,
+        "end_char": 58581,
+        "chunk_index": 134
+      }
+    ],
+    "answer": "The main criticism raised in the debate about the Rwanda plan in the context of \"stop the boats\" is that there is no evidence to support the claim that the threat of deportation to Rwanda would act as a deterrent to illegal immigration. This lack of evidence has led to the argument that the plan would not effectively deter individuals from attempting to cross the Channel. Additionally, the government's shift to offering a £3,000 incentive for refugees to voluntarily travel to Rwanda further suggests that they may not believe the deterrent effect is working. Instead, it is argued that the real solution lies in addressing the root causes of illegal immigration by targeting trafficking gangs and prosecuting criminals involved in these activities [british:debates2024-03-14.txt]."
+  },
+  {
+    "query_type": "conceptual",
+    "query": "What is the main criticism raised in the debate about the Rwanda plan in the context of \"stop the boats\", and why is it argued that the plan would not act as a deterrent?",
+    "expected_source": [
+      "debates2023-07-03.txt"
+    ],
+    "pipeline": {
+      "chunking": "semantic",
+      "representation": "bm25"
+    },
+    "k": 3,
+    "references": [
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2024-03-14.txt",
+        "start_char": 60391,
+        "end_char": 60800,
+        "chunk_index": 121
+      },
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2023-11-15.txt",
+        "start_char": 58139,
+        "end_char": 58581,
+        "chunk_index": 134
+      },
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2023-09-18.txt",
+        "start_char": 46093,
+        "end_char": 46465,
+        "chunk_index": 95
+      }
+    ],
+    "answer": "The main criticism raised in the debate about the Rwanda plan in the context of \"stop the boats\" is that there is no evidence that the threat of deportation to Rwanda would act as a deterrent to illegal immigration. This lack of evidence has led to the government changing its approach by offering a £3,000 incentive for refugees to voluntarily travel to Rwanda. Critics argue that the real solution to stopping the boats lies in addressing the root causes of illegal immigration, such as crushing trafficking gangs and prosecuting criminals, rather than relying on the Rwanda plan as a deterrent [60391, 60800]."
+  },
+  {
+    "query_type": "conceptual",
+    "query": "What is the main criticism raised in the debate about the Rwanda plan in the context of \"stop the boats\", and why is it argued that the plan would not act as a deterrent?",
+    "expected_source": [
+      "debates2023-07-03.txt"
+    ],
+    "pipeline": {
+      "chunking": "fixed",
+      "representation": "dense"
+    },
+    "k": 1,
+    "references": [
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2023-12-06.txt",
+        "start_char": 35217,
+        "end_char": 38783,
+        "chunk_index": 10
+      }
+    ],
+    "answer": "The main criticism raised in the debate about the Rwanda plan in the context of \"stop the boats\" is that it lacks effective deterrence. Critics argue that the plan would not act as a deterrent because it is capped at Rwanda's capacity of only 100 individuals, and Rwanda has the option to turn away those sent to them. Additionally, there are concerns about the financial implications, as the UK would need to pay for the accommodation and upkeep of those sent to Rwanda for five years, and any individuals who commit crimes can be returned to the UK. This raises questions about the overall effectiveness of the plan in genuinely reducing illegal migration and stopping small boat arrivals [35217,38783]."
+  },
+  {
+    "query_type": "conceptual",
+    "query": "What is the main criticism raised in the debate about the Rwanda plan in the context of \"stop the boats\", and why is it argued that the plan would not act as a deterrent?",
+    "expected_source": [
+      "debates2023-07-03.txt"
+    ],
+    "pipeline": {
+      "chunking": "fixed",
+      "representation": "dense"
+    },
+    "k": 2,
+    "references": [
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2023-12-06.txt",
+        "start_char": 35217,
+        "end_char": 38783,
+        "chunk_index": 10
+      },
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2023-11-15.txt",
+        "start_char": 66157,
+        "end_char": 69755,
+        "chunk_index": 19
+      }
+    ],
+    "answer": "The main criticism raised in the debate about the Rwanda plan in the context of \"stop the boats\" is that it lacks effective deterrence. Critics argue that the plan would not act as a deterrent because it is capped at Rwanda's capacity to accept only 100 individuals, and Rwanda has the option to turn away those sent to them. Additionally, there are concerns that the implementation of the plan is fraught with complications, as indicated by the Supreme Court's judgment, which noted that the arrangements might not be straightforward to implement in practice. This raises doubts about the plan's effectiveness in genuinely reducing illegal crossings and addressing the backlog of asylum claims [35217, 66157]."
+  },
+  {
+    "query_type": "conceptual",
+    "query": "What is the main criticism raised in the debate about the Rwanda plan in the context of \"stop the boats\", and why is it argued that the plan would not act as a deterrent?",
+    "expected_source": [
+      "debates2023-07-03.txt"
+    ],
+    "pipeline": {
+      "chunking": "fixed",
+      "representation": "dense"
+    },
+    "k": 3,
+    "references": [
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2023-12-06.txt",
+        "start_char": 35217,
+        "end_char": 38783,
+        "chunk_index": 10
+      },
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2023-11-15.txt",
+        "start_char": 66157,
+        "end_char": 69755,
+        "chunk_index": 19
+      },
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2023-11-15.txt",
+        "start_char": 55843,
+        "end_char": 59623,
+        "chunk_index": 16
+      }
+    ],
+    "answer": "The main criticism raised in the debate about the Rwanda plan in the context of \"stop the boats\" is that it lacks effective deterrence. Critics argue that the plan is fundamentally flawed because it is capped at Rwanda's capacity to accept only 100 individuals, and Rwanda has the discretion to turn away those sent to it. This raises doubts about the plan's ability to significantly reduce illegal crossings, as it does not provide a reliable mechanism for returning migrants or addressing the root causes of illegal immigration. Additionally, there are concerns that the plan could lead to an endless backlog of cases, undermining its intended purpose of deterring illegal arrivals [35217, 66157]."
+  },
+  {
+    "query_type": "conceptual",
+    "query": "What is the main criticism raised in the debate about the Rwanda plan in the context of \"stop the boats\", and why is it argued that the plan would not act as a deterrent?",
+    "expected_source": [
+      "debates2023-07-03.txt"
+    ],
+    "pipeline": {
+      "chunking": "semantic",
+      "representation": "dense"
+    },
+    "k": 1,
+    "references": [
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2024-11-06.txt",
+        "start_char": 87471,
+        "end_char": 88239,
+        "chunk_index": 188
+      }
+    ],
+    "answer": "The main criticism raised in the debate about the Rwanda plan in the context of \"stop the boats\" is that it undermines international law. Critics argue that the plan, which involves significant financial investment to remove a small number of people, is not a viable deterrent because it does not address the root causes of migration and instead focuses on punitive measures. The plan is seen as ineffective since it aims to remove only 250 people a week at a high cost, suggesting that it would not significantly impact the overall number of crossings or deaths in the channel. Additionally, other countries are opting to remain within the confines of international law rather than adopting similar schemes, indicating a broader concern about the legality and morality of the Rwanda plan [87471,88239]."
+  },
+  {
+    "query_type": "conceptual",
+    "query": "What is the main criticism raised in the debate about the Rwanda plan in the context of \"stop the boats\", and why is it argued that the plan would not act as a deterrent?",
+    "expected_source": [
+      "debates2023-07-03.txt"
+    ],
+    "pipeline": {
+      "chunking": "semantic",
+      "representation": "dense"
+    },
+    "k": 2,
+    "references": [
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2024-11-06.txt",
+        "start_char": 87471,
+        "end_char": 88239,
+        "chunk_index": 188
+      },
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2024-11-06.txt",
+        "start_char": 71079,
+        "end_char": 71473,
+        "chunk_index": 151
+      }
+    ],
+    "answer": "The main criticism raised in the debate about the Rwanda plan in the context of \"stop the boats\" is that it would not act as a deterrent because the government decided to cancel the scheme before it even started. Proponents argue that had the plan been allowed to proceed, it could have begun to show a deterrent effect, similar to the success seen in Australia's Operation Sovereign Borders. However, critics highlight that the plan was criticized for tearing up international law and that other countries are opting to stay within those legal confines instead of adopting similar schemes [sources: 87471, 71079]."
+  },
+  {
+    "query_type": "conceptual",
+    "query": "What is the main criticism raised in the debate about the Rwanda plan in the context of \"stop the boats\", and why is it argued that the plan would not act as a deterrent?",
+    "expected_source": [
+      "debates2023-07-03.txt"
+    ],
+    "pipeline": {
+      "chunking": "semantic",
+      "representation": "dense"
+    },
+    "k": 3,
+    "references": [
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2024-11-06.txt",
+        "start_char": 87471,
+        "end_char": 88239,
+        "chunk_index": 188
+      },
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2024-11-06.txt",
+        "start_char": 71079,
+        "end_char": 71473,
+        "chunk_index": 151
+      },
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2024-03-14.txt",
+        "start_char": 60391,
+        "end_char": 60800,
+        "chunk_index": 121
+      }
+    ],
+    "answer": "The main criticism raised in the debate about the Rwanda plan in the context of \"stop the boats\" is that there is no evidence to support the claim that the threat of deportation to Rwanda would act as a deterrent. Critics argue that the government has shifted its approach, now offering a £3,000 incentive for refugees to voluntarily go to Rwanda, which suggests a lack of confidence in the deterrent effect of the plan. Instead, it is argued that the real solution lies in addressing the root causes of the issue, such as crushing trafficking gangs and prosecuting criminals, rather than relying on the Rwanda scheme [british:debates2024-03-14.txt [60391,60800]]."
+  },
+  {
+    "query_type": "conceptual",
+    "query": "What is the purpose of the fuel price open-data scheme according to the debate, and what benefit is it expected to provide to the public or the government?",
+    "expected_source": [
+      "debates2023-07-03.txt"
+    ],
+    "pipeline": {
+      "chunking": "fixed",
+      "representation": "bm25"
+    },
+    "k": 1,
+    "references": [
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2023-07-03.txt",
+        "start_char": 85379,
+        "end_char": 89058,
+        "chunk_index": 25
+      }
+    ],
+    "answer": "The purpose of the fuel price open-data scheme is to provide greater transparency over fuel prices, which is expected to allow drivers to find better prices at petrol stations closer to them, ultimately enabling them to save money. This initiative aims to enhance competitiveness in the fuel market and ensure ongoing monitoring to prevent price inflation by retailers [british:debates2023-07-03.txt [85379,89058]]."
+  },
+  {
+    "query_type": "conceptual",
+    "query": "What is the purpose of the fuel price open-data scheme according to the debate, and what benefit is it expected to provide to the public or the government?",
+    "expected_source": [
+      "debates2023-07-03.txt"
+    ],
+    "pipeline": {
+      "chunking": "fixed",
+      "representation": "bm25"
+    },
+    "k": 2,
+    "references": [
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2023-07-03.txt",
+        "start_char": 85379,
+        "end_char": 89058,
+        "chunk_index": 25
+      },
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2023-07-03.txt",
+        "start_char": 65130,
+        "end_char": 68893,
+        "chunk_index": 19
+      }
+    ],
+    "answer": "The purpose of the fuel price open-data scheme is to create transparency in fuel pricing, which is expected to enhance competition and help keep prices down. By making fuel prices available, the scheme aims to allow consumers to make informed choices about where to purchase fuel, potentially leading to savings for drivers. The government anticipates that this increased transparency will help address issues of inflated prices by fuel retailers and improve the overall functioning of the market [british:debates2023-07-03.txt [65130,68893]]."
+  },
+  {
+    "query_type": "conceptual",
+    "query": "What is the purpose of the fuel price open-data scheme according to the debate, and what benefit is it expected to provide to the public or the government?",
+    "expected_source": [
+      "debates2023-07-03.txt"
+    ],
+    "pipeline": {
+      "chunking": "fixed",
+      "representation": "bm25"
+    },
+    "k": 3,
+    "references": [
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2023-07-03.txt",
+        "start_char": 85379,
+        "end_char": 89058,
+        "chunk_index": 25
+      },
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2023-07-03.txt",
+        "start_char": 65130,
+        "end_char": 68893,
+        "chunk_index": 19
+      },
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2024-04-16.txt",
+        "start_char": 16503,
+        "end_char": 20311,
+        "chunk_index": 5
+      }
+    ],
+    "answer": "The purpose of the fuel price open-data scheme is to enhance transparency in fuel pricing, which is expected to foster competition among retailers and ultimately lead to lower prices for consumers. By making fuel price data available, the scheme aims to allow drivers to find better prices at nearby petrol stations, thereby enabling them to save money. Additionally, the ongoing monitoring of fuel prices by the Competition and Markets Authority (CMA) is intended to ensure that retailers do not exploit consumers by inflating prices unfairly [british:debates2023-07-03.txt [65130,68893]]."
+  },
+  {
+    "query_type": "conceptual",
+    "query": "What is the purpose of the fuel price open-data scheme according to the debate, and what benefit is it expected to provide to the public or the government?",
+    "expected_source": [
+      "debates2023-07-03.txt"
+    ],
+    "pipeline": {
+      "chunking": "semantic",
+      "representation": "bm25"
+    },
+    "k": 1,
+    "references": [
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2023-07-03.txt",
+        "start_char": 65130,
+        "end_char": 65540,
+        "chunk_index": 133
+      }
+    ],
+    "answer": "The purpose of the fuel price open-data scheme is to create a statutory framework for retail fuel prices and to establish an ongoing monitoring function for road fuel prices in the UK market. This scheme is expected to benefit the public and the government by providing transparency and potentially improving market competition in fuel pricing. The government aims to consult on the design of this scheme to ensure it effectively serves its intended purpose [source: british:debates2023-07-03.txt]."
+  },
+  {
+    "query_type": "conceptual",
+    "query": "What is the purpose of the fuel price open-data scheme according to the debate, and what benefit is it expected to provide to the public or the government?",
+    "expected_source": [
+      "debates2023-07-03.txt"
+    ],
+    "pipeline": {
+      "chunking": "semantic",
+      "representation": "bm25"
+    },
+    "k": 2,
+    "references": [
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2023-07-03.txt",
+        "start_char": 65130,
+        "end_char": 65540,
+        "chunk_index": 133
+      },
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2023-07-03.txt",
+        "start_char": 74858,
+        "end_char": 75438,
+        "chunk_index": 154
+      }
+    ],
+    "answer": "The purpose of the fuel price open-data scheme is to create a statutory framework for monitoring retail fuel prices in the UK market. It aims to enhance transparency and potentially foster competition in fuel pricing. The expected benefit to the public is that it may help consumers find cheaper fuel prices more easily, while the government anticipates that it will support ongoing monitoring of fuel prices to ensure fair competition in the market [british:debates2023-07-03.txt [65130,65540]]."
+  },
+  {
+    "query_type": "conceptual",
+    "query": "What is the purpose of the fuel price open-data scheme according to the debate, and what benefit is it expected to provide to the public or the government?",
+    "expected_source": [
+      "debates2023-07-03.txt"
+    ],
+    "pipeline": {
+      "chunking": "semantic",
+      "representation": "bm25"
+    },
+    "k": 3,
+    "references": [
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2023-07-03.txt",
+        "start_char": 65130,
+        "end_char": 65540,
+        "chunk_index": 133
+      },
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2023-07-03.txt",
+        "start_char": 74858,
+        "end_char": 75438,
+        "chunk_index": 154
+      },
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2024-05-22.txt",
+        "start_char": 17039,
+        "end_char": 17624,
+        "chunk_index": 38
+      }
+    ],
+    "answer": "The purpose of the fuel price open-data scheme is to create a statutory framework for monitoring retail fuel prices in the UK market, as recommended by the CMA. This scheme is expected to provide benefits by increasing transparency in fuel pricing, which could help consumers make informed choices and potentially foster competition among fuel retailers. However, there are concerns that it may not adequately address competition in all areas, particularly for those who are digitally excluded or in regions with limited access to price comparison tools [british:debates2023-07-03.txt [65130,65540]; [british:debates2023-07-03.txt [74858,75438]]."
+  },
+  {
+    "query_type": "conceptual",
+    "query": "What is the purpose of the fuel price open-data scheme according to the debate, and what benefit is it expected to provide to the public or the government?",
+    "expected_source": [
+      "debates2023-07-03.txt"
+    ],
+    "pipeline": {
+      "chunking": "fixed",
+      "representation": "dense"
+    },
+    "k": 1,
+    "references": [
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2023-07-03.txt",
+        "start_char": 85379,
+        "end_char": 89058,
+        "chunk_index": 25
+      }
+    ],
+    "answer": "The purpose of the fuel price open-data scheme is to provide greater transparency over fuel prices, which is expected to allow drivers to find better prices at petrol stations closer to them, ultimately enabling them to save money. This initiative aims to enhance competitiveness in the fuel market and ensure ongoing monitoring to prevent price inflation by retailers [british:debates2023-07-03.txt [85379,89058]]."
+  },
+  {
+    "query_type": "conceptual",
+    "query": "What is the purpose of the fuel price open-data scheme according to the debate, and what benefit is it expected to provide to the public or the government?",
+    "expected_source": [
+      "debates2023-07-03.txt"
+    ],
+    "pipeline": {
+      "chunking": "fixed",
+      "representation": "dense"
+    },
+    "k": 2,
+    "references": [
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2023-07-03.txt",
+        "start_char": 85379,
+        "end_char": 89058,
+        "chunk_index": 25
+      },
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2023-07-03.txt",
+        "start_char": 65130,
+        "end_char": 68893,
+        "chunk_index": 19
+      }
+    ],
+    "answer": "The purpose of the fuel price open-data scheme is to create transparency in fuel pricing, which is expected to enhance competition and help keep prices down. By making fuel prices available, the scheme aims to allow consumers to make informed choices about where to purchase fuel, potentially leading to savings for drivers. Additionally, it is intended to provide the Competition and Markets Authority (CMA) with the necessary data to monitor the market effectively and intervene if required, thereby addressing concerns about inflated prices by retailers [british:debates2023-07-03.txt [65130,68893]]."
+  },
+  {
+    "query_type": "conceptual",
+    "query": "What is the purpose of the fuel price open-data scheme according to the debate, and what benefit is it expected to provide to the public or the government?",
+    "expected_source": [
+      "debates2023-07-03.txt"
+    ],
+    "pipeline": {
+      "chunking": "fixed",
+      "representation": "dense"
+    },
+    "k": 3,
+    "references": [
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2023-07-03.txt",
+        "start_char": 85379,
+        "end_char": 89058,
+        "chunk_index": 25
+      },
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2023-07-03.txt",
+        "start_char": 65130,
+        "end_char": 68893,
+        "chunk_index": 19
+      },
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2023-07-03.txt",
+        "start_char": 61562,
+        "end_char": 65405,
+        "chunk_index": 18
+      }
+    ],
+    "answer": "The purpose of the fuel price open-data scheme is to create transparency in the fuel market, allowing consumers to access accurate and up-to-date information on fuel prices. This transparency is expected to enhance competition among fuel retailers, which should help keep prices down and enable motorists to find better prices at nearby petrol stations, ultimately saving them money. The scheme is also intended to address concerns about fuel retailers inflating prices and to ensure that the market operates fairly for consumers, particularly in rural areas where fuel prices tend to be higher due to fewer options available [british:debates2023-07-03.txt [65130,68893]]."
+  },
+  {
+    "query_type": "conceptual",
+    "query": "What is the purpose of the fuel price open-data scheme according to the debate, and what benefit is it expected to provide to the public or the government?",
+    "expected_source": [
+      "debates2023-07-03.txt"
+    ],
+    "pipeline": {
+      "chunking": "semantic",
+      "representation": "dense"
+    },
+    "k": 1,
+    "references": [
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2023-07-03.txt",
+        "start_char": 74858,
+        "end_char": 75438,
+        "chunk_index": 154
+      }
+    ],
+    "answer": "The purpose of the fuel price open-data scheme, as discussed in the debate, is to enhance competition in the fuel market and potentially lead to reduced fuel prices. It is expected to benefit the public by providing more transparency in fuel pricing, allowing consumers to shop around for cheaper options. However, there are concerns that this scheme may not effectively address competition in all areas of the UK, particularly for those who are digitally excluded or in locations like motorway service stations where prices are significantly higher [british:debates2023-07-03.txt [74858,75438]]."
+  },
+  {
+    "query_type": "conceptual",
+    "query": "What is the purpose of the fuel price open-data scheme according to the debate, and what benefit is it expected to provide to the public or the government?",
+    "expected_source": [
+      "debates2023-07-03.txt"
+    ],
+    "pipeline": {
+      "chunking": "semantic",
+      "representation": "dense"
+    },
+    "k": 2,
+    "references": [
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2023-07-03.txt",
+        "start_char": 74858,
+        "end_char": 75438,
+        "chunk_index": 154
+      },
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2024-01-16.txt",
+        "start_char": 61198,
+        "end_char": 61620,
+        "chunk_index": 119
+      }
+    ],
+    "answer": "The purpose of the fuel price open-data scheme is to bring transparency to the market by requiring petrol stations to report real-time prices. This initiative is expected to allow drivers to compare prices and find the best deals, which in turn is anticipated to lead to greater competition and ultimately lower fuel prices for the public [british:debates2024-01-16.txt [61198,61620]]."
+  },
+  {
+    "query_type": "conceptual",
+    "query": "What is the purpose of the fuel price open-data scheme according to the debate, and what benefit is it expected to provide to the public or the government?",
+    "expected_source": [
+      "debates2023-07-03.txt"
+    ],
+    "pipeline": {
+      "chunking": "semantic",
+      "representation": "dense"
+    },
+    "k": 3,
+    "references": [
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2023-07-03.txt",
+        "start_char": 74858,
+        "end_char": 75438,
+        "chunk_index": 154
+      },
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2024-01-16.txt",
+        "start_char": 61198,
+        "end_char": 61620,
+        "chunk_index": 119
+      },
+      {
+        "corpus": "british",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2024-04-16.txt",
+        "start_char": 56440,
+        "end_char": 57138,
+        "chunk_index": 118
+      }
+    ],
+    "answer": "The purpose of the fuel price open-data scheme is to bring transparency to the market by requiring petrol stations to report real-time prices. This initiative is expected to allow drivers to compare prices and find the best deals, which in turn is anticipated to lead to greater competition and lower fuel prices. It is suggested that similar schemes in other countries have resulted in significant savings for individuals, potentially saving up to £50 per person [british:debates2024-01-16.txt [61198,61620]; british:debates2024-04-16.txt [56440,57138]]."
+  },
+  {
+    "query_type": "conceptual",
+    "query": "According to the congressional debate, why is federal control over planning decisions for non-federal properties in Washington, D.C. considered problematic?",
+    "expected_source": [
+      "2025-07-07.txt"
+    ],
+    "pipeline": {
+      "chunking": "fixed",
+      "representation": "bm25"
+    },
+    "k": 1,
+    "references": [
+      {
+        "corpus": "us",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2024-08-13.txt",
+        "start_char": 26603,
+        "end_char": 31256,
+        "chunk_index": 6
+      }
+    ],
+    "answer": "I don't know based on the retrieved chunks."
+  },
+  {
+    "query_type": "conceptual",
+    "query": "According to the congressional debate, why is federal control over planning decisions for non-federal properties in Washington, D.C. considered problematic?",
+    "expected_source": [
+      "2025-07-07.txt"
+    ],
+    "pipeline": {
+      "chunking": "fixed",
+      "representation": "bm25"
+    },
+    "k": 2,
+    "references": [
+      {
+        "corpus": "us",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2024-08-13.txt",
+        "start_char": 26603,
+        "end_char": 31256,
+        "chunk_index": 6
+      },
+      {
+        "corpus": "us",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2024-08-13.txt",
+        "start_char": 30599,
+        "end_char": 35593,
+        "chunk_index": 7
+      }
+    ],
+    "answer": "I don't know based on the retrieved chunks."
+  },
+  {
+    "query_type": "conceptual",
+    "query": "According to the congressional debate, why is federal control over planning decisions for non-federal properties in Washington, D.C. considered problematic?",
+    "expected_source": [
+      "2025-07-07.txt"
+    ],
+    "pipeline": {
+      "chunking": "fixed",
+      "representation": "bm25"
+    },
+    "k": 3,
+    "references": [
+      {
+        "corpus": "us",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2024-08-13.txt",
+        "start_char": 26603,
+        "end_char": 31256,
+        "chunk_index": 6
+      },
+      {
+        "corpus": "us",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2024-08-13.txt",
+        "start_char": 30599,
+        "end_char": 35593,
+        "chunk_index": 7
+      },
+      {
+        "corpus": "us",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2025-06-03.txt",
+        "start_char": 25932,
+        "end_char": 30915,
+        "chunk_index": 6
+      }
+    ],
+    "answer": "I don't know based on the retrieved chunks."
+  },
+  {
+    "query_type": "conceptual",
+    "query": "According to the congressional debate, why is federal control over planning decisions for non-federal properties in Washington, D.C. considered problematic?",
+    "expected_source": [
+      "2025-07-07.txt"
+    ],
+    "pipeline": {
+      "chunking": "semantic",
+      "representation": "bm25"
+    },
+    "k": 1,
+    "references": [
+      {
+        "corpus": "us",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-07-24.txt",
+        "start_char": 16630,
+        "end_char": 17147,
+        "chunk_index": 34
+      }
+    ],
+    "answer": "Federal control over planning decisions for non-federal properties in Washington, D.C. is considered problematic because it may undermine local governance and the authority of local officials. The proposed bill aims to remove certain federal representatives from the planning commission, suggesting a shift towards more local control, which could be seen as a response to concerns about federal overreach in local matters. This change indicates a desire to empower local decision-making rather than having federal entities dictate planning for non-federal properties [us:2023-07-24.txt [16630,17147]]."
+  },
+  {
+    "query_type": "conceptual",
+    "query": "According to the congressional debate, why is federal control over planning decisions for non-federal properties in Washington, D.C. considered problematic?",
+    "expected_source": [
+      "2025-07-07.txt"
+    ],
+    "pipeline": {
+      "chunking": "semantic",
+      "representation": "bm25"
+    },
+    "k": 2,
+    "references": [
+      {
+        "corpus": "us",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-07-24.txt",
+        "start_char": 16630,
+        "end_char": 17147,
+        "chunk_index": 34
+      },
+      {
+        "corpus": "us",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2025-06-23.txt",
+        "start_char": 29453,
+        "end_char": 29965,
+        "chunk_index": 55
+      }
+    ],
+    "answer": "I don't know based on the retrieved chunks."
+  },
+  {
+    "query_type": "conceptual",
+    "query": "According to the congressional debate, why is federal control over planning decisions for non-federal properties in Washington, D.C. considered problematic?",
+    "expected_source": [
+      "2025-07-07.txt"
+    ],
+    "pipeline": {
+      "chunking": "semantic",
+      "representation": "bm25"
+    },
+    "k": 3,
+    "references": [
+      {
+        "corpus": "us",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-07-24.txt",
+        "start_char": 16630,
+        "end_char": 17147,
+        "chunk_index": 34
+      },
+      {
+        "corpus": "us",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2025-06-23.txt",
+        "start_char": 29453,
+        "end_char": 29965,
+        "chunk_index": 55
+      },
+      {
+        "corpus": "us",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2025-09-29.txt",
+        "start_char": 8935,
+        "end_char": 9642,
+        "chunk_index": 10
+      }
+    ],
+    "answer": "I don't know based on the retrieved chunks."
+  },
+  {
+    "query_type": "conceptual",
+    "query": "According to the congressional debate, why is federal control over planning decisions for non-federal properties in Washington, D.C. considered problematic?",
+    "expected_source": [
+      "2025-07-07.txt"
+    ],
+    "pipeline": {
+      "chunking": "fixed",
+      "representation": "dense"
+    },
+    "k": 1,
+    "references": [
+      {
+        "corpus": "us",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-08-08.txt",
+        "start_char": 22191,
+        "end_char": 26742,
+        "chunk_index": 5
+      }
+    ],
+    "answer": "Federal control over planning decisions for non-federal properties in Washington, D.C. is considered problematic because it limits local governance and autonomy. The Commission of Fine Arts (CFA) currently has review authority over non-federal real property, which can hinder local decision-making and the ability of the District of Columbia to manage its own land use and development effectively. This situation is seen as an impediment to home rule and local self-determination for the residents of D.C. [source: Congressional Record, 2023-08-08]."
+  },
+  {
+    "query_type": "conceptual",
+    "query": "According to the congressional debate, why is federal control over planning decisions for non-federal properties in Washington, D.C. considered problematic?",
+    "expected_source": [
+      "2025-07-07.txt"
+    ],
+    "pipeline": {
+      "chunking": "fixed",
+      "representation": "dense"
+    },
+    "k": 2,
+    "references": [
+      {
+        "corpus": "us",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-08-08.txt",
+        "start_char": 22191,
+        "end_char": 26742,
+        "chunk_index": 5
+      },
+      {
+        "corpus": "us",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2025-06-17.txt",
+        "start_char": 14321,
+        "end_char": 18712,
+        "chunk_index": 3
+      }
+    ],
+    "answer": "Federal control over planning decisions for non-federal properties in Washington, D.C. is considered problematic because it undermines local self-governance. Members of Congress, such as Ms. McCollum, argue that they are not elected to make decisions on local ordinances or funding matters that should be handled by the District's local government. This federal oversight is seen as a way to nullify the laws and policies that the residents of D.C. have voted for and that were crafted by their local elected officials, which diminishes the local representation and responsiveness that are essential to democracy [source: Congressional Record, 2025-06-17]."
+  },
+  {
+    "query_type": "conceptual",
+    "query": "According to the congressional debate, why is federal control over planning decisions for non-federal properties in Washington, D.C. considered problematic?",
+    "expected_source": [
+      "2025-07-07.txt"
+    ],
+    "pipeline": {
+      "chunking": "fixed",
+      "representation": "dense"
+    },
+    "k": 3,
+    "references": [
+      {
+        "corpus": "us",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-08-08.txt",
+        "start_char": 22191,
+        "end_char": 26742,
+        "chunk_index": 5
+      },
+      {
+        "corpus": "us",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2025-06-17.txt",
+        "start_char": 14321,
+        "end_char": 18712,
+        "chunk_index": 3
+      },
+      {
+        "corpus": "us",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-07-24.txt",
+        "start_char": 12800,
+        "end_char": 17359,
+        "chunk_index": 3
+      }
+    ],
+    "answer": "Federal control over planning decisions for non-federal properties in Washington, D.C. is considered problematic because it undermines local self-governance. Members of Congress are not elected to make specific local decisions, and imposing federal authority on local matters disregards the interests and needs of the District's residents. This situation creates a disconnect between local governance and the federal oversight that can nullify laws and policies crafted by local elected officials, which is seen as a violation of democratic principles and local representation [source: Congressional Record, Vol. 171, No. 104]."
+  },
+  {
+    "query_type": "conceptual",
+    "query": "According to the congressional debate, why is federal control over planning decisions for non-federal properties in Washington, D.C. considered problematic?",
+    "expected_source": [
+      "2025-07-07.txt"
+    ],
+    "pipeline": {
+      "chunking": "semantic",
+      "representation": "dense"
+    },
+    "k": 1,
+    "references": [
+      {
+        "corpus": "us",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2025-06-23.txt",
+        "start_char": 28827,
+        "end_char": 29452,
+        "chunk_index": 54
+      }
+    ],
+    "answer": "Federal control over planning decisions for non-federal properties in Washington, D.C. is considered problematic because 40 percent of the members of the Commission responsible for these decisions are federal officials who are not accountable to the more than 700,000 D.C. residents. This lack of accountability raises concerns about the representation and interests of local residents in planning matters that affect their community [us:2025-06-23.txt]."
+  },
+  {
+    "query_type": "conceptual",
+    "query": "According to the congressional debate, why is federal control over planning decisions for non-federal properties in Washington, D.C. considered problematic?",
+    "expected_source": [
+      "2025-07-07.txt"
+    ],
+    "pipeline": {
+      "chunking": "semantic",
+      "representation": "dense"
+    },
+    "k": 2,
+    "references": [
+      {
+        "corpus": "us",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2025-06-23.txt",
+        "start_char": 28827,
+        "end_char": 29452,
+        "chunk_index": 54
+      },
+      {
+        "corpus": "us",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2025-06-23.txt",
+        "start_char": 28617,
+        "end_char": 28826,
+        "chunk_index": 53
+      }
+    ],
+    "answer": "Federal control over planning decisions for non-federal properties in Washington, D.C. is considered problematic because 40 percent of the members of the Commission are federal officials who are not accountable to the more than 700,000 D.C. residents. This creates a disconnect between the decision-makers and the local population, as land use is fundamentally a local matter. Additionally, the Commission, which creates zoning maps and regulations, must align with the comprehensive plan for the national capital, further limiting local autonomy despite the D.C. Home Rule Act that aimed to give D.C. more control over its local affairs [us:2025-06-23.txt [28827,29452]; us:2025-06-23.txt [28617,28826]]."
+  },
+  {
+    "query_type": "conceptual",
+    "query": "According to the congressional debate, why is federal control over planning decisions for non-federal properties in Washington, D.C. considered problematic?",
+    "expected_source": [
+      "2025-07-07.txt"
+    ],
+    "pipeline": {
+      "chunking": "semantic",
+      "representation": "dense"
+    },
+    "k": 3,
+    "references": [
+      {
+        "corpus": "us",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2025-06-23.txt",
+        "start_char": 28827,
+        "end_char": 29452,
+        "chunk_index": 54
+      },
+      {
+        "corpus": "us",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2025-06-23.txt",
+        "start_char": 28617,
+        "end_char": 28826,
+        "chunk_index": 53
+      },
+      {
+        "corpus": "us",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-08-15.txt",
+        "start_char": 23982,
+        "end_char": 24640,
+        "chunk_index": 48
+      }
+    ],
+    "answer": "Federal control over planning decisions for non-federal properties in Washington, D.C. is considered problematic because it undermines local governance. Specifically, 40 percent of the members of the Commission responsible for zoning and planning are federal officials who are not accountable to the over 700,000 residents of D.C. This situation creates a disconnect between local needs and federal oversight, as land use is fundamentally a local matter. Despite the D.C. Home Rule Act, which aimed to grant D.C. more autonomy, the presence of federal officials in the Commission limits the ability of local authorities to set their own land-use policies effectively [us:2025-06-23.txt [28827,29452]; us:2025-06-23.txt [28617,28826]]."
+  }
+]
