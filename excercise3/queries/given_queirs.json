@@ -1,0 +1,38 @@
+{
+  "factual": [
+    {
+      "query": "On what dates did the British Prime Minister deliver his speech on the defense budget?",
+      "expected_source": []
+    },
+    {
+      "query": "What was the main argument regarding the immigration bill that was presented?",
+      "expected_source": []
+    },
+    {
+      "query": "What three industrial sectors were mentioned as the main victims of the new trade policy that was presented?",
+      "expected_source": []
+    },
+    {
+      "query": "What organizations were mentioned by the speakers as supporting the proposed reform of the health system?",
+      "expected_source": []
+    }
+  ],
+  "conceptual": [
+    {
+      "query": "How does the rhetoric on climate change vary between different speakers; is the emphasis on economic opportunity or existential crisis?",
+      "expected_source": []
+    },
+    {
+      "query": "What is the central tension that emerges from the speeches between the need for national security and the protection of citizens’ privacy in the digital age?",
+      "expected_source": []
+    },
+    {
+      "query": "How is the state’s moral responsibility towards refugees and asylum seekers described, and what are the ethical (rather than economic) arguments given for and against their absorption?",
+      "expected_source": []
+    },
+    {
+      "query": "In what ways did speakers link investment in education to reducing future crime, and was there consensus on this issue?",
+      "expected_source": []
+    }
+  ]
+}
