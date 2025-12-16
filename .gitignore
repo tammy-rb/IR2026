@@ -33,3 +33,4 @@ excercise2/clean_docs/*/*
 # =========================
 # Generated artifacts and outputs
 excercise3/outputs/
+!excercise3/outputs/rag_runs/
