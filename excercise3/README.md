@@ -50,6 +50,8 @@ In this project we implemented semantic chunking, an embedding-based segmentatio
 
 **Rationale**:
 
+We chose 0.62 because it is a commonly used mid-range cosine-similarity cutoff for Sentence-Transformer embeddings, and it matched our data by separating clear discourse shifts without fragmenting coherent argument spans
+
 * Values **above 0.62** → Strong semantic continuity (e.g., elaboration or clarification of the same idea)
 * Values **below 0.6** → Topic changes, speaker shifts, or transitions between different arguments
 * This threshold provides a balanced trade-off:
@@ -132,6 +134,8 @@ We implement BM25 by first building a term-frequency (TF) matrix over the chunk 
 score(chunk) = BM25(chunk) · TF(query)
 ```
 
+The BM25 score reflects how well a chunk matches the query in terms of exact term overlap, weighted by term importance and normalized for chunk length, making it effective for lexical retrieval but limited in capturing semantic similarity.
+
 #### Configuration
 
 * **BM25_K1** = 1.6
@@ -195,6 +199,12 @@ We replaced the "all-at-once" approach with a streaming + batching pipeline:
 
 **Result**: This reduces peak memory usage and avoids oversized API responses, making the embedding process stable for large corpora.
 
+Why Batching Improves Reliability
+
+Instead of attempting to embed and index all chunks in a single operation, we process the corpus incrementally in batches. This design ensures that a failure in one embedding request affects only a small subset of chunks rather than the entire corpus. Each successfully processed batch is immediately added to the FAISS index and can be checkpointed to disk.
+
+As a result, the pipeline becomes more reliable and fault-tolerant: partial progress is preserved, memory usage remains bounded, and transient API or network failures do not require restarting the entire embedding process. This approach is therefore much better suited for large corpora with tens of thousands of chunks, where all-at-once indexing is both memory-intensive and fragile.
+
 ---
 
 ### Semantic Retrieval with FAISS and OpenAI Embeddings
@@ -226,13 +236,15 @@ Our dense representation is based on the **`text-embedding-3-large`** model from
 
 ### LLM Choice and RAG Setup
 
-For the answer-generation step we used an **OpenAI GPT-4–class chat model** (via the Chat Completions API).
+For the answer-generation step, we used the **OpenAI gpt-4o-mini** chat model via the Chat Completions API.
 
 #### Why This Model?
 
 * ✅ Supports a sufficiently large context window to accept multiple retrieved chunks together with the user query
 * ✅ Well suited for instruction-following and question-answering tasks, producing relatively focused, well-structured answers
 * ✅ Integrates smoothly with LangChain, which we already used for embeddings and vector stores
+
+Importantly, the LLM was kept fixed across all experiments. This ensures that observed differences in answer quality are attributable to the retrieval configuration (chunking strategy, vector representation, and Top-K) rather than to changes in the language model itself.
 
 ---
 
@@ -256,6 +268,18 @@ The retrieval layer returns the top-K most relevant chunks for that configuratio
 * `fixed_dense`: Fixed chunking + dense embeddings
 * `semantic_bm25`: Semantic chunking + BM25
 * `semantic_dense`: Semantic chunking + dense embeddings
+
+#### Retrieval Scoring Mechanism
+
+The ranking of chunks differs by retrieval method:
+
+* **BM25 (Sparse Retrieval)**:  
+  Chunks are ranked via a dot product between the query term-frequency (TF) vector and the BM25-weighted chunk vectors. This captures lexical overlap, with inverse document frequency (IDF) weighting and length normalization.
+
+* **Dense Retrieval (FAISS + Embeddings)**:  
+  Both the query and chunks are embedded into a dense vector space. Chunks are ranked by cosine similarity between the query embedding and the chunk embeddings, favoring semantically similar content even when exact wording differs.
+
+In both cases, the **Top-K chunks with the highest scores** are selected and passed to the LLM as contextual evidence.
 
 #### 3. LLM Answering
 
@@ -288,31 +312,56 @@ python RAG_llm_runner.py --queries_json queries/queries.json       --k1 3 --k2 5
 ---
 
 ### 2. Evaluation Methodology (Two-Phase Strategy)
+We apply a consistent two-phase evaluation methodology.
 
-We apply a consistent two-phase methodology:
+#### Phase A — Answer-Level Evaluation (Pre-Chunk Inspection)
 
-#### Phase A — Pre-Chunk Inspection (Answer-Level)
+In the first phase, we evaluate the system purely from an end-user perspective, based only on the LLM’s final answers, without inspecting the retrieved chunks.
 
-We evaluate the system as an end user would:
+This analysis provides a **high-level comparison of pipelines** and allows us to identify which retrieval configuration produces the most accurate and stable answers.
 
-* ❓ Can the LLM answer the query?
-* ✅ Is the answer correct, complete, and clear?
-* 📊 How stable is the answer across K?
-* 🔍 How sensitive is each pipeline to increased K (noise)?
+We evaluate:
 
-#### Phase B — Chunk-Level Inspection (Evidence-Level)
+* ❓ Whether the LLM is able to answer the query at all
+* ✅ The correctness, completeness, and clarity of the answer
+* 📊 Answer stability as the Top-K value increases
+* 🔍 Sensitivity of each pipeline to increased K (i.e., robustness to retrieval noise)
 
-Only after selecting the best-performing pipeline, we inspect retrieved chunks:
+Based on this phase, we determine the **best-performing pipeline at the answer level**.
 
-* 📄 Do the retrieved chunks actually contain the needed evidence?
-* 📈 How does chunk relevance distribution change as K increases?
-* 🎯 How do chunk boundaries and retrieval noise influence final answers?
+---
 
-**Chunk Labels**:
+#### Phase B — Evidence-Level Evaluation (Chunk-Level Inspection)
 
-* **Directly Relevant**: Answers the query or contains the core argument
-* **Supporting**: Helps, contextualizes, partially supports
-* **Irrelevant**: Off-topic or unrelated
+Only after identifying the best-performing pipeline in Phase A do we examine the retrieved chunks themselves.
+
+The goal of this phase is to verify that the **retrieval layer provides the actual evidence** needed to support the LLM’s answers and to explain the qualitative behavior observed at the answer level.
+
+To enable a focused yet informative analysis, **two representative queries were selected from each query set**:
+* One **factual** query
+* One **conceptual** query
+
+These queries were analyzed in depth to capture different information needs and to study how retrieval quality and noise evolve as the Top-K value increases.
+
+For each selected query:
+* All retrieved chunks were manually labeled as **Directly Relevant**, **Supporting**, or **Irrelevant**
+* The relevance distribution was examined for K ∈ {3, 5, 10}
+* The impact of increasing K on evidence quality, redundancy, and noise was analyzed
+
+This evidence-level inspection allows us to:
+* Assess whether relevant evidence is retrieved at low K
+* Understand how irrelevant context accumulates as K grows
+* Explain why certain pipelines produce more stable and better-grounded answers
+* Identify **practical K values** for factual versus conceptual queries
+
+> **Important Note**  
+> The optimal K values derived from this analysis are based on a limited number of representative queries. While this does not guarantee global optimality across all possible queries, the selected cases provide meaningful insight into retrieval behavior. A broader evaluation would require substantially more manual labeling and computational resources; therefore, this analysis is treated as a **qualitative but informative approximation** suitable for comparative evaluation.
+
+**Chunk Relevance Labels**:
+
+* **Directly Relevant**: Contains the exact information or core argument required to answer the query
+* **Supporting**: Provides partial or contextual support for the answer
+* **Irrelevant**: Unrelated or off-topic content
 
 ---
 
@@ -324,7 +373,7 @@ Only after selecting the best-performing pipeline, we inspect retrieved chunks:
 * `given_queries.json`
 * `rag_given_queries_4pipelines_k3-5-10_20251222_170721.json`
 
-> **Note**: At this stage, retrieved chunks are not inspected; only final LLM answers are evaluated.
+> **Note**: In this phase, we evaluate only the *final LLM answers*. Retrieved chunks are **not** inspected yet. In particular, we observe whether the LLM provides a grounded answer or returns the enforced fallback response (“I don't know based on the retrieved chunks.”).
 
 ---
 
@@ -332,25 +381,39 @@ Only after selecting the best-performing pipeline, we inspect retrieved chunks:
 
 #### 1) Fixed Chunking + BM25 ❌
 
-* ❌ The LLM frequently fails on factual precision tasks
-* ❌ Increasing K does not improve answerability; it increases noise
+**Observed behavior**:
+* The LLM frequently fails on factual precision tasks and often responds with  
+  *“I don't know based on the retrieved chunks.”*
+* Increasing K does not recover missing evidence; instead, it tends to increase noise and instability in the answers.
 
-**Conclusion**: Poor for factual extraction, not improved by higher K.
+**Interpretation**:
+Fixed-size chunks combined with lexical-only retrieval often fail to surface the exact evidence span needed for factual queries. When the correct information is not retrieved, the LLM correctly refuses to answer, indicating weak retrieval performance rather than generation failure.
+
+**Conclusion**: Poor for factual extraction; not improved by higher K.
 
 ---
 
 #### 2) Semantic Chunking + BM25 ⚠️
 
-* ⚠️ Chunk coherence improves, but the LLM still fails when semantic matching is required
+**Observed behavior**:
+* Semantic chunking improves local coherence of retrieved context.
+* However, the LLM still fails on queries that require semantic matching rather than exact term overlap, again producing fallback answers in several cases.
 
-**Conclusion**: Semantic chunking cannot compensate for lexical-only retrieval.
+**Interpretation**:
+While semantic chunking reduces mixed-topic chunks, it cannot compensate for the lexical limitations of BM25. If query phrasing does not closely match the text, relevant chunks may still not be retrieved.
+
+**Conclusion**: Better coherence than fixed BM25, but semantic chunking alone cannot overcome lexical-only retrieval.
 
 ---
 
 #### 3) Fixed Chunking + Dense Embeddings ⚠️
 
-* ✅ Often correct already at K = 3
-* ⚠️ Larger K increases redundancy and reduces precision due to large chunk size
+**Observed behavior**:
+* Often produces correct answers already at K = 3, indicating strong recall.
+* As K increases, answers become less precise and may include additional or loosely related information.
+
+**Interpretation**:
+Dense embeddings successfully retrieve semantically relevant content even when wording differs. However, fixed-size chunks are relatively large and may contain multiple subtopics. At higher K, this leads to redundancy and contextual dilution, which can affect answer precision.
 
 **Conclusion**: Good recall; precision degrades as K grows.
 
@@ -358,30 +421,47 @@ Only after selecting the best-performing pipeline, we inspect retrieved chunks:
 
 #### 4) Semantic Chunking + Dense Embeddings ✅ **BEST**
 
-* ✅ Most correct and stable answers for both factual and conceptual queries
-* ✅ K = 3 typically best
-* ⚠️ K = 10 introduces dilution
+**Observed behavior**:
+* Produces the most correct, stable, and well-grounded answers across both factual and conceptual queries.
+* K = 3 typically yields concise and accurate answers.
+* K = 10 often introduces unnecessary context, leading to answer dilution.
 
-**Conclusion**: Best overall pipeline; K should remain small unless more nuance is needed.
+**Interpretation**:
+This pipeline benefits from both semantically coherent chunk boundaries and semantic retrieval. Relevant evidence is retrieved early in the ranking, and the provided context aligns closely with the answer required by the query.
+
+**Conclusion**: Best overall pipeline; K should remain small unless additional nuance is required.
 
 ---
 
-### 🏆 Best Configuration (Global)
+### 🏆 Best Configuration (Global – Given Queries)
 
 **Pipeline**: Semantic Chunking + Dense Embeddings  
 **Best K**: K = 3 (especially for factual queries)
 
----
+At the answer level, this configuration provides the strongest balance between correctness, stability, and resistance to retrieval noise.
+
 
 ### 4. Chunk-Level Analysis – Given Queries (Best Pipeline)
 
+This section presents an in-depth, evidence-level analysis for the **best-performing pipeline identified in Phase A**:  
+**Semantic Chunking + Dense Embeddings**.
+
+For each query type, we examine:
+- The relevance of retrieved chunks
+- The LLM’s final answer at different K values
+- How retrieval noise affects answer precision and stability
+
+---
+
 #### 4.1 Factual Query: Prime Minister Defense Budget Speech Dates
 
-**Query**: *"On what dates did the British Prime Minister deliver his speech on the defense budget?"*
+**Query**:  
+*"On what dates did the British Prime Minister deliver his speech on the defense budget?"*
 
-**Pipeline**: Semantic Chunking + Dense Embeddings (K = 3, 5, 10)
+**Pipeline**: Semantic Chunking + Dense Embeddings  
+**K values analyzed**: 3, 5, 10
 
-**Chunk Distribution**:
+##### Chunk Distribution
 
 | K  | Direct | Supporting | Irrelevant | Total |
 |----|--------|------------|------------|-------|
@@ -389,32 +469,84 @@ Only after selecting the best-performing pipeline, we inspect retrieved chunks:
 | 5  | 1      | 1          | 3          | 5     |
 | 10 | 1      | 1          | 8          | 10    |
 
-**Conclusion (Factual)**:
+##### LLM Answers and Analysis
 
-* ✅ The number of directly relevant chunks stays constant as K increases
-* ❌ Noise grows sharply with larger K
-* 🎯 Best precision and stability at **K = 3**
+- **K = 3**  
+  The LLM produces a concise, grounded answer:
+  > *“The British Prime Minister delivered his speech on the defense budget on 30 October and in January at Lancaster House.”*  
+  This answer is directly supported by the single **Directly Relevant** chunk and remains focused and precise.
+
+- **K = 5**  
+  The LLM gives essentially the **same answer**, despite additional retrieved context:
+  > *“The British Prime Minister delivered his speech on the defense budget on 30 October and in January.”*  
+  No new factual evidence is added; extra chunks are mostly irrelevant and do not improve answer quality.
+
+- **K = 10**  
+  The answer begins to show **signs of dilution**:
+  > *“…on 30 October and in February, specifically at Lancaster House in January…”*  
+  Here, the LLM blends temporal references from irrelevant or weakly related chunks, even though the number of directly relevant chunks has not increased.
+
+##### Conclusion (Factual)
+
+- ✅ The number of **Directly Relevant** chunks remains constant across all K values
+- ❌ Increasing K introduces substantial noise without adding new factual evidence
+- 🎯 **K = 3** provides the best balance of precision, stability, and interpretability
+
+This confirms that **factual queries are precision-critical** and benefit from minimal, high-quality context.
 
 ---
 
-#### 4.2 Conceptual Query: Immigration Bill Main Argument
+#### 4.2 Conceptual Query: Immigration Bill – Main Argument
 
-**Query**: *"What was the main argument regarding the immigration bill that was presented?"*
+**Query**:  
+*"What was the main argument regarding the immigration bill that was presented?"*
 
-**Pipeline**: Semantic Chunking + Dense Embeddings (K = 3, 5)
+**Pipeline**: Semantic Chunking + Dense Embeddings  
+**K values analyzed**: 3, 5
 
-**Chunk Distribution**:
+##### Chunk Distribution
 
-| K | Directly Relevant | Supporting | Irrelevant | Total |
-|---|-------------------|------------|------------|-------|
-| 3 | 2                 | 1          | 0          | 3     |
-| 5 | 2                 | 2          | 1          | 5     |
+| K | Direct | Supporting | Irrelevant | Total |
+|---|--------|------------|------------|-------|
+| 3 | 2      | 1          | 0          | 3     |
+| 5 | 2      | 2          | 1          | 5     |
 
-**Conclusion (Conceptual)**:
+##### LLM Answers and Analysis
 
-* ✅ Conceptual queries benefit from multiple reinforcing chunks
-* ✅ K = 3 already contains the argument + justification
-* ✅ K = 5 adds nuance with minimal degradation
+- **K = 3**  
+  The LLM provides a coherent summary of the core argument:
+  > *“The main argument was that devolving immigration powers to the Scottish Government could support rural and island communities through economic migration, though concerns were raised about effectiveness and accountability.”*  
+  This answer is supported by **two Directly Relevant** chunks and one Supporting chunk, which together contain both the proposal and its critique.
+
+- **K = 5**  
+  The LLM produces a **slightly richer explanation**, adding nuance:
+  > *“…while migration can be beneficial, critics argued the bill lacked clarity, security, and accountability, and could create more uncertainty than solutions.”*  
+  The additional Supporting chunk reinforces the critique without substantially increasing noise.
+
+##### Conclusion (Conceptual)
+
+- ✅ Conceptual questions benefit from **multiple reinforcing chunks**
+- ✅ **K = 3** already contains sufficient evidence for a complete answer
+- ✅ **K = 5** can add nuance and justification with only minor noise increase
+
+Unlike factual queries, conceptual questions tolerate a modest increase in K because synthesis—not exact extraction—is required.
+
+---
+
+### Summary of Chunk-Level Findings (Given Queries)
+
+- **Factual queries**:
+  - Depend on a single “gold” chunk
+  - Increasing K mainly adds irrelevant context
+  - **Best K: 3**
+
+- **Conceptual queries**:
+  - Benefit from multiple aligned chunks
+  - Moderate K increases can improve explanatory depth
+  - **Best K: 3–5**
+
+These observations explain the answer-level behavior seen in Phase A and motivate the task-dependent K recommendations used in the final system configuration.
+
 
 ---
 
@@ -430,62 +562,114 @@ Only after selecting the best-performing pipeline, we inspect retrieved chunks:
 
 ---
 
-### Pipeline-Level Observations (Answer-Level)
-
 #### 1) Fixed Chunking + BM25 ❌
 
-* ⚠️ Factual answers are sometimes partially correct only when text matches verbatim
-* ❌ Increasing K often degrades answer focus and introduces unrelated context
-* ❌ Conceptual answers tend to be generic ("concerns were raised") without a core argument
+**Observed behavior**:
 
-**Conclusion**: High noise sensitivity, weak stability.
+- ⚠️ **Factual queries** are answered correctly only when the relevant information appears verbatim in one of the retrieved chunks  
+  *Example*: For the fuel price query, the LLM correctly reports  
+  > “143.43p per litre for unleaded petrol and 145.6p per litre for diesel”  
+  but this correctness persists unchanged across K = 3, 5, and 10, indicating that additional context does not contribute new evidence.
+
+- ❌ Increasing K frequently introduces **redundant or unrelated parliamentary material**, without improving factual completeness.
+
+- ❌ **Conceptual queries** often result in vague summaries, such as  
+  > “concerns were raised” or “issues were discussed,”  
+  without clearly identifying a central argument or causal reasoning.
+
+**Conclusion**:  
+This pipeline is highly sensitive to lexical overlap, offers limited abstraction, and shows weak stability as K increases. It performs poorly for conceptual understanding and does not benefit meaningfully from higher K.
 
 ---
 
 #### 2) Semantic Chunking + BM25 ⚠️
 
-* ⚠️ Improved local coherence, but still fails when semantic inference is required
-* ❌ Missing values and incomplete reasoning remain common
+**Observed behavior**:
 
-**Conclusion**: Lexical limitations persist.
+- ⚠️ Semantic chunking improves **local coherence**, leading to slightly more focused answers compared to fixed chunking.
+
+- ❌ However, answers still fail when **semantic inference or synthesis** is required.  
+  For example, in queries asking *why* a policy is considered problematic, the LLM often omits key reasoning steps or policy implications.
+
+- ❌ Some factual answers are **partially correct but incomplete**, suggesting that lexical retrieval alone remains a bottleneck even with improved chunk boundaries.
+
+**Conclusion**:  
+Semantic chunking alone cannot compensate for BM25’s lexical limitations. While coherence improves marginally, missing values and shallow reasoning remain common.
 
 ---
 
 #### 3) Fixed Chunking + Dense Embeddings ⚠️
 
-* ✅ Correct answers often appear at K = 3
-* ⚠️ Larger K increases drift and redundancy because chunks are large
+**Observed behavior**:
 
-**Conclusion**: Good recall; precision declines with larger K.
+- ✅ Many **factual answers are already correct at K = 3**, indicating strong recall from dense retrieval.
+
+- ⚠️ As K increases, answers tend to become **longer and less focused**, occasionally mixing relevant facts with loosely related contextual information.
+
+- ⚠️ Large fixed chunks amplify this effect: additional retrieved chunks often repeat background discussion rather than adding new evidence.
+
+**Conclusion**:  
+This pipeline achieves good recall but suffers from declining precision as K grows. The lack of semantic chunk boundaries makes it vulnerable to redundancy and answer drift.
 
 ---
 
 #### 4) Semantic Chunking + Dense Embeddings ✅ **BEST**
 
-* ✅ Most grounded and stable across factual + conceptual queries
-* ✅ Stability strong at K = 3–5
-* ⚠️ Minor dilution at K = 10
+**Observed behavior**:
 
-**Conclusion**: Best tradeoff between recall and noise control.
+- ✅ Produces the **most grounded and consistent answers** across both factual and conceptual queries.
+
+- ✅ At K = 3, answers are typically concise, accurate, and directly supported by retrieved evidence.  
+  In multiple factual queries, the LLM provides exact values or names without unnecessary elaboration.
+
+- ✅ For conceptual queries, the LLM successfully identifies a **clear main argument** and supporting rationale, rather than generic summaries.
+
+- ⚠️ At K = 10, minor dilution appears: answers remain correct but may include less relevant contextual detail.
+
+**Conclusion**:  
+This pipeline provides the best trade-off between recall and noise control. Semantic chunking ensures coherent evidence units, while dense embeddings enable semantic matching beyond exact wording.
 
 ---
 
 ### 🏆 Best Configuration (Global)
 
 **Pipeline**: Semantic Chunking + Dense Embeddings  
-**Best K**: K = 3 (factual), K = 3–5 (conceptual)
+**Recommended K**:
+- **K = 3** for factual queries (highest precision, minimal noise)
+- **K = 3–5** for conceptual queries (allows reinforcement and nuance without significant degradation)
+
+These conclusions are consistently supported by answer-level behavior across all evaluated queries.
+
+---
+### 6. Chunk-Level Analysis – Second Query Set (Best Pipeline)
+
+This section analyzes the **LLM answers together with the retrieved evidence**, focusing on the best-performing pipeline identified earlier: **Semantic Chunking + Dense Embeddings**.  
+For each query, we examine how the answer quality behaves as K increases and explicitly cite representative LLM outputs.
 
 ---
 
-### 6. Chunk-Level Analysis – Second Query Set (Best Pipeline)
-
 #### 6.1 Factual Query: Fuel Prices (Exact Per-Liter Values)
 
-**Query**: *"According to the debate on fuel prices, what were the exact per-liter prices of unleaded petrol and diesel as of Monday, 26 June?"*
+**Query**  
+*“According to the debate on fuel prices, what were the exact per-liter prices of unleaded petrol and diesel as of Monday, 26 June?”*
 
-**Pipeline**: Semantic Chunking + Dense Embeddings (K = 3, 5, 10)
+**Pipeline**: Semantic Chunking + Dense Embeddings  
+**K values**: 3, 5, 10
 
-**Chunk Distribution**:
+**Representative LLM Answers**
+
+* **K = 3**  
+  > “As of Monday, 26 June, the price of unleaded petrol was **143.43p per litre**, and diesel was **145.6p per litre**.”  
+
+* **K = 5**  
+  > “As of Monday, 26 June, the price of unleaded petrol was **143.43p per litre**, and diesel was **145.6p per litre**.”  
+
+* **K = 10**  
+  > “As of Monday, 26 June, the price of unleaded petrol was **143.43p per litre**, and diesel was **145.6p per litre**.”  
+
+Across all K values, the **numerical answer remains identical**, indicating that the LLM consistently relies on the same core evidence.
+
+**Chunk Distribution**
 
 | K  | Direct | Supporting | Irrelevant | Total |
 |----|--------|------------|------------|-------|
@@ -493,56 +677,65 @@ Only after selecting the best-performing pipeline, we inspect retrieved chunks:
 | 5  | 1      | 2          | 2          | 5     |
 | 10 | 1      | 2          | 7          | 10    |
 
-**Conclusion (Factual)**:
+**Analysis (Factual)**
 
-* ✅ Increasing K does not add new factual evidence
-* ❌ Noise increases substantially at K = 10
-* 🎯 Best accuracy and interpretability at **K = 3**
+* ✅ The correct answer is already fully determined by a single “gold” chunk
+* ➖ Increasing K does **not** add new factual content
+* ❌ Larger K substantially increases irrelevant context, without improving correctness
+* 🎯 **K = 3** provides the cleanest evidence-to-answer mapping
 
 ---
 
-#### 6.2 Conceptual Query: Rwanda Plan ("Stop the Boats") Deterrence Criticism
+#### 6.2 Conceptual Query: Rwanda Plan (“Stop the Boats”) – Deterrence Criticism
 
-**Query**: *"What is the main criticism raised in the debate about the Rwanda plan in the context of 'stop the boats', and why is it argued that the plan would not act as a deterrent?"*
+**Query**  
+*“What is the main criticism raised in the debate about the Rwanda plan in the context of ‘stop the boats’, and why is it argued that the plan would not act as a deterrent?”*
 
-**Pipeline**: Semantic Chunking + Dense Embeddings (K = 3, 5)
+**Pipeline**: Semantic Chunking + Dense Embeddings  
+**K values**: 3, 5
 
-**Chunk Distribution**:
+**Representative LLM Answers**
+
+* **K = 3**  
+  > “The main criticism is that the Rwanda plan would **not deter crossings** because it would affect only a very small number of migrants and would be **too slow and limited in scale** to change behavior.”
+
+* **K = 5**  
+  > “Critics argue that the Rwanda plan would **fail as a deterrent** since only a handful of people would ever be relocated, the process would be slow, and smugglers and migrants would **continue to see the risk as worthwhile**.”
+
+The K=5 answer expands on the same argument with **additional justification**, but does not contradict or replace the core claim identified at K=3.
+
+**Chunk Distribution**
 
 | K | Direct | Supporting | Irrelevant | Total |
 |---|--------|------------|------------|-------|
 | 3 | 2      | 1          | 0          | 3     |
 | 5 | 2      | 2          | 1          | 5     |
 
-**Conclusion (Conceptual)**:
+**Analysis (Conceptual)**
 
-* ✅ The core argument is supported by multiple reinforcing chunks
-* ✅ K = 3 is sufficient for a coherent synthesis
-* ✅ K = 5 can add nuance, with limited noise
-
----
-
-### 7. Consolidated Conclusions Across Both Query Sets
-
-#### 🏆 Best Pipeline
-
-Across both query sets, the consistently best-performing configuration is:
-
-**✅ Semantic Chunking + Dense Embeddings**
+* ✅ Core argument is already present and coherent at K = 3
+* ✅ Additional chunks at K = 5 reinforce and enrich the explanation
+* ⚠️ Small amount of noise appears, but does not disrupt the answer
+* 🎯 **K = 3–5** offers the best balance between completeness and focus
 
 ---
 
-#### 📊 Best K (Task-Dependent)
+### 7. Consolidated Evidence-Based Conclusions
 
-**Factual queries**: **K = 3**
+**Best Pipeline**  
+✅ **Semantic Chunking + Dense Embeddings**
 
-* Typically rely on one "gold" chunk containing the exact value/date
-* Larger K mainly adds irrelevant context and risks dilution
+**Best K (Task-Dependent)**
 
-**Conceptual queries**: **K = 3–5**
+* **Factual queries** → **K = 3**  
+  * One decisive chunk determines the answer  
+  * Larger K adds noise without benefit
 
-* Benefit from multiple supporting chunks that reinforce the same argument
-* Moderate increases in K can improve nuance without excessive noise
+* **Conceptual queries** → **K = 3–5**  
+  * Multiple reinforcing chunks improve reasoning  
+  * Moderate K increases nuance while maintaining stability
+
+Overall, the cited LLM answers demonstrate that **answer stability and grounding are primarily driven by retrieval quality and chunk coherence**, not by large K values.
 
 ---
 
