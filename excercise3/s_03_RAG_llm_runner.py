@@ -18,6 +18,8 @@ import os
 import json
 import argparse
 from typing import Any, Dict, List
+from datetime import datetime
+
 
 from dotenv import load_dotenv
 load_dotenv()
@@ -147,10 +149,14 @@ def main() -> None:
                         "answer": answer,
                     })
 
+    queries_base = os.path.splitext(os.path.basename(args.queries_json))[0]
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+
     out = os.path.join(
         OUT_DIR,
-        f"rag_4pipelines_k{args.k1}-{args.k2}-{args.k3}.json"
+        f"rag_{queries_base}_4pipelines_k{args.k1}-{args.k2}-{args.k3}_{timestamp}.json"
     )
+
     with open(out, "w", encoding="utf-8") as f:
         json.dump(results, f, indent=2, ensure_ascii=False)
 

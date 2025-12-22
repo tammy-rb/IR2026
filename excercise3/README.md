@@ -1,91 +1,115 @@
-# Exercise 3: 
+# Exercise 3: Document Chunking, Vector Representations, and RAG Pipeline
+---
 
-tammy please notice after the top k- maybe add 
-functionality to return by threshold. not by k.
-so if there no matching- will not give unecessary context (confusion)
+## Table of Contents
+1. [Stage 01: Document Chunking](#stage-01-document-chunking)
+2. [Stage 02: Vector Representations and Retrieval Indexes](#stage-02-vector-representations-and-retrieval-indexes)
+3. [Stage 03: RAG Pipeline and LLM](#stage-03-rag-pipeline-and-llm)
+4. [Retrieval-Augmented Generation Analysis](#retrieval-augmented-generation-analysis)
+5. [Conclusions & Insights](#conclusions--insights)
 
-### stage 01: Document Chunking
+---
 
-## Overview
+## Stage 01: Document Chunking
 
-In the context of the assignment, our group was randomly assigned the **semantic chunking** method as the primary chunking strategy to study in depth. Instead of cutting documents purely by size, semantic chunking tries to respect natural meaning boundaries in the debates: it groups together sentences that “belong to the same idea” and separates chunks when the topic, argument, or speaker changes. In the following section we describe this method in detail and later compare it empirically to a simpler fixed-size chunking baseline.
+### Overview
+
+In the context of the assignment, our group was randomly assigned the **semantic chunking** method as the primary chunking strategy to study in depth. Instead of cutting documents purely by size, semantic chunking tries to respect natural meaning boundaries in the debates: it groups together sentences that "belong to the same idea" and separates chunks when the topic, argument, or speaker changes.
 
 This stage implements two document chunking strategies for parliamentary debates:
-- **Fixed Chunking**: Size-based segmentation with sentence overlap
-- **Semantic Chunking**: Embedding-based segmentation that respects meaning boundaries
 
-## Semantic Chunking (Embedding-Based Segmentation)
+* **Fixed Chunking**: Size-based segmentation with sentence overlap
+* **Semantic Chunking**: Embedding-based segmentation that respects meaning boundaries
 
-### Method
+---
+
+### Semantic Chunking (Embedding-Based Segmentation)
+
+#### Method
 
 In this project we implemented semantic chunking, an embedding-based segmentation method that aims to split long documents into coherent chunks according to meaning, rather than by a fixed size alone.
 
-Intuitively, the goal is to keep together sentences that a human reader would naturally read as a single unit of argument or discussion, and to cut the text only when the debate “moves on” to a different point. Instead of saying “every 660 words is a new chunk”, we let sentence-level embeddings and cosine similarity decide where the topic really changes. This is especially important in parliamentary debates, where speakers often develop the same argument over several sentences and only then switch to a new issue (for example, from fuel prices to foreign policy). Semantic chunking tries to capture these shifts automatically so that each chunk is both internally coherent and useful for downstream retrieval.
+**Intuition**: The goal is to keep together sentences that a human reader would naturally read as a single unit of argument or discussion, and to cut the text only when the debate "moves on" to a different point. Instead of saying "every 660 words is a new chunk", we let sentence-level embeddings and cosine similarity decide where the topic really changes.
 
-The process works as follows:
+**Why this matters**: This is especially important in parliamentary debates, where speakers often develop the same argument over several sentences and only then switch to a new issue (e.g., from fuel prices to foreign policy). Semantic chunking tries to capture these shifts automatically so that each chunk is both internally coherent and useful for downstream retrieval.
 
-1. **Sentence Splitting**: Each document is split into full sentences while preserving their original character offsets  
-2. **Embedding Generation**: Each sentence is encoded into a dense semantic vector using a Sentence-Transformers (SBERT) model (`all-MiniLM-L6-v2`), which captures the contextual meaning in a high-dimensional embedding space  
-3. **Similarity Computation**: For every pair of adjacent sentences, we compute their cosine similarity  
-4. **Boundary Detection**: A semantic boundary is detected whenever the similarity between two consecutive sentences falls below a predefined threshold, indicating a meaningful topic or discourse shift  
+#### The Process
+
+1. **Sentence Splitting**: Each document is split into full sentences while preserving their original character offsets
+2. **Embedding Generation**: Each sentence is encoded into a dense semantic vector using a Sentence-Transformers (SBERT) model (`all-MiniLM-L6-v2`), which captures the contextual meaning in a high-dimensional embedding space
+3. **Similarity Computation**: For every pair of adjacent sentences, we compute their cosine similarity
+4. **Boundary Detection**: A semantic boundary is detected whenever the similarity between two consecutive sentences falls below a predefined threshold, indicating a meaningful topic or discourse shift
 5. **Chunk Formation**: Chunks are formed by grouping consecutive sentences until a semantic boundary is reached, while also enforcing constraints:
-   - Chunks contain only full sentences  
-   - Maximum 660 words per chunk (unless a single sentence is longer)  
-   - Minimum number of sentences per chunk to avoid very small chunks  
+   * Chunks contain only full sentences
+   * Maximum 660 words per chunk (unless a single sentence is longer)
+   * Minimum number of sentences per chunk to avoid very small chunks
 
-### Similarity Threshold Selection
+#### Similarity Threshold Selection
 
-The similarity threshold was set to **0.62** based on empirical considerations and prior observations of cosine similarity distributions produced by SBERT embeddings.
+**Threshold**: `0.62`
 
 **Rationale**:
-- Values **above 0.62** typically indicate strong semantic continuity (e.g., elaboration or clarification of the same idea)  
-- Values **below 0.6** often correspond to topic changes, speaker shifts, or transitions between different arguments  
-- This threshold provides a balanced trade-off:
-  - Conservative enough to prevent over-fragmentation into overly small chunks  
-  - Sensitive enough to capture genuine semantic shifts in parliamentary debates, which often evolve gradually rather than abruptly  
+
+* Values **above 0.62** → Strong semantic continuity (e.g., elaboration or clarification of the same idea)
+* Values **below 0.6** → Topic changes, speaker shifts, or transitions between different arguments
+* This threshold provides a balanced trade-off:
+  * Conservative enough to prevent over-fragmentation into overly small chunks
+  * Sensitive enough to capture genuine semantic shifts in parliamentary debates, which often evolve gradually rather than abruptly
 
 This threshold supports the creation of chunks that are both semantically coherent and well-suited for downstream tasks such as retrieval, clustering, and classification.
 
-## Configuration
+---
 
-### Fixed Chunking
-- Max words per chunk: 660
-- Overlap: 3 sentences between consecutive chunks
+### Configuration
 
-### Semantic Chunking
-- Max words per chunk: 660
-- Similarity threshold: 0.62
-- Min sentences per chunk: 4
-- Overlap: 0 sentences (optional)
-- Embedding model: `sentence-transformers/all-MiniLM-L6-v2`
+#### Fixed Chunking
+* **Max words per chunk**: 660
+* **Overlap**: 3 sentences between consecutive chunks
 
-## Output
+#### Semantic Chunking
+* **Max words per chunk**: 660
+* **Similarity threshold**: 0.62
+* **Min sentences per chunk**: 4
+* **Overlap**: 0 sentences (optional)
+* **Embedding model**: `sentence-transformers/all-MiniLM-L6-v2`
+
+---
+
+### Output
 
 The script generates two JSONL files in `outputs/chunks/`:
-- `chunks_fixed.jsonl`: Fixed-size chunks with sentence overlap
-- `chunks_semantic.jsonl`: Semantically coherent chunks
 
-Each chunk contains:
-- Document ID and source path
-- Corpus label (british/us)
-- Chunking method
-- Character offsets (start_char, end_char) (for retrieval)
-- Chunk text
-- Word count
+* `chunks_fixed.jsonl`: Fixed-size chunks with sentence overlap
+* `chunks_semantic.jsonl`: Semantically coherent chunks
 
-### Note on Storage Format
+**Each chunk contains**:
 
-Each chunk stores character-level offsets (`start_char`, `end_char`) pointing to its location in the original document. This pointer-based representation enables efficient reconstruction of the chunk text directly from the source file without re-running sentence splitting or chunking. 
+* Document ID and source path
+* Corpus label (british/us)
+* Chunking method
+* Character offsets (`start_char`, `end_char`) for retrieval
+* Chunk text
+* Word count
+
+#### Note on Storage Format
+
+Each chunk stores character-level offsets (`start_char`, `end_char`) pointing to its location in the original document. This pointer-based representation enables efficient reconstruction of the chunk text directly from the source file without re-running sentence splitting or chunking.
 
 The actual chunk text is also stored for convenience, debugging, and direct indexing in retrieval systems; however, it is optional and can be omitted in memory- or storage-constrained settings where only offsets are required.
 
-## Usage
+---
 
+### Usage
+
+```bash
 python s_01_chuncking.py
+```
 
-### Stage 02: Vector Representations and Retrieval Indexes (BM25 + Dense Embeddings)
+---
 
-## Overview
+## Stage 02: Vector Representations and Retrieval Indexes
+
+### Overview
 
 After producing chunks with both fixed-size and semantic chunking, we build two types of retrieval indexes:
 
@@ -94,27 +118,30 @@ After producing chunks with both fixed-size and semantic chunking, we build two 
 
 This allows us to compare sparse vs. dense retrieval under the same chunking setup (fixed vs. semantic), and later combine them into a RAG pipeline.
 
-## Sparse Retrieval with BM25 (Okapi)
+---
 
-### Method
+### Sparse Retrieval with BM25 (Okapi)
+
+#### Method
 
 We implement BM25 by first building a term-frequency (TF) matrix over the chunk texts using `CountVectorizer`. This results in a sparse matrix of shape `(N_chunks × V_vocab)`. We then convert this TF matrix into an Okapi BM25-weighted matrix using the standard BM25 formula with parameters k and b.
 
-At query time, we vectorize the query into the same vocabulary space and compute BM25 scores via a sparse dot product:
+**At query time**: We vectorize the query into the same vocabulary space and compute BM25 scores via a sparse dot product:
 
+```
 score(chunk) = BM25(chunk) · TF(query)
+```
 
-### Configuration
+#### Configuration
 
 * **BM25_K1** = 1.6
 * **BM25_B** = 0.75
 * **Vectorizer settings**:
-
   * `stop_words` = "english"
   * `min_df` = 2
   * `max_df` = 0.85
 
-### Output Artifacts
+#### Output Artifacts
 
 For each chunking strategy (fixed / semantic) we save:
 
@@ -123,9 +150,11 @@ For each chunking strategy (fixed / semantic) we save:
 * `meta.json`: Metadata per chunk (file path, offsets, etc.)
 * `vectorizer_config.json`: BM25 + vectorizer parameters for reproducibility
 
-## Dense Retrieval with OpenAI Embeddings + FAISS
+---
 
-### Method
+### Dense Retrieval with OpenAI Embeddings + FAISS
+
+#### Method
 
 To support semantic retrieval, we embed each chunk using OpenAI's embedding model:
 
@@ -133,25 +162,28 @@ To support semantic retrieval, we embed each chunk using OpenAI's embedding mode
 
 Each chunk is represented as a dense vector, and we build a FAISS index over these vectors for fast similarity search. During retrieval, the user query is embedded using the same model, and FAISS returns the top-K nearest chunks.
 
-### Output Artifacts
+#### Output Artifacts
 
 For each chunking strategy we save a FAISS index directory (e.g., `fixed_faiss/`, `semantic_faiss/`) which includes:
 
 * The FAISS index file(s)
 * A docstore mapping vector IDs to chunk metadata (including source file and offsets)
 
+---
+
 ### Note on Memory Error and the Fix
 
-#### What happened
+#### ⚠️ What Happened
 
 When embedding a large collection of chunks (≈ 87k), the initial implementation attempted to create the FAISS index by calling:
 
+```python
 FAISS.from_documents(all_docs, embeddings)
+```
 
+This approach loads the entire dataset into memory and triggers embedding requests on very large batches. For large models such as `text-embedding-3-large`, each embedding response is high-dimensional, and sending too many texts per request can produce extremely large HTTP responses. This caused a **MemoryError** during response reading/buffering and resulted in a connection failure.
 
-This approach loads the entire dataset into memory and triggers embedding requests on very large batches. For large models such as `text-embedding-3-large`, each embedding response is high-dimensional, and sending too many texts per request can produce extremely large HTTP responses. This caused a `MemoryError` during response reading / buffering and resulted in a connection failure.
-
-#### How we solved it
+#### ✅ How We Solved It
 
 We replaced the "all-at-once" approach with a streaming + batching pipeline:
 
@@ -161,7 +193,9 @@ We replaced the "all-at-once" approach with a streaming + batching pipeline:
 4. **Incrementally add vectors**: To the FAISS index using `vectorstore.add_documents(...)`
 5. **Checkpoint saves**: Every N batches so progress is not lost
 
-This reduces peak memory usage and avoids oversized API responses, making the embedding process stable for large corpora.
+**Result**: This reduces peak memory usage and avoids oversized API responses, making the embedding process stable for large corpora.
+
+---
 
 ### Semantic Retrieval with FAISS and OpenAI Embeddings
 
@@ -171,7 +205,14 @@ To enable semantic (meaning-based) retrieval, we represent each document chunk a
 
 Unlike lexical methods such as BM25, this approach allows retrieval based on **semantic similarity** rather than exact word overlap, enabling the system to identify chunks that are conceptually relevant even when different wording is used.
 
-Concretely, our dense representation is based on the **`text-embedding-3-large`** model from OpenAI. This model was chosen because it is specifically optimized for semantic search and clustering, provides high-dimensional embeddings that work well on long political texts, and is directly supported in LangChain’s FAISS integration. Compared to older embedding models, it offers better cross-sentence semantic coherence and multilingual robustness, which are desirable properties when working with complex parliamentary debates and queries that sometimes paraphrase the original wording.
+#### Why This Model?
+
+Our dense representation is based on the **`text-embedding-3-large`** model from OpenAI. This model was chosen because:
+
+* **Optimized for semantic search**: Specifically designed for search and clustering tasks
+* **High-dimensional embeddings**: Works well on long political texts
+* **LangChain integration**: Directly supported in LangChain's FAISS integration
+* **Better coherence**: Compared to older embedding models, it offers better cross-sentence semantic coherence and multilingual robustness
 
 #### Why FAISS + OpenAI Embeddings?
 
@@ -179,161 +220,586 @@ Concretely, our dense representation is based on the **`text-embedding-3-large`*
 * **OpenAI Embeddings**: Selected because our RAG pipeline is implemented within the LangChain framework, which offers mature, well-supported integration with both OpenAI embedding models and FAISS vector stores
 * **Benefits**: This choice ensures a stable, scalable, and easily extensible semantic retrieval component that integrates seamlessly with downstream LLM-based answer generation
 
+---
 
-### Stage 03: RAG Pipeline and LLM
+## Stage 03: RAG Pipeline and LLM
 
-#### LLM Choice and RAG Setup
+### LLM Choice and RAG Setup
 
-For the answer-generation step we used an OpenAI GPT-4–class chat model (via the Chat Completions API). We chose this model because:
+For the answer-generation step we used an **OpenAI GPT-4–class chat model** (via the Chat Completions API).
 
-* It supports a sufficiently large context window to accept multiple retrieved chunks together with the user query.
-* It is well suited for instruction-following and question-answering tasks, producing relatively focused, well-structured answers.
-* It integrates smoothly with LangChain, which we already used for embeddings and vector stores, so the RAG pipeline could be implemented with minimal “glue code”.
+#### Why This Model?
+
+* ✅ Supports a sufficiently large context window to accept multiple retrieved chunks together with the user query
+* ✅ Well suited for instruction-following and question-answering tasks, producing relatively focused, well-structured answers
+* ✅ Integrates smoothly with LangChain, which we already used for embeddings and vector stores
+
+---
+
+### RAG Pipeline Flow
 
 In all experiments the RAG pipeline followed the same pattern:
 
-1. **Query encoding**
-   The user query (factual or conceptual) is sent either to the BM25 index (sparse retrieval) or to the FAISS index (dense retrieval via `text-embedding-3-large`), depending on the pipeline under test.
+#### 1. Query Encoding
 
-2. **Top-K retrieval**
-   The retrieval layer returns the top-K most relevant chunks for that configuration:
+The user query (factual or conceptual) is sent either to:
+* The **BM25 index** (sparse retrieval), or
+* The **FAISS index** (dense retrieval via `text-embedding-3-large`)
 
-   * Fixed chunking + BM25 (`fixed_bm25`)
-   * Fixed chunking + dense embeddings (`fixed_dense`)
-   * Semantic chunking + BM25 (`semantic_bm25`)
-   * Semantic chunking + dense embeddings (`semantic_dense`)
+...depending on the pipeline under test.
 
-3. **LLM answering**
-   The LLM receives:
+#### 2. Top-K Retrieval
 
-   * The original user query.
-   * The retrieved chunks (as contextual “sources”).
-   * A prompt that instructs it to answer *only* based on the provided chunks and, whenever possible, to cite sources using square brackets (e.g. `[source 1]`).
+The retrieval layer returns the top-K most relevant chunks for that configuration:
 
-By keeping the LLM fixed and varying only the retrieval configuration (chunking strategy, representation type, and K), we can attribute differences in answer quality to the retrieval layer rather than to the generative model itself.
+* `fixed_bm25`: Fixed chunking + BM25
+* `fixed_dense`: Fixed chunking + dense embeddings
+* `semantic_bm25`: Semantic chunking + BM25
+* `semantic_dense`: Semantic chunking + dense embeddings
 
-#### Choice of K (Top-K Chunks)
+#### 3. LLM Answering
 
-To study the trade-off between precision and recall in the retrieval stage, we ran each pipeline with several values of K:
+The LLM receives:
 
-K ∈ {1, 2, 3, 5, 10, 15, 20}
+* The original user query
+* The retrieved chunks (as contextual "sources")
+* A prompt that instructs it to answer *only* based on the provided chunks and, whenever possible, to cite sources using square brackets (e.g. `[source 1]`)
 
+**Key Point**: By keeping the LLM fixed and varying only the retrieval configuration (chunking strategy, representation type, and K), we can attribute differences in answer quality to the retrieval layer rather than to the generative model itself.
 
-The intuition is that:
+---
 
-* Small K (e.g., 1–3) forces the retriever to be very selective: it returns only one or a few chunks, which should ideally be “the” correct location in the corpus.
-* Large K (e.g., 10–20) increases the chance that relevant chunks are included somewhere in the list, but also introduces more noise (irrelevant chunks) into the context shown to the LLM.
+## Retrieval-Augmented Generation Analysis
 
-The aggregate results reflect this trade-off clearly:
+### 1. Experimental Setup and Execution
 
-* For **K = 2**, we obtained relatively high average file precision (≈ **0.39**) but only moderate recall (≈ **0.56**).
-* As **K** grows, recall increases monotonically while precision decreases. For example, at **K = 20** the average file recall reaches ≈ **0.84**, but precision drops to ≈ **0.08**.
+All experiments were executed using:
 
-In practice, this suggests that:
+```bash
+python RAG_llm_runner.py --queries_json queries/given_queries.json --k1 3 --k2 5 --k3 10
+python RAG_llm_runner.py --queries_json queries/queries.json       --k1 3 --k2 5 --k3 10 
+```
 
-* **Small K (1–3)** is appropriate for narrow factual questions where we expect a single short answer and want to minimize noise.
-* **Medium K (5–10)** gives a good balance between finding the right files and avoiding too much irrelevant context.
-* **Large K (15–20)** is more suitable for broad conceptual questions, where the answer may be spread across multiple parts of a debate and we are willing to tolerate more noise.
+**What was evaluated**:
+* Four retrieval pipelines
+* Three Top-K values (K ∈ {3, 5, 10})
+* Outputs include the LLM's final answers and retrieval references
 
+---
 
-### Stage 04: Evaluation and Analysis
+### 2. Evaluation Methodology (Two-Phase Strategy)
 
-#### Evaluation Setup
+We apply a consistent two-phase methodology:
 
-To analyse the behaviour of the different RAG pipelines we used the script `s_04_analyze_results.py`. This script loads all JSON results from `outputs/rag_runs/`, computes file-level precision and recall for each query (based on the expected source files), aggregates metrics across different conditions (chunking strategy, representation type, K value, and query type), and writes a human-readable summary as well as machine-readable JSON files (`metrics.json`, `aggregates.json`, `comparisons.json`, `examples.json`).
+#### Phase A — Pre-Chunk Inspection (Answer-Level)
 
-* **File-level precision**: among the files actually retrieved by the pipeline, how many belong to the expected gold list for that query.
-* **File-level recall**: among the expected gold files for that query, how many were retrieved at all.
-* **Answer-level features**: answer length and whether the LLM output contains citations (detected heuristically via `[]`).
+We evaluate the system as an end user would:
 
-These aggregates can be visualised using bar plots or histograms (e.g., in a Jupyter notebook with Seaborn or matplotlib) to show how precision and recall change as a function of K, chunking strategy, and representation type.
+* ❓ Can the LLM answer the query?
+* ✅ Is the answer correct, complete, and clear?
+* 📊 How stable is the answer across K?
+* 🔍 How sensitive is each pipeline to increased K (noise)?
 
-#### Fixed vs. Semantic Chunking
+#### Phase B — Chunk-Level Inspection (Evidence-Level)
 
-We first compare fixed-size chunking to the semantic chunking method that we implemented:
+Only after selecting the best-performing pipeline, we inspect retrieved chunks:
 
-* **Fixed chunking**
+* 📄 Do the retrieved chunks actually contain the needed evidence?
+* 📈 How does chunk relevance distribution change as K increases?
+* 🎯 How do chunk boundaries and retrieval noise influence final answers?
 
-  * Average file precision: ≈ **0.25**
-  * Average file recall: ≈ **0.65**
+**Chunk Labels**:
 
-* **Semantic chunking**
+* **Directly Relevant**: Answers the query or contains the core argument
+* **Supporting**: Helps, contextualizes, partially supports
+* **Irrelevant**: Off-topic or unrelated
 
-  * Average file precision: ≈ **0.21**
-  * Average file recall: ≈ **0.73**
+---
 
-In other words:
+## Part I — First Query Set ("given_queries.json")
 
-* Fixed chunks yield **slightly higher precision**: fewer retrieved chunks come from completely wrong files.
-* Semantic chunks yield **higher recall**: for a given K, the retriever is more likely to hit at least one correct file.
+### 3. RAG Results Analysis – Given Queries (Pre-Chunk Inspection)
 
-This matches the intuition behind the methods. Semantic chunks tend to be longer and follow meaning shifts more closely, so when the system lands on the right region it often captures multiple relevant sentences at once, improving recall. However, these larger chunks may also include surrounding, non-essential text, which explains the modest drop in precision compared to the “tighter” fixed-size chunks.
+**Files reviewed**:
+* `given_queries.json`
+* `rag_given_queries_4pipelines_k3-5-10_20251222_170721.json`
 
-#### BM25 vs Dense Embeddings
+> **Note**: At this stage, retrieved chunks are not inspected; only final LLM answers are evaluated.
 
-Next, we compare sparse BM25 retrieval with dense retrieval based on OpenAI embeddings:
+---
 
-* **BM25 (sparse)**
+### Pipeline-Level Results (Answer-Level)
 
-  * Average file precision: ≈ **0.25**
-  * Average file recall: ≈ **0.76**
+#### 1) Fixed Chunking + BM25 ❌
 
-* **Dense embeddings (FAISS + `text-embedding-3-large`)**
+* ❌ The LLM frequently fails on factual precision tasks
+* ❌ Increasing K does not improve answerability; it increases noise
 
-  * Average file precision: ≈ **0.21**
-  * Average file recall: ≈ **0.61**
+**Conclusion**: Poor for factual extraction, not improved by higher K.
 
-Surprisingly, in this particular setup BM25 **outperforms** dense retrieval on both precision and recall. A plausible explanation is that the queries from the assignment are often phrased very similarly to the original debate text (e.g., specific program names, exact fuel prices, explicit references to particular plans). In such cases the lexical overlap between query and document is high, which is exactly where BM25 excels. Dense embeddings are more advantageous when there is significant paraphrasing or when the query expresses a concept that is not literally spelled out in the same words in the corpus; here, this advantage is less pronounced.
+---
 
-It is also possible that some dense-retrieval hyper-parameters (e.g., FAISS index type, vector normalisation, or K for re-ranking) were not fully optimised, leaving room for future improvement on the dense side.
+#### 2) Semantic Chunking + BM25 ⚠️
 
-#### Factual vs Conceptual Questions
+* ⚠️ Chunk coherence improves, but the LLM still fails when semantic matching is required
 
-The assignment distinguishes between **factual** queries (seeking a concrete fact) and **conceptual** queries (asking about arguments, positions, or moral evaluations). We therefore split our analysis by `query_type` and by representation:
+**Conclusion**: Semantic chunking cannot compensate for lexical-only retrieval.
 
-* For **BM25**:
+---
 
-  * Factual queries: file precision ≈ **0.34**
-  * Conceptual queries: file precision ≈ **0.16**
+#### 3) Fixed Chunking + Dense Embeddings ⚠️
 
-* For **dense embeddings**:
+* ✅ Often correct already at K = 3
+* ⚠️ Larger K increases redundancy and reduces precision due to large chunk size
 
-  * Factual queries: file precision ≈ **0.23**
-  * Conceptual queries: file precision ≈ **0.19**
+**Conclusion**: Good recall; precision degrades as K grows.
 
-The results show that BM25 is particularly strong on factual questions, where the target information is typically expressed with almost the same wording as in the query (numbers, names, dates, explicit mentions). For conceptual questions, precision drops significantly for both methods, but the gap between factual and conceptual is smaller on the dense side, suggesting that embeddings are somewhat better at handling paraphrase and high-level descriptions.
+---
 
-#### Did We Retrieve the Relevant Files and Chunks?
+#### 4) Semantic Chunking + Dense Embeddings ✅ **BEST**
 
-At the global level, the overall average file recall is ≈ **0.69**, meaning that in the majority of runs at least some of the expected files were retrieved. According to the analysis:
+* ✅ Most correct and stable answers for both factual and conceptual queries
+* ✅ K = 3 typically best
+* ⚠️ K = 10 introduces dilution
 
-* **Perfect retrievals** (all expected files retrieved): **198** runs.
-* **Complete failures** (no expected file retrieved): **90** runs.
+**Conclusion**: Best overall pipeline; K should remain small unless more nuance is needed.
 
-This confirms that the system is far from perfect: while many queries are handled very well, there is still a non-trivial fraction where the retriever completely misses the gold documents.
+---
 
-We did not manually annotate relevance at the *chunk* level (the field `relevant_chunks` in `RetrievalMetrics` remains 0), but we can reason about chunk behaviour indirectly via K:
+### 🏆 Best Configuration (Global)
 
-* For **small K** (1–3), precision is relatively high, but recall is limited. This suggests that the first chunk or two often come from the correct file, but additional relevant chunks from the same file might not be retrieved.
-* For **large K** (10–20), file recall becomes very high (up to ≈ **0.84**), so it is likely that most relevant chunks are present somewhere in the retrieved list. However, precision is low (down to ≈ **0.08**), which means that many retrieved chunks are only weakly relevant or completely off-topic.
+**Pipeline**: Semantic Chunking + Dense Embeddings  
+**Best K**: K = 3 (especially for factual queries)
 
-In practical terms:
+---
 
-* **Not all relevant chunks are retrieved** when K is small.
-* **Not all retrieved chunks are relevant** when K is large.
+### 4. Chunk-Level Analysis – Given Queries (Best Pipeline)
 
-A manual spot-check of several factual queries (e.g., those about fuel prices and specific policy proposals) showed that when the correct file was retrieved, the LLM’s answer was usually faithful to the retrieved text, including numbers and names. In failure cases where no correct file was returned, the LLM tended to either give a very generic answer or hallucinate plausible-sounding details that did not appear in the corpus.
+#### 4.1 Factual Query: Prime Minister Defense Budget Speech Dates
 
-#### Insights and Possible Improvements
+**Query**: *"On what dates did the British Prime Minister deliver his speech on the defense budget?"*
 
-From the comparisons above we draw several conclusions:
+**Pipeline**: Semantic Chunking + Dense Embeddings (K = 3, 5, 10)
 
-1. **Chunking strategy matters**: semantic chunking improves recall but slightly hurts precision relative to fixed-size chunking. This suggests that a hybrid strategy (e.g., semantic boundaries combined with a maximum size) could be worth exploring.
+**Chunk Distribution**:
 
-2. **BM25 is very competitive for this task**: because many queries are lexically close to the source text, BM25 performs surprisingly well, even better than dense embeddings in our current configuration. In a different domain with more paraphrase, we might expect the opposite.
+| K  | Direct | Supporting | Irrelevant | Total |
+|----|--------|------------|------------|-------|
+| 3  | 1      | 1          | 1          | 3     |
+| 5  | 1      | 1          | 3          | 5     |
+| 10 | 1      | 1          | 8          | 10    |
 
-3. **Factual vs conceptual queries behave differently**: factual questions benefit strongly from BM25, while conceptual questions remain challenging for both methods, with dense embeddings showing a small advantage.
+**Conclusion (Factual)**:
 
-4. **Top-K alone is not ideal**: currently the retriever always returns K chunks, even if all similarity scores are very low. As hinted in the exercise comment at the top of this file, a **threshold-based** stopping criterion (e.g., “only return chunks whose score is above τ”) could prevent us from passing completely irrelevant context to the LLM and reduce confusion in low-similarity cases.
+* ✅ The number of directly relevant chunks stays constant as K increases
+* ❌ Noise grows sharply with larger K
+* 🎯 Best precision and stability at **K = 3**
 
-Overall, the experiments highlight the importance of tuning the retrieval layer (chunking, representation, K, and potentially score thresholds) to the specific query distribution and corpus characteristics, rather than assuming that a single “default” configuration will work optimally in all scenarios.
+---
+
+#### 4.2 Conceptual Query: Immigration Bill Main Argument
+
+**Query**: *"What was the main argument regarding the immigration bill that was presented?"*
+
+**Pipeline**: Semantic Chunking + Dense Embeddings (K = 3, 5)
+
+**Chunk Distribution**:
+
+| K | Directly Relevant | Supporting | Irrelevant | Total |
+|---|-------------------|------------|------------|-------|
+| 3 | 2                 | 1          | 0          | 3     |
+| 5 | 2                 | 2          | 1          | 5     |
+
+**Conclusion (Conceptual)**:
+
+* ✅ Conceptual queries benefit from multiple reinforcing chunks
+* ✅ K = 3 already contains the argument + justification
+* ✅ K = 5 adds nuance with minimal degradation
+
+---
+
+## Part II — Second Query Set ("queries.json")
+
+### 5. RAG Results Analysis – Second Query Set (Pre-Chunk Inspection)
+
+**Files reviewed**:
+* `queries.json`
+* `rag_queries_4pipelines_k3-5-10_20251222_165745.json`
+
+> **Note**: As before, chunk content is not inspected at this stage.
+
+---
+
+### Pipeline-Level Observations (Answer-Level)
+
+#### 1) Fixed Chunking + BM25 ❌
+
+* ⚠️ Factual answers are sometimes partially correct only when text matches verbatim
+* ❌ Increasing K often degrades answer focus and introduces unrelated context
+* ❌ Conceptual answers tend to be generic ("concerns were raised") without a core argument
+
+**Conclusion**: High noise sensitivity, weak stability.
+
+---
+
+#### 2) Semantic Chunking + BM25 ⚠️
+
+* ⚠️ Improved local coherence, but still fails when semantic inference is required
+* ❌ Missing values and incomplete reasoning remain common
+
+**Conclusion**: Lexical limitations persist.
+
+---
+
+#### 3) Fixed Chunking + Dense Embeddings ⚠️
+
+* ✅ Correct answers often appear at K = 3
+* ⚠️ Larger K increases drift and redundancy because chunks are large
+
+**Conclusion**: Good recall; precision declines with larger K.
+
+---
+
+#### 4) Semantic Chunking + Dense Embeddings ✅ **BEST**
+
+* ✅ Most grounded and stable across factual + conceptual queries
+* ✅ Stability strong at K = 3–5
+* ⚠️ Minor dilution at K = 10
+
+**Conclusion**: Best tradeoff between recall and noise control.
+
+---
+
+### 🏆 Best Configuration (Global)
+
+**Pipeline**: Semantic Chunking + Dense Embeddings  
+**Best K**: K = 3 (factual), K = 3–5 (conceptual)
+
+---
+
+### 6. Chunk-Level Analysis – Second Query Set (Best Pipeline)
+
+#### 6.1 Factual Query: Fuel Prices (Exact Per-Liter Values)
+
+**Query**: *"According to the debate on fuel prices, what were the exact per-liter prices of unleaded petrol and diesel as of Monday, 26 June?"*
+
+**Pipeline**: Semantic Chunking + Dense Embeddings (K = 3, 5, 10)
+
+**Chunk Distribution**:
+
+| K  | Direct | Supporting | Irrelevant | Total |
+|----|--------|------------|------------|-------|
+| 3  | 1      | 1          | 1          | 3     |
+| 5  | 1      | 2          | 2          | 5     |
+| 10 | 1      | 2          | 7          | 10    |
+
+**Conclusion (Factual)**:
+
+* ✅ Increasing K does not add new factual evidence
+* ❌ Noise increases substantially at K = 10
+* 🎯 Best accuracy and interpretability at **K = 3**
+
+---
+
+#### 6.2 Conceptual Query: Rwanda Plan ("Stop the Boats") Deterrence Criticism
+
+**Query**: *"What is the main criticism raised in the debate about the Rwanda plan in the context of 'stop the boats', and why is it argued that the plan would not act as a deterrent?"*
+
+**Pipeline**: Semantic Chunking + Dense Embeddings (K = 3, 5)
+
+**Chunk Distribution**:
+
+| K | Direct | Supporting | Irrelevant | Total |
+|---|--------|------------|------------|-------|
+| 3 | 2      | 1          | 0          | 3     |
+| 5 | 2      | 2          | 1          | 5     |
+
+**Conclusion (Conceptual)**:
+
+* ✅ The core argument is supported by multiple reinforcing chunks
+* ✅ K = 3 is sufficient for a coherent synthesis
+* ✅ K = 5 can add nuance, with limited noise
+
+---
+
+### 7. Consolidated Conclusions Across Both Query Sets
+
+#### 🏆 Best Pipeline
+
+Across both query sets, the consistently best-performing configuration is:
+
+**✅ Semantic Chunking + Dense Embeddings**
+
+---
+
+#### 📊 Best K (Task-Dependent)
+
+**Factual queries**: **K = 3**
+
+* Typically rely on one "gold" chunk containing the exact value/date
+* Larger K mainly adds irrelevant context and risks dilution
+
+**Conceptual queries**: **K = 3–5**
+
+* Benefit from multiple supporting chunks that reinforce the same argument
+* Moderate increases in K can improve nuance without excessive noise
+
+---
+
+#### 💡 Practical Recommendation
+
+For accurate, stable, and interpretable RAG behavior:
+
+> **Use Semantic Chunking + Dense Embeddings with K = 3**,  
+> increasing to K = 5 only when conceptual synthesis requires additional supporting context.
+
+---
+
+## Conclusions & Insights (Answering the Assignment Questions)
+
+### 1. Chunking Method (Assigned by Lottery): Semantic Chunking
+
+In this project, our primary chunking strategy (assigned by lottery) was **semantic chunking**.
+
+**What is it?**: Unlike fixed-size chunking, semantic chunking attempts to preserve meaningful discourse units by grouping consecutive sentences that are semantically coherent, and placing a boundary when the topic or argument shifts.
+
+**Why it matters**: In parliamentary debates, this is especially important: speakers often build a single argument over multiple sentences and only later move to a different policy issue.
+
+**Our results**: 
+* ✅ The pipeline **Semantic Chunking + Dense Embeddings** produced the most stable and best-grounded answers
+* ✅ Chunk-level labeling showed that relevant argument or evidence tends to appear as a coherent unit already at low K
+  * Example: Directly Relevant = 2 and Supporting = 1 for conceptual queries at K=3
+* ❌ In contrast, fixed chunking frequently bundled multiple topics into one chunk, increasing the chance that retrieval returns partially related context that encourages answer drift
+
+---
+2. LLM Choice and Rationale
+
+Model: OpenAI gpt-4o-mini
+
+The LLM used in this project is an OpenAI-based model. We selected gpt-4o-mini as it is a well-established and sufficiently capable model for retrieval-augmented question answering, while remaining lightweight and efficient.
+
+The choice was mainly motivated by practical and experimental considerations:
+
+The model is fully integrated and easy to use within the LangChain framework, which was used throughout the project for both embeddings and RAG orchestration.
+
+We had prior experience working with this model, which allowed us to focus on the retrieval and chunking experiments rather than on LLM configuration or prompt tuning.
+
+The model provides reliable and consistent behavior when answering based on retrieved context, making it suitable for controlled comparisons between different retrieval pipelines.
+
+Importantly, the LLM was kept fixed across all experiments. This ensures that observed differences in answer quality are a result of changes in the retrieval strategy (chunking method, vector representation, and Top-K) rather than differences in the language model itself.
+
+---
+
+### 3. Vector Representation Choice (BM25 vs Dense Embeddings)
+
+We evaluated two fundamentally different representations:
+
+#### BM25 (Sparse Lexical Retrieval)
+* ✅ Strong when query terms overlap explicitly with the text
+* ❌ Limited in semantic matching
+
+#### Dense Embeddings (OpenAI + FAISS)
+* ✅ Captures semantic similarity
+* ✅ Retrieves relevant evidence even when wording differs
+
+**Result**: **Dense embeddings were consistently superior** for our RAG setting.
+
+**Example**: In the first query set, BM25 pipelines repeatedly failed to answer the factual query ("Prime Minister defense budget speech dates"), producing "I don't know based on the retrieved chunks," across all K values, while **dense pipelines produced correct answers already at low K**.
+
+**Interpretation**: Lexical overlap alone was insufficient to locate the needed evidence, whereas semantic retrieval succeeded.
+
+---
+
+### 4. Why We Chose K = 3, 5, 10
+
+We selected **K = 3, 5, 10** to explicitly study the classic **precision–recall trade-off** in RAG:
+
+* **Small K (K=3)**: Tests whether the retriever can surface a minimal set of high-quality evidence (high precision)
+* **Medium K (K=5)**: Tests whether moderate context expansion improves completeness without excessive noise
+* **Larger K (K=10)**: Stresses the system under increased context and evaluates robustness to retrieval noise
+
+**Key Finding**: **Increasing K does not guarantee better answers**.
+
+**Evidence**:
+
+For **factual queries**, Directly Relevant evidence remained constant while irrelevant chunks grew sharply:
+
+| Query Type | K=3 | K=5 | K=10 |
+|------------|-----|-----|------|
+| Fuel Prices (Irrelevant) | 1 | 2 | 7 |
+
+For **conceptual queries**, K=5 sometimes adds nuance, but K=10 generally increases risk of dilution.
+
+---
+
+### 5. Fixed-Size vs Semantic Chunking: Which Is Better?
+
+**Answer**: **Semantic chunking outperformed fixed-size chunking**, especially when combined with dense retrieval.
+
+**Evidence**:
+
+**Answer-level**:
+* ✅ Semantic + dense produced the most correct and stable answers across K
+
+**Chunk-level**:
+* ✅ Semantic + dense yielded higher proportions of Directly Relevant and Supporting chunks at low K
+* ✅ Less irrelevant noise than fixed-size setups
+
+**Why fixed chunking underperforms**:
+* ❌ Fixed chunking can still work reasonably for dense retrieval, but it more often introduces extra unrelated context inside each chunk (because the chunk boundary is not aligned with argument structure)
+* ❌ This increases the chance of answer drift as K grows
+
+---
+
+### 6. BM25 vs Dense Embeddings: Which Is Better?
+
+**Answer**: **Dense embeddings were clearly better** for our tasks.
+
+**Why BM25 often failed**:
+
+* ❌ Paraphrased queries
+* ❌ Queries referencing concepts rather than exact phrases
+* ❌ Cases where the "right" chunk did not share enough surface vocabulary with the query
+
+**Why dense embeddings succeeded**:
+
+* ✅ Semantic similarity is robust to wording differences
+* ✅ Dense pipelines often produced correct answers already at K=3
+* ❌ BM25 pipelines either failed completely or produced incomplete answers
+
+---
+
+### 7. Did BM25 Perform Better on Factual Questions?
+
+**Answer**: **No, BM25 did not perform better on factual questions** in our experiments.
+
+**Why not?**:
+
+* While BM25 can sometimes be strong for fact retrieval in settings where the query contains unique keywords that appear verbatim in the relevant text...
+* ❌ Our factual questions often required retrieving evidence expressed differently than the query wording
+* ❌ This mismatch caused BM25 to return topically adjacent but non-answering chunks
+
+**In contrast**:
+
+* ✅ Dense embeddings + semantic chunking consistently retrieved at least one "gold" chunk for factual questions at low K
+* ✅ This allowed correct grounded answers
+
+---
+
+### 8. Were Relevant Chunks/Files Retrieved? Were All Retrieved Chunks Relevant?
+
+Our chunk-level labeling provides evidence for both questions:
+
+#### ✅ Were relevant chunks retrieved?
+
+**Yes** — under Semantic Chunking + Dense Embeddings, relevant evidence was retrieved at low K for both factual and conceptual queries.
+
+**Examples**:
+
+* **Fuel Prices (factual)**: Direct evidence appears already at K=3 (Direct=1)
+* **Rwanda Plan (conceptual)**: Multiple Directly Relevant chunks appear already at K=3 (Direct=2)
+
+---
+
+#### ⚠️ Were all relevant chunks retrieved?
+
+**Not necessarily**, and this is expected.
+
+**Why?**: Retrieval is ranked, and the goal of RAG is not to retrieve all relevant chunks, but to retrieve enough evidence to answer correctly.
+
+* For **factual queries**: Often one gold chunk is sufficient
+* For **conceptual queries**: Several reinforcing chunks help, but retrieving every relevant chunk becomes less important than preserving coherence
+
+---
+
+#### ❌ Were all retrieved chunks relevant?
+
+**No**. Irrelevant chunks increase as K grows.
+
+**Evidence**:
+
+| Query | K=3 (Irrelevant) | K=5 (Irrelevant) | K=10 (Irrelevant) |
+|-------|------------------|------------------|-------------------|
+| Fuel Prices | 1 | 2 | 7 |
+| Rwanda Plan | 0 | 1 | — |
+
+**Impact**: This noise growth explains why larger K values can degrade answer quality: the LLM may generalize, merge topics, or dilute a precise conclusion when unnecessary context is added.
+
+---
+
+### 9. Alignment Between Answers and Retrieved Evidence
+
+**When retrieval quality is high** (semantic + dense, low K):
+
+* ✅ The LLM answers are strongly aligned with the retrieved evidence
+* ✅ Factual answers are grounded in the gold chunk
+* ✅ Conceptual answers synthesize consistent arguments repeated across multiple relevant chunks
+
+**When misalignment occurs**:
+
+* ❌ Mainly in high-noise settings (especially at K=10)
+* ❌ Irrelevant chunks can introduce competing narratives or unrelated facts
+* ❌ This encourages answer drift or overgeneralization
+
+---
+
+### 10. Why Do We See These Differences?
+
+The observed differences are explained by an interaction of:
+
+1. **Representation type** (lexical BM25 vs semantic embeddings)
+2. **Chunk boundaries** (fixed vs discourse-aligned semantic chunking)
+3. **Query type** (factual vs conceptual)
+4. **Context size** (K controlling noise injection)
+
+**Factual queries** are **precision-critical**: They typically depend on a single correct evidence span.
+
+**Conceptual queries** are **synthesis-heavy**: They benefit from multiple supporting spans but tolerate moderate K increases.
+
+---
+
+## 🎯 Final Recommendations
+
+### Best Overall Configuration
+
+**✅ Semantic Chunking + Dense Embeddings with K = 3**
+
+---
+
+### When to Increase K
+
+* **Factual queries**: Keep K = 3
+* **Conceptual queries**: K = 3–5 acceptable
+* **Avoid K > 10** unless specifically needed for broad exploratory queries
+
+---
+
+### 💡 Practical Improvement Suggestion: Threshold-Based Retrieval
+
+A clear insight from our results is that **fixed Top-K retrieval can inject unnecessary noise when relevance is weak**.
+
+#### The Problem
+
+When K is fixed (e.g., K=10), the system *always* returns exactly 10 chunks, even when:
+* Only 1–2 chunks are actually relevant
+* The remaining chunks have low similarity scores
+* Adding those chunks introduces noise and degrades answer quality
+
+#### Proposed Solution
+
+**Replace fixed Top-K with adaptive threshold-based retrieval**:
+
+```python
+return_by_threshold(similarity ≥ τ) instead of always returning K chunks
+```
+
+#### How It Works
+
+* **High-confidence retrieval**: If multiple chunks exceed the similarity threshold τ, return all of them
+* **Low-confidence retrieval**: If no chunk crosses the threshold, return fewer chunks (or none)
+* **Honest failure mode**: When evidence is insufficient, the LLM responds with "not enough evidence" rather than hallucinating from irrelevant context
+
+**Impact**: This would directly address the observed failure mode where K=10 adds many irrelevant chunks without adding new relevant evidence.
+
+---
+
