@@ -364,6 +364,59 @@ This evidence-level inspection allows us to:
 * **Irrelevant**: Unrelated or off-topic content
 
 ---
+## Global Quantitative Summary (Both Query Sets)
+
+Before analyzing each query set in depth (Phase A/B), we first report **global quantitative signals** aggregated by pipeline and K.  
+These plots provide a compact view of answerability and retrieval noise, and help motivate the qualitative analyses that follow.
+
+### 1) Fallback Rate (Answerability)
+
+We compute the **fallback rate**: the percentage of queries for which the LLM returned the enforced fallback response (i.e., it could not answer using the retrieved context).  
+Lower is better, but this metric reflects **answerability**, not necessarily **correctness**.
+
+#### Fallback heatmap — Given Queries
+![Fallback rate heatmap (given queries)](outputs/plots/fallback_rate_heatmap_20251223_070456.png)
+
+#### Fallback heatmap — Second Query Set
+![Fallback rate heatmap (second query set)](outputs/plots/fallback_rate_heatmap_20251223_070445.png)
+
+**Interpretation.** Dense retrieval (FAISS + embeddings) shows near-zero fallback across K, indicating that semantically similar evidence is usually retrieved.  
+However, a low fallback rate does not guarantee high-quality answers: larger fixed-size chunks can reduce fallback simply because each retrieved chunk contains more text, which may increase redundancy and answer dilution as K grows.  
+Therefore, we use fallback rate as a supporting metric alongside qualitative answer evaluation (accuracy, focus, and stability across K).
+
+### 2) Why We Chose Semantic Chunking + Dense Embeddings
+
+The final pipeline choice was driven first and foremost by **manual answer-level analysis (Phase A)** across both query sets.  
+We compared the *final LLM answers* produced by all four pipelines under K ∈ {3, 5, 10} and evaluated:
+
+- ✅ **Correctness and completeness** of the answer (factual accuracy or a clear main argument)
+- ✅ **Grounding** (the answer is supported by the retrieved context rather than generic summarization)
+- ✅ **Stability across K** (answers remain consistent when more retrieved chunks are added)
+
+Across both query sets, **Semantic Chunking + Dense Embeddings** produced the most **correct, well-grounded, and stable** answers for both factual and conceptual queries.
+
+**Why this pipeline wins qualitatively:**
+- **Semantic chunking** reduces mixed-topic chunks and creates coherent evidence units aligned with discourse boundaries.
+- **Dense embeddings** retrieve semantically relevant evidence even when query phrasing differs from the debate text (robust to paraphrase and concept-level questions).
+
+In contrast:
+- **BM25 pipelines** often failed when relevant evidence was phrased differently than the query (lexical mismatch), leading to fallback or incomplete answers.
+- **Fixed chunking + dense** often retrieved relevant content, but large fixed chunks and higher K introduced redundancy and unrelated subtopics, increasing the risk of answer dilution as K grows.
+
+### 3) Evidence Quality vs. Noise (Chunk Labels): Validating the Choice and Selecting K
+
+After selecting **Semantic Chunking + Dense Embeddings** as best from manual answer-level inspection, we validated this choice by inspecting retrieval evidence directly.  
+To quantify retrieval quality beyond answerability, we label retrieved chunks as:
+- **Directly Relevant**
+- **Supporting**
+- **Irrelevant**
+
+> Note: The final pipeline selection is based on combined evidence from (1) qualitative Phase A/B analyses per query set and (2) these quantitative plots, which help explain and validate the observed behavior.
+
+> Quantitative summary plots for both query sets are reported above.  
+> Here we focus on qualitative answer-level behavior for this specific query set.
+
+---
 
 ## Part I — First Query Set ("given_queries.json")
 
@@ -440,7 +493,6 @@ This pipeline benefits from both semantically coherent chunk boundaries and sema
 
 At the answer level, this configuration provides the strongest balance between correctness, stability, and resistance to retrieval noise.
 
-
 ### 4. Chunk-Level Analysis – Given Queries (Best Pipeline)
 
 This section presents an in-depth, evidence-level analysis for the **best-performing pipeline identified in Phase A**:  
@@ -468,6 +520,8 @@ For each query type, we examine:
 | 3  | 1      | 1          | 1          | 3     |
 | 5  | 1      | 1          | 3          | 5     |
 | 10 | 1      | 1          | 8          | 10    |
+
+![alt text](outputs/plots/semantic_dense_given_factual_stacked.png)
 
 ##### LLM Answers and Analysis
 
@@ -511,6 +565,8 @@ This confirms that **factual queries are precision-critical** and benefit from m
 | 3 | 2      | 1          | 0          | 3     |
 | 5 | 2      | 2          | 1          | 5     |
 
+![alt text](outputs/plots/semantic_dense_given_conceptual_stacked.png)
+
 ##### LLM Answers and Analysis
 
 - **K = 3**  
@@ -546,7 +602,6 @@ Unlike factual queries, conceptual questions tolerate a modest increase in K bec
   - **Best K: 3–5**
 
 These observations explain the answer-level behavior seen in Phase A and motivate the task-dependent K recommendations used in the final system configuration.
-
 
 ---
 
@@ -659,13 +714,13 @@ For each query, we examine how the answer quality behaves as K increases and exp
 **Representative LLM Answers**
 
 * **K = 3**  
-  > “As of Monday, 26 June, the price of unleaded petrol was **143.43p per litre**, and diesel was **145.6p per litre**.”  
+  > “As of Monday, 26 June, the price of unleaded petrol was **143.43p per litre**, and diesel was **145.6p per litre**.”
 
 * **K = 5**  
-  > “As of Monday, 26 June, the price of unleaded petrol was **143.43p per litre**, and diesel was **145.6p per litre**.”  
+  > “As of Monday, 26 June, the price of unleaded petrol was **143.43p per litre**, and diesel was **145.6p per litre**.”
 
 * **K = 10**  
-  > “As of Monday, 26 June, the price of unleaded petrol was **143.43p per litre**, and diesel was **145.6p per litre**.”  
+  > “As of Monday, 26 June, the price of unleaded petrol was **143.43p per litre**, and diesel was **145.6p per litre**.”
 
 Across all K values, the **numerical answer remains identical**, indicating that the LLM consistently relies on the same core evidence.
 
@@ -676,6 +731,8 @@ Across all K values, the **numerical answer remains identical**, indicating that
 | 3  | 1      | 1          | 1          | 3     |
 | 5  | 1      | 2          | 2          | 5     |
 | 10 | 1      | 2          | 7          | 10    |
+
+![alt text](outputs/plots/semantic_dense_second_factual_stacked.png)
 
 **Analysis (Factual)**
 
@@ -710,6 +767,8 @@ The K=5 answer expands on the same argument with **additional justification**, b
 |---|--------|------------|------------|-------|
 | 3 | 2      | 1          | 0          | 3     |
 | 5 | 2      | 2          | 1          | 5     |
+
+![alt text](outputs/plots/semantic_dense_second_conceptual_stacked.png)
 
 **Analysis (Conceptual)**
 
@@ -758,7 +817,7 @@ In this project, our primary chunking strategy (assigned by lottery) was **seman
 
 **Why it matters**: In parliamentary debates, this is especially important: speakers often build a single argument over multiple sentences and only later move to a different policy issue.
 
-**Our results**: 
+**Our results**:
 * ✅ The pipeline **Semantic Chunking + Dense Embeddings** produced the most stable and best-grounded answers
 * ✅ Chunk-level labeling showed that relevant argument or evidence tends to appear as a coherent unit already at low K
   * Example: Directly Relevant = 2 and Supporting = 1 for conceptual queries at K=3
