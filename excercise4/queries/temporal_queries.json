@@ -1,0 +1,25 @@
+{
+  "factual": [
+    {
+      "query": "What was Christina L. Richards' professional role in 2025?",
+      "expected_source": ["2025-05-07.txt", "2025-05-08.txt", "2025-05-12.txt"]
+    },
+    {
+      "query": "In 2025, what organization was Christina L. Richards associated with?",
+      "expected_source": ["2025-05-07.txt", "2025-05-08.txt", "2025-05-12.txt"]
+    },
+    {
+      "query": "What issue was discussed during Senate committee meetings in December 2023?",
+      "expected_source": ["2023-12-18.txt", "2023-12-22.txt"]
+    },
+    {
+      "query": "What event was being commemorated in December 2023 according to the congressional records?",
+      "expected_source": ["2023-12-22.txt"]
+    },
+    {
+      "query": "What kinds of governmental activities were taking place in December 2023?",
+      "expected_source": ["2023-12-18.txt", "2023-12-22.txt"]
+    }
+  ],
+  "conceptual": []
+}

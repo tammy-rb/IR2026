@@ -1,0 +1,3062 @@
+[
+  {
+    "query_type": "factual",
+    "query": "Who was the Prime Minister of Bulgaria in July 2023?",
+    "expected_source": [
+      "2023-07-12.txt"
+    ],
+    "pipeline": {
+      "chunking": "fixed",
+      "representation": "bm25"
+    },
+    "k": 3,
+    "references": [
+      {
+        "corpus": "us",
+        "file_name": "2023-07-12.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-07-12.txt",
+        "start_char": 0,
+        "end_char": 5035,
+        "chunk_index": 0
+      },
+      {
+        "corpus": "us",
+        "file_name": "2024-06-03.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2024-06-03.txt",
+        "start_char": 0,
+        "end_char": 4817,
+        "chunk_index": 0
+      },
+      {
+        "corpus": "us",
+        "file_name": "2024-06-03.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2024-06-03.txt",
+        "start_char": 3903,
+        "end_char": 8731,
+        "chunk_index": 1
+      }
+    ],
+    "answer": "The Prime Minister of Bulgaria in July 2023 was Nikolai Denkov [source: us:2023-07-12.txt]."
+  },
+  {
+    "query_type": "factual",
+    "query": "Who was the Prime Minister of Bulgaria in July 2023?",
+    "expected_source": [
+      "2023-07-12.txt"
+    ],
+    "pipeline": {
+      "chunking": "fixed",
+      "representation": "bm25"
+    },
+    "k": 5,
+    "references": [
+      {
+        "corpus": "us",
+        "file_name": "2023-07-12.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-07-12.txt",
+        "start_char": 0,
+        "end_char": 5035,
+        "chunk_index": 0
+      },
+      {
+        "corpus": "us",
+        "file_name": "2024-06-03.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2024-06-03.txt",
+        "start_char": 0,
+        "end_char": 4817,
+        "chunk_index": 0
+      },
+      {
+        "corpus": "us",
+        "file_name": "2024-06-03.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2024-06-03.txt",
+        "start_char": 3903,
+        "end_char": 8731,
+        "chunk_index": 1
+      },
+      {
+        "corpus": "us",
+        "file_name": "2025-06-11.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2025-06-11.txt",
+        "start_char": 0,
+        "end_char": 5002,
+        "chunk_index": 0
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2023-10-24.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2023-10-24.txt",
+        "start_char": 93069,
+        "end_char": 94667,
+        "chunk_index": 27
+      }
+    ],
+    "answer": "The Prime Minister of Bulgaria in July 2023 was Nikolai Denkov [source: us:2023-07-12.txt]."
+  },
+  {
+    "query_type": "factual",
+    "query": "Who was the Prime Minister of Bulgaria in July 2023?",
+    "expected_source": [
+      "2023-07-12.txt"
+    ],
+    "pipeline": {
+      "chunking": "fixed",
+      "representation": "bm25"
+    },
+    "k": 10,
+    "references": [
+      {
+        "corpus": "us",
+        "file_name": "2023-07-12.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-07-12.txt",
+        "start_char": 0,
+        "end_char": 5035,
+        "chunk_index": 0
+      },
+      {
+        "corpus": "us",
+        "file_name": "2024-06-03.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2024-06-03.txt",
+        "start_char": 0,
+        "end_char": 4817,
+        "chunk_index": 0
+      },
+      {
+        "corpus": "us",
+        "file_name": "2024-06-03.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2024-06-03.txt",
+        "start_char": 3903,
+        "end_char": 8731,
+        "chunk_index": 1
+      },
+      {
+        "corpus": "us",
+        "file_name": "2025-06-11.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2025-06-11.txt",
+        "start_char": 0,
+        "end_char": 5002,
+        "chunk_index": 0
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2023-10-24.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2023-10-24.txt",
+        "start_char": 93069,
+        "end_char": 94667,
+        "chunk_index": 27
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2023-09-06.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2023-09-06.txt",
+        "start_char": 48529,
+        "end_char": 52371,
+        "chunk_index": 14
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2023-11-23.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2023-11-23.txt",
+        "start_char": 31745,
+        "end_char": 35545,
+        "chunk_index": 9
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-12-06.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2024-12-06.txt",
+        "start_char": 67877,
+        "end_char": 71696,
+        "chunk_index": 20
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2023-10-24.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2023-10-24.txt",
+        "start_char": 89897,
+        "end_char": 93816,
+        "chunk_index": 26
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-11-06.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2024-11-06.txt",
+        "start_char": 86572,
+        "end_char": 90315,
+        "chunk_index": 25
+      }
+    ],
+    "answer": "The Prime Minister of Bulgaria in July 2023 was Nikolai Denkov [source: us:2023-07-12.txt]."
+  },
+  {
+    "query_type": "factual",
+    "query": "Who was the Prime Minister of Bulgaria in July 2023?",
+    "expected_source": [
+      "2023-07-12.txt"
+    ],
+    "pipeline": {
+      "chunking": "semantic",
+      "representation": "bm25"
+    },
+    "k": 3,
+    "references": [
+      {
+        "corpus": "us",
+        "file_name": "2023-07-12.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-07-12.txt",
+        "start_char": 788,
+        "end_char": 1350,
+        "chunk_index": 1
+      },
+      {
+        "corpus": "us",
+        "file_name": "2024-06-03.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2024-06-03.txt",
+        "start_char": 776,
+        "end_char": 1163,
+        "chunk_index": 1
+      },
+      {
+        "corpus": "us",
+        "file_name": "2023-07-12.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-07-12.txt",
+        "start_char": 0,
+        "end_char": 787,
+        "chunk_index": 0
+      }
+    ],
+    "answer": "The Prime Minister of Bulgaria in July 2023 was Nikolai Denkov [source: us:2023-07-12.txt]."
+  },
+  {
+    "query_type": "factual",
+    "query": "Who was the Prime Minister of Bulgaria in July 2023?",
+    "expected_source": [
+      "2023-07-12.txt"
+    ],
+    "pipeline": {
+      "chunking": "semantic",
+      "representation": "bm25"
+    },
+    "k": 5,
+    "references": [
+      {
+        "corpus": "us",
+        "file_name": "2023-07-12.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-07-12.txt",
+        "start_char": 788,
+        "end_char": 1350,
+        "chunk_index": 1
+      },
+      {
+        "corpus": "us",
+        "file_name": "2024-06-03.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2024-06-03.txt",
+        "start_char": 776,
+        "end_char": 1163,
+        "chunk_index": 1
+      },
+      {
+        "corpus": "us",
+        "file_name": "2023-07-12.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-07-12.txt",
+        "start_char": 0,
+        "end_char": 787,
+        "chunk_index": 0
+      },
+      {
+        "corpus": "us",
+        "file_name": "2023-07-12.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-07-12.txt",
+        "start_char": 2648,
+        "end_char": 3187,
+        "chunk_index": 4
+      },
+      {
+        "corpus": "us",
+        "file_name": "2025-06-11.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2025-06-11.txt",
+        "start_char": 813,
+        "end_char": 1208,
+        "chunk_index": 1
+      }
+    ],
+    "answer": "The Prime Minister of Bulgaria in July 2023 was Nikolai Denkov [source: us:2023-07-12.txt]."
+  },
+  {
+    "query_type": "factual",
+    "query": "Who was the Prime Minister of Bulgaria in July 2023?",
+    "expected_source": [
+      "2023-07-12.txt"
+    ],
+    "pipeline": {
+      "chunking": "semantic",
+      "representation": "bm25"
+    },
+    "k": 10,
+    "references": [
+      {
+        "corpus": "us",
+        "file_name": "2023-07-12.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-07-12.txt",
+        "start_char": 788,
+        "end_char": 1350,
+        "chunk_index": 1
+      },
+      {
+        "corpus": "us",
+        "file_name": "2024-06-03.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2024-06-03.txt",
+        "start_char": 776,
+        "end_char": 1163,
+        "chunk_index": 1
+      },
+      {
+        "corpus": "us",
+        "file_name": "2023-07-12.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-07-12.txt",
+        "start_char": 0,
+        "end_char": 787,
+        "chunk_index": 0
+      },
+      {
+        "corpus": "us",
+        "file_name": "2023-07-12.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-07-12.txt",
+        "start_char": 2648,
+        "end_char": 3187,
+        "chunk_index": 4
+      },
+      {
+        "corpus": "us",
+        "file_name": "2025-06-11.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2025-06-11.txt",
+        "start_char": 813,
+        "end_char": 1208,
+        "chunk_index": 1
+      },
+      {
+        "corpus": "us",
+        "file_name": "2024-06-03.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2024-06-03.txt",
+        "start_char": 1164,
+        "end_char": 1812,
+        "chunk_index": 2
+      },
+      {
+        "corpus": "us",
+        "file_name": "2024-06-03.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2024-06-03.txt",
+        "start_char": 5120,
+        "end_char": 5831,
+        "chunk_index": 6
+      },
+      {
+        "corpus": "us",
+        "file_name": "2024-06-03.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2024-06-03.txt",
+        "start_char": 2891,
+        "end_char": 3902,
+        "chunk_index": 4
+      },
+      {
+        "corpus": "us",
+        "file_name": "2023-07-26.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-07-26.txt",
+        "start_char": 14482,
+        "end_char": 14738,
+        "chunk_index": 31
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-10-14.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2024-10-14.txt",
+        "start_char": 41867,
+        "end_char": 42302,
+        "chunk_index": 86
+      }
+    ],
+    "answer": "The Prime Minister of Bulgaria in July 2023 was Nikolai Denkov [source: us:2023-07-12.txt [788,1350]]."
+  },
+  {
+    "query_type": "factual",
+    "query": "Who was the Prime Minister of Bulgaria in July 2023?",
+    "expected_source": [
+      "2023-07-12.txt"
+    ],
+    "pipeline": {
+      "chunking": "fixed",
+      "representation": "dense"
+    },
+    "k": 3,
+    "references": [
+      {
+        "corpus": "us",
+        "file_name": "2024-06-03.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2024-06-03.txt",
+        "start_char": 0,
+        "end_char": 4817,
+        "chunk_index": 0
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-02-28.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2024-02-28.txt",
+        "start_char": 30858,
+        "end_char": 34658,
+        "chunk_index": 9
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2023-06-28.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2023-06-28.txt",
+        "start_char": 60073,
+        "end_char": 63781,
+        "chunk_index": 17
+      }
+    ],
+    "answer": "I don't know based on the retrieved chunks."
+  },
+  {
+    "query_type": "factual",
+    "query": "Who was the Prime Minister of Bulgaria in July 2023?",
+    "expected_source": [
+      "2023-07-12.txt"
+    ],
+    "pipeline": {
+      "chunking": "fixed",
+      "representation": "dense"
+    },
+    "k": 5,
+    "references": [
+      {
+        "corpus": "us",
+        "file_name": "2024-06-03.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2024-06-03.txt",
+        "start_char": 0,
+        "end_char": 4817,
+        "chunk_index": 0
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-02-28.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2024-02-28.txt",
+        "start_char": 30858,
+        "end_char": 34658,
+        "chunk_index": 9
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2023-06-28.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2023-06-28.txt",
+        "start_char": 60073,
+        "end_char": 63781,
+        "chunk_index": 17
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2025-06-24.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2025-06-24.txt",
+        "start_char": 60224,
+        "end_char": 63955,
+        "chunk_index": 17
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-02-21.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2024-02-21.txt",
+        "start_char": 25370,
+        "end_char": 28872,
+        "chunk_index": 7
+      }
+    ],
+    "answer": "I don't know based on the retrieved chunks."
+  },
+  {
+    "query_type": "factual",
+    "query": "Who was the Prime Minister of Bulgaria in July 2023?",
+    "expected_source": [
+      "2023-07-12.txt"
+    ],
+    "pipeline": {
+      "chunking": "fixed",
+      "representation": "dense"
+    },
+    "k": 10,
+    "references": [
+      {
+        "corpus": "us",
+        "file_name": "2024-06-03.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2024-06-03.txt",
+        "start_char": 0,
+        "end_char": 4817,
+        "chunk_index": 0
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-02-28.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2024-02-28.txt",
+        "start_char": 30858,
+        "end_char": 34658,
+        "chunk_index": 9
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2023-06-28.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2023-06-28.txt",
+        "start_char": 60073,
+        "end_char": 63781,
+        "chunk_index": 17
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2025-06-24.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2025-06-24.txt",
+        "start_char": 60224,
+        "end_char": 63955,
+        "chunk_index": 17
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-02-21.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2024-02-21.txt",
+        "start_char": 25370,
+        "end_char": 28872,
+        "chunk_index": 7
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2025-10-15.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2025-10-15.txt",
+        "start_char": 24174,
+        "end_char": 28068,
+        "chunk_index": 7
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2025-02-26.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2025-02-26.txt",
+        "start_char": 53755,
+        "end_char": 57648,
+        "chunk_index": 16
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2025-07-09.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2025-07-09.txt",
+        "start_char": 38491,
+        "end_char": 42074,
+        "chunk_index": 11
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-10-30.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2024-10-30.txt",
+        "start_char": 35302,
+        "end_char": 38933,
+        "chunk_index": 10
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-03-20.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2024-03-20.txt",
+        "start_char": 31787,
+        "end_char": 35271,
+        "chunk_index": 9
+      }
+    ],
+    "answer": "I don't know based on the retrieved chunks."
+  },
+  {
+    "query_type": "factual",
+    "query": "Who was the Prime Minister of Bulgaria in July 2023?",
+    "expected_source": [
+      "2023-07-12.txt"
+    ],
+    "pipeline": {
+      "chunking": "semantic",
+      "representation": "dense"
+    },
+    "k": 3,
+    "references": [
+      {
+        "corpus": "us",
+        "file_name": "2023-07-12.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-07-12.txt",
+        "start_char": 788,
+        "end_char": 1350,
+        "chunk_index": 1
+      },
+      {
+        "corpus": "us",
+        "file_name": "2024-06-03.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2024-06-03.txt",
+        "start_char": 1813,
+        "end_char": 2890,
+        "chunk_index": 3
+      },
+      {
+        "corpus": "us",
+        "file_name": "2023-07-12.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-07-12.txt",
+        "start_char": 0,
+        "end_char": 787,
+        "chunk_index": 0
+      }
+    ],
+    "answer": "The Prime Minister of Bulgaria in July 2023 was Nikolai Denkov [source: us:2023-07-12.txt]."
+  },
+  {
+    "query_type": "factual",
+    "query": "Who was the Prime Minister of Bulgaria in July 2023?",
+    "expected_source": [
+      "2023-07-12.txt"
+    ],
+    "pipeline": {
+      "chunking": "semantic",
+      "representation": "dense"
+    },
+    "k": 5,
+    "references": [
+      {
+        "corpus": "us",
+        "file_name": "2023-07-12.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-07-12.txt",
+        "start_char": 788,
+        "end_char": 1350,
+        "chunk_index": 1
+      },
+      {
+        "corpus": "us",
+        "file_name": "2024-06-03.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2024-06-03.txt",
+        "start_char": 1813,
+        "end_char": 2890,
+        "chunk_index": 3
+      },
+      {
+        "corpus": "us",
+        "file_name": "2023-07-12.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-07-12.txt",
+        "start_char": 0,
+        "end_char": 787,
+        "chunk_index": 0
+      },
+      {
+        "corpus": "us",
+        "file_name": "2024-06-03.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2024-06-03.txt",
+        "start_char": 5120,
+        "end_char": 5831,
+        "chunk_index": 6
+      },
+      {
+        "corpus": "us",
+        "file_name": "2024-06-03.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2024-06-03.txt",
+        "start_char": 1164,
+        "end_char": 1812,
+        "chunk_index": 2
+      }
+    ],
+    "answer": "The Prime Minister of Bulgaria in July 2023 was Nikolai Denkov [source: us:2023-07-12.txt [788,1350]]."
+  },
+  {
+    "query_type": "factual",
+    "query": "Who was the Prime Minister of Bulgaria in July 2023?",
+    "expected_source": [
+      "2023-07-12.txt"
+    ],
+    "pipeline": {
+      "chunking": "semantic",
+      "representation": "dense"
+    },
+    "k": 10,
+    "references": [
+      {
+        "corpus": "us",
+        "file_name": "2023-07-12.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-07-12.txt",
+        "start_char": 788,
+        "end_char": 1350,
+        "chunk_index": 1
+      },
+      {
+        "corpus": "us",
+        "file_name": "2024-06-03.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2024-06-03.txt",
+        "start_char": 1813,
+        "end_char": 2890,
+        "chunk_index": 3
+      },
+      {
+        "corpus": "us",
+        "file_name": "2023-07-12.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-07-12.txt",
+        "start_char": 0,
+        "end_char": 787,
+        "chunk_index": 0
+      },
+      {
+        "corpus": "us",
+        "file_name": "2024-06-03.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2024-06-03.txt",
+        "start_char": 5120,
+        "end_char": 5831,
+        "chunk_index": 6
+      },
+      {
+        "corpus": "us",
+        "file_name": "2024-06-03.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2024-06-03.txt",
+        "start_char": 1164,
+        "end_char": 1812,
+        "chunk_index": 2
+      },
+      {
+        "corpus": "us",
+        "file_name": "2025-06-11.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2025-06-11.txt",
+        "start_char": 3341,
+        "end_char": 4109,
+        "chunk_index": 5
+      },
+      {
+        "corpus": "us",
+        "file_name": "2025-06-11.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2025-06-11.txt",
+        "start_char": 1210,
+        "end_char": 1967,
+        "chunk_index": 2
+      },
+      {
+        "corpus": "us",
+        "file_name": "2023-07-12.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-07-12.txt",
+        "start_char": 2648,
+        "end_char": 3187,
+        "chunk_index": 4
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2025-09-10.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2025-09-10.txt",
+        "start_char": 33669,
+        "end_char": 34008,
+        "chunk_index": 80
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-01-08.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2024-01-08.txt",
+        "start_char": 35336,
+        "end_char": 35913,
+        "chunk_index": 76
+      }
+    ],
+    "answer": "The Prime Minister of Bulgaria in July 2023 was Nikolai Denkov [source: us:2023-07-12.txt [788,1350]]."
+  },
+  {
+    "query_type": "factual",
+    "query": "What position does Christina L. Richards hold as of May 2025?",
+    "expected_source": [
+      "2025-05-07.txt",
+      "2025-05-08.txt",
+      "2025-05-12.txt"
+    ],
+    "pipeline": {
+      "chunking": "fixed",
+      "representation": "bm25"
+    },
+    "k": 3,
+    "references": [
+      {
+        "corpus": "us",
+        "file_name": "2025-05-07.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2025-05-07.txt",
+        "start_char": 0,
+        "end_char": 5198,
+        "chunk_index": 0
+      },
+      {
+        "corpus": "us",
+        "file_name": "2025-09-08.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2025-09-08.txt",
+        "start_char": 4400,
+        "end_char": 9146,
+        "chunk_index": 1
+      },
+      {
+        "corpus": "us",
+        "file_name": "2025-08-22.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2025-08-22.txt",
+        "start_char": 17515,
+        "end_char": 22013,
+        "chunk_index": 4
+      }
+    ],
+    "answer": "As of May 2025, Christina L. Richards holds the position of Executive Director of the Office of the Inspector General of the United States Strategic Command at Offutt Air Force Base, Nebraska [source: us:2025-05-07.txt]."
+  },
+  {
+    "query_type": "factual",
+    "query": "What position does Christina L. Richards hold as of May 2025?",
+    "expected_source": [
+      "2025-05-07.txt",
+      "2025-05-08.txt",
+      "2025-05-12.txt"
+    ],
+    "pipeline": {
+      "chunking": "fixed",
+      "representation": "bm25"
+    },
+    "k": 5,
+    "references": [
+      {
+        "corpus": "us",
+        "file_name": "2025-05-07.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2025-05-07.txt",
+        "start_char": 0,
+        "end_char": 5198,
+        "chunk_index": 0
+      },
+      {
+        "corpus": "us",
+        "file_name": "2025-09-08.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2025-09-08.txt",
+        "start_char": 4400,
+        "end_char": 9146,
+        "chunk_index": 1
+      },
+      {
+        "corpus": "us",
+        "file_name": "2025-08-22.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2025-08-22.txt",
+        "start_char": 17515,
+        "end_char": 22013,
+        "chunk_index": 4
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-01-09.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2024-01-09.txt",
+        "start_char": 44586,
+        "end_char": 48350,
+        "chunk_index": 13
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-10-16.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2024-10-16.txt",
+        "start_char": 89252,
+        "end_char": 93143,
+        "chunk_index": 26
+      }
+    ],
+    "answer": "As of May 2025, Christina L. Richards holds the position of Executive Director of the Office of the Inspector General of the United States Strategic Command at Offutt Air Force Base, Nebraska [source: us:2025-05-07.txt]."
+  },
+  {
+    "query_type": "factual",
+    "query": "What position does Christina L. Richards hold as of May 2025?",
+    "expected_source": [
+      "2025-05-07.txt",
+      "2025-05-08.txt",
+      "2025-05-12.txt"
+    ],
+    "pipeline": {
+      "chunking": "fixed",
+      "representation": "bm25"
+    },
+    "k": 10,
+    "references": [
+      {
+        "corpus": "us",
+        "file_name": "2025-05-07.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2025-05-07.txt",
+        "start_char": 0,
+        "end_char": 5198,
+        "chunk_index": 0
+      },
+      {
+        "corpus": "us",
+        "file_name": "2025-09-08.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2025-09-08.txt",
+        "start_char": 4400,
+        "end_char": 9146,
+        "chunk_index": 1
+      },
+      {
+        "corpus": "us",
+        "file_name": "2025-08-22.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2025-08-22.txt",
+        "start_char": 17515,
+        "end_char": 22013,
+        "chunk_index": 4
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-01-09.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2024-01-09.txt",
+        "start_char": 44586,
+        "end_char": 48350,
+        "chunk_index": 13
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-10-16.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2024-10-16.txt",
+        "start_char": 89252,
+        "end_char": 93143,
+        "chunk_index": 26
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-10-16.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2024-10-16.txt",
+        "start_char": 85865,
+        "end_char": 89713,
+        "chunk_index": 25
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2025-04-23.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2025-04-23.txt",
+        "start_char": 7014,
+        "end_char": 10849,
+        "chunk_index": 2
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2025-02-06.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2025-02-06.txt",
+        "start_char": 66259,
+        "end_char": 69962,
+        "chunk_index": 19
+      },
+      {
+        "corpus": "us",
+        "file_name": "2024-05-01.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2024-05-01.txt",
+        "start_char": 31384,
+        "end_char": 37223,
+        "chunk_index": 7
+      },
+      {
+        "corpus": "us",
+        "file_name": "2024-05-20.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2024-05-20.txt",
+        "start_char": 5078,
+        "end_char": 11259,
+        "chunk_index": 1
+      }
+    ],
+    "answer": "As of May 2025, Christina L. Richards holds the position of Executive Director of the Office of the Inspector General of the United States Strategic Command at Offutt Air Force Base, Nebraska [source: us:2025-05-07.txt]."
+  },
+  {
+    "query_type": "factual",
+    "query": "What position does Christina L. Richards hold as of May 2025?",
+    "expected_source": [
+      "2025-05-07.txt",
+      "2025-05-08.txt",
+      "2025-05-12.txt"
+    ],
+    "pipeline": {
+      "chunking": "semantic",
+      "representation": "bm25"
+    },
+    "k": 3,
+    "references": [
+      {
+        "corpus": "us",
+        "file_name": "2025-05-07.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2025-05-07.txt",
+        "start_char": 0,
+        "end_char": 105,
+        "chunk_index": 0
+      },
+      {
+        "corpus": "us",
+        "file_name": "2025-05-07.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2025-05-07.txt",
+        "start_char": 106,
+        "end_char": 801,
+        "chunk_index": 1
+      },
+      {
+        "corpus": "us",
+        "file_name": "2025-08-22.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2025-08-22.txt",
+        "start_char": 18244,
+        "end_char": 19048,
+        "chunk_index": 39
+      }
+    ],
+    "answer": "I don't know based on the retrieved chunks."
+  },
+  {
+    "query_type": "factual",
+    "query": "What position does Christina L. Richards hold as of May 2025?",
+    "expected_source": [
+      "2025-05-07.txt",
+      "2025-05-08.txt",
+      "2025-05-12.txt"
+    ],
+    "pipeline": {
+      "chunking": "semantic",
+      "representation": "bm25"
+    },
+    "k": 5,
+    "references": [
+      {
+        "corpus": "us",
+        "file_name": "2025-05-07.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2025-05-07.txt",
+        "start_char": 0,
+        "end_char": 105,
+        "chunk_index": 0
+      },
+      {
+        "corpus": "us",
+        "file_name": "2025-05-07.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2025-05-07.txt",
+        "start_char": 106,
+        "end_char": 801,
+        "chunk_index": 1
+      },
+      {
+        "corpus": "us",
+        "file_name": "2025-08-22.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2025-08-22.txt",
+        "start_char": 18244,
+        "end_char": 19048,
+        "chunk_index": 39
+      },
+      {
+        "corpus": "us",
+        "file_name": "2025-05-07.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2025-05-07.txt",
+        "start_char": 3109,
+        "end_char": 3877,
+        "chunk_index": 7
+      },
+      {
+        "corpus": "us",
+        "file_name": "2025-09-08.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2025-09-08.txt",
+        "start_char": 5794,
+        "end_char": 6371,
+        "chunk_index": 12
+      }
+    ],
+    "answer": "I don't know based on the retrieved chunks."
+  },
+  {
+    "query_type": "factual",
+    "query": "What position does Christina L. Richards hold as of May 2025?",
+    "expected_source": [
+      "2025-05-07.txt",
+      "2025-05-08.txt",
+      "2025-05-12.txt"
+    ],
+    "pipeline": {
+      "chunking": "semantic",
+      "representation": "bm25"
+    },
+    "k": 10,
+    "references": [
+      {
+        "corpus": "us",
+        "file_name": "2025-05-07.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2025-05-07.txt",
+        "start_char": 0,
+        "end_char": 105,
+        "chunk_index": 0
+      },
+      {
+        "corpus": "us",
+        "file_name": "2025-05-07.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2025-05-07.txt",
+        "start_char": 106,
+        "end_char": 801,
+        "chunk_index": 1
+      },
+      {
+        "corpus": "us",
+        "file_name": "2025-08-22.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2025-08-22.txt",
+        "start_char": 18244,
+        "end_char": 19048,
+        "chunk_index": 39
+      },
+      {
+        "corpus": "us",
+        "file_name": "2025-05-07.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2025-05-07.txt",
+        "start_char": 3109,
+        "end_char": 3877,
+        "chunk_index": 7
+      },
+      {
+        "corpus": "us",
+        "file_name": "2025-09-08.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2025-09-08.txt",
+        "start_char": 5794,
+        "end_char": 6371,
+        "chunk_index": 12
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-01-09.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2024-01-09.txt",
+        "start_char": 46693,
+        "end_char": 46960,
+        "chunk_index": 96
+      },
+      {
+        "corpus": "us",
+        "file_name": "2025-05-07.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2025-05-07.txt",
+        "start_char": 802,
+        "end_char": 900,
+        "chunk_index": 2
+      },
+      {
+        "corpus": "us",
+        "file_name": "2025-09-08.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2025-09-08.txt",
+        "start_char": 8319,
+        "end_char": 8655,
+        "chunk_index": 18
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2025-04-23.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2025-04-23.txt",
+        "start_char": 8337,
+        "end_char": 8557,
+        "chunk_index": 16
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-01-09.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\british_parliament_debates\\debates2024-01-09.txt",
+        "start_char": 46961,
+        "end_char": 47409,
+        "chunk_index": 97
+      }
+    ],
+    "answer": "I don't know based on the retrieved chunks."
+  },
+  {
+    "query_type": "factual",
+    "query": "What position does Christina L. Richards hold as of May 2025?",
+    "expected_source": [
+      "2025-05-07.txt",
+      "2025-05-08.txt",
+      "2025-05-12.txt"
+    ],
+    "pipeline": {
+      "chunking": "fixed",
+      "representation": "dense"
+    },
+    "k": 3,
+    "references": [
+      {
+        "corpus": "us",
+        "file_name": "2025-04-09.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2025-04-09.txt",
+        "start_char": 13551,
+        "end_char": 18589,
+        "chunk_index": 3
+      },
+      {
+        "corpus": "us",
+        "file_name": "2025-05-07.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2025-05-07.txt",
+        "start_char": 0,
+        "end_char": 5198,
+        "chunk_index": 0
+      },
+      {
+        "corpus": "us",
+        "file_name": "2025-10-08.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2025-10-08.txt",
+        "start_char": 0,
+        "end_char": 5116,
+        "chunk_index": 0
+      }
+    ],
+    "answer": "As of May 2025, Christina L. Richards holds the position of Executive Director of the Office of the Inspector General of the United States Strategic Command at Offutt Air Force Base, Nebraska [source: us:2025-05-07.txt]."
+  },
+  {
+    "query_type": "factual",
+    "query": "What position does Christina L. Richards hold as of May 2025?",
+    "expected_source": [
+      "2025-05-07.txt",
+      "2025-05-08.txt",
+      "2025-05-12.txt"
+    ],
+    "pipeline": {
+      "chunking": "fixed",
+      "representation": "dense"
+    },
+    "k": 5,
+    "references": [
+      {
+        "corpus": "us",
+        "file_name": "2025-04-09.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2025-04-09.txt",
+        "start_char": 13551,
+        "end_char": 18589,
+        "chunk_index": 3
+      },
+      {
+        "corpus": "us",
+        "file_name": "2025-05-07.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2025-05-07.txt",
+        "start_char": 0,
+        "end_char": 5198,
+        "chunk_index": 0
+      },
+      {
+        "corpus": "us",
+        "file_name": "2025-10-08.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2025-10-08.txt",
+        "start_char": 0,
+        "end_char": 5116,
+        "chunk_index": 0
+      },
+      {
+        "corpus": "us",
+        "file_name": "2024-11-22.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2024-11-22.txt",
+        "start_char": 8967,
+        "end_char": 13419,
+        "chunk_index": 2
+      },
+      {
+        "corpus": "us",
+        "file_name": "2025-06-06.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2025-06-06.txt",
+        "start_char": 0,
+        "end_char": 5111,
+        "chunk_index": 0
+      }
+    ],
+    "answer": "As of May 2025, Christina L. Richards holds the position of Executive Director of the Office of the Inspector General of the United States Strategic Command at Offutt Air Force Base, Nebraska [source: us:2025-05-07.txt]."
+  },
+  {
+    "query_type": "factual",
+    "query": "What position does Christina L. Richards hold as of May 2025?",
+    "expected_source": [
+      "2025-05-07.txt",
+      "2025-05-08.txt",
+      "2025-05-12.txt"
+    ],
+    "pipeline": {
+      "chunking": "fixed",
+      "representation": "dense"
+    },
+    "k": 10,
+    "references": [
+      {
+        "corpus": "us",
+        "file_name": "2025-04-09.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2025-04-09.txt",
+        "start_char": 13551,
+        "end_char": 18589,
+        "chunk_index": 3
+      },
+      {
+        "corpus": "us",
+        "file_name": "2025-05-07.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2025-05-07.txt",
+        "start_char": 0,
+        "end_char": 5198,
+        "chunk_index": 0
+      },
+      {
+        "corpus": "us",
+        "file_name": "2025-10-08.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2025-10-08.txt",
+        "start_char": 0,
+        "end_char": 5116,
+        "chunk_index": 0
+      },
+      {
+        "corpus": "us",
+        "file_name": "2024-11-22.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2024-11-22.txt",
+        "start_char": 8967,
+        "end_char": 13419,
+        "chunk_index": 2
+      },
+      {
+        "corpus": "us",
+        "file_name": "2025-06-06.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2025-06-06.txt",
+        "start_char": 0,
+        "end_char": 5111,
+        "chunk_index": 0
+      },
+      {
+        "corpus": "us",
+        "file_name": "2024-07-08.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2024-07-08.txt",
+        "start_char": 8137,
+        "end_char": 13126,
+        "chunk_index": 2
+      },
+      {
+        "corpus": "us",
+        "file_name": "2025-07-29.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2025-07-29.txt",
+        "start_char": 13065,
+        "end_char": 18440,
+        "chunk_index": 3
+      },
+      {
+        "corpus": "us",
+        "file_name": "2025-10-08.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2025-10-08.txt",
+        "start_char": 4955,
+        "end_char": 9917,
+        "chunk_index": 1
+      },
+      {
+        "corpus": "us",
+        "file_name": "2023-07-13.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-07-13.txt",
+        "start_char": 26492,
+        "end_char": 31038,
+        "chunk_index": 6
+      },
+      {
+        "corpus": "us",
+        "file_name": "2023-10-13.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-10-13.txt",
+        "start_char": 5193,
+        "end_char": 9952,
+        "chunk_index": 1
+      }
+    ],
+    "answer": "As of May 2025, Christina L. Richards holds the position of Executive Director of the Office of the Inspector General of the United States Strategic Command at Offutt Air Force Base, Nebraska [source: us:2025-05-07.txt]."
+  },
+  {
+    "query_type": "factual",
+    "query": "What position does Christina L. Richards hold as of May 2025?",
+    "expected_source": [
+      "2025-05-07.txt",
+      "2025-05-08.txt",
+      "2025-05-12.txt"
+    ],
+    "pipeline": {
+      "chunking": "semantic",
+      "representation": "dense"
+    },
+    "k": 3,
+    "references": [
+      {
+        "corpus": "us",
+        "file_name": "2025-05-07.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2025-05-07.txt",
+        "start_char": 0,
+        "end_char": 105,
+        "chunk_index": 0
+      },
+      {
+        "corpus": "us",
+        "file_name": "2025-05-07.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2025-05-07.txt",
+        "start_char": 3109,
+        "end_char": 3877,
+        "chunk_index": 7
+      },
+      {
+        "corpus": "us",
+        "file_name": "2025-05-07.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2025-05-07.txt",
+        "start_char": 106,
+        "end_char": 801,
+        "chunk_index": 1
+      }
+    ],
+    "answer": "I don't know based on the retrieved chunks."
+  },
+  {
+    "query_type": "factual",
+    "query": "What position does Christina L. Richards hold as of May 2025?",
+    "expected_source": [
+      "2025-05-07.txt",
+      "2025-05-08.txt",
+      "2025-05-12.txt"
+    ],
+    "pipeline": {
+      "chunking": "semantic",
+      "representation": "dense"
+    },
+    "k": 5,
+    "references": [
+      {
+        "corpus": "us",
+        "file_name": "2025-05-07.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2025-05-07.txt",
+        "start_char": 0,
+        "end_char": 105,
+        "chunk_index": 0
+      },
+      {
+        "corpus": "us",
+        "file_name": "2025-05-07.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2025-05-07.txt",
+        "start_char": 3109,
+        "end_char": 3877,
+        "chunk_index": 7
+      },
+      {
+        "corpus": "us",
+        "file_name": "2025-05-07.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2025-05-07.txt",
+        "start_char": 106,
+        "end_char": 801,
+        "chunk_index": 1
+      },
+      {
+        "corpus": "us",
+        "file_name": "2025-05-07.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2025-05-07.txt",
+        "start_char": 901,
+        "end_char": 1469,
+        "chunk_index": 3
+      },
+      {
+        "corpus": "us",
+        "file_name": "2025-05-07.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2025-05-07.txt",
+        "start_char": 1833,
+        "end_char": 2377,
+        "chunk_index": 5
+      }
+    ],
+    "answer": "As of May 2025, Christina L. Richards holds the position of Executive Director of the Office of the Inspector General of the United States Strategic Command at Offutt Air Force Base, Nebraska [source: us:2025-05-07.txt [901,1469]]."
+  },
+  {
+    "query_type": "factual",
+    "query": "What position does Christina L. Richards hold as of May 2025?",
+    "expected_source": [
+      "2025-05-07.txt",
+      "2025-05-08.txt",
+      "2025-05-12.txt"
+    ],
+    "pipeline": {
+      "chunking": "semantic",
+      "representation": "dense"
+    },
+    "k": 10,
+    "references": [
+      {
+        "corpus": "us",
+        "file_name": "2025-05-07.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2025-05-07.txt",
+        "start_char": 0,
+        "end_char": 105,
+        "chunk_index": 0
+      },
+      {
+        "corpus": "us",
+        "file_name": "2025-05-07.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2025-05-07.txt",
+        "start_char": 3109,
+        "end_char": 3877,
+        "chunk_index": 7
+      },
+      {
+        "corpus": "us",
+        "file_name": "2025-05-07.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2025-05-07.txt",
+        "start_char": 106,
+        "end_char": 801,
+        "chunk_index": 1
+      },
+      {
+        "corpus": "us",
+        "file_name": "2025-05-07.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2025-05-07.txt",
+        "start_char": 901,
+        "end_char": 1469,
+        "chunk_index": 3
+      },
+      {
+        "corpus": "us",
+        "file_name": "2025-05-07.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2025-05-07.txt",
+        "start_char": 1833,
+        "end_char": 2377,
+        "chunk_index": 5
+      },
+      {
+        "corpus": "us",
+        "file_name": "2025-09-08.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2025-09-08.txt",
+        "start_char": 7391,
+        "end_char": 7739,
+        "chunk_index": 16
+      },
+      {
+        "corpus": "us",
+        "file_name": "2025-05-07.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2025-05-07.txt",
+        "start_char": 2380,
+        "end_char": 3106,
+        "chunk_index": 6
+      },
+      {
+        "corpus": "us",
+        "file_name": "2025-05-07.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2025-05-07.txt",
+        "start_char": 802,
+        "end_char": 900,
+        "chunk_index": 2
+      },
+      {
+        "corpus": "us",
+        "file_name": "2025-05-07.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2025-05-07.txt",
+        "start_char": 1470,
+        "end_char": 1832,
+        "chunk_index": 4
+      },
+      {
+        "corpus": "us",
+        "file_name": "2023-10-25.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-10-25.txt",
+        "start_char": 19090,
+        "end_char": 19775,
+        "chunk_index": 31
+      }
+    ],
+    "answer": "As of May 2025, Christina L. Richards holds the position of Executive Director of the Office of the Inspector General of the United States Strategic Command at Offutt Air Force Base, Nebraska [source: us:2025-05-07.txt [901,1469]]."
+  },
+  {
+    "query_type": "factual",
+    "query": "Which Senate committees were scheduled to meet in December 2023?",
+    "expected_source": [
+      "2023-12-18.txt",
+      "2023-12-22.txt"
+    ],
+    "pipeline": {
+      "chunking": "fixed",
+      "representation": "bm25"
+    },
+    "k": 3,
+    "references": [
+      {
+        "corpus": "us",
+        "file_name": "2023-12-18.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-12-18.txt",
+        "start_char": 0,
+        "end_char": 1689,
+        "chunk_index": 0
+      },
+      {
+        "corpus": "us",
+        "file_name": "2023-12-13.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-12-13.txt",
+        "start_char": 18527,
+        "end_char": 21252,
+        "chunk_index": 4
+      },
+      {
+        "corpus": "us",
+        "file_name": "2023-11-29.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-11-29.txt",
+        "start_char": 22862,
+        "end_char": 27212,
+        "chunk_index": 5
+      }
+    ],
+    "answer": "The Senate committee scheduled to meet in December 2023 is the Committee on Foreign Relations, which is set to hold hearings on December 20, 2023, to examine the future of arms control and deterrence at 10 a.m. in SD-419 [source: us:2023-12-18.txt]."
+  },
+  {
+    "query_type": "factual",
+    "query": "Which Senate committees were scheduled to meet in December 2023?",
+    "expected_source": [
+      "2023-12-18.txt",
+      "2023-12-22.txt"
+    ],
+    "pipeline": {
+      "chunking": "fixed",
+      "representation": "bm25"
+    },
+    "k": 5,
+    "references": [
+      {
+        "corpus": "us",
+        "file_name": "2023-12-18.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-12-18.txt",
+        "start_char": 0,
+        "end_char": 1689,
+        "chunk_index": 0
+      },
+      {
+        "corpus": "us",
+        "file_name": "2023-12-13.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-12-13.txt",
+        "start_char": 18527,
+        "end_char": 21252,
+        "chunk_index": 4
+      },
+      {
+        "corpus": "us",
+        "file_name": "2023-11-29.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-11-29.txt",
+        "start_char": 22862,
+        "end_char": 27212,
+        "chunk_index": 5
+      },
+      {
+        "corpus": "us",
+        "file_name": "2023-12-06.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-12-06.txt",
+        "start_char": 31218,
+        "end_char": 35984,
+        "chunk_index": 7
+      },
+      {
+        "corpus": "us",
+        "file_name": "2023-12-07.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-12-07.txt",
+        "start_char": 0,
+        "end_char": 6197,
+        "chunk_index": 0
+      }
+    ],
+    "answer": "The Senate committee scheduled to meet in December 2023 is the Committee on Foreign Relations, which is set to hold hearings on December 20, 2023, to examine the future of arms control and deterrence [source: us:2023-12-18.txt]."
+  },
+  {
+    "query_type": "factual",
+    "query": "Which Senate committees were scheduled to meet in December 2023?",
+    "expected_source": [
+      "2023-12-18.txt",
+      "2023-12-22.txt"
+    ],
+    "pipeline": {
+      "chunking": "fixed",
+      "representation": "bm25"
+    },
+    "k": 10,
+    "references": [
+      {
+        "corpus": "us",
+        "file_name": "2023-12-18.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-12-18.txt",
+        "start_char": 0,
+        "end_char": 1689,
+        "chunk_index": 0
+      },
+      {
+        "corpus": "us",
+        "file_name": "2023-12-13.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-12-13.txt",
+        "start_char": 18527,
+        "end_char": 21252,
+        "chunk_index": 4
+      },
+      {
+        "corpus": "us",
+        "file_name": "2023-11-29.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-11-29.txt",
+        "start_char": 22862,
+        "end_char": 27212,
+        "chunk_index": 5
+      },
+      {
+        "corpus": "us",
+        "file_name": "2023-12-06.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-12-06.txt",
+        "start_char": 31218,
+        "end_char": 35984,
+        "chunk_index": 7
+      },
+      {
+        "corpus": "us",
+        "file_name": "2023-12-07.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-12-07.txt",
+        "start_char": 0,
+        "end_char": 6197,
+        "chunk_index": 0
+      },
+      {
+        "corpus": "us",
+        "file_name": "2023-12-04.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-12-04.txt",
+        "start_char": 26311,
+        "end_char": 32466,
+        "chunk_index": 6
+      },
+      {
+        "corpus": "us",
+        "file_name": "2023-10-04.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-10-04.txt",
+        "start_char": 0,
+        "end_char": 1385,
+        "chunk_index": 0
+      },
+      {
+        "corpus": "us",
+        "file_name": "2023-12-11.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-12-11.txt",
+        "start_char": 52692,
+        "end_char": 57842,
+        "chunk_index": 12
+      },
+      {
+        "corpus": "us",
+        "file_name": "2024-12-04.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2024-12-04.txt",
+        "start_char": 32048,
+        "end_char": 35474,
+        "chunk_index": 7
+      },
+      {
+        "corpus": "us",
+        "file_name": "2024-12-02.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2024-12-02.txt",
+        "start_char": 0,
+        "end_char": 4087,
+        "chunk_index": 0
+      }
+    ],
+    "answer": "The Senate committees scheduled to meet in December 2023 include:\n\n- **December 5**:\n  - Committee on Finance\n  - Committee on the Judiciary\n  - Select Committee on Intelligence\n  - Committee on Banking, Housing, and Urban Affairs\n  - Committee on Environment and Public Works\n  - Committee on Foreign Relations\n  - Committee on Homeland Security and Governmental Affairs\n  - Committee on Indian Affairs\n  - Committee on Armed Services\n\n- **December 6**:\n  - Committee on Banking, Housing, and Urban Affairs\n  - Committee on Environment and Public Works\n  - Committee on Foreign Relations\n  - Committee on Homeland Security and Governmental Affairs\n  - Select Committee on Intelligence\n  - Committee on Armed Services\n\n- **December 12**:\n  - Committee on Appropriations\n  - Committee on Health, Education, Labor, and Pensions\n  - Committee on Homeland Security and Governmental Affairs\n  - Committee on the Judiciary\n  - Committee on Energy and Natural Resources\n  - Committee on Foreign Relations\n  - Committee on Rules and Administration\n\n- **December 13**:\n  - Committee on the Judiciary\n  - Committee on Commerce, Science, and Transportation\n  - Select Committee on Intelligence\n\n- **December 14**:\n  - Committee on Energy and Natural Resources\n\n- **December 20**:\n  - Committee on Foreign Relations\n\nThese meetings cover various topics, including drug shortages, oversight of the FBI, arms control, and more [sources: us:2023-12-04.txt, us:2023-12-06.txt, us:2023-12-11.txt, us:2023-12-18.txt]."
+  },
+  {
+    "query_type": "factual",
+    "query": "Which Senate committees were scheduled to meet in December 2023?",
+    "expected_source": [
+      "2023-12-18.txt",
+      "2023-12-22.txt"
+    ],
+    "pipeline": {
+      "chunking": "semantic",
+      "representation": "bm25"
+    },
+    "k": 3,
+    "references": [
+      {
+        "corpus": "us",
+        "file_name": "2023-12-11.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-12-11.txt",
+        "start_char": 54281,
+        "end_char": 55017,
+        "chunk_index": 106
+      },
+      {
+        "corpus": "us",
+        "file_name": "2023-12-13.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-12-13.txt",
+        "start_char": 20306,
+        "end_char": 21042,
+        "chunk_index": 41
+      },
+      {
+        "corpus": "us",
+        "file_name": "2024-12-11.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2024-12-11.txt",
+        "start_char": 34636,
+        "end_char": 35389,
+        "chunk_index": 76
+      }
+    ],
+    "answer": "I don't know based on the retrieved chunks."
+  },
+  {
+    "query_type": "factual",
+    "query": "Which Senate committees were scheduled to meet in December 2023?",
+    "expected_source": [
+      "2023-12-18.txt",
+      "2023-12-22.txt"
+    ],
+    "pipeline": {
+      "chunking": "semantic",
+      "representation": "bm25"
+    },
+    "k": 5,
+    "references": [
+      {
+        "corpus": "us",
+        "file_name": "2023-12-11.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-12-11.txt",
+        "start_char": 54281,
+        "end_char": 55017,
+        "chunk_index": 106
+      },
+      {
+        "corpus": "us",
+        "file_name": "2023-12-13.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-12-13.txt",
+        "start_char": 20306,
+        "end_char": 21042,
+        "chunk_index": 41
+      },
+      {
+        "corpus": "us",
+        "file_name": "2024-12-11.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2024-12-11.txt",
+        "start_char": 34636,
+        "end_char": 35389,
+        "chunk_index": 76
+      },
+      {
+        "corpus": "us",
+        "file_name": "2023-10-16.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-10-16.txt",
+        "start_char": 12174,
+        "end_char": 13584,
+        "chunk_index": 22
+      },
+      {
+        "corpus": "us",
+        "file_name": "2023-11-13.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-11-13.txt",
+        "start_char": 18337,
+        "end_char": 19752,
+        "chunk_index": 36
+      }
+    ],
+    "answer": "I don't know based on the retrieved chunks."
+  },
+  {
+    "query_type": "factual",
+    "query": "Which Senate committees were scheduled to meet in December 2023?",
+    "expected_source": [
+      "2023-12-18.txt",
+      "2023-12-22.txt"
+    ],
+    "pipeline": {
+      "chunking": "semantic",
+      "representation": "bm25"
+    },
+    "k": 10,
+    "references": [
+      {
+        "corpus": "us",
+        "file_name": "2023-12-11.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-12-11.txt",
+        "start_char": 54281,
+        "end_char": 55017,
+        "chunk_index": 106
+      },
+      {
+        "corpus": "us",
+        "file_name": "2023-12-13.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-12-13.txt",
+        "start_char": 20306,
+        "end_char": 21042,
+        "chunk_index": 41
+      },
+      {
+        "corpus": "us",
+        "file_name": "2024-12-11.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2024-12-11.txt",
+        "start_char": 34636,
+        "end_char": 35389,
+        "chunk_index": 76
+      },
+      {
+        "corpus": "us",
+        "file_name": "2023-10-16.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-10-16.txt",
+        "start_char": 12174,
+        "end_char": 13584,
+        "chunk_index": 22
+      },
+      {
+        "corpus": "us",
+        "file_name": "2023-11-13.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-11-13.txt",
+        "start_char": 18337,
+        "end_char": 19752,
+        "chunk_index": 36
+      },
+      {
+        "corpus": "us",
+        "file_name": "2023-11-15.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-11-15.txt",
+        "start_char": 27281,
+        "end_char": 28587,
+        "chunk_index": 51
+      },
+      {
+        "corpus": "us",
+        "file_name": "2023-11-06.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-11-06.txt",
+        "start_char": 33031,
+        "end_char": 33764,
+        "chunk_index": 59
+      },
+      {
+        "corpus": "us",
+        "file_name": "2024-12-18.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2024-12-18.txt",
+        "start_char": 32276,
+        "end_char": 33582,
+        "chunk_index": 60
+      },
+      {
+        "corpus": "us",
+        "file_name": "2023-11-27.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-11-27.txt",
+        "start_char": 0,
+        "end_char": 998,
+        "chunk_index": 0
+      },
+      {
+        "corpus": "us",
+        "file_name": "2023-12-18.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-12-18.txt",
+        "start_char": 0,
+        "end_char": 998,
+        "chunk_index": 0
+      }
+    ],
+    "answer": "I don't know based on the retrieved chunks."
+  },
+  {
+    "query_type": "factual",
+    "query": "Which Senate committees were scheduled to meet in December 2023?",
+    "expected_source": [
+      "2023-12-18.txt",
+      "2023-12-22.txt"
+    ],
+    "pipeline": {
+      "chunking": "fixed",
+      "representation": "dense"
+    },
+    "k": 3,
+    "references": [
+      {
+        "corpus": "us",
+        "file_name": "2023-12-18.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-12-18.txt",
+        "start_char": 0,
+        "end_char": 1689,
+        "chunk_index": 0
+      },
+      {
+        "corpus": "us",
+        "file_name": "2023-12-06.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-12-06.txt",
+        "start_char": 35506,
+        "end_char": 39944,
+        "chunk_index": 8
+      },
+      {
+        "corpus": "us",
+        "file_name": "2024-12-16.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2024-12-16.txt",
+        "start_char": 28360,
+        "end_char": 30281,
+        "chunk_index": 6
+      }
+    ],
+    "answer": "The Senate committees scheduled to meet in December 2023 include:\n\n- **December 12**:\n  - Committee on Appropriations, Subcommittee on Transportation, Housing and Urban Development, and Related Agencies\n  - Committee on Health, Education, Labor, and Pensions\n  - Committee on Homeland Security and Governmental Affairs, Permanent Subcommittee on Investigations\n  - Committee on the Judiciary\n  - Committee on Energy and Natural Resources, Subcommittee on Public Lands, Forests, and Mining\n  - Committee on Foreign Relations\n  - Select Committee on Intelligence\n  - Committee on Rules and Administration\n\n- **December 13**:\n  - Committee on the Judiciary\n  - Committee on Commerce, Science, and Transportation, Subcommittee on Space and Science\n  - Select Committee on Intelligence\n\n- **December 18**:\n  - Committee on Banking, Housing, and Urban Affairs\n  - Committee on the Budget\n  - Committee on Finance\n  - Committee on the Judiciary, Subcommittee on Intellectual Property\n  - Select Committee on Intelligence\n  - Joint Economic Committee\n\n- **December 20**:\n  - Committee on Foreign Relations [sources: us:2023-12-06.txt, us:2023-12-18.txt]."
+  },
+  {
+    "query_type": "factual",
+    "query": "Which Senate committees were scheduled to meet in December 2023?",
+    "expected_source": [
+      "2023-12-18.txt",
+      "2023-12-22.txt"
+    ],
+    "pipeline": {
+      "chunking": "fixed",
+      "representation": "dense"
+    },
+    "k": 5,
+    "references": [
+      {
+        "corpus": "us",
+        "file_name": "2023-12-18.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-12-18.txt",
+        "start_char": 0,
+        "end_char": 1689,
+        "chunk_index": 0
+      },
+      {
+        "corpus": "us",
+        "file_name": "2023-12-06.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-12-06.txt",
+        "start_char": 35506,
+        "end_char": 39944,
+        "chunk_index": 8
+      },
+      {
+        "corpus": "us",
+        "file_name": "2024-12-16.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2024-12-16.txt",
+        "start_char": 28360,
+        "end_char": 30281,
+        "chunk_index": 6
+      },
+      {
+        "corpus": "us",
+        "file_name": "2023-11-27.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-11-27.txt",
+        "start_char": 0,
+        "end_char": 6068,
+        "chunk_index": 0
+      },
+      {
+        "corpus": "us",
+        "file_name": "2024-12-02.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2024-12-02.txt",
+        "start_char": 0,
+        "end_char": 4087,
+        "chunk_index": 0
+      }
+    ],
+    "answer": "The Senate committees scheduled to meet in December 2023 include:\n\n- **December 12**:\n  - Committee on Appropriations\n  - Committee on Health, Education, Labor, and Pensions\n  - Committee on Homeland Security and Governmental Affairs\n  - Committee on the Judiciary\n  - Committee on Energy and Natural Resources\n  - Committee on Foreign Relations\n  - Select Committee on Intelligence\n  - Committee on Rules and Administration\n\n- **December 13**:\n  - Committee on the Judiciary\n  - Committee on Commerce, Science, and Transportation\n  - Select Committee on Intelligence\n\n- **December 20**:\n  - Committee on Foreign Relations [sources: us:2023-12-06.txt, us:2023-12-18.txt]."
+  },
+  {
+    "query_type": "factual",
+    "query": "Which Senate committees were scheduled to meet in December 2023?",
+    "expected_source": [
+      "2023-12-18.txt",
+      "2023-12-22.txt"
+    ],
+    "pipeline": {
+      "chunking": "fixed",
+      "representation": "dense"
+    },
+    "k": 10,
+    "references": [
+      {
+        "corpus": "us",
+        "file_name": "2023-12-18.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-12-18.txt",
+        "start_char": 0,
+        "end_char": 1689,
+        "chunk_index": 0
+      },
+      {
+        "corpus": "us",
+        "file_name": "2023-12-06.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-12-06.txt",
+        "start_char": 35506,
+        "end_char": 39944,
+        "chunk_index": 8
+      },
+      {
+        "corpus": "us",
+        "file_name": "2024-12-16.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2024-12-16.txt",
+        "start_char": 28360,
+        "end_char": 30281,
+        "chunk_index": 6
+      },
+      {
+        "corpus": "us",
+        "file_name": "2023-11-27.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-11-27.txt",
+        "start_char": 0,
+        "end_char": 6068,
+        "chunk_index": 0
+      },
+      {
+        "corpus": "us",
+        "file_name": "2024-12-02.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2024-12-02.txt",
+        "start_char": 0,
+        "end_char": 4087,
+        "chunk_index": 0
+      },
+      {
+        "corpus": "us",
+        "file_name": "2024-05-20.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2024-05-20.txt",
+        "start_char": 5078,
+        "end_char": 11259,
+        "chunk_index": 1
+      },
+      {
+        "corpus": "us",
+        "file_name": "2025-04-30.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2025-04-30.txt",
+        "start_char": 40255,
+        "end_char": 44363,
+        "chunk_index": 9
+      },
+      {
+        "corpus": "us",
+        "file_name": "2024-09-23.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2024-09-23.txt",
+        "start_char": 40708,
+        "end_char": 45653,
+        "chunk_index": 9
+      },
+      {
+        "corpus": "us",
+        "file_name": "2023-09-06.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-09-06.txt",
+        "start_char": 0,
+        "end_char": 5538,
+        "chunk_index": 0
+      },
+      {
+        "corpus": "us",
+        "file_name": "2023-11-13.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-11-13.txt",
+        "start_char": 26360,
+        "end_char": 28261,
+        "chunk_index": 6
+      }
+    ],
+    "answer": "The Senate committees scheduled to meet in December 2023 include:\n\n- **December 12, 2023**:\n  - Committee on Appropriations (Subcommittee on Transportation, Housing and Urban Development, and Related Agencies)\n  - Committee on Health, Education, Labor, and Pensions\n  - Committee on Homeland Security and Governmental Affairs (Permanent Subcommittee on Investigations)\n  - Committee on the Judiciary\n  - Committee on Energy and Natural Resources (Subcommittee on Public Lands, Forests, and Mining)\n  - Committee on Foreign Relations\n  - Select Committee on Intelligence\n  - Committee on Rules and Administration\n\n- **December 13, 2023**:\n  - Committee on the Judiciary\n  - Committee on Commerce, Science, and Transportation (Subcommittee on Space and Science)\n  - Select Committee on Intelligence\n\n- **December 20, 2023**:\n  - Committee on Foreign Relations [sources: us:2023-12-06.txt, us:2023-12-18.txt]."
+  },
+  {
+    "query_type": "factual",
+    "query": "Which Senate committees were scheduled to meet in December 2023?",
+    "expected_source": [
+      "2023-12-18.txt",
+      "2023-12-22.txt"
+    ],
+    "pipeline": {
+      "chunking": "semantic",
+      "representation": "dense"
+    },
+    "k": 3,
+    "references": [
+      {
+        "corpus": "us",
+        "file_name": "2023-12-11.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-12-11.txt",
+        "start_char": 54281,
+        "end_char": 55017,
+        "chunk_index": 106
+      },
+      {
+        "corpus": "us",
+        "file_name": "2023-12-13.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-12-13.txt",
+        "start_char": 20306,
+        "end_char": 21042,
+        "chunk_index": 41
+      },
+      {
+        "corpus": "us",
+        "file_name": "2024-12-11.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2024-12-11.txt",
+        "start_char": 34636,
+        "end_char": 35389,
+        "chunk_index": 76
+      }
+    ],
+    "answer": "I don't know based on the retrieved chunks."
+  },
+  {
+    "query_type": "factual",
+    "query": "Which Senate committees were scheduled to meet in December 2023?",
+    "expected_source": [
+      "2023-12-18.txt",
+      "2023-12-22.txt"
+    ],
+    "pipeline": {
+      "chunking": "semantic",
+      "representation": "dense"
+    },
+    "k": 5,
+    "references": [
+      {
+        "corpus": "us",
+        "file_name": "2023-12-11.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-12-11.txt",
+        "start_char": 54281,
+        "end_char": 55017,
+        "chunk_index": 106
+      },
+      {
+        "corpus": "us",
+        "file_name": "2023-12-13.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-12-13.txt",
+        "start_char": 20306,
+        "end_char": 21042,
+        "chunk_index": 41
+      },
+      {
+        "corpus": "us",
+        "file_name": "2024-12-11.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2024-12-11.txt",
+        "start_char": 34636,
+        "end_char": 35389,
+        "chunk_index": 76
+      },
+      {
+        "corpus": "us",
+        "file_name": "2023-12-04.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-12-04.txt",
+        "start_char": 27343,
+        "end_char": 27958,
+        "chunk_index": 48
+      },
+      {
+        "corpus": "us",
+        "file_name": "2024-12-02.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2024-12-02.txt",
+        "start_char": 1001,
+        "end_char": 1674,
+        "chunk_index": 1
+      }
+    ],
+    "answer": "I don't know based on the retrieved chunks."
+  },
+  {
+    "query_type": "factual",
+    "query": "Which Senate committees were scheduled to meet in December 2023?",
+    "expected_source": [
+      "2023-12-18.txt",
+      "2023-12-22.txt"
+    ],
+    "pipeline": {
+      "chunking": "semantic",
+      "representation": "dense"
+    },
+    "k": 10,
+    "references": [
+      {
+        "corpus": "us",
+        "file_name": "2023-12-11.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-12-11.txt",
+        "start_char": 54281,
+        "end_char": 55017,
+        "chunk_index": 106
+      },
+      {
+        "corpus": "us",
+        "file_name": "2023-12-13.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-12-13.txt",
+        "start_char": 20306,
+        "end_char": 21042,
+        "chunk_index": 41
+      },
+      {
+        "corpus": "us",
+        "file_name": "2024-12-11.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2024-12-11.txt",
+        "start_char": 34636,
+        "end_char": 35389,
+        "chunk_index": 76
+      },
+      {
+        "corpus": "us",
+        "file_name": "2023-12-04.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-12-04.txt",
+        "start_char": 27343,
+        "end_char": 27958,
+        "chunk_index": 48
+      },
+      {
+        "corpus": "us",
+        "file_name": "2024-12-02.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2024-12-02.txt",
+        "start_char": 1001,
+        "end_char": 1674,
+        "chunk_index": 1
+      },
+      {
+        "corpus": "us",
+        "file_name": "2023-12-18.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-12-18.txt",
+        "start_char": 1001,
+        "end_char": 1609,
+        "chunk_index": 1
+      },
+      {
+        "corpus": "us",
+        "file_name": "2023-11-06.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-11-06.txt",
+        "start_char": 33031,
+        "end_char": 33764,
+        "chunk_index": 59
+      },
+      {
+        "corpus": "us",
+        "file_name": "2023-12-06.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-12-06.txt",
+        "start_char": 35506,
+        "end_char": 36273,
+        "chunk_index": 72
+      },
+      {
+        "corpus": "us",
+        "file_name": "2023-12-07.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-12-07.txt",
+        "start_char": 1000,
+        "end_char": 1767,
+        "chunk_index": 1
+      },
+      {
+        "corpus": "us",
+        "file_name": "2024-12-18.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2024-12-18.txt",
+        "start_char": 32276,
+        "end_char": 33582,
+        "chunk_index": 60
+      }
+    ],
+    "answer": "The Senate committees scheduled to meet in December 2023 include:\n\n- **December 6**: Committee on Banking, Housing, and Urban Affairs, to hold an oversight hearing to examine Wall Street firms.\n- **December 12**: Committee on Appropriations, Subcommittee on Transportation, Housing and Urban Development, and Related Agencies, to hold hearings to examine communities in crisis, focusing on what happens when disaster recovery funds are delayed.\n- **December 13**: Specific committee meetings are not detailed in the provided context.\n- **December 20**: Committee on Foreign Relations, to hold hearings to examine the future of arms control and deterrence.\n\nOther meetings may be scheduled, but the details for December 13 are not provided in the retrieved chunks. [us:2023-12-04.txt, us:2023-12-06.txt, us:2023-12-12.txt, us:2023-12-20.txt]"
+  },
+  {
+    "query_type": "factual",
+    "query": "Who delivered the commemorative remarks on December 22, 2023 regarding the City of Richmond Heights?",
+    "expected_source": [
+      "2023-12-22.txt"
+    ],
+    "pipeline": {
+      "chunking": "fixed",
+      "representation": "bm25"
+    },
+    "k": 3,
+    "references": [
+      {
+        "corpus": "us",
+        "file_name": "2023-12-22.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-12-22.txt",
+        "start_char": 0,
+        "end_char": 5310,
+        "chunk_index": 0
+      },
+      {
+        "corpus": "us",
+        "file_name": "2023-12-11.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-12-11.txt",
+        "start_char": 34759,
+        "end_char": 39738,
+        "chunk_index": 8
+      },
+      {
+        "corpus": "us",
+        "file_name": "2023-08-11.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-08-11.txt",
+        "start_char": 34915,
+        "end_char": 39887,
+        "chunk_index": 8
+      }
+    ],
+    "answer": "The commemorative remarks regarding the City of Richmond Heights on December 22, 2023, were delivered by Hon. Cori Bush, a representative from Missouri. [us:2023-12-22.txt [0,5310]]"
+  },
+  {
+    "query_type": "factual",
+    "query": "Who delivered the commemorative remarks on December 22, 2023 regarding the City of Richmond Heights?",
+    "expected_source": [
+      "2023-12-22.txt"
+    ],
+    "pipeline": {
+      "chunking": "fixed",
+      "representation": "bm25"
+    },
+    "k": 5,
+    "references": [
+      {
+        "corpus": "us",
+        "file_name": "2023-12-22.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-12-22.txt",
+        "start_char": 0,
+        "end_char": 5310,
+        "chunk_index": 0
+      },
+      {
+        "corpus": "us",
+        "file_name": "2023-12-11.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-12-11.txt",
+        "start_char": 34759,
+        "end_char": 39738,
+        "chunk_index": 8
+      },
+      {
+        "corpus": "us",
+        "file_name": "2023-08-11.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-08-11.txt",
+        "start_char": 34915,
+        "end_char": 39887,
+        "chunk_index": 8
+      },
+      {
+        "corpus": "us",
+        "file_name": "2023-10-10.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-10-10.txt",
+        "start_char": 9738,
+        "end_char": 14573,
+        "chunk_index": 2
+      },
+      {
+        "corpus": "us",
+        "file_name": "2023-11-21.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-11-21.txt",
+        "start_char": 31304,
+        "end_char": 36027,
+        "chunk_index": 7
+      }
+    ],
+    "answer": "The commemorative remarks regarding the City of Richmond Heights on December 22, 2023, were delivered by Hon. Cori Bush, a representative from Missouri. [us:2023-12-22.txt [0,5310]]"
+  },
+  {
+    "query_type": "factual",
+    "query": "Who delivered the commemorative remarks on December 22, 2023 regarding the City of Richmond Heights?",
+    "expected_source": [
+      "2023-12-22.txt"
+    ],
+    "pipeline": {
+      "chunking": "fixed",
+      "representation": "bm25"
+    },
+    "k": 10,
+    "references": [
+      {
+        "corpus": "us",
+        "file_name": "2023-12-22.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-12-22.txt",
+        "start_char": 0,
+        "end_char": 5310,
+        "chunk_index": 0
+      },
+      {
+        "corpus": "us",
+        "file_name": "2023-12-11.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-12-11.txt",
+        "start_char": 34759,
+        "end_char": 39738,
+        "chunk_index": 8
+      },
+      {
+        "corpus": "us",
+        "file_name": "2023-08-11.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-08-11.txt",
+        "start_char": 34915,
+        "end_char": 39887,
+        "chunk_index": 8
+      },
+      {
+        "corpus": "us",
+        "file_name": "2023-10-10.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-10-10.txt",
+        "start_char": 9738,
+        "end_char": 14573,
+        "chunk_index": 2
+      },
+      {
+        "corpus": "us",
+        "file_name": "2023-11-21.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-11-21.txt",
+        "start_char": 31304,
+        "end_char": 36027,
+        "chunk_index": 7
+      },
+      {
+        "corpus": "us",
+        "file_name": "2023-11-06.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-11-06.txt",
+        "start_char": 4608,
+        "end_char": 9182,
+        "chunk_index": 1
+      },
+      {
+        "corpus": "us",
+        "file_name": "2023-12-11.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-12-11.txt",
+        "start_char": 30358,
+        "end_char": 34960,
+        "chunk_index": 7
+      },
+      {
+        "corpus": "us",
+        "file_name": "2023-11-06.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-11-06.txt",
+        "start_char": 0,
+        "end_char": 5056,
+        "chunk_index": 0
+      },
+      {
+        "corpus": "us",
+        "file_name": "2023-12-07.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-12-07.txt",
+        "start_char": 29345,
+        "end_char": 34297,
+        "chunk_index": 6
+      },
+      {
+        "corpus": "us",
+        "file_name": "2023-12-22.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-12-22.txt",
+        "start_char": 18615,
+        "end_char": 23351,
+        "chunk_index": 4
+      }
+    ],
+    "answer": "The commemorative remarks regarding the City of Richmond Heights on December 22, 2023, were delivered by Hon. Cori Bush, a representative from Missouri. [us:2023-12-22.txt [0,5310]]"
+  },
+  {
+    "query_type": "factual",
+    "query": "Who delivered the commemorative remarks on December 22, 2023 regarding the City of Richmond Heights?",
+    "expected_source": [
+      "2023-12-22.txt"
+    ],
+    "pipeline": {
+      "chunking": "semantic",
+      "representation": "bm25"
+    },
+    "k": 3,
+    "references": [
+      {
+        "corpus": "us",
+        "file_name": "2023-12-22.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-12-22.txt",
+        "start_char": 0,
+        "end_char": 779,
+        "chunk_index": 0
+      },
+      {
+        "corpus": "us",
+        "file_name": "2023-12-22.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-12-22.txt",
+        "start_char": 780,
+        "end_char": 934,
+        "chunk_index": 1
+      },
+      {
+        "corpus": "us",
+        "file_name": "2023-12-22.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-12-22.txt",
+        "start_char": 935,
+        "end_char": 1372,
+        "chunk_index": 2
+      }
+    ],
+    "answer": "The commemorative remarks regarding the City of Richmond Heights on December 22, 2023, were delivered by Hon. Cori Bush of Missouri in the House of Representatives [source: us:2023-12-22.txt]."
+  },
+  {
+    "query_type": "factual",
+    "query": "Who delivered the commemorative remarks on December 22, 2023 regarding the City of Richmond Heights?",
+    "expected_source": [
+      "2023-12-22.txt"
+    ],
+    "pipeline": {
+      "chunking": "semantic",
+      "representation": "bm25"
+    },
+    "k": 5,
+    "references": [
+      {
+        "corpus": "us",
+        "file_name": "2023-12-22.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-12-22.txt",
+        "start_char": 0,
+        "end_char": 779,
+        "chunk_index": 0
+      },
+      {
+        "corpus": "us",
+        "file_name": "2023-12-22.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-12-22.txt",
+        "start_char": 780,
+        "end_char": 934,
+        "chunk_index": 1
+      },
+      {
+        "corpus": "us",
+        "file_name": "2023-12-22.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-12-22.txt",
+        "start_char": 935,
+        "end_char": 1372,
+        "chunk_index": 2
+      },
+      {
+        "corpus": "us",
+        "file_name": "2023-12-22.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-12-22.txt",
+        "start_char": 1373,
+        "end_char": 1527,
+        "chunk_index": 3
+      },
+      {
+        "corpus": "us",
+        "file_name": "2023-12-11.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-12-11.txt",
+        "start_char": 35366,
+        "end_char": 35749,
+        "chunk_index": 73
+      }
+    ],
+    "answer": "The commemorative remarks regarding the City of Richmond Heights on December 22, 2023, were delivered by Hon. Cori Bush of Missouri in the House of Representatives [source: us:2023-12-22.txt]."
+  },
+  {
+    "query_type": "factual",
+    "query": "Who delivered the commemorative remarks on December 22, 2023 regarding the City of Richmond Heights?",
+    "expected_source": [
+      "2023-12-22.txt"
+    ],
+    "pipeline": {
+      "chunking": "semantic",
+      "representation": "bm25"
+    },
+    "k": 10,
+    "references": [
+      {
+        "corpus": "us",
+        "file_name": "2023-12-22.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-12-22.txt",
+        "start_char": 0,
+        "end_char": 779,
+        "chunk_index": 0
+      },
+      {
+        "corpus": "us",
+        "file_name": "2023-12-22.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-12-22.txt",
+        "start_char": 780,
+        "end_char": 934,
+        "chunk_index": 1
+      },
+      {
+        "corpus": "us",
+        "file_name": "2023-12-22.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-12-22.txt",
+        "start_char": 935,
+        "end_char": 1372,
+        "chunk_index": 2
+      },
+      {
+        "corpus": "us",
+        "file_name": "2023-12-22.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-12-22.txt",
+        "start_char": 1373,
+        "end_char": 1527,
+        "chunk_index": 3
+      },
+      {
+        "corpus": "us",
+        "file_name": "2023-12-11.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-12-11.txt",
+        "start_char": 35366,
+        "end_char": 35749,
+        "chunk_index": 73
+      },
+      {
+        "corpus": "us",
+        "file_name": "2023-12-22.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-12-22.txt",
+        "start_char": 16400,
+        "end_char": 17098,
+        "chunk_index": 36
+      },
+      {
+        "corpus": "us",
+        "file_name": "2023-12-22.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-12-22.txt",
+        "start_char": 29008,
+        "end_char": 29720,
+        "chunk_index": 63
+      },
+      {
+        "corpus": "us",
+        "file_name": "2023-12-22.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-12-22.txt",
+        "start_char": 25161,
+        "end_char": 25454,
+        "chunk_index": 54
+      },
+      {
+        "corpus": "us",
+        "file_name": "2023-12-22.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-12-22.txt",
+        "start_char": 21529,
+        "end_char": 21824,
+        "chunk_index": 47
+      },
+      {
+        "corpus": "us",
+        "file_name": "2023-12-22.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-12-22.txt",
+        "start_char": 1804,
+        "end_char": 2476,
+        "chunk_index": 5
+      }
+    ],
+    "answer": "The commemorative remarks regarding the City of Richmond Heights on December 22, 2023, were delivered by Hon. Cori Bush, a representative from Missouri. [source: us:2023-12-22.txt]"
+  },
+  {
+    "query_type": "factual",
+    "query": "Who delivered the commemorative remarks on December 22, 2023 regarding the City of Richmond Heights?",
+    "expected_source": [
+      "2023-12-22.txt"
+    ],
+    "pipeline": {
+      "chunking": "fixed",
+      "representation": "dense"
+    },
+    "k": 3,
+    "references": [
+      {
+        "corpus": "us",
+        "file_name": "2025-07-16.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2025-07-16.txt",
+        "start_char": 0,
+        "end_char": 4897,
+        "chunk_index": 0
+      },
+      {
+        "corpus": "us",
+        "file_name": "2024-07-30.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2024-07-30.txt",
+        "start_char": 28263,
+        "end_char": 29833,
+        "chunk_index": 6
+      },
+      {
+        "corpus": "us",
+        "file_name": "2024-12-20.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2024-12-20.txt",
+        "start_char": 44670,
+        "end_char": 48149,
+        "chunk_index": 8
+      }
+    ],
+    "answer": "I don't know based on the retrieved chunks."
+  },
+  {
+    "query_type": "factual",
+    "query": "Who delivered the commemorative remarks on December 22, 2023 regarding the City of Richmond Heights?",
+    "expected_source": [
+      "2023-12-22.txt"
+    ],
+    "pipeline": {
+      "chunking": "fixed",
+      "representation": "dense"
+    },
+    "k": 5,
+    "references": [
+      {
+        "corpus": "us",
+        "file_name": "2025-07-16.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2025-07-16.txt",
+        "start_char": 0,
+        "end_char": 4897,
+        "chunk_index": 0
+      },
+      {
+        "corpus": "us",
+        "file_name": "2024-07-30.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2024-07-30.txt",
+        "start_char": 28263,
+        "end_char": 29833,
+        "chunk_index": 6
+      },
+      {
+        "corpus": "us",
+        "file_name": "2024-12-20.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2024-12-20.txt",
+        "start_char": 44670,
+        "end_char": 48149,
+        "chunk_index": 8
+      },
+      {
+        "corpus": "us",
+        "file_name": "2023-11-15.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-11-15.txt",
+        "start_char": 27954,
+        "end_char": 31942,
+        "chunk_index": 6
+      },
+      {
+        "corpus": "us",
+        "file_name": "2024-06-05.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2024-06-05.txt",
+        "start_char": 4775,
+        "end_char": 9816,
+        "chunk_index": 1
+      }
+    ],
+    "answer": "I don't know based on the retrieved chunks."
+  },
+  {
+    "query_type": "factual",
+    "query": "Who delivered the commemorative remarks on December 22, 2023 regarding the City of Richmond Heights?",
+    "expected_source": [
+      "2023-12-22.txt"
+    ],
+    "pipeline": {
+      "chunking": "fixed",
+      "representation": "dense"
+    },
+    "k": 10,
+    "references": [
+      {
+        "corpus": "us",
+        "file_name": "2025-07-16.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2025-07-16.txt",
+        "start_char": 0,
+        "end_char": 4897,
+        "chunk_index": 0
+      },
+      {
+        "corpus": "us",
+        "file_name": "2024-07-30.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2024-07-30.txt",
+        "start_char": 28263,
+        "end_char": 29833,
+        "chunk_index": 6
+      },
+      {
+        "corpus": "us",
+        "file_name": "2024-12-20.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2024-12-20.txt",
+        "start_char": 44670,
+        "end_char": 48149,
+        "chunk_index": 8
+      },
+      {
+        "corpus": "us",
+        "file_name": "2023-11-15.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-11-15.txt",
+        "start_char": 27954,
+        "end_char": 31942,
+        "chunk_index": 6
+      },
+      {
+        "corpus": "us",
+        "file_name": "2024-06-05.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2024-06-05.txt",
+        "start_char": 4775,
+        "end_char": 9816,
+        "chunk_index": 1
+      },
+      {
+        "corpus": "us",
+        "file_name": "2023-10-26.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-10-26.txt",
+        "start_char": 0,
+        "end_char": 4813,
+        "chunk_index": 0
+      },
+      {
+        "corpus": "us",
+        "file_name": "2024-07-30.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2024-07-30.txt",
+        "start_char": 23294,
+        "end_char": 28519,
+        "chunk_index": 5
+      },
+      {
+        "corpus": "us",
+        "file_name": "2023-11-03.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-11-03.txt",
+        "start_char": 3950,
+        "end_char": 8820,
+        "chunk_index": 1
+      },
+      {
+        "corpus": "us",
+        "file_name": "2023-10-06.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-10-06.txt",
+        "start_char": 38688,
+        "end_char": 43011,
+        "chunk_index": 9
+      },
+      {
+        "corpus": "us",
+        "file_name": "2024-02-26.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2024-02-26.txt",
+        "start_char": 23686,
+        "end_char": 25432,
+        "chunk_index": 5
+      }
+    ],
+    "answer": "I don't know based on the retrieved chunks."
+  },
+  {
+    "query_type": "factual",
+    "query": "Who delivered the commemorative remarks on December 22, 2023 regarding the City of Richmond Heights?",
+    "expected_source": [
+      "2023-12-22.txt"
+    ],
+    "pipeline": {
+      "chunking": "semantic",
+      "representation": "dense"
+    },
+    "k": 3,
+    "references": [
+      {
+        "corpus": "us",
+        "file_name": "2023-12-22.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-12-22.txt",
+        "start_char": 0,
+        "end_char": 779,
+        "chunk_index": 0
+      },
+      {
+        "corpus": "us",
+        "file_name": "2023-12-22.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-12-22.txt",
+        "start_char": 780,
+        "end_char": 934,
+        "chunk_index": 1
+      },
+      {
+        "corpus": "us",
+        "file_name": "2023-12-22.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-12-22.txt",
+        "start_char": 1804,
+        "end_char": 2476,
+        "chunk_index": 5
+      }
+    ],
+    "answer": "The commemorative remarks regarding the City of Richmond Heights on December 22, 2023, were delivered by Hon. Cori Bush, a representative from Missouri. [source: us:2023-12-22.txt]"
+  },
+  {
+    "query_type": "factual",
+    "query": "Who delivered the commemorative remarks on December 22, 2023 regarding the City of Richmond Heights?",
+    "expected_source": [
+      "2023-12-22.txt"
+    ],
+    "pipeline": {
+      "chunking": "semantic",
+      "representation": "dense"
+    },
+    "k": 5,
+    "references": [
+      {
+        "corpus": "us",
+        "file_name": "2023-12-22.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-12-22.txt",
+        "start_char": 0,
+        "end_char": 779,
+        "chunk_index": 0
+      },
+      {
+        "corpus": "us",
+        "file_name": "2023-12-22.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-12-22.txt",
+        "start_char": 780,
+        "end_char": 934,
+        "chunk_index": 1
+      },
+      {
+        "corpus": "us",
+        "file_name": "2023-12-22.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-12-22.txt",
+        "start_char": 1804,
+        "end_char": 2476,
+        "chunk_index": 5
+      },
+      {
+        "corpus": "us",
+        "file_name": "2023-12-22.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-12-22.txt",
+        "start_char": 935,
+        "end_char": 1372,
+        "chunk_index": 2
+      },
+      {
+        "corpus": "us",
+        "file_name": "2023-12-22.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-12-22.txt",
+        "start_char": 1373,
+        "end_char": 1527,
+        "chunk_index": 3
+      }
+    ],
+    "answer": "The commemorative remarks regarding the City of Richmond Heights on December 22, 2023, were delivered by Hon. Cori Bush, a representative from Missouri. [source: us:2023-12-22.txt]"
+  },
+  {
+    "query_type": "factual",
+    "query": "Who delivered the commemorative remarks on December 22, 2023 regarding the City of Richmond Heights?",
+    "expected_source": [
+      "2023-12-22.txt"
+    ],
+    "pipeline": {
+      "chunking": "semantic",
+      "representation": "dense"
+    },
+    "k": 10,
+    "references": [
+      {
+        "corpus": "us",
+        "file_name": "2023-12-22.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-12-22.txt",
+        "start_char": 0,
+        "end_char": 779,
+        "chunk_index": 0
+      },
+      {
+        "corpus": "us",
+        "file_name": "2023-12-22.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-12-22.txt",
+        "start_char": 780,
+        "end_char": 934,
+        "chunk_index": 1
+      },
+      {
+        "corpus": "us",
+        "file_name": "2023-12-22.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-12-22.txt",
+        "start_char": 1804,
+        "end_char": 2476,
+        "chunk_index": 5
+      },
+      {
+        "corpus": "us",
+        "file_name": "2023-12-22.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-12-22.txt",
+        "start_char": 935,
+        "end_char": 1372,
+        "chunk_index": 2
+      },
+      {
+        "corpus": "us",
+        "file_name": "2023-12-22.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-12-22.txt",
+        "start_char": 1373,
+        "end_char": 1527,
+        "chunk_index": 3
+      },
+      {
+        "corpus": "us",
+        "file_name": "2025-07-16.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2025-07-16.txt",
+        "start_char": 3137,
+        "end_char": 3440,
+        "chunk_index": 6
+      },
+      {
+        "corpus": "us",
+        "file_name": "2025-07-16.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2025-07-16.txt",
+        "start_char": 2362,
+        "end_char": 3136,
+        "chunk_index": 5
+      },
+      {
+        "corpus": "us",
+        "file_name": "2025-07-16.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2025-07-16.txt",
+        "start_char": 6047,
+        "end_char": 6775,
+        "chunk_index": 11
+      },
+      {
+        "corpus": "us",
+        "file_name": "2024-03-21.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2024-03-21.txt",
+        "start_char": 32050,
+        "end_char": 32455,
+        "chunk_index": 65
+      },
+      {
+        "corpus": "us",
+        "file_name": "2023-12-15.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise3\\..\\excercise2\\data\\US_congress_debates\\2023-12-15.txt",
+        "start_char": 30366,
+        "end_char": 30659,
+        "chunk_index": 69
+      }
+    ],
+    "answer": "The commemorative remarks regarding the City of Richmond Heights on December 22, 2023, were delivered by Hon. Cori Bush, a representative from Missouri. [source: us:2023-12-22.txt]"
+  }
+]
