@@ -50,7 +50,7 @@ In this project we implemented semantic chunking, an embedding-based segmentatio
 
 **Rationale**:
 
-We chose 0.62 because it is a commonly used mid-range cosine-similarity cutoff for Sentence-Transformer embeddings, and it matched our data by separating clear discourse shifts without fragmenting coherent argument spans
+We chose 0.62 because it is a commonly used mid-range cosine-similarity cutoff for Sentence-Transformer embeddings: SBERT, and it matched our data by separating clear discourse shifts without fragmenting coherent argument spans
 
 * Values **above 0.62** → Strong semantic continuity (e.g., elaboration or clarification of the same idea)
 * Values **below 0.6** → Topic changes, speaker shifts, or transitions between different arguments
