@@ -1,0 +1,10 @@
+{
+  "name": "semantic",
+  "total_chunks_seen": 87860,
+  "total_with_year": 87860,
+  "counts_by_year": {
+    "2023": 17204,
+    "2024": 38451,
+    "2025": 32205
+  }
+}

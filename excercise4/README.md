@@ -141,3 +141,13 @@ Across all three failures, the baseline RAG system demonstrates that:
 
 As a result, documents from incorrect years may override time-relevant evidence, leading to confident but temporally incorrect answers.  
 These failures motivate the need for temporal filtering, re-ranking, or explicit time-aware reasoning mechanisms in later stages.
+
+
+stage2:
+metadata for chuncking:
+save 2 date format, tradeoff:
+we pay in offline for online.
+indexex go 1 time, but any time we retreive and need to .. 
+ew will nedd to pay in converting the data format.
+so we use 2 format: 1 for claculation, 1 for viusulaization:
+pay in place for run time.

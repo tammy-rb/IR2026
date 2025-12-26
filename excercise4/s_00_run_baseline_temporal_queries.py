@@ -1,5 +1,5 @@
 """
-s_01_run_baseline_temporal_queries.py
+s_00_run_baseline_temporal_queries.py
 
 Exercise 4 - Stage 1 (Baseline failures):
 Run the existing Exercise 3 LLM runner *without any temporal mechanism*,
@@ -11,36 +11,22 @@ This script does NOT change retrieval, indexing, or ranking logic.
 
 from __future__ import annotations
 
-import os
 import subprocess
+import os
 
-# -----------------------------
-# Adjust these paths if needed
-# -----------------------------
-
-# Path to Exercise 3 runner
-EX3_RUNNER_PATH = os.path.abspath(
-    os.path.join(os.path.dirname(__file__), "..", "excercise3", "s_03_RAG_llm_runner.py")
+from paths import (
+    EXERCISE3_DIR,
+    TEMPORAL_QUERIES_JSON,
+    STAGE1_DIR,
+    ensure_dirs,
 )
 
-# Path to the temporal queries.json (inside Exercise 4)
-QUERIES_JSON_PATH = os.path.abspath(
-    os.path.join(os.path.dirname(__file__), "queries", "temporal_queries.json")
-)
-
-# Where Exercise 4 will keep baseline outputs (Stage 1 artifacts)
-EX4_OUT_DIR = os.path.abspath(
-    os.path.join(os.path.dirname(__file__), "outputs", "stage1_baseline_runs")
-)
+# Path to Exercise 3 runner script
+EX3_RUNNER_PATH = EXERCISE3_DIR / "s_03_RAG_llm_runner.py"
 
 DEFAULT_KS = (3, 5, 10)
 DEFAULT_LLM_MODEL = "gpt-4o-mini"
 DEFAULT_TEMPERATURE = 0.0
-
-
-def ensure_dir(path: str) -> None:
-    """Create directory if it does not exist."""
-    os.makedirs(path, exist_ok=True)
 
 
 def run_ex3_runner(
@@ -80,7 +66,6 @@ def run_ex3_runner(
 
     print("▶ Running:", " ".join(cmd))
 
-    # Force UTF-8 in the child process (prevents emoji/unicode console issues on Windows)
     env = os.environ.copy()
     env["PYTHONUTF8"] = "1"
 
@@ -92,7 +77,6 @@ def run_ex3_runner(
         env=env,
     )
 
-    # Print logs for traceability
     if completed.stdout.strip():
         print(completed.stdout)
     if completed.stderr.strip():
@@ -103,20 +87,20 @@ def run_ex3_runner(
 
 
 def main() -> None:
-    ensure_dir(EX4_OUT_DIR)
+    ensure_dirs()
 
-    if not os.path.isfile(EX3_RUNNER_PATH):
+    if not EX3_RUNNER_PATH.is_file():
         raise FileNotFoundError(f"Exercise 3 runner not found: {EX3_RUNNER_PATH}")
 
-    if not os.path.isfile(QUERIES_JSON_PATH):
-        raise FileNotFoundError(f"Temporal queries not found: {QUERIES_JSON_PATH}")
+    if not TEMPORAL_QUERIES_JSON.is_file():
+        raise FileNotFoundError(f"Temporal queries not found: {TEMPORAL_QUERIES_JSON}")
 
     k1, k2, k3 = DEFAULT_KS
 
     run_ex3_runner(
-        runner_path=EX3_RUNNER_PATH,
-        queries_json=QUERIES_JSON_PATH,
-        out_dir=EX4_OUT_DIR,
+        runner_path=str(EX3_RUNNER_PATH),
+        queries_json=str(TEMPORAL_QUERIES_JSON),
+        out_dir=str(STAGE1_DIR),
         k1=k1,
         k2=k2,
         k3=k3,
@@ -125,7 +109,7 @@ def main() -> None:
     )
 
     print("✅ Baseline temporal run completed.")
-    print("📁 Results written to:", EX4_OUT_DIR)
+    print("📁 Results written to:", STAGE1_DIR)
 
 
 if __name__ == "__main__":
