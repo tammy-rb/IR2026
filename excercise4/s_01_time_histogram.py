@@ -35,6 +35,7 @@ import matplotlib
 matplotlib.use('Agg')  # Use non-interactive backend
 import matplotlib.pyplot as plt
 
+from models.chunk import Chunk
 from paths import CHUNKS_DIR, TIME_HIST_DIR, ensure_dirs
 
 
@@ -61,33 +62,38 @@ class TimeHistogramBuilder:
     # ---------- Reading ----------
 
     @staticmethod
-    def read_jsonl_stream(path: Path) -> Iterable[Dict[str, Any]]:
+    def read_chunks_stream(path: Path) -> Iterable[Chunk]:
+        """Stream-read validated `Chunk` objects from a JSONL file."""
+        if not path.is_file():
+            raise FileNotFoundError(str(path))
+
         with path.open("r", encoding="utf-8") as f:
-            for line in f:
+            for line_no, line in enumerate(f, 1):
                 line = line.strip()
-                if line:
-                    yield json.loads(line)
+                if not line:
+                    continue
+                try:
+                    yield Chunk.from_dict(json.loads(line))
+                except Exception as e:
+                    raise ValueError(f"Invalid chunk in {path.name} at line {line_no}: {e}") from e
 
     # ---------- Year extraction ----------
 
     @staticmethod
-    def _year_from_chunk_dict(c: Dict[str, Any]) -> Optional[int]:
-        """
-        Extract year from chunk metadata.
+    def _year_from_chunk(c: Chunk) -> Optional[int]:
+        """Extract year from chunk metadata.
+
         Prefer doc_date_iso, fallback to doc_timestamp.
         """
-        iso = c.get("doc_date_iso")
-        if iso:
-            # Expect "YYYY-MM-DD"
+        if c.doc_date_iso:
             try:
-                return int(str(iso)[:4])
+                return int(str(c.doc_date_iso)[:4])
             except Exception:
                 pass
 
-        ts = c.get("doc_timestamp")
-        if ts is not None:
+        if c.doc_timestamp is not None:
             try:
-                return datetime.fromtimestamp(int(ts), tz=timezone.utc).year
+                return datetime.fromtimestamp(int(c.doc_timestamp), tz=timezone.utc).year
             except Exception:
                 pass
 
@@ -101,9 +107,9 @@ class TimeHistogramBuilder:
         counts: Counter = Counter()
         total = 0
 
-        for c in self.read_jsonl_stream(jsonl_path):
+        for c in self.read_chunks_stream(jsonl_path):
             total += 1
-            y = self._year_from_chunk_dict(c)
+            y = self._year_from_chunk(c)
             if y is not None:
                 counts[y] += 1
 

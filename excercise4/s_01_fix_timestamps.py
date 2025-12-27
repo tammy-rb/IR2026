@@ -23,76 +23,45 @@ Run:
 
 from __future__ import annotations
 
-import json
+from dataclasses import replace
 from pathlib import Path
-from typing import Any, Dict, List
+from typing import List
 
+from models.chunk import Chunk
 from paths import CHUNKS_DIR
 from utils.time_utils import timestamp_from_path
 
-
-def read_jsonl(path: Path) -> List[Dict[str, Any]]:
-    """
-    Load a JSONL file into a list of dictionaries.
-    
-    Args:
-        path: Path to a JSONL file.
-    
-    Returns:
-        List of parsed JSON objects (dicts).
-    """
-    items: List[Dict[str, Any]] = []
-    with path.open("r", encoding="utf-8") as f:
-        for line in f:
-            line = line.strip()
-            if line:
-                items.append(json.loads(line))
-    return items
-
-
-def write_jsonl(chunks: List[Dict[str, Any]], path: Path) -> None:
-    """
-    Write a list of chunk dicts to a JSONL file.
-    
-    Args:
-        chunks: List of chunk dictionaries.
-        path: Output JSONL file path.
-    """
-    with path.open("w", encoding="utf-8") as f:
-        for chunk in chunks:
-            f.write(json.dumps(chunk, ensure_ascii=False) + "\n")
-
-
-def fix_timestamps_in_chunks(chunks: List[Dict[str, Any]]) -> int:
+def fix_timestamps_in_chunks(chunks: List[Chunk]) -> tuple[List[Chunk], int]:
     """
     Fix missing temporal metadata in chunks by extracting from source_path.
     
-    Args:
-        chunks: List of chunk dictionaries.
-    
     Returns:
-        Number of chunks that were updated.
+        (updated_chunks, updated_count)
     """
     updated_count = 0
-    
-    for chunk in chunks:
-        # Check if temporal fields are missing or None
-        needs_fix = (
-            chunk.get("doc_date_iso") is None 
-            or chunk.get("doc_timestamp") is None
+    updated_chunks: List[Chunk] = []
+
+    for c in chunks:
+        needs_fix = (c.doc_date_iso is None) or (c.doc_timestamp is None)
+        if not needs_fix:
+            updated_chunks.append(c)
+            continue
+
+        iso_date, timestamp = timestamp_from_path(c.source_path)
+        if iso_date is None or timestamp is None:
+            updated_chunks.append(c)
+            continue
+
+        updated_chunks.append(
+            replace(
+                c,
+                doc_date_iso=iso_date,
+                doc_timestamp=timestamp,
+            )
         )
-        
-        if needs_fix:
-            source_path = chunk.get("source_path", "")
-            if source_path:
-                iso_date, timestamp = timestamp_from_path(source_path)
-                
-                if iso_date is not None and timestamp is not None:
-                    chunk["doc_date_iso"] = iso_date
-                    chunk["doc_timestamp"] = timestamp
-                    updated_count += 1
-    
-    return updated_count
+        updated_count += 1
+
+    return updated_chunks, updated_count
 
 
 def process_jsonl_file(jsonl_path: Path) -> None:
@@ -110,16 +79,16 @@ def process_jsonl_file(jsonl_path: Path) -> None:
     print("-" * 70)
     
     # Read chunks
-    chunks = read_jsonl(jsonl_path)
+    chunks = Chunk.read_jsonl(jsonl_path)
     total = len(chunks)
     print(f"  📄 Total chunks: {total}")
     
     # Fix timestamps
-    updated = fix_timestamps_in_chunks(chunks)
+    chunks, updated = fix_timestamps_in_chunks(chunks)
     print(f"  🔧 Updated chunks: {updated}")
     
     # Write back
-    write_jsonl(chunks, jsonl_path)
+    Chunk.write_jsonl(chunks, jsonl_path)
     print(f"  ✅ Saved to: {jsonl_path}")
 
 

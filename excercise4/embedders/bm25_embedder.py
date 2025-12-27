@@ -136,7 +136,7 @@ class BM25Embedder(BaseEmbedder):
         Args:
             chunks_jsonl: Path to chunks JSONL file.
         """
-        chunks = self.read_jsonl(chunks_jsonl)
+        chunks = self.read_chunks(chunks_jsonl)
         if not chunks:
             raise ValueError(f"No chunks found in: {chunks_jsonl}")
         
@@ -144,7 +144,7 @@ class BM25Embedder(BaseEmbedder):
         meta: List[Dict[str, Any]] = []
         
         for c in chunks:
-            docs.append(c["text"])
+            docs.append(c.text)
             meta.append(self.extract_metadata(c))
         
         print(f"Building BM25 index for {len(docs)} chunks...")

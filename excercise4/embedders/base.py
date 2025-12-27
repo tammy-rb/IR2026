@@ -16,6 +16,8 @@ from abc import ABC, abstractmethod
 from pathlib import Path
 from typing import Any, Dict, Iterator, List
 
+from models.chunk import Chunk
+
 
 class BaseEmbedder(ABC):
     """
@@ -36,63 +38,40 @@ class BaseEmbedder(ABC):
         self.output_dir.mkdir(parents=True, exist_ok=True)
     
     @staticmethod
-    def read_jsonl(path: Path) -> List[Dict[str, Any]]:
-        """
-        Load a JSONL file into a list of dictionaries.
-        
-        Args:
-            path: Path to a JSONL file.
-        
-        Returns:
-            List of parsed JSON objects (dicts).
-        """
-        items: List[Dict[str, Any]] = []
-        with path.open("r", encoding="utf-8") as f:
-            for line in f:
-                line = line.strip()
-                if line:
-                    items.append(json.loads(line))
-        return items
+    def read_chunks(path: Path) -> List[Chunk]:
+        """Load and validate chunks from JSONL into `Chunk` objects."""
+        return Chunk.read_jsonl(path)
     
     @staticmethod
-    def read_jsonl_stream(path: Path) -> Iterator[Dict[str, Any]]:
-        """
-        Stream-read a JSONL file (one JSON object per line).
-        
-        Args:
-            path: Path to JSONL file.
-        
-        Yields:
-            Chunk dicts one by one (memory efficient).
-        """
+    def read_chunks_stream(path: Path) -> Iterator[Chunk]:
+        """Stream-read chunks from JSONL as validated `Chunk` objects."""
+        if not path.is_file():
+            raise FileNotFoundError(str(path))
+
         with path.open("r", encoding="utf-8") as f:
-            for line in f:
+            for line_no, line in enumerate(f, 1):
                 line = line.strip()
-                if line:
-                    yield json.loads(line)
+                if not line:
+                    continue
+                try:
+                    yield Chunk.from_dict(json.loads(line))
+                except Exception as e:
+                    raise ValueError(f"Invalid chunk in {path.name} at line {line_no}: {e}") from e
     
     @staticmethod
-    def extract_metadata(chunk: Dict[str, Any]) -> Dict[str, Any]:
-        """
-        Extract metadata from a chunk dict, preserving temporal fields.
-        
-        Args:
-            chunk: Chunk dictionary from JSONL.
-        
-        Returns:
-            Metadata dict with all relevant fields.
-        """
+    def extract_metadata(chunk: Chunk) -> Dict[str, Any]:
+        """Extract metadata from a `Chunk`, preserving temporal fields."""
         return {
-            "doc_id": chunk.get("doc_id"),
-            "source_path": chunk.get("source_path"),
-            "corpus": chunk.get("corpus"),
-            "chunking_method": chunk.get("chunking_method"),
-            "chunk_index": chunk.get("chunk_index"),
-            "start_char": chunk.get("start_char"),
-            "end_char": chunk.get("end_char"),
-            "num_words": chunk.get("num_words"),
-            "doc_date_iso": chunk.get("doc_date_iso"),
-            "doc_timestamp": chunk.get("doc_timestamp"),
+            "doc_id": chunk.doc_id,
+            "source_path": chunk.source_path,
+            "corpus": chunk.corpus,
+            "chunking_method": chunk.chunking_method,
+            "chunk_index": chunk.chunk_index,
+            "start_char": chunk.start_char,
+            "end_char": chunk.end_char,
+            "num_words": chunk.num_words,
+            "doc_date_iso": chunk.doc_date_iso,
+            "doc_timestamp": chunk.doc_timestamp,
         }
     
     def save_metadata(self, metadata: List[Dict[str, Any]], filename: str = "meta.json") -> None:

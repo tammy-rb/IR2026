@@ -18,22 +18,17 @@ Outputs:
 
 from __future__ import annotations
 
-import json
-from dataclasses import asdict
 from typing import List
 
 from paths import EXERCISE2_DATA_DIR, CHUNKS_DIR, ensure_dirs
 from utils.text_utils import iter_text_files
-from models import Chunk
+from models.chunk import Chunk
 from chunckers.fixed_chuncker import FixedChunker
 from chunckers.semantic_chuncker import SemanticChunker
 
 
 def write_jsonl(chunks: List[Chunk], out_path) -> None:
-    out_path.parent.mkdir(parents=True, exist_ok=True)
-    with open(out_path, "w", encoding="utf-8") as f:
-        for c in chunks:
-            f.write(json.dumps(asdict(c), ensure_ascii=False) + "\n")
+    Chunk.write_jsonl(chunks, out_path)
 
 
 def summarize_time_coverage(chunks: List[Chunk], label: str) -> None:

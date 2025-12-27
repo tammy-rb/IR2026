@@ -21,7 +21,7 @@ from __future__ import annotations
 from abc import ABC, abstractmethod
 from typing import List, Tuple
 
-from models import Chunk
+from models.chunk import Chunk
 from utils.time_utils import timestamp_from_path
 from utils.text_utils import (
     extract_text,
@@ -78,7 +78,7 @@ class BaseChunker(ABC):
         for idx, (_s_i, _e_i, start_char, end_char) in enumerate(ranges):
             chunk_text = text[start_char:end_char]
             chunks.append(
-                Chunk(
+                Chunk.create_chunk(
                     doc_id=doc_id,
                     source_path=file_path,
                     corpus=corpus,
