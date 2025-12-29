@@ -303,117 +303,258 @@ At the end of Stage 2, both sparse and dense indexes can support time-aware retr
 ### stage3
 Stage 3 — Temporal Query Resolution (Duckling + LLM)
 
-In Stage 3, we implement a time-aware query resolution pipeline whose sole responsibility is to determine whether a user query contains temporal constraints and, if so, to extract and normalize them.
+# Stage 3 — Time-Aware Retrieval Strategies
 
-This stage does not handle evolutionary (change-over-time) queries.
-Evolutionary reasoning is implemented separately in a later stage.
+## Overview
 
-Overview
+This stage implements and compares two **time-aware retrieval strategies** that balance
+**semantic relevance** (topic similarity) with **temporal relevance** (time correctness).
 
-Each query is processed using a hard-then-soft resolution strategy:
+The key design principle is that **time constraints are interpreted differently depending on how explicitly they appear in the query**.  
+Accordingly, we apply different retrieval strategies.
 
-Duckling-based extraction (primary, deterministic)
+---
 
-LLM-based fallback (only when necessary)
+## Strategy Selection Policy
 
-The pipeline always produces a structured temporal resolution output, even when the query is determined to be time-independent.
+We define **three query categories** based on the output of the `time_analysis` module:
 
-Step 1 — Duckling (Primary Resolution)
+### 1. Explicit Time Range → Hard Filtering
 
-The query is first passed to Duckling, which attempts to extract explicit temporal expressions, including:
+**Examples**
+- “What was the official position **in 2024**?”
+- “Was the policy supportive **in the last quarter of 2023**?”
+- “What was the budget **between 2018 and 2020**?”
 
-Explicit dates and years
-(e.g., “2018”, “March 2024”)
+**Detection**
+- `granularity ∈ {year, quarter, month, range}`
+- Explicit `start` and `end` dates extracted
 
-Standard date ranges
-(e.g., “between 2019 and 2021”)
+**Strategy**
+> **Hard Filtering**
 
-Relative expressions anchored to query time
-(e.g., “last month”, “this year”)
+Documents (or chunks) whose timestamps fall **outside the specified range are removed before retrieval**.
 
-If Duckling successfully extracts temporal information:
+**Rationale**
+- Documents outside the range are *inherently irrelevant*
+- Soft weighting may incorrectly surface semantically similar but temporally incorrect content
+- This strategy prevents classic *temporal hallucinations*
 
-The extracted expressions are normalized into absolute time ranges
+---
 
-The LLM is not invoked
+### 2. Current / Recent Time → Soft Decay (Recency Weighting)
 
-The result is treated as high-confidence
+**Examples**
+- “What is the **current** official position?”
+- “What is the policy **today**?”
 
-Step 2 — LLM Fallback (Implicit Temporal Intent)
+**Detection**
+- `mode ∈ {current, recent}`
+- Time window inferred (e.g., last 90 days) when applicable
 
-If Duckling fails to detect any temporal expressions, an LLM is invoked as a fallback mechanism.
+**Strategy**
+> **Soft Decay (Recency Weighting)**
 
-The LLM is used strictly to:
+No documents are filtered out.  
+Instead, newer documents receive a higher score.
 
-Detect implicit temporal intent
-(e.g., “current”, “latest”, “recent”)
+**Scoring Function**
+\[
+Score = (1 - \alpha)\cdot Sim + \alpha \cdot \frac{1}{1 + \Delta t \cdot \lambda}
+\]
 
-Resolve ambiguous time references
-(e.g., “last quarter”, “the most recent period”)
+Where:
+- `Sim` = semantic similarity score
+- `Δt` = distance between document time and reference time
+- `t_ref = now`
+- `α` controls semantic vs temporal importance
+- `λ` controls decay speed
 
-Decide whether the query is:
+**Rationale**
+- “Current” does not imply a strict boundary
+- Older documents may still provide valid background or context
+- Soft decay prioritizes recency without discarding valuable information
 
-time-constrained, or
+---
 
-time-independent
+### 3. No Time Mentioned → Soft Decay (Mild)
 
-The LLM returns a strictly structured JSON output describing:
+**Examples**
+- “What is the official position regarding Gaza?”
+- “What is the policy on security?”
 
-Temporal intent
+**Detection**
+- `mode = none`
+- No time expressions detected
 
-Optional inferred time ranges
+**Strategy**
+> **Soft Decay with mild parameters**
 
-A confidence score
+- `t_ref = now`
+- Small `α` (e.g., 0.1–0.2)
+- Small `λ`
 
-Free-form interpretation is not allowed.
+**Rationale**
+- The query is not explicitly temporal
+- However, if two documents are equally relevant semantically, **newer information is generally preferable**
+- This reflects realistic user expectations while avoiding over-penalization of older documents
 
-Step 3 — No-Time Classification
+---
 
-If neither Duckling nor the LLM identifies a temporal constraint:
+## Summary of Strategy Mapping
 
-The query is explicitly classified as time-independent
+| Query Type                      | Granularity            | Strategy |
+|---------------------------------|------------------------|----------|
+| Explicit year / quarter / range | year / quarter / month | Hard Filtering |
+| “Current”, “today”, “now”       | relative               | Soft Decay |
+| “Recent”, “recently”, “past decade/years” | relative / none          | Soft Decay |
+| No time mentioned               | none                   | Soft Decay (mild) |
+| Comparative                     | compare                | Separate retrieval per range |
 
-An empty list of time ranges is returned
+---
 
-Downstream retrieval proceeds without temporal filtering or time-based re-ranking
+## Time Detection: Duckling vs LLM
 
-This explicit classification prevents unintended temporal bias in non-temporal queries.
+### Primary Tool: Duckling
 
-Output Contract
+We use **Duckling** as the primary component for temporal expression extraction.
 
-Stage 3 always returns a uniform temporal resolution object containing:
+Duckling provides a **deterministic, rule-based** solution that reliably identifies explicit
+temporal references such as:
+- Years (e.g., “2024”)
+- Quarters (e.g., “last quarter of 2023”)
+- Date ranges (e.g., “between 2018 and 2020”)
+- Relative expressions (e.g., “today”, “now”, “current”)
 
-Temporal intent
+For the scope of this assignment, Duckling is sufficient to:
+- Classify queries into `explicit / current / none`
+- Generate concrete ISO date ranges required for hard filtering or temporal weighting
 
-Zero or more normalized time ranges
+Its predictable behavior makes it well-suited for controlled experiments and fair comparison
+between retrieval strategies.
 
-Anchor time (e.g., query time or corpus end)
+### Duckling: Temporal Extraction Overview
 
-Confidence metadata
+Duckling is a rule-based library for extracting structured temporal information from natural
+language text. It typically runs as an external service and returns normalized time expressions
+in a machine-readable format.
 
-This output is consumed by:
+#### Duckling Output Format
 
-Hard temporal filtering
+When parsing a query, Duckling returns a list of detected entities. For temporal expressions,
+each entity follows a structure like:
 
-Soft time-decay re-ranking
+```json
+{
+  "dim": "time",
+  "body": "tomorrow at 8pm",
+  "start": 0,
+  "end": 15,
+  "latent": false,
+  "value": {
+    "type": "value",
+    "value": "2020-09-28T20:00:00.000-07:00",
+    "grain": "hour"
+  }
+}
+```
 
-Key Properties
+**Key fields**
+- `dim`: detected entity type (for time expressions: `time`)
+- `body`: exact text span matched by Duckling
+- `start`, `end`: character offsets in the original query
+- `value.type`:
+  - `value` → single point in time
+  - `interval` → bounded time range
+- `value.value` / `value.from` / `value.to`: ISO-8601 timestamps
+- `value.grain`: temporal resolution (e.g., `year`, `month`, `day`, `hour`)
 
-Deterministic handling of explicit temporal expressions
+#### Deriving Temporal Granularity
 
-Minimal and controlled LLM usage
+Duckling does not explicitly return a single “granularity” field. Instead, granularity is derived
+in our pipeline based on Duckling’s structured output:
+- Use `value.type` to decide point vs. interval
+- Use `value.grain` to determine the resolution
 
-Clear separation between temporal and non-temporal queries
+Examples:
+- `grain = year` → granularity = `year`
+- `type = interval` → granularity = `range`
+- no detected time entity → granularity = `none`
 
-Fully testable and reproducible behavior
+This separation keeps Duckling as a pure extraction component, while temporal semantics and
+retrieval-strategy decisions are handled by the retrieval pipeline.
 
-first we will do only duckling.
-in hard: if no date - no filter
-in soft - no date - use t as reference point
+#### Duckling in a RAG-Based Architecture
 
-for evolution
-use duckling to fine the 2 ranges.
+Within our RAG pipeline, Duckling is used only for temporal signal extraction. Higher-level
+decisions—such as selecting between **Hard Filtering** and **Soft Decay**—are made afterward,
+based on the derived granularity.
 
-we will not implemtn llm fallabck yet.
-it is optional.
+Duckling’s deterministic behavior makes it well-suited for reproducible experiments and
+controlled evaluation of time-aware retrieval strategies.
 
+**Further reading**
+- *Using Duckling to Extract Dates and Times in Your Rasa Chatbot*  
+  http://medium.com/@adboio/using-duckling-to-extract-dates-and-times-in-your-rasa-chatbot-7687f4fde2e0
+
+### Temporal Signal Extraction (time_analysis/duckling_time_analysis.py)
+
+**Goal:** deterministically extract and normalize temporal expressions from a user query for downstream retrieval decisions.
+
+**What it does**
+- Sends the query to a local Duckling server (`POST /parse`) to parse time expressions.
+- Normalizes detected time entities into `TimeRange` objects:
+  - `start` / `end` as ISO 8601 dates (`YYYY-MM-DD`)
+  - `duckling_type` (`value` or `interval`)
+  - derived `granularity` (e.g., `month`, `week`, `range`)
+  - inclusive end-date handling for Duckling intervals
+  - open-ended intervals supported (`end = null`)
+- Classifies the query’s primary temporal intent into one of four modes:
+  - `explicit`, `current`, `recent`, `none`
+
+**What it returns**
+```json
+{
+  "query": "<original query>",
+  "now_iso": "YYYY-MM-DD",
+  "mode": "explicit | current | recent | none",
+  "ranges": [ { "...": "normalized TimeRange objects" } ],
+  "duckling_raw": [ "...raw Duckling payload (debug)..." ]
+}
+```
+
+#### Test cases (observed CLI output)
+
+| Query                                       | mode        | ranges (summary)            | Why |
+|---------------------------------------------|-------------|-----------------------------|-----------------------------|
+| what happended in april in 2022?            | `explicit`- | `2022-04-01` (month point)  | explicit time mention |
+| give me the reports from march 15, 2023 until now | `explicit` | `2023-03-15 → 2025-12-28` (bounded interval) | interval dominates even if “now” appears  |
+| who is the prime minister now?              | `current`   | `2025-12-29` (point)        | explicit “now/today/current” intent |
+| how has the economy changed recently?       | `recent`    | none                        | vague recency without explicit range |
+| since 2019, what has changed?               | `explicit`  | `2019-01-01 → null` (open interval) | open-ended “since” constraint |
+| who is the hero in superball?               | `none`      | none                        | no temporal intent |
+
+### Note on Vague Temporal Expressions
+
+Queries containing vague or implicit temporal expressions (e.g., “recently”, “in recent years”, “over the past decade”):
+- are classified as `recent` when they match the module’s recency-intent rules
+- otherwise remain `none` if no temporal intent can be inferred
+
+`recent` queries are handled with **Soft Decay (recency weighting)**:
+- no hard filtering
+- newer documents are preferred
+- older but highly relevant documents remain eligible
+
+---
+
+## Design Rationale
+
+This policy:
+- Cleanly separates **Hard vs Soft** strategies
+- Prevents temporal errors in constrained queries
+- Preserves flexibility for “current” and timeless questions
+- Is easy to justify experimentally and theoretically
+
+Most importantly, it allows a **clear comparison between retrieval strategies**, which is the core objective of Stage 3.
+
+---

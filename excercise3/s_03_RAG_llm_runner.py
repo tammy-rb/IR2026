@@ -1,5 +1,5 @@
 """
-RAG_llm_runner.py
+s_03_RAG_llm_runner.py
 
 LLM orchestration layer for a Retrieval-Augmented Generation (RAG) system.
 
@@ -108,9 +108,16 @@ def main() -> None:
     parser.add_argument("--k3", type=int, default=10)
     parser.add_argument("--llm_model", default=DEFAULT_MODEL)
     parser.add_argument("--temperature", type=float, default=0.0)
+    parser.add_argument(
+    "--out_dir",
+    default=None,
+    help="Optional output directory for results JSON. "
+         "If not provided, uses the default outputs/rag_runs directory."
+    )
     args = parser.parse_args()
 
-    ensure_dir(OUT_DIR)
+    out_dir = args.out_dir if args.out_dir is not None else OUT_DIR
+    ensure_dir(out_dir)
 
     retriever = RAGRetriever()
     llm = ChatOpenAI(model=args.llm_model, temperature=args.temperature)
@@ -153,14 +160,14 @@ def main() -> None:
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
 
     out = os.path.join(
-        OUT_DIR,
-        f"rag_{queries_base}_4pipelines_k{args.k1}-{args.k2}-{args.k3}_{timestamp}.json"
+    out_dir,
+    f"rag_{queries_base}_4pipelines_k{args.k1}-{args.k2}-{args.k3}_{timestamp}.json"
     )
 
     with open(out, "w", encoding="utf-8") as f:
         json.dump(results, f, indent=2, ensure_ascii=False)
 
-    print(f"✅ Saved results to {out}")
+    print(f"Saved results to {out}")
 
 
 if __name__ == "__main__":
