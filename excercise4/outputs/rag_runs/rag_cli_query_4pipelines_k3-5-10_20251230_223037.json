@@ -1,0 +1,770 @@
+[
+  {
+    "query_type": "single",
+    "query": "During July 2023, what level of financial support was reduced for a programme benefiting girls?",
+    "expected_source": [],
+    "pipeline": {
+      "chunking": "fixed",
+      "representation": "bm25"
+    },
+    "k": 3,
+    "references": [],
+    "answer": "I don't know based on the retrieved chunks.",
+    "time_info": {
+      "query": "During July 2023, what level of financial support was reduced for a programme benefiting girls?",
+      "now_iso": "2025-12-30",
+      "mode": "explicit",
+      "ranges": [
+        {
+          "id": "t1",
+          "source": "duckling",
+          "text": "During July 2023",
+          "start": "2023-07-01",
+          "end": "2023-07-01",
+          "open_ended": false,
+          "duckling_type": "value",
+          "duckling_grain": "month",
+          "granularity": "month",
+          "kind": "point"
+        }
+      ],
+      "duckling_raw": [
+        {
+          "body": "During July 2023",
+          "start": 0,
+          "end": 16,
+          "latent": false,
+          "value": {
+            "values": [
+              {
+                "value": "2023-07-01T00:00:00.000-07:00",
+                "grain": "month",
+                "type": "value"
+              }
+            ],
+            "value": "2023-07-01T00:00:00.000-07:00",
+            "grain": "month",
+            "type": "value"
+          }
+        }
+      ]
+    },
+    "plan": {
+      "strategy": "hard",
+      "start_ts": 1688169600,
+      "end_ts": 1688169600,
+      "ref_ts": 1767052800,
+      "alpha": 0.0,
+      "lam": 0.0,
+      "oversample": 200
+    },
+    "debug": {
+      "candidate_count": 4003,
+      "rerank_rows": []
+    }
+  },
+  {
+    "query_type": "single",
+    "query": "During July 2023, what level of financial support was reduced for a programme benefiting girls?",
+    "expected_source": [],
+    "pipeline": {
+      "chunking": "fixed",
+      "representation": "bm25"
+    },
+    "k": 5,
+    "references": [],
+    "answer": "I don't know based on the retrieved chunks.",
+    "time_info": {
+      "query": "During July 2023, what level of financial support was reduced for a programme benefiting girls?",
+      "now_iso": "2025-12-30",
+      "mode": "explicit",
+      "ranges": [
+        {
+          "id": "t1",
+          "source": "duckling",
+          "text": "During July 2023",
+          "start": "2023-07-01",
+          "end": "2023-07-01",
+          "open_ended": false,
+          "duckling_type": "value",
+          "duckling_grain": "month",
+          "granularity": "month",
+          "kind": "point"
+        }
+      ],
+      "duckling_raw": [
+        {
+          "body": "During July 2023",
+          "start": 0,
+          "end": 16,
+          "latent": false,
+          "value": {
+            "values": [
+              {
+                "value": "2023-07-01T00:00:00.000-07:00",
+                "grain": "month",
+                "type": "value"
+              }
+            ],
+            "value": "2023-07-01T00:00:00.000-07:00",
+            "grain": "month",
+            "type": "value"
+          }
+        }
+      ]
+    },
+    "plan": {
+      "strategy": "hard",
+      "start_ts": 1688169600,
+      "end_ts": 1688169600,
+      "ref_ts": 1767052800,
+      "alpha": 0.0,
+      "lam": 0.0,
+      "oversample": 200
+    },
+    "debug": {
+      "candidate_count": 4005,
+      "rerank_rows": []
+    }
+  },
+  {
+    "query_type": "single",
+    "query": "During July 2023, what level of financial support was reduced for a programme benefiting girls?",
+    "expected_source": [],
+    "pipeline": {
+      "chunking": "fixed",
+      "representation": "bm25"
+    },
+    "k": 10,
+    "references": [],
+    "answer": "I don't know based on the retrieved chunks.",
+    "time_info": {
+      "query": "During July 2023, what level of financial support was reduced for a programme benefiting girls?",
+      "now_iso": "2025-12-30",
+      "mode": "explicit",
+      "ranges": [
+        {
+          "id": "t1",
+          "source": "duckling",
+          "text": "During July 2023",
+          "start": "2023-07-01",
+          "end": "2023-07-01",
+          "open_ended": false,
+          "duckling_type": "value",
+          "duckling_grain": "month",
+          "granularity": "month",
+          "kind": "point"
+        }
+      ],
+      "duckling_raw": [
+        {
+          "body": "During July 2023",
+          "start": 0,
+          "end": 16,
+          "latent": false,
+          "value": {
+            "values": [
+              {
+                "value": "2023-07-01T00:00:00.000-07:00",
+                "grain": "month",
+                "type": "value"
+              }
+            ],
+            "value": "2023-07-01T00:00:00.000-07:00",
+            "grain": "month",
+            "type": "value"
+          }
+        }
+      ]
+    },
+    "plan": {
+      "strategy": "hard",
+      "start_ts": 1688169600,
+      "end_ts": 1688169600,
+      "ref_ts": 1767052800,
+      "alpha": 0.0,
+      "lam": 0.0,
+      "oversample": 200
+    },
+    "debug": {
+      "candidate_count": 4010,
+      "rerank_rows": []
+    }
+  },
+  {
+    "query_type": "single",
+    "query": "During July 2023, what level of financial support was reduced for a programme benefiting girls?",
+    "expected_source": [],
+    "pipeline": {
+      "chunking": "semantic",
+      "representation": "bm25"
+    },
+    "k": 3,
+    "references": [],
+    "answer": "I don't know based on the retrieved chunks.",
+    "time_info": {
+      "query": "During July 2023, what level of financial support was reduced for a programme benefiting girls?",
+      "now_iso": "2025-12-30",
+      "mode": "explicit",
+      "ranges": [
+        {
+          "id": "t1",
+          "source": "duckling",
+          "text": "During July 2023",
+          "start": "2023-07-01",
+          "end": "2023-07-01",
+          "open_ended": false,
+          "duckling_type": "value",
+          "duckling_grain": "month",
+          "granularity": "month",
+          "kind": "point"
+        }
+      ],
+      "duckling_raw": [
+        {
+          "body": "During July 2023",
+          "start": 0,
+          "end": 16,
+          "latent": false,
+          "value": {
+            "values": [
+              {
+                "value": "2023-07-01T00:00:00.000-07:00",
+                "grain": "month",
+                "type": "value"
+              }
+            ],
+            "value": "2023-07-01T00:00:00.000-07:00",
+            "grain": "month",
+            "type": "value"
+          }
+        }
+      ]
+    },
+    "plan": {
+      "strategy": "hard",
+      "start_ts": 1688169600,
+      "end_ts": 1688169600,
+      "ref_ts": 1767052800,
+      "alpha": 0.0,
+      "lam": 0.0,
+      "oversample": 200
+    },
+    "debug": {
+      "candidate_count": 4003,
+      "rerank_rows": []
+    }
+  },
+  {
+    "query_type": "single",
+    "query": "During July 2023, what level of financial support was reduced for a programme benefiting girls?",
+    "expected_source": [],
+    "pipeline": {
+      "chunking": "semantic",
+      "representation": "bm25"
+    },
+    "k": 5,
+    "references": [],
+    "answer": "I don't know based on the retrieved chunks.",
+    "time_info": {
+      "query": "During July 2023, what level of financial support was reduced for a programme benefiting girls?",
+      "now_iso": "2025-12-30",
+      "mode": "explicit",
+      "ranges": [
+        {
+          "id": "t1",
+          "source": "duckling",
+          "text": "During July 2023",
+          "start": "2023-07-01",
+          "end": "2023-07-01",
+          "open_ended": false,
+          "duckling_type": "value",
+          "duckling_grain": "month",
+          "granularity": "month",
+          "kind": "point"
+        }
+      ],
+      "duckling_raw": [
+        {
+          "body": "During July 2023",
+          "start": 0,
+          "end": 16,
+          "latent": false,
+          "value": {
+            "values": [
+              {
+                "value": "2023-07-01T00:00:00.000-07:00",
+                "grain": "month",
+                "type": "value"
+              }
+            ],
+            "value": "2023-07-01T00:00:00.000-07:00",
+            "grain": "month",
+            "type": "value"
+          }
+        }
+      ]
+    },
+    "plan": {
+      "strategy": "hard",
+      "start_ts": 1688169600,
+      "end_ts": 1688169600,
+      "ref_ts": 1767052800,
+      "alpha": 0.0,
+      "lam": 0.0,
+      "oversample": 200
+    },
+    "debug": {
+      "candidate_count": 4005,
+      "rerank_rows": []
+    }
+  },
+  {
+    "query_type": "single",
+    "query": "During July 2023, what level of financial support was reduced for a programme benefiting girls?",
+    "expected_source": [],
+    "pipeline": {
+      "chunking": "semantic",
+      "representation": "bm25"
+    },
+    "k": 10,
+    "references": [],
+    "answer": "I don't know based on the retrieved chunks.",
+    "time_info": {
+      "query": "During July 2023, what level of financial support was reduced for a programme benefiting girls?",
+      "now_iso": "2025-12-30",
+      "mode": "explicit",
+      "ranges": [
+        {
+          "id": "t1",
+          "source": "duckling",
+          "text": "During July 2023",
+          "start": "2023-07-01",
+          "end": "2023-07-01",
+          "open_ended": false,
+          "duckling_type": "value",
+          "duckling_grain": "month",
+          "granularity": "month",
+          "kind": "point"
+        }
+      ],
+      "duckling_raw": [
+        {
+          "body": "During July 2023",
+          "start": 0,
+          "end": 16,
+          "latent": false,
+          "value": {
+            "values": [
+              {
+                "value": "2023-07-01T00:00:00.000-07:00",
+                "grain": "month",
+                "type": "value"
+              }
+            ],
+            "value": "2023-07-01T00:00:00.000-07:00",
+            "grain": "month",
+            "type": "value"
+          }
+        }
+      ]
+    },
+    "plan": {
+      "strategy": "hard",
+      "start_ts": 1688169600,
+      "end_ts": 1688169600,
+      "ref_ts": 1767052800,
+      "alpha": 0.0,
+      "lam": 0.0,
+      "oversample": 200
+    },
+    "debug": {
+      "candidate_count": 4010,
+      "rerank_rows": []
+    }
+  },
+  {
+    "query_type": "single",
+    "query": "During July 2023, what level of financial support was reduced for a programme benefiting girls?",
+    "expected_source": [],
+    "pipeline": {
+      "chunking": "fixed",
+      "representation": "dense"
+    },
+    "k": 3,
+    "references": [],
+    "answer": "I don't know based on the retrieved chunks.",
+    "time_info": {
+      "query": "During July 2023, what level of financial support was reduced for a programme benefiting girls?",
+      "now_iso": "2025-12-30",
+      "mode": "explicit",
+      "ranges": [
+        {
+          "id": "t1",
+          "source": "duckling",
+          "text": "During July 2023",
+          "start": "2023-07-01",
+          "end": "2023-07-01",
+          "open_ended": false,
+          "duckling_type": "value",
+          "duckling_grain": "month",
+          "granularity": "month",
+          "kind": "point"
+        }
+      ],
+      "duckling_raw": [
+        {
+          "body": "During July 2023",
+          "start": 0,
+          "end": 16,
+          "latent": false,
+          "value": {
+            "values": [
+              {
+                "value": "2023-07-01T00:00:00.000-07:00",
+                "grain": "month",
+                "type": "value"
+              }
+            ],
+            "value": "2023-07-01T00:00:00.000-07:00",
+            "grain": "month",
+            "type": "value"
+          }
+        }
+      ]
+    },
+    "plan": {
+      "strategy": "hard",
+      "start_ts": 1688169600,
+      "end_ts": 1688169600,
+      "ref_ts": 1767052800,
+      "alpha": 0.0,
+      "lam": 0.0,
+      "oversample": 200
+    },
+    "debug": {
+      "candidate_count": 4003,
+      "rerank_rows": []
+    }
+  },
+  {
+    "query_type": "single",
+    "query": "During July 2023, what level of financial support was reduced for a programme benefiting girls?",
+    "expected_source": [],
+    "pipeline": {
+      "chunking": "fixed",
+      "representation": "dense"
+    },
+    "k": 5,
+    "references": [],
+    "answer": "I don't know based on the retrieved chunks.",
+    "time_info": {
+      "query": "During July 2023, what level of financial support was reduced for a programme benefiting girls?",
+      "now_iso": "2025-12-30",
+      "mode": "explicit",
+      "ranges": [
+        {
+          "id": "t1",
+          "source": "duckling",
+          "text": "During July 2023",
+          "start": "2023-07-01",
+          "end": "2023-07-01",
+          "open_ended": false,
+          "duckling_type": "value",
+          "duckling_grain": "month",
+          "granularity": "month",
+          "kind": "point"
+        }
+      ],
+      "duckling_raw": [
+        {
+          "body": "During July 2023",
+          "start": 0,
+          "end": 16,
+          "latent": false,
+          "value": {
+            "values": [
+              {
+                "value": "2023-07-01T00:00:00.000-07:00",
+                "grain": "month",
+                "type": "value"
+              }
+            ],
+            "value": "2023-07-01T00:00:00.000-07:00",
+            "grain": "month",
+            "type": "value"
+          }
+        }
+      ]
+    },
+    "plan": {
+      "strategy": "hard",
+      "start_ts": 1688169600,
+      "end_ts": 1688169600,
+      "ref_ts": 1767052800,
+      "alpha": 0.0,
+      "lam": 0.0,
+      "oversample": 200
+    },
+    "debug": {
+      "candidate_count": 4005,
+      "rerank_rows": []
+    }
+  },
+  {
+    "query_type": "single",
+    "query": "During July 2023, what level of financial support was reduced for a programme benefiting girls?",
+    "expected_source": [],
+    "pipeline": {
+      "chunking": "fixed",
+      "representation": "dense"
+    },
+    "k": 10,
+    "references": [],
+    "answer": "I don't know based on the retrieved chunks.",
+    "time_info": {
+      "query": "During July 2023, what level of financial support was reduced for a programme benefiting girls?",
+      "now_iso": "2025-12-30",
+      "mode": "explicit",
+      "ranges": [
+        {
+          "id": "t1",
+          "source": "duckling",
+          "text": "During July 2023",
+          "start": "2023-07-01",
+          "end": "2023-07-01",
+          "open_ended": false,
+          "duckling_type": "value",
+          "duckling_grain": "month",
+          "granularity": "month",
+          "kind": "point"
+        }
+      ],
+      "duckling_raw": [
+        {
+          "body": "During July 2023",
+          "start": 0,
+          "end": 16,
+          "latent": false,
+          "value": {
+            "values": [
+              {
+                "value": "2023-07-01T00:00:00.000-07:00",
+                "grain": "month",
+                "type": "value"
+              }
+            ],
+            "value": "2023-07-01T00:00:00.000-07:00",
+            "grain": "month",
+            "type": "value"
+          }
+        }
+      ]
+    },
+    "plan": {
+      "strategy": "hard",
+      "start_ts": 1688169600,
+      "end_ts": 1688169600,
+      "ref_ts": 1767052800,
+      "alpha": 0.0,
+      "lam": 0.0,
+      "oversample": 200
+    },
+    "debug": {
+      "candidate_count": 4010,
+      "rerank_rows": []
+    }
+  },
+  {
+    "query_type": "single",
+    "query": "During July 2023, what level of financial support was reduced for a programme benefiting girls?",
+    "expected_source": [],
+    "pipeline": {
+      "chunking": "semantic",
+      "representation": "dense"
+    },
+    "k": 3,
+    "references": [],
+    "answer": "I don't know based on the retrieved chunks.",
+    "time_info": {
+      "query": "During July 2023, what level of financial support was reduced for a programme benefiting girls?",
+      "now_iso": "2025-12-30",
+      "mode": "explicit",
+      "ranges": [
+        {
+          "id": "t1",
+          "source": "duckling",
+          "text": "During July 2023",
+          "start": "2023-07-01",
+          "end": "2023-07-01",
+          "open_ended": false,
+          "duckling_type": "value",
+          "duckling_grain": "month",
+          "granularity": "month",
+          "kind": "point"
+        }
+      ],
+      "duckling_raw": [
+        {
+          "body": "During July 2023",
+          "start": 0,
+          "end": 16,
+          "latent": false,
+          "value": {
+            "values": [
+              {
+                "value": "2023-07-01T00:00:00.000-07:00",
+                "grain": "month",
+                "type": "value"
+              }
+            ],
+            "value": "2023-07-01T00:00:00.000-07:00",
+            "grain": "month",
+            "type": "value"
+          }
+        }
+      ]
+    },
+    "plan": {
+      "strategy": "hard",
+      "start_ts": 1688169600,
+      "end_ts": 1688169600,
+      "ref_ts": 1767052800,
+      "alpha": 0.0,
+      "lam": 0.0,
+      "oversample": 200
+    },
+    "debug": {
+      "candidate_count": 4003,
+      "rerank_rows": []
+    }
+  },
+  {
+    "query_type": "single",
+    "query": "During July 2023, what level of financial support was reduced for a programme benefiting girls?",
+    "expected_source": [],
+    "pipeline": {
+      "chunking": "semantic",
+      "representation": "dense"
+    },
+    "k": 5,
+    "references": [],
+    "answer": "I don't know based on the retrieved chunks.",
+    "time_info": {
+      "query": "During July 2023, what level of financial support was reduced for a programme benefiting girls?",
+      "now_iso": "2025-12-30",
+      "mode": "explicit",
+      "ranges": [
+        {
+          "id": "t1",
+          "source": "duckling",
+          "text": "During July 2023",
+          "start": "2023-07-01",
+          "end": "2023-07-01",
+          "open_ended": false,
+          "duckling_type": "value",
+          "duckling_grain": "month",
+          "granularity": "month",
+          "kind": "point"
+        }
+      ],
+      "duckling_raw": [
+        {
+          "body": "During July 2023",
+          "start": 0,
+          "end": 16,
+          "latent": false,
+          "value": {
+            "values": [
+              {
+                "value": "2023-07-01T00:00:00.000-07:00",
+                "grain": "month",
+                "type": "value"
+              }
+            ],
+            "value": "2023-07-01T00:00:00.000-07:00",
+            "grain": "month",
+            "type": "value"
+          }
+        }
+      ]
+    },
+    "plan": {
+      "strategy": "hard",
+      "start_ts": 1688169600,
+      "end_ts": 1688169600,
+      "ref_ts": 1767052800,
+      "alpha": 0.0,
+      "lam": 0.0,
+      "oversample": 200
+    },
+    "debug": {
+      "candidate_count": 4005,
+      "rerank_rows": []
+    }
+  },
+  {
+    "query_type": "single",
+    "query": "During July 2023, what level of financial support was reduced for a programme benefiting girls?",
+    "expected_source": [],
+    "pipeline": {
+      "chunking": "semantic",
+      "representation": "dense"
+    },
+    "k": 10,
+    "references": [],
+    "answer": "I don't know based on the retrieved chunks.",
+    "time_info": {
+      "query": "During July 2023, what level of financial support was reduced for a programme benefiting girls?",
+      "now_iso": "2025-12-30",
+      "mode": "explicit",
+      "ranges": [
+        {
+          "id": "t1",
+          "source": "duckling",
+          "text": "During July 2023",
+          "start": "2023-07-01",
+          "end": "2023-07-01",
+          "open_ended": false,
+          "duckling_type": "value",
+          "duckling_grain": "month",
+          "granularity": "month",
+          "kind": "point"
+        }
+      ],
+      "duckling_raw": [
+        {
+          "body": "During July 2023",
+          "start": 0,
+          "end": 16,
+          "latent": false,
+          "value": {
+            "values": [
+              {
+                "value": "2023-07-01T00:00:00.000-07:00",
+                "grain": "month",
+                "type": "value"
+              }
+            ],
+            "value": "2023-07-01T00:00:00.000-07:00",
+            "grain": "month",
+            "type": "value"
+          }
+        }
+      ]
+    },
+    "plan": {
+      "strategy": "hard",
+      "start_ts": 1688169600,
+      "end_ts": 1688169600,
+      "ref_ts": 1767052800,
+      "alpha": 0.0,
+      "lam": 0.0,
+      "oversample": 200
+    },
+    "debug": {
+      "candidate_count": 4010,
+      "rerank_rows": []
+    }
+  }
+]

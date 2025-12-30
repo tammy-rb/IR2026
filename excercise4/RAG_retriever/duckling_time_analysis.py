@@ -1,5 +1,5 @@
 """
-time_analysis/duckling_time_analysis.py
+RAG_retriever/duckling_time_analysis.py
 
 Stage 3 - Time-aware retrieval (temporal signal extraction)
 
@@ -58,6 +58,7 @@ Important:
 from __future__ import annotations
 
 import re
+from calendar import monthrange
 from dataclasses import dataclass, asdict
 from datetime import date, datetime, timedelta
 from typing import Any, Dict, List, Optional
@@ -162,6 +163,35 @@ def _date_from_duckling_value(v: str) -> date:
 def _inclusive_end_from_duckling_to(to_value: str) -> date:
     # Duckling interval 'to' is typically exclusive -> convert to inclusive date end
     return _date_from_duckling_value(to_value) - timedelta(days=1)
+
+
+def _inclusive_end_for_grain(d: date, grain: Optional[str]) -> date:
+    """Expand a Duckling point value to an inclusive range end.
+
+    Duckling returns a representative date for coarse grains (e.g., month -> first day).
+    For hard filtering we want the full inclusive range.
+    """
+    g = (grain or "").lower()
+
+    if g == "year":
+        return date(d.year, 12, 31)
+
+    if g == "quarter":
+        q_start_month = ((d.month - 1) // 3) * 3 + 1
+        q_end_month = q_start_month + 2
+        last_day = monthrange(d.year, q_end_month)[1]
+        return date(d.year, q_end_month, last_day)
+
+    if g == "month":
+        last_day = monthrange(d.year, d.month)[1]
+        return date(d.year, d.month, last_day)
+
+    if g == "week":
+        # Duckling's week grain is anchored to a specific day; treat it as a 7-day window.
+        return d + timedelta(days=6)
+
+    # day / sub-day (normalized to day) / unknown
+    return d
 
 
 def _derive_granularity(duckling_type: str, duckling_grain: Optional[str]) -> str:
@@ -327,13 +357,14 @@ def analyze_query_time(
             v = top.get("value") or val.get("value")
             if isinstance(v, str):
                 d = _date_from_duckling_value(v)
+                end_d = _inclusive_end_for_grain(d, str(grain) if grain else None)
                 ranges.append(
                     TimeRange(
                         id=f"t{idx}",
                         source="duckling",
                         text=span.body,
                         start=d.isoformat(),
-                        end=d.isoformat(),
+                        end=end_d.isoformat(),
                         open_ended=False,
                         duckling_type="value",
                         duckling_grain=str(grain) if grain else "unknown",

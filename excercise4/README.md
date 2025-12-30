@@ -323,7 +323,7 @@ Accordingly, we apply different retrieval strategies.
 
 ### Strategy Selection Policy
 
-We define **three query categories** based on the output of the `time_analysis` module:
+We define **three query categories** based on the output of the `RAG_retriever` module:
 
 #### 1. Explicit Time Range → Hard Filtering
 
@@ -506,7 +506,7 @@ controlled evaluation of time-aware retrieval strategies.
 ---
 
 #### Temporal Signal Extraction (Duckling)
-`time_analysis/duckling_time_analysis.py`
+`RAG_retriever/duckling_time_analysis.py`
 
 ##### Goal
 
