@@ -144,6 +144,13 @@ These failures motivate the need for temporal filtering, re-ranking, or explicit
 
 ---
 
+## Table of Contents
+- [Stage 1 — Baseline (Time-Blind) Failure Analysis](#temporal-failure-analysis--baseline-rag-time-blind)
+- [Stage 2 — Temporal Indexing (Data Engineering)](#stage-2--temporal-indexing-data-engineering)
+- [Stage 3 — Temporal Query Resolution (Duckling + LLM)](#stage-3--temporal-query-resolution-duckling--llm)
+
+---
+
 ## Stage 2 — Temporal Indexing (Data Engineering)
 
 ### Goal
@@ -300,12 +307,11 @@ Outputs:
 At the end of Stage 2, both sparse and dense indexes can support time-aware retrieval in later stages (filtering / re-ranking / temporal reasoning).
 
 
-### stage3
-Stage 3 — Temporal Query Resolution (Duckling + LLM)
+## Stage 3 — Temporal Query Resolution (Duckling + LLM)
 
-# Stage 3 — Time-Aware Retrieval Strategies
+### Time-Aware Retrieval Strategies
 
-## Overview
+### Overview
 
 This stage implements and compares two **time-aware retrieval strategies** that balance
 **semantic relevance** (topic similarity) with **temporal relevance** (time correctness).
@@ -315,11 +321,11 @@ Accordingly, we apply different retrieval strategies.
 
 ---
 
-## Strategy Selection Policy
+### Strategy Selection Policy
 
 We define **three query categories** based on the output of the `time_analysis` module:
 
-### 1. Explicit Time Range → Hard Filtering
+#### 1. Explicit Time Range → Hard Filtering
 
 **Examples**
 - “What was the official position **in 2024**?”
@@ -342,7 +348,7 @@ Documents (or chunks) whose timestamps fall **outside the specified range are re
 
 ---
 
-### 2. Current / Recent Time → Soft Decay (Recency Weighting)
+#### 2. Current / Recent Time → Soft Decay (Recency Weighting)
 
 **Examples**
 - “What is the **current** official position?”
@@ -377,7 +383,7 @@ Where:
 
 ---
 
-### 3. No Time Mentioned → Soft Decay (Mild)
+#### 3. No Time Mentioned → Soft Decay (Mild)
 
 **Examples**
 - “What is the official position regarding Gaza?”
@@ -401,7 +407,7 @@ Where:
 
 ---
 
-## Summary of Strategy Mapping
+### Summary of Strategy Mapping
 
 | Query Type                      | Granularity            | Strategy |
 |---------------------------------|------------------------|----------|
@@ -413,7 +419,7 @@ Where:
 
 ---
 
-## Time Detection: Duckling vs LLM
+### Time Detection: Duckling vs LLM
 
 ### Primary Tool: Duckling
 
@@ -497,64 +503,135 @@ controlled evaluation of time-aware retrieval strategies.
 - *Using Duckling to Extract Dates and Times in Your Rasa Chatbot*  
   http://medium.com/@adboio/using-duckling-to-extract-dates-and-times-in-your-rasa-chatbot-7687f4fde2e0
 
-### Temporal Signal Extraction (time_analysis/duckling_time_analysis.py)
+---
 
-**Goal:** deterministically extract and normalize temporal expressions from a user query for downstream retrieval decisions.
+#### Temporal Signal Extraction (Duckling)
+`time_analysis/duckling_time_analysis.py`
 
-**What it does**
-- Sends the query to a local Duckling server (`POST /parse`) to parse time expressions.
-- Normalizes detected time entities into `TimeRange` objects:
-  - `start` / `end` as ISO 8601 dates (`YYYY-MM-DD`)
-  - `duckling_type` (`value` or `interval`)
-  - derived `granularity` (e.g., `month`, `week`, `range`)
-  - inclusive end-date handling for Duckling intervals
-  - open-ended intervals supported (`end = null`)
-- Classifies the query’s primary temporal intent into one of four modes:
-  - `explicit`, `current`, `recent`, `none`
+##### Goal
 
-**What it returns**
+Deterministically extract and normalize **temporal signals** from user queries in order to support
+**time-aware retrieval decisions** in later stages of the pipeline.
+
+This module is responsible **only** for temporal understanding.  
+It does **not** decide whether to apply hard filtering or soft decay — it provides structured signals for downstream logic.
+
+---
+
+#### What the Module Does
+
+1. Sends the query to a local **Duckling** server (`POST /parse`) to detect time expressions.
+2. Normalizes Duckling’s output into a unified internal representation (`TimeRange`).
+3. Derives a **high-level temporal intent mode** for the query.
+
+---
+
+#### Normalized Time Representation (`TimeRange`)
+
+Each detected temporal expression is converted into a `TimeRange` object with the following properties:
+
+- `start` / `end` as ISO-8601 dates (`YYYY-MM-DD`)
+- `duckling_type`: `value` or `interval`
+- `duckling_grain`: Duckling’s native resolution (`year`, `month`, `day`, etc.)
+- `granularity`: derived system-level granularity
+- inclusive end-date handling for Duckling intervals
+- full support for **open-ended intervals in both directions**
+
+##### Supported Interval Types
+
+| Type | Representation |
+|-----|---------------|
+| Point | `start == end` |
+| Bounded interval | `start != end`, both defined |
+| Open-end interval | `start != null`, `end == null` (e.g. *since 2019*) |
+| Open-start interval | `start == null`, `end != null` (e.g. *until Jan 1, 2020*) |
+
+**Note:**  
+Sub-day resolutions (`hour`, `minute`, `second`) are intentionally normalized to **day-level granularity** to avoid false temporal precision in document retrieval.
+
+---
+
+#### Temporal Modes
+
+Each query is classified into **one primary temporal mode**:
+
+| Mode | Meaning |
+|-----|--------|
+| `explicit` | A concrete time constraint was detected (point or interval) |
+| `current` | Query explicitly targets the present (`now`, `today`, `current`)|
+| `recent` | Fuzzy recency intent without explicit temporal bounds |
+| `none` | No temporal intent detected |
+
+##### Priority Rules
+
+`explicit` (intervals) > `current` (when only point values exist) > `recent` > `none`
+
+**Rationale**
+- Any detected **interval** (bounded or open) is treated as the strongest signal and forces `explicit` mode.
+- Present-time intent (`now`, `today`) may override historical *point* mentions but **never** override intervals.
+- Vague recency expressions are handled separately as `recent`.
+
+---
+
+#### Returned Output Schema
+
 ```json
 {
   "query": "<original query>",
   "now_iso": "YYYY-MM-DD",
   "mode": "explicit | current | recent | none",
-  "ranges": [ { "...": "normalized TimeRange objects" } ],
-  "duckling_raw": [ "...raw Duckling payload (debug)..." ]
+  "ranges": [
+    {
+      "id": "t1",
+      "source": "duckling",
+      "text": "<matched span>",
+      "start": "YYYY-MM-DD | null",
+      "end": "YYYY-MM-DD | null",
+      "open_ended": true | false,
+      "duckling_type": "value | interval",
+      "duckling_grain": "year | month | week | day | ...",
+      "granularity": "year | quarter | month | week | day | range | unknown",
+      "kind": "point | bounded_range | open_range"
+    }
+  ],
+  "duckling_raw": [ "...minimal raw Duckling payload (debug)..." ]
 }
 ```
 
-#### Test cases (observed CLI output)
+#### Observed Test Cases (CLI Output)
 
-| Query                                       | mode        | ranges (summary)            | Why |
-|---------------------------------------------|-------------|-----------------------------|-----------------------------|
-| what happended in april in 2022?            | `explicit`- | `2022-04-01` (month point)  | explicit time mention |
-| give me the reports from march 15, 2023 until now | `explicit` | `2023-03-15 → 2025-12-28` (bounded interval) | interval dominates even if “now” appears  |
-| who is the prime minister now?              | `current`   | `2025-12-29` (point)        | explicit “now/today/current” intent |
-| how has the economy changed recently?       | `recent`    | none                        | vague recency without explicit range |
-| since 2019, what has changed?               | `explicit`  | `2019-01-01 → null` (open interval) | open-ended “since” constraint |
-| who is the hero in superball?               | `none`      | none                        | no temporal intent |
+> Reference date during this run: `2025-12-30` (affects `now/today` resolution).
 
-### Note on Vague Temporal Expressions
+| Query | Mode | Ranges (summary) | Explanation |
+|---|---|---|---|
+| `what happened in april in 2022?` | `explicit` | `2022-04-01` (month point) | Explicit calendar reference |
+| `give me the reports from march 15, 2023 until now` | `explicit` | `2023-03-15 → 2025-12-29` | Interval dominates even with “now” |
+| `show me reports until january 1, 2020` | `explicit` | `null → 2019-12-31` (open-start) | Upper-bounded interval |
+| `who is the prime minister now?` | `current` | `2025-12-30` (day point) | Explicit present-time intent |
+| `what is the biggest news today?` | `current` | `2025-12-30` (day point) | Explicit present-time intent |
+| `how has the economy changed recently?` | `recent` | `none` | Vague recency |
+| `over the past decade, what changed?` | `recent` | `none` | Fuzzy long-term recency |
+| `since 2019, what has changed?` | `explicit` | `2019-01-01 → null` (open-end) | Open-ended lower bound |
+| `who is the hero in superball?` | `none` | `none` | No temporal signal |
 
-Queries containing vague or implicit temporal expressions (e.g., “recently”, “in recent years”, “over the past decade”):
-- are classified as `recent` when they match the module’s recency-intent rules
-- otherwise remain `none` if no temporal intent can be inferred
+#### Note on Vague Temporal Expressions
 
-`recent` queries are handled with **Soft Decay (recency weighting)**:
+Queries containing vague or implicit temporal expressions such as:
+- `recently`
+- `in recent years`
+- `over the past decade`
+
+are classified as `recent` **only** when they match explicit recency patterns. Otherwise, the query remains `none`.
+
+`recent` mode is intended for **Soft Decay (recency weighting)**:
 - no hard filtering
 - newer documents are preferred
-- older but highly relevant documents remain eligible
+- older but semantically relevant documents remain eligible
 
----
+#### Design Rationale
 
-## Design Rationale
-
-This policy:
-- Cleanly separates **Hard vs Soft** strategies
-- Prevents temporal errors in constrained queries
-- Preserves flexibility for “current” and timeless questions
-- Is easy to justify experimentally and theoretically
-
-Most importantly, it allows a **clear comparison between retrieval strategies**, which is the core objective of Stage 3.
-
----
+This design:
+- cleanly separates temporal signal extraction from retrieval policy,
+- prevents temporal leakage and false precision,
+- correctly handles mixed-intent queries,
+- supports fair and controlled comparison between hard temporal filtering vs. soft recency-based ranking.

@@ -22,9 +22,9 @@ Key behaviors:
 - Duckling does not return a single "granularity" field. We derive it from:
   - value.type:  "value" vs "interval"
   - value.grain: year / month / day / hour / ...
-- Open-ended intervals are supported:
-  - Duckling may return an interval with only "from" (e.g., "from March 15, 2023").
-  - We materialize it as: end=None + open_ended=True.
+- Open-ended intervals are supported (both directions):
+  - Open-end   (from only):  start=<date>, end=None
+  - Open-start (to only):    start=None,   end=<date>   ✅ (added)
 - Mode semantics (high-level):
   - explicit: Duckling returned a concrete time value or interval
   - current: query explicitly asks for "current/now/today/present"
@@ -34,6 +34,20 @@ Key behaviors:
   - If query intent is current -> mode="current" (even if Duckling returns "now/today" as a value)
   - If query intent is recent -> mode="recent" ONLY when there are no explicit bounded ranges
     (If there are explicit ranges, mode stays "explicit")
+
+priority logic rationale:
+- We treat EXPLICIT time spans returned by Duckling as the strongest signal.
+    In particular, any INTERVAL (bounded or open) implies the user stated a
+    concrete temporal constraint ("between", "since", "until"), so we force
+    mode="explicit" even if the query also contains words like "now/today".
+    This prevents "current" intent from accidentally overriding a real
+    time filter (e.g., "from 2020 until now" must behave like an explicit range).
+- If Duckling found only POINT values (single dates/months/years), we allow
+    "current" intent to win, because phrases like "now/today/current" are often
+    the actual retrieval goal even when a historical date is mentioned in context
+    (e.g., "what is the current stance about events in 1917?").
+- If there are no Duckling ranges at all, we fall back to the keyword intent
+    detector: current > recent > none.
 
 Important:
 - This module does NOT decide hard/soft strategy or reference points.
@@ -75,8 +89,24 @@ RECENT_INTENT_RE = re.compile(
     re.IGNORECASE,
 )
 
-# Optional: indicates an open-ended interval request (often yields Duckling interval 'from' only)
-FROM_KEYWORDS_RE = re.compile(r"\b(from|since|after)\b", re.IGNORECASE)
+# -----------------------------
+# Granularity mapping
+# -----------------------------
+# Maps Duckling grain -> system granularity
+# Design decision:
+# - Sub-day resolutions are normalized to "day"
+DUCKLING_GRAIN_TO_GRANULARITY = {
+    "year": "year",
+    "quarter": "quarter",
+    "month": "month",
+    "week": "week",
+    "day": "day",
+
+    # Sub-day → day
+    "hour": "day",
+    "minute": "day",
+    "second": "day",
+}
 
 
 # -----------------------------
@@ -84,30 +114,35 @@ FROM_KEYWORDS_RE = re.compile(r"\b(from|since|after)\b", re.IGNORECASE)
 # -----------------------------
 @dataclass(frozen=True)
 class DucklingTimeSpan:
-    dim: str
-    body: str
-    start: int
-    end: int
-    latent: bool
-    value: Dict[str, Any]
+    dim: str                 # Duckling dimension (always "time" here)
+    body: str                # Exact matched text in the query (e.g., "April 2022")
+    start: int               # Start char index of the match in the query string
+    end: int                 # End char index of the match in the query string
+    latent: bool             # True if inferred, False if explicitly stated
+    value: Dict[str, Any]    # Raw Duckling value object (type, grain, value/from/to, ...)
 
 
 @dataclass(frozen=True)
 class TimeRange:
     """
     Normalized time range.
-    - start/end are ISO dates (YYYY-MM-DD).
-    - end can be None for open-ended intervals ("from X", "since X", "after X").
+
+    - start/end are ISO dates (YYYY-MM-DD) or None.
+    - Supports:
+        * point:        start=end=<date>
+        * bounded:      start=<date>, end=<date>
+        * open-end:     start=<date>, end=None
+        * open-start:   start=None,   end=<date>
     """
     id: str
     source: str                 # "duckling"
     text: str                   # matched text ("body")
-    start: str                  # ISO date
-    end: Optional[str]          # ISO date or None
-    open_ended: bool            # True if end is None
+    start: Optional[str]        # ISO date or None (open-start)
+    end: Optional[str]          # ISO date or None (open-end)
+    open_ended: bool            # True if start is None OR end is None
     duckling_type: str          # "value" | "interval"
     duckling_grain: str         # year/month/day/week/...
-    granularity: str            # year/quarter/month/week/day/hour/range/unknown
+    granularity: str            # year/quarter/month/week/day/range/unknown
     kind: str                   # "point" | "bounded_range" | "open_range"
 
 
@@ -130,23 +165,34 @@ def _inclusive_end_from_duckling_to(to_value: str) -> date:
 
 
 def _derive_granularity(duckling_type: str, duckling_grain: Optional[str]) -> str:
+    """
+    Derive high-level temporal granularity from Duckling output.
+
+    Rules:
+    - interval  -> "range"
+    - value     -> mapped via DUCKLING_GRAIN_TO_GRANULARITY
+    - unknown / unsupported grains -> "unknown"
+    """
     if duckling_type == "interval":
         return "range"
 
     if duckling_type == "value":
-        # Include 'week' (Duckling can return grain=week)
-        if duckling_grain in {"year", "quarter", "month", "week", "day", "hour", "minute", "second"}:
-            return "quarter" if duckling_grain == "quarter" else duckling_grain
-        return "unknown"
+        if duckling_grain is None:
+            return "unknown"
+        return DUCKLING_GRAIN_TO_GRANULARITY.get(duckling_grain, "unknown")
 
     return "unknown"
 
 
 def _intent_priority(query: str) -> str:
     """
+    Optional. Detect high-level temporal intent keywords in the query and apply precedence.
+    This helps with mixed-intent queries like "what is the current position about the war happened in 1917?",
+    where "current" should take priority over a historical year mention.
+
     Priority order:
-      1) current (now/today/current)  -> strongest anchoring to now
-      2) recent  (recently/decade/..) -> recency preference, fuzzy
+      1) current (now/today/current/present) -> strongest anchoring to now
+      2) recent  (recently/decade/...)      -> recency preference, fuzzy
       3) none
     """
     if CURRENT_KEYWORDS_RE.search(query):
@@ -160,22 +206,24 @@ def _final_mode(query: str, ranges: List[TimeRange]) -> str:
     """
     Decide mode with priority rules.
 
-    - If ranges exist:
-        - If any range is an INTERVAL (type="interval"), use "explicit". 
-          (This handles "from X until now" correctly as a bounded range).
-        - If only POINTS (type="value"):
-            - If intent is "current" (e.g. "now", "today"), use "current".
-            - Else (e.g. "April 2022"), use "explicit".
-    - If no ranges:
-        - Use intent (current > recent > none).
+    NOTE (priority logic rationale):
+    - We treat EXPLICIT time spans returned by Duckling as the strongest signal.
+      Any INTERVAL (bounded or open — including open-start/open-end) implies a
+      concrete temporal constraint ("between", "since", "until"), so we force
+      mode="explicit" even if the query also contains words like "now/today".
+    - If Duckling found only POINT values (single dates/months/years), we allow
+      "current" intent to win, because phrases like "now/today/current" are often
+      the actual retrieval goal even when a historical date is mentioned in context.
+    - If there are no Duckling ranges at all, we fall back to the keyword intent
+      detector: current > recent > none.
+
+    Returns: "explicit" | "current" | "recent" | "none"
     """
     intent = _intent_priority(query)
 
     if not ranges:
         return intent
 
-    # Fix: If Duckling detected a bounded or open interval, we want 'explicit' behavior
-    # (Hard Filtering) rather than 'current' behavior (Soft Decay), even if 'now' is involved.
     if any(r.duckling_type == "interval" for r in ranges):
         return "explicit"
 
@@ -242,9 +290,9 @@ def analyze_query_time(
           "id": "t1",
           "source": "duckling",
           "text": <matched body>,
-          "start": "YYYY-MM-DD",
-          "end": "YYYY-MM-DD" | null,
-          "open_ended": true|false,
+          "start": "YYYY-MM-DD" | null,   # null => open-start
+          "end": "YYYY-MM-DD" | null,     # null => open-end
+          "open_ended": true|false,       # true if start is null OR end is null
           "duckling_type": "value" | "interval",
           "duckling_grain": "year" | "month" | "day" | "week" | ...,
           "granularity": "year" | "quarter" | "month" | "week" | "day" | "range" | "unknown",
@@ -271,6 +319,9 @@ def analyze_query_time(
             top = values_list[0]
             vtype = top.get("type")
 
+        # -------------------------
+        # Case 1: point value
+        # -------------------------
         if vtype == "value":
             grain = top.get("grain") or val.get("grain")
             v = top.get("value") or val.get("value")
@@ -291,6 +342,9 @@ def analyze_query_time(
                     )
                 )
 
+        # -------------------------
+        # Case 2: interval value
+        # -------------------------
         elif vtype == "interval":
             frm = top.get("from") or val.get("from") or {}
             to = top.get("to") or val.get("to") or {}
@@ -306,7 +360,7 @@ def analyze_query_time(
                 or "unknown"
             )
 
-            # Case A: bounded interval (from + to)
+            # A) bounded interval: from + to
             if isinstance(frm_val, str) and isinstance(to_val, str):
                 start_date = _date_from_duckling_value(frm_val)
                 end_date = _inclusive_end_from_duckling_to(to_val)
@@ -325,7 +379,7 @@ def analyze_query_time(
                     )
                 )
 
-            # Case B: open-ended interval (from only) e.g. "from March 15, 2023"
+            # B) open-end interval: from only (start known, end unknown)
             elif isinstance(frm_val, str) and not to_val:
                 start_date = _date_from_duckling_value(frm_val)
                 ranges.append(
@@ -343,9 +397,23 @@ def analyze_query_time(
                     )
                 )
 
-            # Case C: (rare) "to" only — keep raw only for now
+            # C) open-start interval: to only (start unknown, end known) ✅ added
             elif isinstance(to_val, str) and not frm_val:
-                pass
+                end_date = _inclusive_end_from_duckling_to(to_val)
+                ranges.append(
+                    TimeRange(
+                        id=f"t{idx}",
+                        source="duckling",
+                        text=span.body,
+                        start=None,
+                        end=end_date.isoformat(),
+                        open_ended=True,
+                        duckling_type="interval",
+                        duckling_grain=str(interval_grain),
+                        granularity="range",
+                        kind="open_range",
+                    )
+                )
 
         else:
             continue
@@ -357,7 +425,7 @@ def analyze_query_time(
             "body": s.body,
             "start": s.start,
             "end": s.end,
-            "latent": s.latent,
+            "latent": s.latent, # True if inferred, False if explicit
             "value": s.value,
         }
         for s in spans
@@ -366,7 +434,7 @@ def analyze_query_time(
     return {
         "query": query,
         "now_iso": now.isoformat(),
-        "mode": mode,   # explicit/current/recent/none
+        "mode": mode,  # explicit/current/recent/none
         "ranges": [asdict(r) for r in ranges],
         "duckling_raw": duckling_raw,
     }
@@ -380,6 +448,7 @@ if __name__ == "__main__":
         "what happended in april in 2022?",
         "give me the reports from march 15, 2023 until now",
         "show me data between january 1, 2020 and december 31, 2020",
+        "show me reports until january 1, 2020", 
         "what was the situation last week?",
         "who is the prime minister now?",
         "what is the biggest news today?",
