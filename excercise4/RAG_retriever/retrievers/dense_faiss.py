@@ -13,12 +13,10 @@ from ..utils import RetrievedChunk, detect_corpus_label
 
 load_dotenv()
 
-
 def _distance_to_similarity(d: float) -> float:
     """
     Convert a distance-like score to similarity where higher is better.
-    Common for FAISS: lower distance = better match.
-    We map: sim = 1 / (1 + max(d, 0)).
+    sim = 1 / (1 + |d|)
     """
     try:
         dd = float(d)
@@ -30,14 +28,6 @@ def _distance_to_similarity(d: float) -> float:
 
 
 class DenseFAISSRetriever(Retriever):
-    """
-    Dense semantic retriever using FAISS + OpenAI embeddings.
-
-    IMPORTANT:
-        Returns score semantics as similarity (higher is better),
-        even if underlying FAISS returns distance.
-    """
-
     def __init__(self, index_dir: Path, *, embed_model: str) -> None:
         self._vs = self._load(index_dir=index_dir, embed_model=embed_model)
 
@@ -53,10 +43,9 @@ class DenseFAISSRetriever(Retriever):
 
     def search_candidates(self, query: str, k: int, *, oversample: int = 0) -> List[RetrievedChunk]:
         k_total = max(1, int(k) + int(oversample))
-
         pairs = self._vs.similarity_search_with_score(query, k=k_total)
-        results: List[RetrievedChunk] = []
 
+        results: List[RetrievedChunk] = []
         for doc, raw_score in pairs:
             payload: Dict[str, Any] = dict(doc.metadata or {})
             payload["text"] = doc.page_content
@@ -69,8 +58,7 @@ class DenseFAISSRetriever(Retriever):
 
             chunk = Chunk.from_dict(payload)
 
-            # Convert distance-like score to similarity (higher is better)
-            sim = _distance_to_similarity(float(raw_score))
+            sim = _distance_to_similarity(raw_score)
             results.append((chunk, float(sim)))
 
         return results

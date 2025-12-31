@@ -39,6 +39,17 @@ BM25_DIR = EMBEDDINGS_DIR / "bm25"
 OPENAI_DIR = EMBEDDINGS_DIR / "openai"
 STAGE1_DIR = OUTPUTS_DIR / "stage1_baseline_runs"
 
+# Precomputed index/artifact directories
+BM25_FIXED_DIR = BM25_DIR / "fixed"
+BM25_SEM_DIR = BM25_DIR / "semantic"
+
+FAISS_FIXED_DIR = OPENAI_DIR / "fixed_faiss"
+FAISS_SEM_DIR = OPENAI_DIR / "semantic_faiss"
+
+# Chunk manifests
+CHUNKS_FIXED_JSONL = CHUNKS_DIR / "chunks_fixed.jsonl"
+CHUNKS_SEM_JSONL = CHUNKS_DIR / "chunks_semantic.jsonl"
+
 # reports
 REPORTS_DIR = OUTPUTS_DIR / "reports"
 TIME_HIST_DIR = REPORTS_DIR / "time_histograms"

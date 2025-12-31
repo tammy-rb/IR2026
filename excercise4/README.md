@@ -635,3 +635,67 @@ This design:
 - prevents temporal leakage and false precision,
 - correctly handles mixed-intent queries,
 - supports fair and controlled comparison between hard temporal filtering vs. soft recency-based ranking.
+
+
+### Stage 3.1 — Recency Prior & Soft Decay Reranking
+Theoretical Grounding
+This stage implements the findings of Solving Freshness in RAG: A Simple Recency Prior and the Limits of Heuristic Trend Detection. The paper demonstrates that standard RAG systems are "temporally blind" because vector embeddings capture semantic similarity but ignore temporal dynamics.
+
+To solve this, we implement a lightweight temporal memory layer that fuses content similarity with a half-life recency prior.
+
+### Soft Decay Scoring Formula
+
+We use a fused score to re-rank candidates:
+
+`Sim(q,d,t) = α * Sim(q,d) + (1-α) * 0.5^(Δt_days/h)`
+
+- `Sim(q, d)`: cosine similarity (dense) or log-normalized BM25 score (sparse).  
+- `Δt_days`: document age in days vs. the query reference date, clamped to zero for future documents.  
+- `α`: semantic weight.  
+- `h`: temporal half-life in days.
+
+### Parameter Policy (build_retrieval_plan)
+
+The parameters are chosen based on the sensitivity analysis reported in the paper, combined with empirical testing on the local parliamentary and congressional corpus (results stored under outputs\rag_runs)
+
+| Query Mode | α (Alpha) | h (Half-life / days) | 
+|------------|-----------|---------------|
+| Current    | 0.6       | 180            | 
+| Recent     | 0.65       | 865           | 
+| None       | 0.7       | 730          | 
+
+
+**Rationale.**  
+The parameterization is guided directly by the empirical findings reported in Grofsky (2025).
+
+### Choice of α (Semantic Weight)
+
+The paper reports a sensitivity analysis showing that the recency prior is effective across a broad and stable range of α values, approximately **0.4–0.7**. Within this range, the temporal signal consistently corrects freshness failures, while values above this range (α ≥ 0.9) cause the model to revert to semantic-only behavior and reintroduce temporal blindness.
+
+Based on this finding, we deliberately select α values toward the **upper boundary of the stable range**. This reflects a design choice appropriate for parliamentary and congressional debates, where semantic relevance remains the primary signal and temporal information serves as a corrective rather than a dominant factor.
+
+Empirical testing on the local corpus further supports this choice. We observed that when α is set near the upper bound of the stable range, the system still prioritizes the most recent relevant chunks when appropriate, while avoiding excessive dominance of recency that would suppress substantively important but slightly older debates. These results indicate that the chosen α values are sufficient to correct temporal blindness without destabilizing semantic ranking.
+
+As temporal intent weakens (from *current* to *none*), α is increased accordingly, ensuring that recency influences ranking while preserving substantive content as the main retrieval signal.
+
+---
+
+### Choice of Temporal Half-life (h)
+
+The temporal half-life `h` defines the time scale over which documents lose relevance. While the paper uses a short half-life (14 days) appropriate for fast-moving cybersecurity logs, it explicitly notes that this parameter should be extended for slower-moving domains.
+
+Parliamentary and congressional debates exhibit long-lived relevance, with legislative discussions remaining informative across months or even years. We therefore adopt substantially longer half-lives:
+- **Current** queries emphasize recent legislative activity using a half-life of approximately six months.
+- **Recent** queries align with annual legislative cycles.
+- **None** applies a very mild recency bias, where time functions primarily as a tie-breaker while preserving historical context.
+
+This policy corrects the temporal blindness identified in the paper while respecting the slower temporal dynamics of institutional political discourse.
+
+### Implementation Notes
+
+- Temporal logic is implemented in `temporal_policy.py` and applied via `RAGRetriever.get_topk_timeaware`.
+- Candidate sets are **oversampled** prior to temporal re-ranking (`K × 10`, minimum 50), following the post-processing design recommended in the paper.
+- BM25 scores are log-normalized to align their scale with the `[0,1]` temporal component before fusion.
+- Multiple temporal constraints extracted by Duckling are combined using **intersection semantics**, ensuring strict adherence to explicit time bounds.
+- Open-ended expressions (e.g., “since 2022”, “until 2020”) are represented as semi-infinite intervals in the retrieval plan.
+- Parameter sweeps and evaluation artifacts are stored under `outputs/rag_runs/` for reproducibility and analysis.

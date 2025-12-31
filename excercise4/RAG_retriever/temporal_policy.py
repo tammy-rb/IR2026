@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import math
 from dataclasses import dataclass
 from datetime import datetime, timezone
 from typing import Any, Dict, List, Optional, Tuple
@@ -15,15 +16,23 @@ class RetrievalPlan:
     # For soft decay
     ref_ts: int
     alpha: float
-    lam: float  # lambda in 1/days (because Δt is in days)
+    h: float  # half-life in days
 
     # Candidate oversampling for filtering/reranking
     oversample: int
+
+    @property
+    def lam(self) -> float:
+        """Legacy accessor for exponential-decay lambda."""
+        if not self.h or math.isinf(self.h):
+            return 0.0
+        return math.log(2.0) / float(self.h)
 
 
 def _iso_date_to_ts(iso_date: str) -> int:
     """
     Convert YYYY-MM-DD into a UTC midnight unix timestamp (seconds).
+    better for time calculations.
     """
     d = datetime.fromisoformat(iso_date).date()
     return int(datetime(d.year, d.month, d.day, tzinfo=timezone.utc).timestamp())
@@ -82,23 +91,22 @@ def build_retrieval_plan(time_info: Dict[str, Any], *, k: int) -> RetrievalPlan:
             end_ts=end_ts,
             ref_ts=ref_ts,
             alpha=0.0,
-            lam=0.0,
+            h=float("inf"),
             oversample=hard_oversample,
         )
 
-    # Soft decay defaults by mode
+    # Soft decay parameters
     if mode == "current":
-        # prioritize newer documents strongly
-        alpha = 0.35
-        lam = 1.0 / 60.0   # ~60-day scale
+        alpha = 0.6
+        h = 180  # 6 months: political "now"
         oversample = soft_oversample
     elif mode == "recent":
-        alpha = 0.25
-        lam = 1.0 / 180.0  # ~6-month scale
+        alpha = 0.65 
+        h = 365  # 1 year: typical policy cycle
         oversample = soft_oversample
     else:  # none
-        alpha = 0.15
-        lam = 1.0 / 365.0  # ~1-year scale (mild)
+        alpha = 0.7
+        h = 730  # 2 years: parliamentary term context
         oversample = soft_oversample
 
     return RetrievalPlan(
@@ -107,6 +115,6 @@ def build_retrieval_plan(time_info: Dict[str, Any], *, k: int) -> RetrievalPlan:
         end_ts=None,
         ref_ts=ref_ts,
         alpha=float(alpha),
-        lam=float(lam),
+        h=float(h),
         oversample=int(oversample),
     )
