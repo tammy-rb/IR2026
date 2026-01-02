@@ -1,0 +1,164 @@
+{
+  "point_in_time": [
+    {
+      "query": "What was the specific budget allocated to security in 2024 in the US Congress?",
+      "corpus": "us",
+      "expected_source": [],
+      "intent": "hard_filter",
+      "note": "Point-in-time query (explicit year). Test: should ignore 2023 and 2025 documents."
+    },
+    {
+      "query": "What was the specific budget allocated to defence in 2024 in the British Parliament?",
+      "corpus": "british",
+      "expected_source": [],
+      "intent": "hard_filter",
+      "note": "Point-in-time query (explicit year). Test: should ignore 2023 and 2025 documents."
+    },
+    {
+      "query": "What healthcare legislation was discussed in Congress in 2024?",
+      "corpus": "us",
+      "expected_source": [],
+      "intent": "hard_filter",
+      "note": "Point-in-time query (explicit year). Test: should retrieve only 2024 documents."
+    },
+    {
+      "query": "What healthcare legislation was debated in Parliament in 2024?",
+      "corpus": "british",
+      "expected_source": [],
+      "intent": "hard_filter",
+      "note": "Point-in-time query (explicit year). Test: should retrieve only 2024 documents."
+    }
+  ],
+  "recency": [
+    {
+      "query": "What is the current official position of the US Congress regarding the State of Israel?",
+      "corpus": "us",
+      "expected_source": [],
+      "intent": "current",
+      "note": "Recency query. Test: should prefer newer documents (e.g., 2025 over 2023) even if older is longer."
+    },
+    {
+      "query": "What is the current official position of the British Parliament regarding the State of Israel?",
+      "corpus": "british",
+      "expected_source": [],
+      "intent": "current",
+      "note": "Recency query. Test: should prefer newer documents (e.g., 2025 over 2023) even if older is longer."
+    },
+    {
+      "query": "What is the current official position of Congress regarding Hamas/Gaza?",
+      "corpus": "us",
+      "expected_source": [],
+      "intent": "current",
+      "note": "Recency query. Test: should prefer newer documents (e.g., 2025 over 2023) even if older is longer."
+    },
+    {
+      "query": "What is the current official position of Parliament regarding Hamas/Gaza?",
+      "corpus": "british",
+      "expected_source": [],
+      "intent": "current",
+      "note": "Recency query. Test: should prefer newer documents (e.g., 2025 over 2023) even if older is longer."
+    },
+    {
+      "query": "What are the latest discussions in Congress about immigration reform?",
+      "corpus": "us",
+      "expected_source": [],
+      "intent": "current",
+      "note": "Recency query. Test: should strongly prefer most recent documents (2025)."
+    },
+    {
+      "query": "What are the latest debates in Parliament about immigration policy?",
+      "corpus": "british",
+      "expected_source": [],
+      "intent": "current",
+      "note": "Recency query. Test: should strongly prefer most recent documents (2025)."
+    },
+    {
+      "query": "What is the current stance of Congress on climate change legislation?",
+      "corpus": "us",
+      "expected_source": [],
+      "intent": "current",
+      "note": "Recency query. Test: should prioritize 2025 documents over historical discussions."
+    },
+    {
+      "query": "What is the current stance of Parliament on climate change legislation?",
+      "corpus": "british",
+      "expected_source": [],
+      "intent": "current",
+      "note": "Recency query. Test: should prioritize 2025 documents over historical discussions."
+    }
+  ],
+  "explicit_range": [
+    {
+      "query": "Was the official position of Congress in the last quarter of 2023 supportive of the State of Israel?",
+      "corpus": "us",
+      "expected_source": [],
+      "intent": "explicit_range",
+      "note": "Explicit time constraint (Q4 2023). Typically hard filtering over the specified interval."
+    },
+    {
+      "query": "Was the official position of Parliament in the last quarter of 2023 supportive of the State of Israel?",
+      "corpus": "british",
+      "expected_source": [],
+      "intent": "explicit_range",
+      "note": "Explicit time constraint (Q4 2023). Typically hard filtering over the specified interval."
+    },
+    {
+      "query": "Was the official position of Congress in the last quarter of 2023 supportive of Hamas/Gaza?",
+      "corpus": "us",
+      "expected_source": [],
+      "intent": "explicit_range",
+      "note": "Explicit time constraint (Q4 2023). Typically hard filtering over the specified interval."
+    },
+    {
+      "query": "Was the official position of Parliament in the last quarter of 2023 supportive of Hamas/Gaza?",
+      "corpus": "british",
+      "expected_source": [],
+      "intent": "explicit_range",
+      "note": "Explicit time constraint (Q4 2023). Typically hard filtering over the specified interval."
+    },
+    {
+      "query": "What energy policies were debated in Congress between June and September 2024?",
+      "corpus": "us",
+      "expected_source": [],
+      "intent": "explicit_range",
+      "note": "Explicit time range (Q3 2024). Test: should hard filter to only mid-2024 documents."
+    },
+    {
+      "query": "What energy policies were discussed in Parliament between June and September 2024?",
+      "corpus": "british",
+      "expected_source": [],
+      "intent": "explicit_range",
+      "note": "Explicit time range (Q3 2024). Test: should hard filter to only mid-2024 documents."
+    }
+  ],
+  "comparison": [
+    {
+      "query": "Has the official position of Congress in the last quarter of 2023 changed relative to the official position in the last quarter of 2025 regarding Israel?",
+      "corpus": "us",
+      "expected_source": [],
+      "intent": "comparison",
+      "note": "Comparison query. Test: should retrieve documents from both Q4 2023 and Q4 2025."
+    },
+    {
+      "query": "Has the official position of Parliament in the last quarter of 2023 changed relative to the official position in the last quarter of 2025 regarding Israel?",
+      "corpus": "british",
+      "expected_source": [],
+      "intent": "comparison",
+      "note": "Comparison query. Test: should retrieve documents from both Q4 2023 and Q4 2025."
+    },
+    {
+      "query": "How has Congressional debate on economic policy evolved from 2023 to 2025?",
+      "corpus": "us",
+      "expected_source": [],
+      "intent": "evolution",
+      "note": "Evolution query. Test: should retrieve representative documents across the 2023-2025 timespan."
+    },
+    {
+      "query": "How has Parliamentary debate on economic policy evolved from 2023 to 2025?",
+      "corpus": "british",
+      "expected_source": [],
+      "intent": "evolution",
+      "note": "Evolution query. Test: should retrieve representative documents across the 2023-2025 timespan."
+    }
+  ]
+}

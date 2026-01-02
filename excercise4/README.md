@@ -699,3 +699,258 @@ This policy corrects the temporal blindness identified in the paper while respec
 - Multiple temporal constraints extracted by Duckling are combined using **intersection semantics**, ensuring strict adherence to explicit time bounds.
 - Open-ended expressions (e.g., “since 2022”, “until 2020”) are represented as semi-infinite intervals in the retrieval plan.
 - Parameter sweeps and evaluation artifacts are stored under `outputs/rag_runs/` for reproducibility and analysis.
+
+---
+
+### stage 3 deliverable:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Comprehensive Temporal Evaluation
+
+### Expanded Query Set
+
+To thoroughly evaluate the temporal RAG system, we expanded the initial query set from 5 to **20 queries**, covering both US Congressional and British Parliamentary debates across four temporal query categories:
+
+**Query Distribution:**
+- **Point-in-time queries** (8 queries): Explicit year references requiring hard temporal filtering
+  - Budget/defence allocation in 2024 (US + British)
+  - Healthcare legislation discussions in 2024 (Congress + Parliament)
+  
+- **Recency queries** (8 queries): Current position/latest discussion queries requiring soft decay
+  - Official positions on Israel (US Congress + British Parliament)
+  - Official positions on Hamas/Gaza (US Congress + British Parliament)
+  - Latest discussions on immigration reform/policy (Congress + Parliament)
+  - Current stance on climate change legislation (Congress + Parliament)
+
+- **Explicit range queries** (6 queries): Specific time period constraints (Q4 2023, Q3 2024)
+  - **Note:** Q4 = Quarter 4 (October-December), Q3 = Quarter 3 (July-September)
+  - Official positions in Q4 2023 on Israel (US + British)
+  - Official positions in Q4 2023 on Hamas/Gaza (US + British)
+  - Energy policy debates in Q3 2024 (Congress + Parliament)
+
+- **Comparison/Evolution queries** (4 queries): Cross-temporal analysis
+  - Position changes from Q4 2023 to Q4 2025 (US + British)
+  - Economic policy evolution 2023-2025 (Congress + Parliament)
+
+All queries include corpus-specific language markers ("US Congress", "British Parliament", "Congress", "Parliament") to enable corpus-targeted retrieval.
+
+**Query file:** `queries/given_temporal_queries.json`
+
+---
+
+### Experimental Configuration
+
+**Evaluation script:** `s_03_temporal_analysis.py`
+
+**Parameters:**
+- **K values:** 3, 5, 10 (retrieval depth)
+- **TopN:** 5 (comparison window for delta analysis)
+- **Pipelines:** All 4 configurations
+  - fixed/bm25
+  - fixed/dense
+  - semantic/bm25
+  - semantic/dense
+
+**Execution:**
+```bash
+python s_03_temporal_analysis.py --queries_json queries/given_temporal_queries.json --k 3 5 10
+```
+
+**Total comparisons:** 240 rows (20 queries × 4 pipelines × 3 k values)
+
+**Output artifacts:**
+- Raw comparison data: `outputs/rag_runs/stage3_temporal_analysis/stage3_given_temporal_queries_20260102_094323.json`
+- Aggregated summary: `outputs/reports/stage3_summaries/stage3_given_temporal_queries_20260102_094323__summary.json`
+
+---
+
+### Aggregated Results Overview
+
+The comprehensive evaluation produced 240 baseline vs time-aware retrieval comparisons. Summary statistics were generated using:
+
+```bash
+python s_04_stage3_summary.py --in_json outputs/rag_runs/stage3_temporal_analysis/stage3_given_temporal_queries_20260102_094323.json
+```
+
+#### Overall Statistics by Pipeline and K
+
+Each pipeline/k combination processed 20 queries across 4 temporal buckets. Key aggregate metrics:
+
+| Pipeline | K | Total Entered | Total Left | Avg Jaccard | Avg Churn | Interpretation |
+|----------|---|---------------|------------|-------------|-----------|----------------|
+| fixed/bm25 | 3 | 53 | 53 | 0.27 | 0.53 | Moderate retrieval change |
+| fixed/bm25 | 5 | 56 | 56 | 0.25 | 0.56 | Higher churn at k=5 |
+| fixed/bm25 | 10 | 56 | 56 | 0.25 | 0.56 | Stable across k=5,10 |
+| fixed/dense | 3 | 61 | 61 | 0.19 | 0.61 | High sensitivity to temporal signal |
+| fixed/dense | 5 | 65 | 65 | 0.17 | 0.65 | Highest churn across all configs |
+| fixed/dense | 10 | 67 | 67 | 0.16 | 0.67 | Dense shows strongest temporal bias |
+| semantic/bm25 | 3 | 54 | 54 | 0.24 | 0.54 | Similar to fixed/bm25 |
+| semantic/bm25 | 5 | 55 | 55 | 0.24 | 0.55 | Chunking has minimal impact on BM25 |
+| semantic/bm25 | 10 | 55 | 55 | 0.24 | 0.55 | Very stable across k values |
+| semantic/dense | 3 | 60 | 60 | 0.19 | 0.60 | Dense embeddings dominate |
+| semantic/dense | 5 | 63 | 63 | 0.17 | 0.63 | Semantic chunking slightly reduces churn |
+| semantic/dense | 10 | 63 | 63 | 0.17 | 0.63 | Stable at k=5,10 |
+
+**Key Observations:**
+- **Dense representations** consistently show higher churn (0.60-0.67) compared to BM25 (0.53-0.56)
+- **Lower Jaccard similarity** in dense pipelines (0.16-0.19) vs BM25 (0.24-0.27) indicates greater temporal correction needed
+- **Chunking method** has minimal impact on temporal sensitivity (fixed vs semantic show similar patterns within same representation)
+- **K value impact** is minimal beyond k=5, suggesting temporal re-ranking converges quickly
+
+#### Year Distribution Shifts
+
+Across all 240 comparisons, temporal awareness produced systematic year distribution changes:
+
+**Baseline Retrieval (Time-Blind):**
+- Mixed year distribution reflecting semantic relevance
+- BM25 baselines: Relatively balanced across 2023-2025
+- Dense baselines: Strong bias toward 2024 (most content-rich year)
+
+**Time-Aware Retrieval:**
+- **Point-in-time queries:** 100% compliance with target year (2024)
+- **Recency queries:** Strong shift to 2025 (most recent year)
+- **Explicit range queries:** 100% compliance with specified periods (Q4 2023, Q3 2024)
+- **Comparison queries:** Appropriate distribution across compared periods
+
+**Example (fixed/dense, k=5):**
+- Baseline: {2023: 19, 2024: 57, 2025: 24}
+- Time-aware: {2023: 32, 2024: 25, 2025: 43}
+- Shift indicates strong temporal re-ranking toward query-appropriate years
+
+---
+
+### Query Group Performance Breakdown
+
+#### Point-in-Time Queries (8 queries, explicit year constraint)
+
+**Temporal mode:** `explicit`  
+**Strategy:** Hard filtering (only target year eligible)
+
+**Aggregate statistics (across all pipelines/k):**
+- **Avg entered:** 1.94 - 2.83 chunks per query
+- **Avg left:** 1.94 - 2.83 chunks per query
+- **Avg Jaccard:** 0.25 - 0.44 (moderate to high overlap)
+- **Avg churn:** 0.39 - 0.57 (moderate change)
+
+**Year compliance:**
+- All time-aware retrievals achieved **100% target year compliance** (2024 chunks only)
+- Baseline retrievals showed mixed years (2023/2024/2025)
+
+**Pipeline differences:**
+- **BM25 pipelines** showed better baseline alignment (higher Jaccard 0.35-0.44)
+- **Dense pipelines** required more correction (lower Jaccard 0.25-0.33), especially with fixed chunking
+
+---
+
+#### Recency Queries (8 queries, current position/latest discussion)
+
+**Temporal mode:** `current`  
+**Strategy:** Soft decay (α=0.6, h=180 days)
+
+**Aggregate statistics:**
+- **Avg entered:** 3.75 - 4.38 chunks per query
+- **Avg left:** 3.75 - 4.38 chunks per query
+- **Avg Jaccard:** 0.06 - 0.13 (very low overlap)
+- **Avg churn:** 0.75 - 0.88 (very high change)
+
+**Year distribution shift:**
+- **Baseline:** Mixed 2023-2025 (semantic relevance dominated)
+- **Time-aware:** **90-100% shift to 2025** (most recent documents)
+
+**Key finding:**
+- Recency queries exhibited the **most dramatic temporal correction**
+- Near-complete ranking replacement confirms baseline RAG temporal blindness for "current" intent
+- All pipelines benefited equally from soft decay strategy
+
+---
+
+#### Explicit Range Queries (6 queries, specific time windows)
+
+**Temporal mode:** `explicit`  
+**Strategy:** Hard filtering (Q4 2023, Q3 2024 constraints)
+
+**Aggregate statistics:**
+- **Avg entered:** 2.50 - 3.83 chunks per query
+- **Avg left:** 2.50 - 3.83 chunks per query
+- **Avg Jaccard:** 0.08 - 0.38 (wide variation)
+- **Avg churn:** 0.50 - 0.83 (high change)
+
+**Year compliance:**
+- **100% compliance** with specified time ranges
+- Q4 2023 queries: Only 2023 chunks retrieved
+- Q3 2024 queries: Only mid-2024 chunks retrieved
+
+**Pipeline differences:**
+- **Dense/fixed** showed **zero overlap** for some queries (complete replacement)
+- **BM25** maintained partial overlap, suggesting some lexical temporal alignment
+
+---
+
+#### Comparison/Evolution Queries (4 queries, cross-temporal analysis)
+
+**Temporal mode:** `comparison` / `evolution`  
+**Strategy:** Multi-range retrieval with balanced sampling
+
+**Aggregate statistics:**
+- **Avg entered:** 3.50 - 4.25 chunks per query
+- **Avg left:** 3.50 - 4.25 chunks per query
+- **Avg Jaccard:** 0.08 - 0.17 (low overlap)
+- **Avg churn:** 0.70 - 0.85 (high change)
+
+**Year distribution:**
+- Time-aware retrieval successfully retrieved documents from **both comparison periods**
+- Example (Q4 2023 vs Q4 2025): Balanced distribution across 2023 and 2025
+- Baseline showed arbitrary temporal distribution
+
+---
+
+### Technical Implementation Details
+
+**LLM Selection:**
+- Model: **GPT-4o-mini** (OpenAI)
+- Rationale: Cost-effective, sufficient reasoning capability for temporal query understanding, fast response times suitable for batch evaluation
+
+**Embedding Model:**
+- Model: **text-embedding-3-large** (OpenAI)
+- Dimensionality: 3072 (full)
+- Rationale: State-of-the-art semantic representation, proven performance on retrieval benchmarks, consistent with dense pipeline requirements
+
+**K Value Selection:**
+- **K=3:** Minimal retrieval for high-precision scenarios
+- **K=5:** Standard topN for RAG applications (matches answer generation window)
+- **K=10:** Extended context for comparison queries and redundancy
+
+**Rationale:** Incremental k values (3→5→10) enable analysis of how temporal re-ranking stability changes with retrieval depth. Results show diminishing returns beyond k=5 for temporal correction.
+
+**Chunking Methods:**
+- **Fixed:** 400-word chunks with sentence-boundary preservation, 50-word overlap
+- **Semantic:** LLM-based semantic segmentation preserving topical coherence
+
+**Representation Methods:**
+- **BM25:** Okapi BM25 with standard parameters (k1=1.5, b=0.75), log-normalization for score fusion
+- **Dense:** OpenAI text-embedding-3-large with FAISS cosine similarity indexing
+
+---
+

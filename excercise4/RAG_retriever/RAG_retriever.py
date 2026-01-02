@@ -33,6 +33,10 @@ load_dotenv()
 OPENAI_EMBED_MODEL = "text-embedding-3-large"
 STOP_WORDS = "english"
 
+# Maximum oversample limit for hard filter strategy
+# If hard filtering doesn't yield enough results, we expand oversample up to this limit
+MAX_HARD_OVERSAMPLE = 400
+
 
 # ============================================================
 # Pipeline model
@@ -184,8 +188,8 @@ class RAGRetriever:
             filtered = hard_filter(cands, start_ts=plan.start_ts, end_ts=plan.end_ts)
 
             # Hard filter might leave <k results -> expand oversampling
-            while len(filtered) < k and overs < max_hard_oversample:
-                overs = min(max_hard_oversample, max(overs * 2, overs + 200))
+            while len(filtered) < k and overs < MAX_HARD_OVERSAMPLE:
+                overs = min(MAX_HARD_OVERSAMPLE, max(overs * 2, overs + 200))
                 cands = _retrieve_candidates(overs)
                 filtered = hard_filter(cands, start_ts=plan.start_ts, end_ts=plan.end_ts)
 

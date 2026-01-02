@@ -98,7 +98,7 @@ def build_retrieval_plan(time_info: Dict[str, Any], *, k: int) -> RetrievalPlan:
     # Soft decay parameters
     if mode == "current":
         alpha = 0.6
-        h = 180  # 6 months: political "now"
+        h = 365
         oversample = soft_oversample
     elif mode == "recent":
         alpha = 0.65 

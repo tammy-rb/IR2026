@@ -1,0 +1,1871 @@
+{
+  "meta": {
+    "generated_at": "2026-01-02T09:44:31",
+    "n_input_rows": 264,
+    "description": "Aggregated Stage 3 temporal analysis: baseline vs timeaware deltas, year distributions, query group breakdowns"
+  },
+  "pipelines": [
+    {
+      "pipeline": "fixed/bm25",
+      "k": 3,
+      "overall": {
+        "n_rows": 22,
+        "total_entered": 33,
+        "total_left": 39,
+        "total_overlap": 27,
+        "avg_entered": 1.5,
+        "avg_left": 1.77,
+        "avg_overlap": 1.23,
+        "avg_jaccard": 0.3545,
+        "avg_churn": 0.3273,
+        "year_distributions": {
+          "baseline_top": {
+            "2023": 15,
+            "2024": 32,
+            "2025": 19
+          },
+          "timeaware_top": {
+            "2023": 14,
+            "2024": 19,
+            "2025": 27
+          },
+          "entered": {
+            "2023": 8,
+            "2024": 7,
+            "2025": 18
+          },
+          "left": {
+            "2023": 9,
+            "2024": 20,
+            "2025": 10
+          }
+        }
+      },
+      "by_query_group": {
+        "comparison": {
+          "n_rows": 4,
+          "total_entered": 0,
+          "total_left": 6,
+          "total_overlap": 6,
+          "avg_entered": 0.0,
+          "avg_left": 1.5,
+          "avg_overlap": 1.5,
+          "avg_jaccard": 0.5,
+          "avg_churn": 0.15,
+          "year_distributions": {
+            "baseline_top": {
+              "2023": 2,
+              "2024": 5,
+              "2025": 5
+            },
+            "timeaware_top": {
+              "2023": 2,
+              "2024": 1,
+              "2025": 3
+            },
+            "entered": {},
+            "left": {
+              "2024": 4,
+              "2025": 2
+            }
+          }
+        },
+        "explicit_range": {
+          "n_rows": 6,
+          "total_entered": 11,
+          "total_left": 11,
+          "total_overlap": 7,
+          "avg_entered": 1.83,
+          "avg_left": 1.83,
+          "avg_overlap": 1.17,
+          "avg_jaccard": 0.3333,
+          "avg_churn": 0.3667,
+          "year_distributions": {
+            "baseline_top": {
+              "2023": 8,
+              "2024": 7,
+              "2025": 3
+            },
+            "timeaware_top": {
+              "2023": 12,
+              "2024": 6
+            },
+            "entered": {
+              "2023": 8,
+              "2024": 3
+            },
+            "left": {
+              "2023": 4,
+              "2024": 4,
+              "2025": 3
+            }
+          }
+        },
+        "point_in_time": {
+          "n_rows": 4,
+          "total_entered": 4,
+          "total_left": 4,
+          "total_overlap": 8,
+          "avg_entered": 1.0,
+          "avg_left": 1.0,
+          "avg_overlap": 2.0,
+          "avg_jaccard": 0.6,
+          "avg_churn": 0.2,
+          "year_distributions": {
+            "baseline_top": {
+              "2024": 8,
+              "2025": 4
+            },
+            "timeaware_top": {
+              "2024": 12
+            },
+            "entered": {
+              "2024": 4
+            },
+            "left": {
+              "2025": 4
+            }
+          }
+        },
+        "recency": {
+          "n_rows": 8,
+          "total_entered": 18,
+          "total_left": 18,
+          "total_overlap": 6,
+          "avg_entered": 2.25,
+          "avg_left": 2.25,
+          "avg_overlap": 0.75,
+          "avg_jaccard": 0.175,
+          "avg_churn": 0.45,
+          "year_distributions": {
+            "baseline_top": {
+              "2023": 5,
+              "2024": 12,
+              "2025": 7
+            },
+            "timeaware_top": {
+              "2025": 24
+            },
+            "entered": {
+              "2025": 18
+            },
+            "left": {
+              "2023": 5,
+              "2024": 12,
+              "2025": 1
+            }
+          }
+        }
+      }
+    },
+    {
+      "pipeline": "fixed/bm25",
+      "k": 5,
+      "overall": {
+        "n_rows": 22,
+        "total_entered": 60,
+        "total_left": 70,
+        "total_overlap": 40,
+        "avg_entered": 2.73,
+        "avg_left": 3.18,
+        "avg_overlap": 1.82,
+        "avg_jaccard": 0.3041,
+        "avg_churn": 0.5909,
+        "year_distributions": {
+          "baseline_top": {
+            "2023": 33,
+            "2024": 43,
+            "2025": 34
+          },
+          "timeaware_top": {
+            "2023": 23,
+            "2024": 32,
+            "2025": 45
+          },
+          "entered": {
+            "2023": 13,
+            "2024": 15,
+            "2025": 32
+          },
+          "left": {
+            "2023": 23,
+            "2024": 26,
+            "2025": 21
+          }
+        }
+      },
+      "by_query_group": {
+        "comparison": {
+          "n_rows": 4,
+          "total_entered": 0,
+          "total_left": 10,
+          "total_overlap": 10,
+          "avg_entered": 0.0,
+          "avg_left": 2.5,
+          "avg_overlap": 2.5,
+          "avg_jaccard": 0.5,
+          "avg_churn": 0.25,
+          "year_distributions": {
+            "baseline_top": {
+              "2023": 4,
+              "2024": 7,
+              "2025": 9
+            },
+            "timeaware_top": {
+              "2023": 3,
+              "2024": 2,
+              "2025": 5
+            },
+            "entered": {},
+            "left": {
+              "2023": 1,
+              "2024": 5,
+              "2025": 4
+            }
+          }
+        },
+        "explicit_range": {
+          "n_rows": 6,
+          "total_entered": 19,
+          "total_left": 19,
+          "total_overlap": 11,
+          "avg_entered": 3.17,
+          "avg_left": 3.17,
+          "avg_overlap": 1.83,
+          "avg_jaccard": 0.2937,
+          "avg_churn": 0.6333,
+          "year_distributions": {
+            "baseline_top": {
+              "2023": 15,
+              "2024": 10,
+              "2025": 5
+            },
+            "timeaware_top": {
+              "2023": 20,
+              "2024": 10
+            },
+            "entered": {
+              "2023": 13,
+              "2024": 6
+            },
+            "left": {
+              "2023": 8,
+              "2024": 6,
+              "2025": 5
+            }
+          }
+        },
+        "point_in_time": {
+          "n_rows": 4,
+          "total_entered": 9,
+          "total_left": 9,
+          "total_overlap": 11,
+          "avg_entered": 2.25,
+          "avg_left": 2.25,
+          "avg_overlap": 2.75,
+          "avg_jaccard": 0.4474,
+          "avg_churn": 0.45,
+          "year_distributions": {
+            "baseline_top": {
+              "2023": 1,
+              "2024": 11,
+              "2025": 8
+            },
+            "timeaware_top": {
+              "2024": 20
+            },
+            "entered": {
+              "2024": 9
+            },
+            "left": {
+              "2023": 1,
+              "2025": 8
+            }
+          }
+        },
+        "recency": {
+          "n_rows": 8,
+          "total_entered": 32,
+          "total_left": 32,
+          "total_overlap": 8,
+          "avg_entered": 4.0,
+          "avg_left": 4.0,
+          "avg_overlap": 1.0,
+          "avg_jaccard": 0.1424,
+          "avg_churn": 0.8,
+          "year_distributions": {
+            "baseline_top": {
+              "2023": 13,
+              "2024": 15,
+              "2025": 12
+            },
+            "timeaware_top": {
+              "2025": 40
+            },
+            "entered": {
+              "2025": 32
+            },
+            "left": {
+              "2023": 13,
+              "2024": 15,
+              "2025": 4
+            }
+          }
+        }
+      }
+    },
+    {
+      "pipeline": "fixed/bm25",
+      "k": 10,
+      "overall": {
+        "n_rows": 22,
+        "total_entered": 60,
+        "total_left": 70,
+        "total_overlap": 40,
+        "avg_entered": 2.73,
+        "avg_left": 3.18,
+        "avg_overlap": 1.82,
+        "avg_jaccard": 0.3041,
+        "avg_churn": 0.5909,
+        "year_distributions": {
+          "baseline_top": {
+            "2023": 33,
+            "2024": 43,
+            "2025": 34
+          },
+          "timeaware_top": {
+            "2023": 23,
+            "2024": 32,
+            "2025": 45
+          },
+          "entered": {
+            "2023": 13,
+            "2024": 15,
+            "2025": 32
+          },
+          "left": {
+            "2023": 23,
+            "2024": 26,
+            "2025": 21
+          }
+        }
+      },
+      "by_query_group": {
+        "comparison": {
+          "n_rows": 4,
+          "total_entered": 0,
+          "total_left": 10,
+          "total_overlap": 10,
+          "avg_entered": 0.0,
+          "avg_left": 2.5,
+          "avg_overlap": 2.5,
+          "avg_jaccard": 0.5,
+          "avg_churn": 0.25,
+          "year_distributions": {
+            "baseline_top": {
+              "2023": 4,
+              "2024": 7,
+              "2025": 9
+            },
+            "timeaware_top": {
+              "2023": 3,
+              "2024": 2,
+              "2025": 5
+            },
+            "entered": {},
+            "left": {
+              "2023": 1,
+              "2024": 5,
+              "2025": 4
+            }
+          }
+        },
+        "explicit_range": {
+          "n_rows": 6,
+          "total_entered": 19,
+          "total_left": 19,
+          "total_overlap": 11,
+          "avg_entered": 3.17,
+          "avg_left": 3.17,
+          "avg_overlap": 1.83,
+          "avg_jaccard": 0.2937,
+          "avg_churn": 0.6333,
+          "year_distributions": {
+            "baseline_top": {
+              "2023": 15,
+              "2024": 10,
+              "2025": 5
+            },
+            "timeaware_top": {
+              "2023": 20,
+              "2024": 10
+            },
+            "entered": {
+              "2023": 13,
+              "2024": 6
+            },
+            "left": {
+              "2023": 8,
+              "2024": 6,
+              "2025": 5
+            }
+          }
+        },
+        "point_in_time": {
+          "n_rows": 4,
+          "total_entered": 9,
+          "total_left": 9,
+          "total_overlap": 11,
+          "avg_entered": 2.25,
+          "avg_left": 2.25,
+          "avg_overlap": 2.75,
+          "avg_jaccard": 0.4474,
+          "avg_churn": 0.45,
+          "year_distributions": {
+            "baseline_top": {
+              "2023": 1,
+              "2024": 11,
+              "2025": 8
+            },
+            "timeaware_top": {
+              "2024": 20
+            },
+            "entered": {
+              "2024": 9
+            },
+            "left": {
+              "2023": 1,
+              "2025": 8
+            }
+          }
+        },
+        "recency": {
+          "n_rows": 8,
+          "total_entered": 32,
+          "total_left": 32,
+          "total_overlap": 8,
+          "avg_entered": 4.0,
+          "avg_left": 4.0,
+          "avg_overlap": 1.0,
+          "avg_jaccard": 0.1424,
+          "avg_churn": 0.8,
+          "year_distributions": {
+            "baseline_top": {
+              "2023": 13,
+              "2024": 15,
+              "2025": 12
+            },
+            "timeaware_top": {
+              "2025": 40
+            },
+            "entered": {
+              "2025": 32
+            },
+            "left": {
+              "2023": 13,
+              "2024": 15,
+              "2025": 4
+            }
+          }
+        }
+      }
+    },
+    {
+      "pipeline": "fixed/dense",
+      "k": 3,
+      "overall": {
+        "n_rows": 22,
+        "total_entered": 42,
+        "total_left": 48,
+        "total_overlap": 18,
+        "avg_entered": 1.91,
+        "avg_left": 2.18,
+        "avg_overlap": 0.82,
+        "avg_jaccard": 0.2091,
+        "avg_churn": 0.4091,
+        "year_distributions": {
+          "baseline_top": {
+            "2023": 13,
+            "2024": 24,
+            "2025": 29
+          },
+          "timeaware_top": {
+            "2023": 13,
+            "2024": 22,
+            "2025": 25
+          },
+          "entered": {
+            "2023": 9,
+            "2024": 12,
+            "2025": 21
+          },
+          "left": {
+            "2023": 9,
+            "2024": 14,
+            "2025": 25
+          }
+        }
+      },
+      "by_query_group": {
+        "comparison": {
+          "n_rows": 4,
+          "total_entered": 0,
+          "total_left": 6,
+          "total_overlap": 6,
+          "avg_entered": 0.0,
+          "avg_left": 1.5,
+          "avg_overlap": 1.5,
+          "avg_jaccard": 0.5,
+          "avg_churn": 0.15,
+          "year_distributions": {
+            "baseline_top": {
+              "2023": 1,
+              "2024": 5,
+              "2025": 6
+            },
+            "timeaware_top": {
+              "2023": 1,
+              "2024": 4,
+              "2025": 1
+            },
+            "entered": {},
+            "left": {
+              "2024": 1,
+              "2025": 5
+            }
+          }
+        },
+        "explicit_range": {
+          "n_rows": 6,
+          "total_entered": 15,
+          "total_left": 15,
+          "total_overlap": 3,
+          "avg_entered": 2.5,
+          "avg_left": 2.5,
+          "avg_overlap": 0.5,
+          "avg_jaccard": 0.1,
+          "avg_churn": 0.5,
+          "year_distributions": {
+            "baseline_top": {
+              "2023": 3,
+              "2024": 4,
+              "2025": 11
+            },
+            "timeaware_top": {
+              "2023": 12,
+              "2024": 6
+            },
+            "entered": {
+              "2023": 9,
+              "2024": 6
+            },
+            "left": {
+              "2024": 4,
+              "2025": 11
+            }
+          }
+        },
+        "point_in_time": {
+          "n_rows": 4,
+          "total_entered": 6,
+          "total_left": 6,
+          "total_overlap": 6,
+          "avg_entered": 1.5,
+          "avg_left": 1.5,
+          "avg_overlap": 1.5,
+          "avg_jaccard": 0.35,
+          "avg_churn": 0.3,
+          "year_distributions": {
+            "baseline_top": {
+              "2023": 1,
+              "2024": 6,
+              "2025": 5
+            },
+            "timeaware_top": {
+              "2024": 12
+            },
+            "entered": {
+              "2024": 6
+            },
+            "left": {
+              "2023": 1,
+              "2025": 5
+            }
+          }
+        },
+        "recency": {
+          "n_rows": 8,
+          "total_entered": 21,
+          "total_left": 21,
+          "total_overlap": 3,
+          "avg_entered": 2.62,
+          "avg_left": 2.62,
+          "avg_overlap": 0.38,
+          "avg_jaccard": 0.075,
+          "avg_churn": 0.525,
+          "year_distributions": {
+            "baseline_top": {
+              "2023": 8,
+              "2024": 9,
+              "2025": 7
+            },
+            "timeaware_top": {
+              "2025": 24
+            },
+            "entered": {
+              "2025": 21
+            },
+            "left": {
+              "2023": 8,
+              "2024": 9,
+              "2025": 4
+            }
+          }
+        }
+      }
+    },
+    {
+      "pipeline": "fixed/dense",
+      "k": 5,
+      "overall": {
+        "n_rows": 22,
+        "total_entered": 68,
+        "total_left": 78,
+        "total_overlap": 32,
+        "avg_entered": 3.09,
+        "avg_left": 3.55,
+        "avg_overlap": 1.45,
+        "avg_jaccard": 0.2219,
+        "avg_churn": 0.6636,
+        "year_distributions": {
+          "baseline_top": {
+            "2023": 22,
+            "2024": 49,
+            "2025": 39
+          },
+          "timeaware_top": {
+            "2023": 22,
+            "2024": 34,
+            "2025": 44
+          },
+          "entered": {
+            "2023": 16,
+            "2024": 18,
+            "2025": 34
+          },
+          "left": {
+            "2023": 16,
+            "2024": 33,
+            "2025": 29
+          }
+        }
+      },
+      "by_query_group": {
+        "comparison": {
+          "n_rows": 4,
+          "total_entered": 0,
+          "total_left": 10,
+          "total_overlap": 10,
+          "avg_entered": 0.0,
+          "avg_left": 2.5,
+          "avg_overlap": 2.5,
+          "avg_jaccard": 0.5,
+          "avg_churn": 0.25,
+          "year_distributions": {
+            "baseline_top": {
+              "2023": 2,
+              "2024": 9,
+              "2025": 9
+            },
+            "timeaware_top": {
+              "2023": 2,
+              "2024": 4,
+              "2025": 4
+            },
+            "entered": {},
+            "left": {
+              "2024": 5,
+              "2025": 5
+            }
+          }
+        },
+        "explicit_range": {
+          "n_rows": 6,
+          "total_entered": 26,
+          "total_left": 26,
+          "total_overlap": 4,
+          "avg_entered": 4.33,
+          "avg_left": 4.33,
+          "avg_overlap": 0.67,
+          "avg_jaccard": 0.0787,
+          "avg_churn": 0.8667,
+          "year_distributions": {
+            "baseline_top": {
+              "2023": 4,
+              "2024": 11,
+              "2025": 15
+            },
+            "timeaware_top": {
+              "2023": 20,
+              "2024": 10
+            },
+            "entered": {
+              "2023": 16,
+              "2024": 10
+            },
+            "left": {
+              "2024": 11,
+              "2025": 15
+            }
+          }
+        },
+        "point_in_time": {
+          "n_rows": 4,
+          "total_entered": 8,
+          "total_left": 8,
+          "total_overlap": 12,
+          "avg_entered": 2.0,
+          "avg_left": 2.0,
+          "avg_overlap": 3.0,
+          "avg_jaccard": 0.4286,
+          "avg_churn": 0.4,
+          "year_distributions": {
+            "baseline_top": {
+              "2023": 3,
+              "2024": 12,
+              "2025": 5
+            },
+            "timeaware_top": {
+              "2024": 20
+            },
+            "entered": {
+              "2024": 8
+            },
+            "left": {
+              "2023": 3,
+              "2025": 5
+            }
+          }
+        },
+        "recency": {
+          "n_rows": 8,
+          "total_entered": 34,
+          "total_left": 34,
+          "total_overlap": 6,
+          "avg_entered": 4.25,
+          "avg_left": 4.25,
+          "avg_overlap": 0.75,
+          "avg_jaccard": 0.0868,
+          "avg_churn": 0.85,
+          "year_distributions": {
+            "baseline_top": {
+              "2023": 13,
+              "2024": 17,
+              "2025": 10
+            },
+            "timeaware_top": {
+              "2025": 40
+            },
+            "entered": {
+              "2025": 34
+            },
+            "left": {
+              "2023": 13,
+              "2024": 17,
+              "2025": 4
+            }
+          }
+        }
+      }
+    },
+    {
+      "pipeline": "fixed/dense",
+      "k": 10,
+      "overall": {
+        "n_rows": 22,
+        "total_entered": 70,
+        "total_left": 80,
+        "total_overlap": 30,
+        "avg_entered": 3.18,
+        "avg_left": 3.64,
+        "avg_overlap": 1.36,
+        "avg_jaccard": 0.2105,
+        "avg_churn": 0.6818,
+        "year_distributions": {
+          "baseline_top": {
+            "2023": 22,
+            "2024": 49,
+            "2025": 39
+          },
+          "timeaware_top": {
+            "2023": 22,
+            "2024": 34,
+            "2025": 44
+          },
+          "entered": {
+            "2023": 16,
+            "2024": 18,
+            "2025": 36
+          },
+          "left": {
+            "2023": 16,
+            "2024": 33,
+            "2025": 31
+          }
+        }
+      },
+      "by_query_group": {
+        "comparison": {
+          "n_rows": 4,
+          "total_entered": 0,
+          "total_left": 10,
+          "total_overlap": 10,
+          "avg_entered": 0.0,
+          "avg_left": 2.5,
+          "avg_overlap": 2.5,
+          "avg_jaccard": 0.5,
+          "avg_churn": 0.25,
+          "year_distributions": {
+            "baseline_top": {
+              "2023": 2,
+              "2024": 9,
+              "2025": 9
+            },
+            "timeaware_top": {
+              "2023": 2,
+              "2024": 4,
+              "2025": 4
+            },
+            "entered": {},
+            "left": {
+              "2024": 5,
+              "2025": 5
+            }
+          }
+        },
+        "explicit_range": {
+          "n_rows": 6,
+          "total_entered": 26,
+          "total_left": 26,
+          "total_overlap": 4,
+          "avg_entered": 4.33,
+          "avg_left": 4.33,
+          "avg_overlap": 0.67,
+          "avg_jaccard": 0.0787,
+          "avg_churn": 0.8667,
+          "year_distributions": {
+            "baseline_top": {
+              "2023": 4,
+              "2024": 11,
+              "2025": 15
+            },
+            "timeaware_top": {
+              "2023": 20,
+              "2024": 10
+            },
+            "entered": {
+              "2023": 16,
+              "2024": 10
+            },
+            "left": {
+              "2024": 11,
+              "2025": 15
+            }
+          }
+        },
+        "point_in_time": {
+          "n_rows": 4,
+          "total_entered": 8,
+          "total_left": 8,
+          "total_overlap": 12,
+          "avg_entered": 2.0,
+          "avg_left": 2.0,
+          "avg_overlap": 3.0,
+          "avg_jaccard": 0.4286,
+          "avg_churn": 0.4,
+          "year_distributions": {
+            "baseline_top": {
+              "2023": 3,
+              "2024": 12,
+              "2025": 5
+            },
+            "timeaware_top": {
+              "2024": 20
+            },
+            "entered": {
+              "2024": 8
+            },
+            "left": {
+              "2023": 3,
+              "2025": 5
+            }
+          }
+        },
+        "recency": {
+          "n_rows": 8,
+          "total_entered": 36,
+          "total_left": 36,
+          "total_overlap": 4,
+          "avg_entered": 4.5,
+          "avg_left": 4.5,
+          "avg_overlap": 0.5,
+          "avg_jaccard": 0.0556,
+          "avg_churn": 0.9,
+          "year_distributions": {
+            "baseline_top": {
+              "2023": 13,
+              "2024": 17,
+              "2025": 10
+            },
+            "timeaware_top": {
+              "2025": 40
+            },
+            "entered": {
+              "2025": 36
+            },
+            "left": {
+              "2023": 13,
+              "2024": 17,
+              "2025": 6
+            }
+          }
+        }
+      }
+    },
+    {
+      "pipeline": "semantic/bm25",
+      "k": 3,
+      "overall": {
+        "n_rows": 22,
+        "total_entered": 41,
+        "total_left": 47,
+        "total_overlap": 19,
+        "avg_entered": 1.86,
+        "avg_left": 2.14,
+        "avg_overlap": 0.86,
+        "avg_jaccard": 0.2182,
+        "avg_churn": 0.4,
+        "year_distributions": {
+          "baseline_top": {
+            "2023": 18,
+            "2024": 33,
+            "2025": 15
+          },
+          "timeaware_top": {
+            "2023": 13,
+            "2024": 23,
+            "2025": 24
+          },
+          "entered": {
+            "2023": 8,
+            "2024": 12,
+            "2025": 21
+          },
+          "left": {
+            "2023": 13,
+            "2024": 22,
+            "2025": 12
+          }
+        }
+      },
+      "by_query_group": {
+        "comparison": {
+          "n_rows": 4,
+          "total_entered": 0,
+          "total_left": 6,
+          "total_overlap": 6,
+          "avg_entered": 0.0,
+          "avg_left": 1.5,
+          "avg_overlap": 1.5,
+          "avg_jaccard": 0.5,
+          "avg_churn": 0.15,
+          "year_distributions": {
+            "baseline_top": {
+              "2023": 3,
+              "2024": 7,
+              "2025": 2
+            },
+            "timeaware_top": {
+              "2023": 1,
+              "2024": 5
+            },
+            "entered": {},
+            "left": {
+              "2023": 2,
+              "2024": 2,
+              "2025": 2
+            }
+          }
+        },
+        "explicit_range": {
+          "n_rows": 6,
+          "total_entered": 12,
+          "total_left": 12,
+          "total_overlap": 6,
+          "avg_entered": 2.0,
+          "avg_left": 2.0,
+          "avg_overlap": 1.0,
+          "avg_jaccard": 0.2167,
+          "avg_churn": 0.4,
+          "year_distributions": {
+            "baseline_top": {
+              "2023": 7,
+              "2024": 7,
+              "2025": 4
+            },
+            "timeaware_top": {
+              "2023": 12,
+              "2024": 6
+            },
+            "entered": {
+              "2023": 8,
+              "2024": 4
+            },
+            "left": {
+              "2023": 3,
+              "2024": 5,
+              "2025": 4
+            }
+          }
+        },
+        "point_in_time": {
+          "n_rows": 4,
+          "total_entered": 8,
+          "total_left": 8,
+          "total_overlap": 4,
+          "avg_entered": 2.0,
+          "avg_left": 2.0,
+          "avg_overlap": 1.0,
+          "avg_jaccard": 0.2,
+          "avg_churn": 0.4,
+          "year_distributions": {
+            "baseline_top": {
+              "2023": 4,
+              "2024": 4,
+              "2025": 4
+            },
+            "timeaware_top": {
+              "2024": 12
+            },
+            "entered": {
+              "2024": 8
+            },
+            "left": {
+              "2023": 4,
+              "2025": 4
+            }
+          }
+        },
+        "recency": {
+          "n_rows": 8,
+          "total_entered": 21,
+          "total_left": 21,
+          "total_overlap": 3,
+          "avg_entered": 2.62,
+          "avg_left": 2.62,
+          "avg_overlap": 0.38,
+          "avg_jaccard": 0.0875,
+          "avg_churn": 0.525,
+          "year_distributions": {
+            "baseline_top": {
+              "2023": 4,
+              "2024": 15,
+              "2025": 5
+            },
+            "timeaware_top": {
+              "2025": 24
+            },
+            "entered": {
+              "2025": 21
+            },
+            "left": {
+              "2023": 4,
+              "2024": 15,
+              "2025": 2
+            }
+          }
+        }
+      }
+    },
+    {
+      "pipeline": "semantic/bm25",
+      "k": 5,
+      "overall": {
+        "n_rows": 22,
+        "total_entered": 67,
+        "total_left": 77,
+        "total_overlap": 33,
+        "avg_entered": 3.05,
+        "avg_left": 3.5,
+        "avg_overlap": 1.5,
+        "avg_jaccard": 0.2266,
+        "avg_churn": 0.6545,
+        "year_distributions": {
+          "baseline_top": {
+            "2023": 30,
+            "2024": 51,
+            "2025": 29
+          },
+          "timeaware_top": {
+            "2023": 22,
+            "2024": 37,
+            "2025": 41
+          },
+          "entered": {
+            "2023": 15,
+            "2024": 18,
+            "2025": 34
+          },
+          "left": {
+            "2023": 23,
+            "2024": 32,
+            "2025": 22
+          }
+        }
+      },
+      "by_query_group": {
+        "comparison": {
+          "n_rows": 4,
+          "total_entered": 0,
+          "total_left": 10,
+          "total_overlap": 10,
+          "avg_entered": 0.0,
+          "avg_left": 2.5,
+          "avg_overlap": 2.5,
+          "avg_jaccard": 0.5,
+          "avg_churn": 0.25,
+          "year_distributions": {
+            "baseline_top": {
+              "2023": 6,
+              "2024": 11,
+              "2025": 3
+            },
+            "timeaware_top": {
+              "2023": 2,
+              "2024": 7,
+              "2025": 1
+            },
+            "entered": {},
+            "left": {
+              "2023": 4,
+              "2024": 4,
+              "2025": 2
+            }
+          }
+        },
+        "explicit_range": {
+          "n_rows": 6,
+          "total_entered": 20,
+          "total_left": 20,
+          "total_overlap": 10,
+          "avg_entered": 3.33,
+          "avg_left": 3.33,
+          "avg_overlap": 1.67,
+          "avg_jaccard": 0.2269,
+          "avg_churn": 0.6667,
+          "year_distributions": {
+            "baseline_top": {
+              "2023": 10,
+              "2024": 11,
+              "2025": 9
+            },
+            "timeaware_top": {
+              "2023": 20,
+              "2024": 10
+            },
+            "entered": {
+              "2023": 15,
+              "2024": 5
+            },
+            "left": {
+              "2023": 5,
+              "2024": 6,
+              "2025": 9
+            }
+          }
+        },
+        "point_in_time": {
+          "n_rows": 4,
+          "total_entered": 13,
+          "total_left": 13,
+          "total_overlap": 7,
+          "avg_entered": 3.25,
+          "avg_left": 3.25,
+          "avg_overlap": 1.75,
+          "avg_jaccard": 0.2252,
+          "avg_churn": 0.65,
+          "year_distributions": {
+            "baseline_top": {
+              "2023": 5,
+              "2024": 7,
+              "2025": 8
+            },
+            "timeaware_top": {
+              "2024": 20
+            },
+            "entered": {
+              "2024": 13
+            },
+            "left": {
+              "2023": 5,
+              "2025": 8
+            }
+          }
+        },
+        "recency": {
+          "n_rows": 8,
+          "total_entered": 34,
+          "total_left": 34,
+          "total_overlap": 6,
+          "avg_entered": 4.25,
+          "avg_left": 4.25,
+          "avg_overlap": 0.75,
+          "avg_jaccard": 0.0903,
+          "avg_churn": 0.85,
+          "year_distributions": {
+            "baseline_top": {
+              "2023": 9,
+              "2024": 22,
+              "2025": 9
+            },
+            "timeaware_top": {
+              "2025": 40
+            },
+            "entered": {
+              "2025": 34
+            },
+            "left": {
+              "2023": 9,
+              "2024": 22,
+              "2025": 3
+            }
+          }
+        }
+      }
+    },
+    {
+      "pipeline": "semantic/bm25",
+      "k": 10,
+      "overall": {
+        "n_rows": 22,
+        "total_entered": 67,
+        "total_left": 77,
+        "total_overlap": 33,
+        "avg_entered": 3.05,
+        "avg_left": 3.5,
+        "avg_overlap": 1.5,
+        "avg_jaccard": 0.2266,
+        "avg_churn": 0.6545,
+        "year_distributions": {
+          "baseline_top": {
+            "2023": 30,
+            "2024": 51,
+            "2025": 29
+          },
+          "timeaware_top": {
+            "2023": 22,
+            "2024": 37,
+            "2025": 41
+          },
+          "entered": {
+            "2023": 15,
+            "2024": 18,
+            "2025": 34
+          },
+          "left": {
+            "2023": 23,
+            "2024": 32,
+            "2025": 22
+          }
+        }
+      },
+      "by_query_group": {
+        "comparison": {
+          "n_rows": 4,
+          "total_entered": 0,
+          "total_left": 10,
+          "total_overlap": 10,
+          "avg_entered": 0.0,
+          "avg_left": 2.5,
+          "avg_overlap": 2.5,
+          "avg_jaccard": 0.5,
+          "avg_churn": 0.25,
+          "year_distributions": {
+            "baseline_top": {
+              "2023": 6,
+              "2024": 11,
+              "2025": 3
+            },
+            "timeaware_top": {
+              "2023": 2,
+              "2024": 7,
+              "2025": 1
+            },
+            "entered": {},
+            "left": {
+              "2023": 4,
+              "2024": 4,
+              "2025": 2
+            }
+          }
+        },
+        "explicit_range": {
+          "n_rows": 6,
+          "total_entered": 20,
+          "total_left": 20,
+          "total_overlap": 10,
+          "avg_entered": 3.33,
+          "avg_left": 3.33,
+          "avg_overlap": 1.67,
+          "avg_jaccard": 0.2269,
+          "avg_churn": 0.6667,
+          "year_distributions": {
+            "baseline_top": {
+              "2023": 10,
+              "2024": 11,
+              "2025": 9
+            },
+            "timeaware_top": {
+              "2023": 20,
+              "2024": 10
+            },
+            "entered": {
+              "2023": 15,
+              "2024": 5
+            },
+            "left": {
+              "2023": 5,
+              "2024": 6,
+              "2025": 9
+            }
+          }
+        },
+        "point_in_time": {
+          "n_rows": 4,
+          "total_entered": 13,
+          "total_left": 13,
+          "total_overlap": 7,
+          "avg_entered": 3.25,
+          "avg_left": 3.25,
+          "avg_overlap": 1.75,
+          "avg_jaccard": 0.2252,
+          "avg_churn": 0.65,
+          "year_distributions": {
+            "baseline_top": {
+              "2023": 5,
+              "2024": 7,
+              "2025": 8
+            },
+            "timeaware_top": {
+              "2024": 20
+            },
+            "entered": {
+              "2024": 13
+            },
+            "left": {
+              "2023": 5,
+              "2025": 8
+            }
+          }
+        },
+        "recency": {
+          "n_rows": 8,
+          "total_entered": 34,
+          "total_left": 34,
+          "total_overlap": 6,
+          "avg_entered": 4.25,
+          "avg_left": 4.25,
+          "avg_overlap": 0.75,
+          "avg_jaccard": 0.0903,
+          "avg_churn": 0.85,
+          "year_distributions": {
+            "baseline_top": {
+              "2023": 9,
+              "2024": 22,
+              "2025": 9
+            },
+            "timeaware_top": {
+              "2025": 40
+            },
+            "entered": {
+              "2025": 34
+            },
+            "left": {
+              "2023": 9,
+              "2024": 22,
+              "2025": 3
+            }
+          }
+        }
+      }
+    },
+    {
+      "pipeline": "semantic/dense",
+      "k": 3,
+      "overall": {
+        "n_rows": 22,
+        "total_entered": 42,
+        "total_left": 48,
+        "total_overlap": 18,
+        "avg_entered": 1.91,
+        "avg_left": 2.18,
+        "avg_overlap": 0.82,
+        "avg_jaccard": 0.2273,
+        "avg_churn": 0.4091,
+        "year_distributions": {
+          "baseline_top": {
+            "2023": 19,
+            "2024": 28,
+            "2025": 19
+          },
+          "timeaware_top": {
+            "2023": 13,
+            "2024": 19,
+            "2025": 28
+          },
+          "entered": {
+            "2023": 9,
+            "2024": 10,
+            "2025": 23
+          },
+          "left": {
+            "2023": 15,
+            "2024": 19,
+            "2025": 14
+          }
+        }
+      },
+      "by_query_group": {
+        "comparison": {
+          "n_rows": 4,
+          "total_entered": 0,
+          "total_left": 6,
+          "total_overlap": 6,
+          "avg_entered": 0.0,
+          "avg_left": 1.5,
+          "avg_overlap": 1.5,
+          "avg_jaccard": 0.5,
+          "avg_churn": 0.15,
+          "year_distributions": {
+            "baseline_top": {
+              "2023": 3,
+              "2024": 4,
+              "2025": 5
+            },
+            "timeaware_top": {
+              "2023": 1,
+              "2024": 1,
+              "2025": 4
+            },
+            "entered": {},
+            "left": {
+              "2023": 2,
+              "2024": 3,
+              "2025": 1
+            }
+          }
+        },
+        "explicit_range": {
+          "n_rows": 6,
+          "total_entered": 14,
+          "total_left": 14,
+          "total_overlap": 4,
+          "avg_entered": 2.33,
+          "avg_left": 2.33,
+          "avg_overlap": 0.67,
+          "avg_jaccard": 0.15,
+          "avg_churn": 0.4667,
+          "year_distributions": {
+            "baseline_top": {
+              "2023": 6,
+              "2024": 7,
+              "2025": 5
+            },
+            "timeaware_top": {
+              "2023": 12,
+              "2024": 6
+            },
+            "entered": {
+              "2023": 9,
+              "2024": 5
+            },
+            "left": {
+              "2023": 3,
+              "2024": 6,
+              "2025": 5
+            }
+          }
+        },
+        "point_in_time": {
+          "n_rows": 4,
+          "total_entered": 5,
+          "total_left": 5,
+          "total_overlap": 7,
+          "avg_entered": 1.25,
+          "avg_left": 1.25,
+          "avg_overlap": 1.75,
+          "avg_jaccard": 0.475,
+          "avg_churn": 0.25,
+          "year_distributions": {
+            "baseline_top": {
+              "2023": 2,
+              "2024": 7,
+              "2025": 3
+            },
+            "timeaware_top": {
+              "2024": 12
+            },
+            "entered": {
+              "2024": 5
+            },
+            "left": {
+              "2023": 2,
+              "2025": 3
+            }
+          }
+        },
+        "recency": {
+          "n_rows": 8,
+          "total_entered": 23,
+          "total_left": 23,
+          "total_overlap": 1,
+          "avg_entered": 2.88,
+          "avg_left": 2.88,
+          "avg_overlap": 0.12,
+          "avg_jaccard": 0.025,
+          "avg_churn": 0.575,
+          "year_distributions": {
+            "baseline_top": {
+              "2023": 8,
+              "2024": 10,
+              "2025": 6
+            },
+            "timeaware_top": {
+              "2025": 24
+            },
+            "entered": {
+              "2025": 23
+            },
+            "left": {
+              "2023": 8,
+              "2024": 10,
+              "2025": 5
+            }
+          }
+        }
+      }
+    },
+    {
+      "pipeline": "semantic/dense",
+      "k": 5,
+      "overall": {
+        "n_rows": 22,
+        "total_entered": 67,
+        "total_left": 77,
+        "total_overlap": 33,
+        "avg_entered": 3.05,
+        "avg_left": 3.5,
+        "avg_overlap": 1.5,
+        "avg_jaccard": 0.2358,
+        "avg_churn": 0.6545,
+        "year_distributions": {
+          "baseline_top": {
+            "2023": 37,
+            "2024": 44,
+            "2025": 29
+          },
+          "timeaware_top": {
+            "2023": 22,
+            "2024": 32,
+            "2025": 46
+          },
+          "entered": {
+            "2023": 12,
+            "2024": 17,
+            "2025": 38
+          },
+          "left": {
+            "2023": 27,
+            "2024": 29,
+            "2025": 21
+          }
+        }
+      },
+      "by_query_group": {
+        "comparison": {
+          "n_rows": 4,
+          "total_entered": 0,
+          "total_left": 10,
+          "total_overlap": 10,
+          "avg_entered": 0.0,
+          "avg_left": 2.5,
+          "avg_overlap": 2.5,
+          "avg_jaccard": 0.5,
+          "avg_churn": 0.25,
+          "year_distributions": {
+            "baseline_top": {
+              "2023": 7,
+              "2024": 5,
+              "2025": 8
+            },
+            "timeaware_top": {
+              "2023": 2,
+              "2024": 2,
+              "2025": 6
+            },
+            "entered": {},
+            "left": {
+              "2023": 5,
+              "2024": 3,
+              "2025": 2
+            }
+          }
+        },
+        "explicit_range": {
+          "n_rows": 6,
+          "total_entered": 21,
+          "total_left": 21,
+          "total_overlap": 9,
+          "avg_entered": 3.5,
+          "avg_left": 3.5,
+          "avg_overlap": 1.5,
+          "avg_jaccard": 0.1984,
+          "avg_churn": 0.7,
+          "year_distributions": {
+            "baseline_top": {
+              "2023": 14,
+              "2024": 8,
+              "2025": 8
+            },
+            "timeaware_top": {
+              "2023": 20,
+              "2024": 10
+            },
+            "entered": {
+              "2023": 12,
+              "2024": 9
+            },
+            "left": {
+              "2023": 6,
+              "2024": 7,
+              "2025": 8
+            }
+          }
+        },
+        "point_in_time": {
+          "n_rows": 4,
+          "total_entered": 8,
+          "total_left": 8,
+          "total_overlap": 12,
+          "avg_entered": 2.0,
+          "avg_left": 2.0,
+          "avg_overlap": 3.0,
+          "avg_jaccard": 0.4435,
+          "avg_churn": 0.4,
+          "year_distributions": {
+            "baseline_top": {
+              "2023": 4,
+              "2024": 12,
+              "2025": 4
+            },
+            "timeaware_top": {
+              "2024": 20
+            },
+            "entered": {
+              "2024": 8
+            },
+            "left": {
+              "2023": 4,
+              "2025": 4
+            }
+          }
+        },
+        "recency": {
+          "n_rows": 8,
+          "total_entered": 38,
+          "total_left": 38,
+          "total_overlap": 2,
+          "avg_entered": 4.75,
+          "avg_left": 4.75,
+          "avg_overlap": 0.25,
+          "avg_jaccard": 0.0278,
+          "avg_churn": 0.95,
+          "year_distributions": {
+            "baseline_top": {
+              "2023": 12,
+              "2024": 19,
+              "2025": 9
+            },
+            "timeaware_top": {
+              "2025": 40
+            },
+            "entered": {
+              "2025": 38
+            },
+            "left": {
+              "2023": 12,
+              "2024": 19,
+              "2025": 7
+            }
+          }
+        }
+      }
+    },
+    {
+      "pipeline": "semantic/dense",
+      "k": 10,
+      "overall": {
+        "n_rows": 22,
+        "total_entered": 67,
+        "total_left": 77,
+        "total_overlap": 33,
+        "avg_entered": 3.05,
+        "avg_left": 3.5,
+        "avg_overlap": 1.5,
+        "avg_jaccard": 0.2358,
+        "avg_churn": 0.6545,
+        "year_distributions": {
+          "baseline_top": {
+            "2023": 37,
+            "2024": 44,
+            "2025": 29
+          },
+          "timeaware_top": {
+            "2023": 22,
+            "2024": 32,
+            "2025": 46
+          },
+          "entered": {
+            "2023": 12,
+            "2024": 17,
+            "2025": 38
+          },
+          "left": {
+            "2023": 27,
+            "2024": 29,
+            "2025": 21
+          }
+        }
+      },
+      "by_query_group": {
+        "comparison": {
+          "n_rows": 4,
+          "total_entered": 0,
+          "total_left": 10,
+          "total_overlap": 10,
+          "avg_entered": 0.0,
+          "avg_left": 2.5,
+          "avg_overlap": 2.5,
+          "avg_jaccard": 0.5,
+          "avg_churn": 0.25,
+          "year_distributions": {
+            "baseline_top": {
+              "2023": 7,
+              "2024": 5,
+              "2025": 8
+            },
+            "timeaware_top": {
+              "2023": 2,
+              "2024": 2,
+              "2025": 6
+            },
+            "entered": {},
+            "left": {
+              "2023": 5,
+              "2024": 3,
+              "2025": 2
+            }
+          }
+        },
+        "explicit_range": {
+          "n_rows": 6,
+          "total_entered": 21,
+          "total_left": 21,
+          "total_overlap": 9,
+          "avg_entered": 3.5,
+          "avg_left": 3.5,
+          "avg_overlap": 1.5,
+          "avg_jaccard": 0.1984,
+          "avg_churn": 0.7,
+          "year_distributions": {
+            "baseline_top": {
+              "2023": 14,
+              "2024": 8,
+              "2025": 8
+            },
+            "timeaware_top": {
+              "2023": 20,
+              "2024": 10
+            },
+            "entered": {
+              "2023": 12,
+              "2024": 9
+            },
+            "left": {
+              "2023": 6,
+              "2024": 7,
+              "2025": 8
+            }
+          }
+        },
+        "point_in_time": {
+          "n_rows": 4,
+          "total_entered": 8,
+          "total_left": 8,
+          "total_overlap": 12,
+          "avg_entered": 2.0,
+          "avg_left": 2.0,
+          "avg_overlap": 3.0,
+          "avg_jaccard": 0.4435,
+          "avg_churn": 0.4,
+          "year_distributions": {
+            "baseline_top": {
+              "2023": 4,
+              "2024": 12,
+              "2025": 4
+            },
+            "timeaware_top": {
+              "2024": 20
+            },
+            "entered": {
+              "2024": 8
+            },
+            "left": {
+              "2023": 4,
+              "2025": 4
+            }
+          }
+        },
+        "recency": {
+          "n_rows": 8,
+          "total_entered": 38,
+          "total_left": 38,
+          "total_overlap": 2,
+          "avg_entered": 4.75,
+          "avg_left": 4.75,
+          "avg_overlap": 0.25,
+          "avg_jaccard": 0.0278,
+          "avg_churn": 0.95,
+          "year_distributions": {
+            "baseline_top": {
+              "2023": 12,
+              "2024": 19,
+              "2025": 9
+            },
+            "timeaware_top": {
+              "2025": 40
+            },
+            "entered": {
+              "2025": 38
+            },
+            "left": {
+              "2023": 12,
+              "2024": 19,
+              "2025": 7
+            }
+          }
+        }
+      }
+    }
+  ]
+}

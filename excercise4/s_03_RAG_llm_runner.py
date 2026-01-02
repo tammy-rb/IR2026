@@ -1,276 +1,172 @@
 """
-s_03_RAG_llm_runner.py
+Exercise4 Temporal RAG CLI Runner
 
-LLM orchestration layer for a Retrieval-Augmented Generation (RAG) system.
+This script runs RAG queries with time-aware retrieval using various chunking and representation strategies.
 
-This module:
-- Loads evaluation queries
-- Calls the retrieval engine to obtain top-K context
-- Prompts an LLM using the retrieved context only
-- Saves answers and citations for offline evaluation
-
-This file contains NO retrieval logic.
+Usage examples:
+    # Single query with default settings
+    python s_03_RAG_llm_runner.py --query "What were the main topics discussed in January 2023?"
+    
+    # Batch queries from JSON file with custom k values and pipelines
+    python s_03_RAG_llm_runner.py --queries_json queries/temporal_queries.json --k 5 10 --pipelines fixed/bm25 semantic/dense
+    
+    # Disable time-aware retrieval (baseline mode)
+    python s_03_RAG_llm_runner.py --query "What is climate change?" --no-timeaware --k 10
+    
+    # Custom output location with specific model
+    python s_03_RAG_llm_runner.py --queries_json queries/temporal_queries.json --llm_model gpt-4o --out_subdir experiment1 --quiet
 """
-
 from __future__ import annotations
 
-import os
-import json
 import argparse
-from typing import Any, Dict, List
-from datetime import datetime
-
+import os
 import sys
+from typing import List
 
 from dotenv import load_dotenv
 load_dotenv()
 
-from langchain_openai import ChatOpenAI
+from paths import EXERCISE4_DIR, OUTPUTS_DIR
 
-BASE_DIR = os.path.abspath(os.path.dirname(__file__))
+BASE_DIR = str(EXERCISE4_DIR)
 
 # Ensure the exercise4 root is importable so `RAG_retriever` is a real package.
 if BASE_DIR not in sys.path:
     sys.path.insert(0, BASE_DIR)
 
-# Updated import: new retriever module location
 from RAG_retriever.RAG_retriever import RAGRetriever
-from RAG_retriever.utils import format_ref_id
-
-
-OUT_DIR = os.path.join(BASE_DIR, "outputs", "rag_runs")
-DEFAULT_MODEL = "gpt-4o-mini"
-
-
-def ensure_dir(path: str) -> None:
-    """
-    Create directory if it does not exist.
-    """
-    os.makedirs(path, exist_ok=True)
-
-
-def load_queries(path: str) -> Dict[str, List[Dict[str, Any]]]:
-    """
-    Load evaluation queries from JSON.
-
-    Args:
-        path: Path to queries.json.
-
-    Returns:
-        Dictionary with 'factual' and 'conceptual' query lists.
-    """
-    with open(path, "r", encoding="utf-8") as f:
-        data = json.load(f)
-
-    def normalize(lst):
-        out = []
-        for q in lst:
-            if isinstance(q, str):
-                out.append({"query": q, "expected_source": []})
-            else:
-                out.append(q)
-        return out
-
-    return {
-        "factual": normalize(data["factual"]),
-        "conceptual": normalize(data["conceptual"]),
-    }
-
-
-def answer_with_llm(llm: ChatOpenAI, query: str, context: str) -> str:
-    """
-    Generate an answer using the LLM based strictly on retrieved context.
-
-    Args:
-        llm: Initialized ChatOpenAI model.
-        query: User query.
-        context: Retrieved context block.
-
-    Returns:
-        LLM-generated answer string.
-    """
-    system = (
-        "You are a RAG question-answering assistant. "
-        "Answer ONLY using the provided context. "
-        "If unsupported, say: "
-        "\"I don't know based on the retrieved chunks.\" "
-        "Always cite sources in square brackets."
-    )
-
-    user = f"Question:\n{query}\n\nContext:\n{context}\n\nAnswer:"
-
-    msg = llm.invoke([
-        {"role": "system", "content": system},
-        {"role": "user", "content": user},
-    ])
-    return msg.content
+from LLM.LLM_client import LLMClient, LLMConfig
+from LLM.utils.io_utils import (
+    load_temporal_queries_json,
+    detect_query_schema,
+    load_queries_json,
+    build_output_path,
+    save_json,
+)
+from LLM.utils.arg_utils import parse_ks, default_pipelines, parse_pipelines
+from LLM.runners.single_runner import run_single_query
+from LLM.runners.batch_runner import run_batch_queries
 
 
 def main() -> None:
     """
-    Run RAG evaluation over multiple pipelines and K values.
-
-    Modes:
-      - Batch mode: provide --queries_json
-      - Single-query mode: provide --query
+    Main entry point for the RAG CLI runner.
+    
+    Supports two modes:
+    1. Single query mode (--query): Run one query and display results
+    2. Batch mode (--queries_json): Process multiple queries from a JSON file
+    
+    Results are saved as JSON with retrieval metadata, time-aware planning info, and LLM answers.
     """
-    parser = argparse.ArgumentParser()
+    parser = argparse.ArgumentParser(description="Exercise4 Temporal RAG runner")
 
-    # Accept either a file OR a single query string
-    group = parser.add_mutually_exclusive_group(required=True)
-    group.add_argument("--queries_json", required=False)
-    group.add_argument("--query", required=False, help="Run a single query and print the answer + chunk ids.")
+    mode = parser.add_mutually_exclusive_group(required=True)
+    mode.add_argument("--query", help="Run a single query string.")
+    mode.add_argument("--queries_json", help="Load queries from a JSON file grouped by temporal buckets (e.g., point_in_time, recency, explicit_range, comparison, evolution).")
 
-    parser.add_argument("--k1", type=int, default=3)
-    parser.add_argument("--k2", type=int, default=5)
-    parser.add_argument("--k3", type=int, default=10)
-    parser.add_argument("--llm_model", default=DEFAULT_MODEL)
-    parser.add_argument("--temperature", type=float, default=0.0)
+    # Ks: allow 1 or many
+    parser.add_argument(
+        "--k",
+        nargs="+",
+        type=int,
+        default=[5],
+        help="One or more K values. Example: --k 5   OR   --k 3 5 10",
+    )
 
-    # Time-aware retrieval: DEFAULT ON (use --no-timeaware to disable)
+    # Pipelines: optional override
+    parser.add_argument(
+        "--pipelines",
+        nargs="*",
+        default=None,
+        help="Optional list like: fixed/bm25 semantic/bm25 fixed/dense semantic/dense",
+    )
+
+    # Time-aware toggle (default ON)
     parser.add_argument(
         "--no-timeaware",
         dest="timeaware",
         action="store_false",
-        help="Disable time-aware retrieval and use baseline retrieval.",
+        help="Disable time-aware retrieval (baseline).",
     )
     parser.set_defaults(timeaware=True)
 
+    # Query group for single query mode
     parser.add_argument(
-        "--out_dir",
-        default=None,
-        help="Optional output directory for results JSON. "
-             "If not provided, uses the default outputs/rag_runs directory."
+        "--query_group",
+        default="single",
+        help="Query group/bucket name for single query mode (default: 'single').",
     )
+
+    # LLM
+    parser.add_argument("--llm_model", default="gpt-4o-mini")
+    parser.add_argument("--temperature", type=float, default=0.0)
+
+    # Output control
+    parser.add_argument("--out_root", default=str(OUTPUTS_DIR / "rag_runs"), help="Root output dir (relative to project).")
+    parser.add_argument("--out_subdir", default=None, help="Optional subfolder under out_root.")
+    parser.add_argument("--out_name", default=None, help="Optional exact output filename (json).")
+
+    # Console verbosity
+    parser.add_argument("--quiet", action="store_true", help="Less console output.")
+
     args = parser.parse_args()
 
-    out_dir = args.out_dir if args.out_dir is not None else OUT_DIR
-    ensure_dir(out_dir)
+    ks = parse_ks(args.k)
+    pipelines = parse_pipelines(args.pipelines) if args.pipelines is not None else default_pipelines()
 
     retriever = RAGRetriever()
-    llm = ChatOpenAI(model=args.llm_model, temperature=args.temperature)
+    llm = LLMClient(LLMConfig(model=args.llm_model, temperature=args.temperature))
 
-    ks = [args.k1, args.k2, args.k3]
-    pipelines = [
-        ("fixed", "bm25"),
-        ("semantic", "bm25"),
-        ("fixed", "dense"),
-        ("semantic", "dense"),
-    ]
-
-    results = []
-
-    if args.query is not None:
-        # ---- Single-query mode (prints to console) ----
-        q = {"query": args.query, "expected_source": []}
-        qtype = "single"
-
-        for chunking, repr_ in pipelines:
-            for k in ks:
-                print(f"[{qtype}] {chunking}/{repr_} | k={k} | query='{q['query']}'")
-
-                if args.timeaware:
-                    pack = retriever.get_topk_timeaware(q["query"], chunking, repr_, k)
-                else:
-                    pack = retriever.get_topk(q["query"], chunking, repr_, k)
-
-                answer = answer_with_llm(llm, q["query"], pack["context"])
-
-                print("\nAnswer:")
-                print(answer.strip())
-
-                print("\nChunk ids:")
-                refs = pack.get("refs", [])
-                retrieved = pack.get("retrieved", [])
-                for i, ref in enumerate(refs):
-                    score = None
-                    if i < len(retrieved):
-                        score = retrieved[i].get("score")
-                    rid = format_ref_id(ref)
-                    print(f"- {rid}" + (f" | score={score}" if score is not None else ""))
-
-                print("\n" + "-" * 60 + "\n")
-
-                row: Dict[str, Any] = {
-                    "query_type": qtype,
-                    "query": q["query"],
-                    "expected_source": q.get("expected_source", []),
-                    "pipeline": {"chunking": chunking, "representation": repr_},
-                    "k": k,
-                    "references": pack.get("refs", []),
-                    # Convenience: the same human-readable chunk ids printed to console.
-                    "retrieved_chunk_ids": [format_ref_id(r) for r in pack.get("refs", [])],
-                    # Convenience: ids paired with the final retrieval score (if available).
-                    "retrieved_chunk_id_scores": [
-                        {
-                            "id": format_ref_id(pack.get("refs", [])[i]),
-                            "score": pack.get("retrieved", [])[i].get("score"),
-                        }
-                        for i in range(min(len(pack.get("refs", [])), len(pack.get("retrieved", []))))
-                    ],
-                    "answer": answer,
-                }
-                if args.timeaware:
-                    row["time_info"] = pack.get("time_info")
-                    row["plan"] = pack.get("plan")
-                    row["debug"] = pack.get("debug")
-                results.append(row)
-
+    if args.query:
+        results = run_single_query(
+            retriever=retriever,
+            llm=llm,
+            query=args.query,
+            pipelines=pipelines,
+            ks=ks,
+            timeaware=args.timeaware,
+            print_console=(not args.quiet),
+            query_group=args.query_group,
+        )
+        mode_tag = "timeaware" if args.timeaware else "baseline"
+        tag = f"cli_single_{mode_tag}"
     else:
-        # ---- Batch mode (file) ----
-        queries = load_queries(args.queries_json)
+        # Auto-detect schema and load accordingly
+        schema = detect_query_schema(args.queries_json)
+        
+        if schema == "temporal":
+            queries = load_temporal_queries_json(args.queries_json)
+        elif schema == "legacy":
+            # Fall back to legacy loader for backward compatibility
+            queries = load_queries_json(args.queries_json)
+        else:
+            raise ValueError(
+                f"Unknown query schema in {args.queries_json}. "
+                "Expected temporal buckets (point_in_time, recency, etc.) or legacy (factual, conceptual)."
+            )
+        
+        results = run_batch_queries(
+            retriever=retriever,
+            llm=llm,
+            queries_by_group=queries,
+            pipelines=pipelines,
+            ks=ks,
+            timeaware=args.timeaware,
+            log_progress=(not args.quiet),
+        )
+        base = os.path.splitext(os.path.basename(args.queries_json))[0]
+        mode_tag = "timeaware" if args.timeaware else "baseline"
+        tag = f"batch_{base}_{mode_tag}"
 
-        for qtype, qlist in queries.items():
-            for q in qlist:
-                for chunking, repr_ in pipelines:
-                    for k in ks:
-                        print(
-                            f"[{qtype}] "
-                            f"{chunking}/{repr_} | k={k} | "
-                            f"query='{q['query'][:50]}...'"
-                        )
-
-                        if args.timeaware:
-                            pack = retriever.get_topk_timeaware(q["query"], chunking, repr_, k)
-                        else:
-                            pack = retriever.get_topk(q["query"], chunking, repr_, k)
-
-                        answer = answer_with_llm(llm, q["query"], pack["context"])
-
-                        row: Dict[str, Any] = {
-                            "query_type": qtype,
-                            "query": q["query"],
-                            "expected_source": q.get("expected_source", []),
-                            "pipeline": {"chunking": chunking, "representation": repr_},
-                            "k": k,
-                            "references": pack.get("refs", []),
-                            "retrieved_chunk_ids": [format_ref_id(r) for r in pack.get("refs", [])],
-                            "retrieved_chunk_id_scores": [
-                                {
-                                    "id": format_ref_id(pack.get("refs", [])[i]),
-                                    "score": pack.get("retrieved", [])[i].get("score"),
-                                }
-                                for i in range(min(len(pack.get("refs", [])), len(pack.get("retrieved", []))))
-                            ],
-                            "answer": answer,
-                        }
-
-                        if args.timeaware:
-                            row["time_info"] = pack.get("time_info")
-                            row["plan"] = pack.get("plan")
-                            row["debug"] = pack.get("debug")
-
-                        results.append(row)
-
-    # Save results (both modes) if out_dir is available (always is)
-    base = "cli_query" if args.query is not None else os.path.splitext(os.path.basename(args.queries_json))[0]
-    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    out = os.path.join(out_dir, f"rag_{base}_4pipelines_k{args.k1}-{args.k2}-{args.k3}_{timestamp}.json")
-
-    with open(out, "w", encoding="utf-8") as f:
-        json.dump(results, f, indent=2, ensure_ascii=False)
-
-    print(f"Saved results to {out}")
+    out_path = build_output_path(
+        base_dir=BASE_DIR,
+        out_root=args.out_root,
+        subdir=args.out_subdir,
+        filename=args.out_name,
+        tag=tag,
+    )
+    save_json(out_path, results)
+    print(f"Saved results to {out_path}")
 
 
 if __name__ == "__main__":
