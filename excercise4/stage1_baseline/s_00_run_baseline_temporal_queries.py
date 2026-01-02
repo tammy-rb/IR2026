@@ -13,6 +13,10 @@ from __future__ import annotations
 
 import subprocess
 import os
+import sys
+
+# Add parent directory to path for imports
+sys.path.insert(0, str(__file__).rsplit('\\', 2)[0])
 
 from paths import (
     EXERCISE3_DIR,

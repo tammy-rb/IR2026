@@ -9,6 +9,13 @@ from pathlib import Path
 EXERCISE4_DIR = Path(__file__).resolve().parent
 
 # ============================================================
+# Stage directories
+# ============================================================
+STAGE1_BASELINE_DIR = EXERCISE4_DIR / "stage1_baseline"
+STAGE2_INDEXING_DIR = EXERCISE4_DIR / "stage2_indexing"
+STAGE3_RETRIEVAL_DIR = EXERCISE4_DIR / "stage3_retrieval"
+
+# ============================================================
 # Repository root (IR2026)
 # ============================================================
 PROJECT_ROOT = EXERCISE4_DIR.parent
@@ -38,6 +45,8 @@ EMBEDDERS_DIR = EXERCISE4_DIR / "embedders"
 BM25_DIR = EMBEDDINGS_DIR / "bm25"
 OPENAI_DIR = EMBEDDINGS_DIR / "openai"
 STAGE1_DIR = OUTPUTS_DIR / "stage1_baseline_runs"
+STAGE3_COMPARISON_DIR = OUTPUTS_DIR / "rag_runs" / "stage3_temporal_analysis"
+STAGE3_SUMMARY_DIR = OUTPUTS_DIR / "rag_runs" / "stage3_summaries"
 
 # Precomputed index/artifact directories
 BM25_FIXED_DIR = BM25_DIR / "fixed"
@@ -65,5 +74,8 @@ def ensure_dirs() -> None:
         EMBEDDINGS_DIR,
         REPORTS_DIR,
         TIME_HIST_DIR,
+        STAGE1_DIR,
+        STAGE3_COMPARISON_DIR,
+        STAGE3_SUMMARY_DIR,
     ]:
         p.mkdir(parents=True, exist_ok=True)

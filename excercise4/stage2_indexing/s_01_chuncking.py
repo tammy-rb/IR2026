@@ -18,7 +18,12 @@ Outputs:
 
 from __future__ import annotations
 
+import sys
+from pathlib import Path
 from typing import List
+
+# Add parent directory to path for imports
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from paths import EXERCISE2_DATA_DIR, CHUNKS_DIR, ensure_dirs
 from utils.text_utils import iter_text_files

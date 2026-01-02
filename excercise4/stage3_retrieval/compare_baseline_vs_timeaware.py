@@ -242,8 +242,8 @@ def run_temporal_comparison(
                     "timeaware_plan": timeaware_pack.get("plan"),
                 }
 
-                if "debug" in timeaware_pack:
-                    row["debug"] = timeaware_pack["debug"]
+                #if "debug" in timeaware_pack:
+                #    row["debug"] = timeaware_pack["debug"]
 
                 results.append(row)
 
@@ -272,12 +272,12 @@ def main() -> None:
 
     parser.add_argument(
         "--out_root",
-        default=str(OUTPUTS_DIR / "rag_runs"),
+        default=str(STAGE3_COMPARISON_DIR.parent),
         help="Root output directory",
     )
     parser.add_argument(
         "--out_subdir",
-        default="stage3_temporal_analysis",
+        default=STAGE3_COMPARISON_DIR.name,
         help="Subfolder under out_root",
     )
     parser.add_argument("--out_name", default=None, help="Optional exact output filename (json)")

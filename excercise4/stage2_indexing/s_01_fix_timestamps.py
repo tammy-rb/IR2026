@@ -23,9 +23,13 @@ Run:
 
 from __future__ import annotations
 
+import sys
 from dataclasses import replace
 from pathlib import Path
 from typing import List
+
+# Add parent directory to path for imports
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from models.chunk import Chunk
 from paths import CHUNKS_DIR

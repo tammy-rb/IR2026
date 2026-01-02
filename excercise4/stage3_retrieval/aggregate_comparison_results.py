@@ -29,22 +29,27 @@ Compact aggregated JSON with:
 Usage Examples
 --------------
 Basic:
-    python s_04_stage3_summary.py --in_json outputs/rag_runs/stage3_temporal_analysis/stage3_given_temporal_queries_20260102_080846.json
+    python aggregate_comparison_results.py --in_json outputs/rag_runs/stage3_temporal_analysis/stage3_given_temporal_queries_20260102_080846.json
 
 Custom output:
-    python s_04_stage3_summary.py --in_json outputs/rag_runs/stage3_temporal_analysis/stage3_*.json --out_name my_summary.json
+    python aggregate_comparison_results.py --in_json outputs/rag_runs/stage3_temporal_analysis/stage3_*.json --out_name my_summary.json
 """
 from __future__ import annotations
 
 import argparse
 import json
 import os
+import sys
 from collections import Counter, defaultdict
 from dataclasses import dataclass
 from datetime import datetime
+from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
 
-from paths import OUTPUTS_DIR
+# Add parent directory to path for imports
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+
+from paths import OUTPUTS_DIR, STAGE3_COMPARISON_DIR, STAGE3_SUMMARY_DIR, ensure_dirs
 
 
 # ============================================================
@@ -296,16 +301,16 @@ def main() -> None:
     parser.add_argument(
         "--in_json",
         required=True,
-        help="Path to Stage 3 output JSON (list of comparison rows from s_03_temporal_analysis.py)",
+        help="Path to Stage 3 output JSON (list of comparison rows from compare_baseline_vs_timeaware.py)",
     )
     parser.add_argument(
         "--out_root",
-        default=str(OUTPUTS_DIR / "reports"),
+        default=str(STAGE3_SUMMARY_DIR.parent),
         help="Root output directory",
     )
     parser.add_argument(
         "--out_subdir",
-        default="stage3_summaries",
+        default=STAGE3_SUMMARY_DIR.name,
         help="Subfolder under out_root",
     )
     parser.add_argument(

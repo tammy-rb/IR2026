@@ -25,6 +25,7 @@ Run:
 from __future__ import annotations
 
 import json
+import sys
 from collections import Counter
 from dataclasses import dataclass
 from datetime import datetime, timezone
@@ -33,6 +34,13 @@ from typing import Any, Dict, Iterable, Optional, Tuple
 
 import matplotlib
 matplotlib.use('Agg')  # Use non-interactive backend
+import matplotlib.pyplot as plt
+
+# Add parent directory to path for imports
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+
+from models.chunk import Chunk
+from paths import CHUNKS_DIR, TIME_HIST_DIR
 import matplotlib.pyplot as plt
 
 from models.chunk import Chunk

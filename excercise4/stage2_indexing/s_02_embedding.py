@@ -24,10 +24,15 @@ Requirements:
 from __future__ import annotations
 
 import argparse
+import sys
+from pathlib import Path
 
 from dotenv import load_dotenv
 
 load_dotenv()
+
+# Add parent directory to path for imports
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from paths import CHUNKS_DIR, BM25_DIR, EMBEDDINGS_DIR, ensure_dirs
 from embedders.bm25_embedder import BM25Embedder
