@@ -1,0 +1,2747 @@
+                      python llm_runner.py --query "How has climate policy changed over time?"
+C:\Program Files\Python313\python.exe: can't open file 'C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise4\\llm_runner.py': [Errno 2] No such file or directory
+PS C:\Users\USER\Desktop\IR\IR2026\excercise4> python rag_runner.py --query "How has climate policy changed over time?"
+[single] fixed/bm25 | k=5
+Query: How has climate policy changed over time?
+
+Retrieval Mode: evolution
+
+Answer:
+1) EARLY summary
+- The UK government emphasizes the importance of achieving net zero emissions while also promoting economic growth, highlighting a 48% reduction in emissions since 1990 alongside economic growth [E1].
+- There is a call for urgent action and leadership on climate issues, with criticism directed at the Prime Minister for perceived backtracking on climate commitments [E1].
+- Labour proposes a strong climate agenda, including a pledge to issue no new oil, gas, or coal licenses and to establish a clean power alliance [E1].
+- Concerns are raised about the disconnect between climate science and current financial systems, urging a rapid phase-out of fossil fuels and investment in green infrastructure [E3].
+
+2) LATE summary
+- The government is now facing criticism for its decision to ban offshore licenses in the North Sea, with prominent figures labeling it as "irrational" and detrimental to domestic energy production [L1].
+- There is a recognition of the need for private finance to support climate initiatives, particularly in developing countries, indicating a shift towards leveraging economic interests for climate action [L2].
+- The government is launching a review of the airports national policy statement to ensure that expansion plans align with climate commitments, reflecting a more integrated approach to infrastructure and environmental obligations [L3].
+- The emphasis on economic growth remains, but there is a clearer acknowledgment of the need to balance this with environmental responsibilities and legal commitments to climate change [L3].
+
+3) What changed
+- The early focus on ambitious climate leadership and commitments has shifted to a more defensive stance, with the government facing backlash over its climate policies and decisions [L1].
+- There is a growing recognition of the role of private finance in achieving climate goals, indicating a shift towards economic pragmatism in climate policy [L2].
+- The government is now actively reviewing infrastructure projects like the Heathrow expansion to ensure they meet climate obligations, suggesting a more cautious and integrated approach to development [L3].
+- The rhetoric has evolved from a strong commitment to climate action to addressing criticisms and concerns about the feasibility and economic implications of such actions [L1, L2].
+
+4) Evidence highlights
+- "We cut UK emissions by 48% while growing the economy" → [E1]
+- "Labour will pledge to issue no new oil, gas or coal licences" → [E1]
+- "The decision to ban offshore licences... described as an 'irrational' policy" → [L1]
+- "Private finance can make a massive difference" → [L2]
+- "Expansion must align with our legal, environmental and climate commitments" → [L3]
+
+5) Confidence
+Medium - The analysis is based on the provided context, but the changes in policy and rhetoric may not fully capture the broader trends or nuances without additional information.
+
+Top refs:
+  EARLY:
+  - british:debates2023-07-18.txt [67810,71637]
+  - british:debates2023-07-13.txt [30941,34803]
+  - british:debates2023-09-05.txt [3495,7419]
+  - british:debates2023-09-05.txt [7049,10906]
+  - british:debates2023-11-29.txt [66438,70048]
+  LATE:
+  - british:debates2025-10-22.txt [0,3966]
+  - british:debates2025-10-22.txt [65205,68955]
+  - british:debates2025-05-08.txt [59819,63389]
+  - british:debates2025-10-14.txt [34835,38600]
+  - british:debates2025-10-27.txt [12744,16467]
+
+------------------------------------------------------------
+
+[single] semantic/bm25 | k=5
+Query: How has climate policy changed over time?
+
+Retrieval Mode: evolution
+
+Answer:
+1) EARLY summary
+- There is a strong emphasis on the UK's historical climate leadership and the need for continued commitment to climate policies, particularly in light of recent setbacks [E2].
+- Concerns are raised about the impact of energy policies on local communities, especially in highland areas facing fuel poverty [E1].
+- The Scottish Government is noted for its ability to tailor climate policies through devolved powers, indicating a push for localized climate action [E3].
+- The upcoming COP28 climate talks are highlighted as a critical moment for addressing issues like climate loss and damage [E3].
+
+2) LATE summary
+- The government acknowledges the need to review the Aviation National Policy Statement (ANPS) due to new environmental and climate obligations, indicating a shift towards adapting policies to current realities [L4].    
+- There is recognition that the world has changed since the last ANPS review, suggesting a responsiveness to evolving climate challenges [L4].
+- The Prime Minister's previous government policies are referenced as having been inadequate in addressing climate threats, indicating a potential shift in approach [L3].
+- The focus on expanding airport capacity despite new climate obligations suggests a tension between growth and environmental considerations [L5].
+
+3) What changed
+- The early focus on maintaining the UK's climate leadership has shifted to a more reactive stance, acknowledging past failures and the need for policy adaptation [E2, L3].
+- There is a growing recognition of the need to integrate new environmental obligations into existing frameworks, such as the ANPS [L4].
+- The emphasis on localized climate action in the early window has been replaced by a broader acknowledgment of systemic issues and the need for comprehensive reviews of existing policies [E3, L4].
+- The late window reflects a more pragmatic approach to balancing economic growth with climate responsibilities, as seen in the discussions around airport expansions [L5].
+
+4) Evidence highlights
+- "The world needs climate leadership" → [E2]
+- "New environmental and climate obligations have been introduced" → [L4]
+- "The Prime Minister has also made clear that he was informed of the CPS’s decision" → [L3]
+- "Starting the review of the ANPS is critical to delivering expansion" → [L4]
+- "Pretty much every UK airport saw its busiest summer on record" → [L5]
+
+5) Confidence
+Medium - The analysis is based on the provided context, but the evidence does not fully clarify the extent of the changes in climate policy.
+
+Top refs:
+  EARLY:
+  - british:debates2023-11-29.txt [68284,68685]
+  - british:debates2023-09-06.txt [2832,3250]
+  - british:debates2023-11-08.txt [19945,20336]
+  - british:debates2023-11-29.txt [6461,6931]
+  - british:debates2024-01-18.txt [92923,93481]
+  LATE:
+  - british:debates2025-10-22.txt [1874,2283]
+  - british:debates2025-10-22.txt [67589,67998]
+  - british:debates2025-10-20.txt [75875,76579]
+  - british:debates2025-03-31.txt [18200,18505]
+  - british:debates2025-05-08.txt [75769,76245]
+
+------------------------------------------------------------
+
+[single] fixed/dense | k=5
+Query: How has climate policy changed over time?
+
+Retrieval Mode: evolution
+
+Answer:
+1) EARLY summary
+- The UK government emphasizes its commitment to achieving net zero targets through initiatives like carbon capture and storage, showcasing projects that could significantly reduce emissions [E1].
+- There is a strong focus on the economic benefits of a green transition, with claims that the UK has cut emissions more than any other major economy [E1].
+- The opposition criticizes the government for not fulfilling climate promises and expresses a desire for more urgent action, particularly in light of international climate commitments [E2].
+- The government acknowledges the need for improvements in energy efficiency and retrofitting homes to meet climate goals, highlighting past achievements in emissions reductions [E1].
+
+2) LATE summary
+- The government asserts its leadership role in international climate action, emphasizing commitments made at COP29 and the importance of transitioning to low-carbon energy for energy security [L1].
+- There is a recognition of the urgency of climate action, with references to the impacts of climate change on future generations and the need for immediate measures to reduce emissions [L2].
+- The government promotes initiatives aimed at making clean energy more accessible and affordable, including lifting bans on onshore wind and establishing new energy frameworks [L1].
+- There is a call for continued international cooperation and support for developing countries in their climate efforts, reflecting a broader understanding of global interdependence in tackling climate change [L3].      
+
+3) What changed
+- The rhetoric shifted from a focus on national achievements in emissions reductions to a more urgent call for international leadership and cooperation in climate action [L1, L2].
+- The government began to emphasize the economic necessity of transitioning to low-carbon energy, linking it directly to energy security and resilience against global crises [L1].
+- There is a noticeable increase in addressing the concerns of younger generations regarding climate change, with more emphasis on engaging youth in climate discussions and actions [L2].
+- The government has moved towards a more proactive stance on funding and supporting climate initiatives, particularly in developing countries, indicating a broader recognition of global responsibilities [L3].
+
+4) Evidence highlights
+- "We have cut our emissions more than any other major economy" → [E1].
+- "International leadership on climate change is critical for this Government" → [L1].
+- "We must act on the climate and nature crisis to protect our British way of life" → [L2].
+- "We will maintain that tradition of leadership into COP30 in Brazil and beyond" → [L3].
+
+5) Confidence
+High - The analysis is based on clear distinctions between early and late evidence, showing a coherent evolution in climate policy and rhetoric over time.
+
+Top refs:
+  EARLY:
+  - british:debates2023-11-29.txt [66438,70048]
+  - british:debates2023-11-29.txt [79115,82639]
+  - british:debates2023-09-19.txt [39881,43653]
+  - british:debates2024-01-16.txt [38013,41710]
+  - british:debates2023-07-19.txt [37236,40616]
+  LATE:
+  - british:debates2025-10-14.txt [34835,38600]
+  - british:debates2025-04-29.txt [17628,21453]
+  - british:debates2025-07-14.txt [77322,80968]
+  - british:debates2025-10-14.txt [51818,55530]
+  - british:debates2025-10-14.txt [31305,35158]
+
+------------------------------------------------------------
+
+[single] semantic/dense | k=5
+Query: How has climate policy changed over time?
+
+Retrieval Mode: evolution
+
+Answer:
+1) EARLY summary
+- The UK government is focused on cross-Government action to address climate risks, emphasizing a coordinated approach to climate adaptation over the next five years [E1].
+- There is a recognition of the need to regain international climate leadership, with criticism of the Prime Minister's lack of interest in attending COP27 [E2].
+- The government acknowledges its ambitious targets for decarbonization but admits to a lack of real means to achieve them, leading to a decline in confidence [E5].
+- Existing policies are criticized for being outdated, relying on literature from the 1990s [E4].
+
+2) LATE summary
+- The UK government has announced a world-leading nationally determined contribution at COP29, emphasizing international leadership on climate change [L1].
+- There is a historical context provided, noting the UK's role in passing the world's first Climate Change Act and its commitment to net zero by 2050 [L2], [L3].
+- The government is now focused on winding down fossil fuels while ensuring job opportunities and support for affected communities [L4].
+- There is a call to maintain climate targets and avoid backtracking, with a focus on green jobs and infrastructure [L4].
+
+3) What changed
+- The rhetoric shifted from a focus on internal adaptation and criticism of leadership to a more proactive stance on international climate commitments and leadership [E2] → [L1].
+- The government has moved from acknowledging a lack of means to deliver on ambitious targets to highlighting its historical achievements and commitments in climate legislation [E5] → [L2], [L3].
+- There is now a clear emphasis on the need for a just transition away from fossil fuels, incorporating job creation and community support, which was less prominent in the early window [E2] → [L4].
+- The narrative has evolved from a defensive posture regarding climate leadership to a more assertive claim of being at the forefront of global climate action [E2] → [L1].
+
+4) Evidence highlights
+- "The UK is driving forward cross-Government action to respond to climate risks" → [E1].
+- "The UK was no longer a climate leader" → [E2].
+- "Very ambitious targets... with no real means to deliver them" → [E5].
+- "International leadership on climate change is critical for this Government" → [L1].
+- "The UK became the first major economy to legislate for net zero by 2050" → [L3].
+- "We need to wind down fossil fuels... with genuine opportunities" → [L4].
+
+5) Confidence
+High - The analysis is based on clear and contrasting evidence from both the early and late windows, showing a significant evolution in climate policy and rhetoric.
+
+Top refs:
+  EARLY:
+  - british:debates2023-07-12.txt [81454,82192]
+  - british:debates2023-09-05.txt [8429,8683]
+  - british:debates2024-01-24.txt [62006,62951]
+  - british:debates2023-11-28.txt [21798,22368]
+  - british:debates2023-09-19.txt [41908,42437]
+  LATE:
+  - british:debates2025-07-14.txt [78558,78998]
+  - british:debates2025-07-14.txt [78999,79537]
+  - british:debates2025-10-14.txt [2454,2697]
+  - british:debates2025-04-29.txt [19343,20137]
+  - british:debates2025-07-22.txt [87813,88668]
+Top refs:
+  EARLY:
+  - british:debates2023-07-12.txt [81454,82192]
+  - british:debates2023-09-05.txt [8429,8683]
+  - british:debates2024-01-24.txt [62006,62951]
+  - british:debates2023-11-28.txt [21798,22368]
+  - british:debates2023-09-19.txt [41908,42437]
+  LATE:
+  - british:debates2025-07-14.txt [78558,78998]
+  - british:debates2025-07-14.txt [78999,79537]
+  - british:debates2025-10-14.txt [2454,2697]
+  - british:debates2025-04-29.txt [19343,20137]
+  - british:debates2025-07-22.txt [87813,88668]
+  LATE:
+  - british:debates2025-07-14.txt [78558,78998]
+  - british:debates2025-07-14.txt [78999,79537]
+  - british:debates2025-10-14.txt [2454,2697]
+  - british:debates2025-04-29.txt [19343,20137]
+  - british:debates2025-07-22.txt [87813,88668]
+  - british:debates2025-10-14.txt [2454,2697]
+  - british:debates2025-04-29.txt [19343,20137]
+  - british:debates2025-07-22.txt [87813,88668]
+  - british:debates2025-04-29.txt [19343,20137]
+  - british:debates2025-07-22.txt [87813,88668]
+  - british:debates2025-07-22.txt [87813,88668]
+
+------------------------------------------------------------
+
+Saved results to C:\Users\USER\Desktop\IR\IR2026\excercise4\outputs\rag_runs\cli_single_timeaware_evo_20260104_185110.json                                   python rag_runner.py --query "How did the Prime Minister rhetoric regarding the war between Israel and Hamas/Gaza develop/change between his first and last speech?"         
+[single] fixed/bm25 | k=5
+Query: How did the Prime Minister rhetoric regarding the war between Israel and Hamas/Gaza develop/change between his first and last speech?
+
+Retrieval Mode: evolution
+
+Answer:
+1) EARLY summary
+- The Prime Minister's rhetoric initially emphasized strong support for Israel's right to defend itself against Hamas, framing the conflict as a response to terrorism and collective punishment by Hamas against Israeli civilians [E3].
+- There was a clear condemnation of Hamas's actions, with a focus on the need for Israel to take precautions to avoid civilian casualties, while still supporting its military actions [E4].
+- The Prime Minister acknowledged the humanitarian crisis in Gaza but maintained a stance that prioritized Israel's security and the need to combat Hamas [E2].
+- The rhetoric included a call for a sustainable ceasefire but was cautious about placing blame on Israel, often framing the situation as a complex conflict with Hamas as the primary aggressor [E1].
+
+2) LATE summary
+- The Prime Minister's rhetoric shifted to a more critical view of Israel's actions, describing them as grossly disproportionate and calling for accountability regarding the humanitarian situation in Gaza [L2].
+- There was an increased emphasis on the need for humanitarian aid and a sustainable ceasefire, with a recognition of the dire conditions faced by Palestinian civilians [L1].
+- The Prime Minister began to acknowledge the role of Hamas in the conflict but also highlighted the need for a political solution that excludes Hamas from governance in any future Palestinian state [L3].
+- The rhetoric included a stronger condemnation of both Hamas and the Israeli government's actions, suggesting a more balanced approach to the conflict [L4].
+
+3) What changed
+- The Prime Minister's initial unwavering support for Israel's military actions evolved into a more nuanced critique of Israel's tactics, particularly regarding civilian casualties in Gaza.
+- There was a noticeable shift from a focus solely on Israel's right to defend itself to a broader concern for humanitarian issues and the need for immediate aid to Gaza [L1].
+- The rhetoric transitioned from framing Hamas as the sole aggressor to recognizing the complexities of the situation, including the need for a political solution that does not involve Hamas [L3].
+- The Prime Minister's language became more inclusive of Palestinian suffering, reflecting a growing awareness of the humanitarian crisis and the need for international accountability [L2].
+- The call for a ceasefire became more urgent and emphasized as a necessary step towards peace, contrasting with earlier statements that were more supportive of Israel's military objectives [L1].
+
+4) Evidence highlights
+- "Israel has to take the necessary steps to root out this evil virus of fundamentalism" → [E3]
+- "We must up the rhetoric and condemn that unequivocally" regarding Israel's actions → [E2]
+- "The responsibilities weigh heavily on all of us" regarding the humanitarian situation in Gaza → [L1]       
+- "The conduct of the Netanyahu Government is anything other than gross and disproportionate" → [L2]
+- "Hamas must never be rewarded" and must be excluded from any future governance → [L3]
+
+5) Confidence
+High - The analysis is based on clear and contrasting evidence from the early and late windows, demonstrating a significant evolution in the Prime Minister's rhetoric regarding the conflict.
+
+Top refs:
+  EARLY:
+  - british:debates2023-10-16.txt [75867,79455]
+  - british:debates2023-10-16.txt [82401,86066]
+  - british:debates2024-01-08.txt [75350,79222]
+  - british:debates2023-10-16.txt [78944,82731]
+  - british:debates2023-12-19.txt [71914,75568]
+  LATE:
+  - british:debates2025-05-14.txt [91137,94868]
+  - british:debates2025-09-10.txt [78030,81873]
+  - british:debates2025-05-14.txt [87900,91621]
+  - british:debates2025-09-02.txt [39396,43178]
+  - british:debates2025-10-29.txt [58419,62216]
+
+------------------------------------------------------------
+
+[single] semantic/bm25 | k=5
+Query: How did the Prime Minister rhetoric regarding the war between Israel and Hamas/Gaza develop/change between his first and last speech?
+
+Retrieval Mode: evolution
+
+Answer:
+1) EARLY summary
+- The Prime Minister emphasized the need for a political solution to the Israeli-Palestinian conflict, advocating for a two-state solution that ensures justice and security for both sides [E1].
+- He acknowledged the devastating impact of Israel's actions in Gaza, highlighting the high civilian death toll and calling for compliance with international law [E1].
+- The rhetoric included a call for Israel to exercise caution and avoid collective punishment, while also recognizing Israel's right to defend itself against Hamas [E3][E4].
+- There was a focus on the future and the need for Israel to demonstrate positive actions post-conflict [E5]. 
+
+2) LATE summary
+- The Prime Minister continued to advocate for a negotiated two-state solution, explicitly mentioning the need for a sovereign Palestinian state alongside Israel [L1].
+- He condemned Hamas for its actions and rhetoric, framing it as a significant threat to peace and security, while also calling for the release of hostages [L3].
+- The rhetoric shifted to a more critical stance on Israel's actions, labeling them as collective punishment and war crimes, and calling for accountability [L2].
+- There was a clear emphasis on the humanitarian crisis in Gaza and the need for increased aid, alongside a focus on rebuilding relationships with Israel [L5].
+
+3) What changed
+- The Prime Minister's rhetoric evolved from a balanced approach that recognized both Israeli rights and Palestinian suffering to a more critical stance on Israel's actions, particularly regarding humanitarian issues [E1][L2].
+- There was a noticeable shift towards a stronger condemnation of Hamas, framing it as the primary aggressor and a significant threat to regional stability [L3].
+- The emphasis on humanitarian aid and the need for accountability for Israel's actions became more pronounced in the later speeches, reflecting a growing concern for the humanitarian situation in Gaza [L2][L5].
+- The call for a two-state solution remained consistent, but the context and urgency surrounding it changed, with a stronger focus on immediate humanitarian needs [L1].
+
+4) Evidence highlights
+- "There must be a political solution to the Israeli-Palestinian conflict—a two-state solution..." → [E1]     
+- "The aerial bombardment by Israel... has been devastating." → [E1]
+- "It is clear that Israel has been emboldened... to force new ceasefire terms." → [L2]
+- "I have condemned Hamas for their despicable actions..." → [L3]
+- "What actions are the Government taking to increase getting aid into Gaza?" → [L5]
+
+5) Confidence
+High - The analysis is based on clear evidence from the provided context, showing a distinct evolution in rhetoric and policy over time.
+
+Top refs:
+  EARLY:
+  - british:debates2023-10-18.txt [52925,53549]
+  - british:debates2023-11-14.txt [91222,91819]
+  - british:debates2023-12-12.txt [30591,31192]
+  - british:debates2023-10-16.txt [81730,82541]
+  - british:debates2023-10-16.txt [76980,77450]
+  LATE:
+  - british:debates2025-05-14.txt [91137,91984]
+  - british:debates2025-03-04.txt [66661,67158]
+  - british:debates2025-03-04.txt [87066,87683]
+  - british:debates2025-05-14.txt [67379,68110]
+  - british:debates2025-10-29.txt [60288,60951]
+
+------------------------------------------------------------
+
+[single] fixed/dense | k=5
+Query: How did the Prime Minister rhetoric regarding the war between Israel and Hamas/Gaza develop/change between his first and last speech?
+
+Retrieval Mode: evolution
+
+Answer:
+1) EARLY summary
+- The Prime Minister's rhetoric initially emphasized Israel's right to defend itself against Hamas, framing the conflict in terms of terrorism and the need for security for Israeli citizens [E2].
+- There was a strong condemnation of Hamas, with a clear distinction made between Hamas and the Palestinian people, asserting that the latter should not be held accountable for the actions of the former [E4].
+- The Prime Minister called for humanitarian aid to Gaza, acknowledging the dire situation and the need for international law to protect civilians [E1].
+- He expressed a commitment to a two-state solution, highlighting the importance of peace and stability in the region [E3].
+
+2) LATE summary
+- The rhetoric shifted towards a more critical stance on Israeli actions, with calls for accountability regarding violations of international law and the need for a ceasefire [L2].
+- The Prime Minister began to address the humanitarian crisis in Gaza more urgently, emphasizing the need for aid and the protection of civilians [L1].
+- There was an increased focus on the role of international diplomacy and the necessity of engaging with various stakeholders to achieve peace [L4].
+- The Prime Minister's language included a recognition of the complexities of the conflict, acknowledging the detrimental impact of both Hamas and certain Israeli government actions on peace efforts [L2].
+
+3) What changed
+- The early rhetoric was predominantly supportive of Israel's military actions, while the later speeches included calls for restraint and accountability from Israel [E2] → [L2].
+- The emphasis on humanitarian aid evolved from a general acknowledgment to a more urgent and specific call for immediate action to alleviate suffering in Gaza [E1] → [L1].
+- The Prime Minister's approach to the two-state solution shifted from a hopeful vision to a more critical assessment of the current political landscape and the need for concrete steps towards achieving it [E3] → [L4].  
+- The language used became more nuanced, recognizing the complexities of the conflict and the need for a balanced approach that considers the rights and suffering of both Israelis and Palestinians [E4] → [L2].
+
+4) Evidence highlights
+- "Israel has the right to defend herself... to defeat Hamas" → [E2].
+- "Gaza is in a humanitarian catastrophe... a full, comprehensive and immediate humanitarian pause in fighting across the whole of Gaza is needed" → [E1].
+- "We must not let it [the prospect of peace] die" → [E3].
+- "The key to a sustainable end to the conflict is the release of the remaining 59 hostages" → [L1].
+- "We have seen more than 150 attacks by settlers against those farmers" → [L5].
+
+5) Confidence
+High - The analysis is based on clear and contrasting evidence from the early and late speeches, demonstrating a significant evolution in rhetoric and policy focus.
+
+Top refs:
+  EARLY:
+  - british:debates2023-11-14.txt [68393,72343]
+  - british:debates2023-10-23.txt [70152,73896]
+  - british:debates2023-10-16.txt [75867,79455]
+  - british:debates2023-10-16.txt [59154,62993]
+  - british:debates2023-10-16.txt [82401,86066]
+  LATE:
+  - british:debates2025-09-10.txt [78030,81873]
+  - british:debates2025-09-10.txt [91495,94680]
+  - british:debates2025-09-10.txt [81380,85190]
+  - british:debates2025-04-02.txt [92913,94770]
+  - british:debates2025-10-29.txt [75835,79631]
+
+------------------------------------------------------------
+
+[single] semantic/dense | k=5
+Query: How did the Prime Minister rhetoric regarding the war between Israel and Hamas/Gaza develop/change between his first and last speech?
+
+Retrieval Mode: evolution
+
+Answer:
+1) EARLY summary
+- The Prime Minister expressed strong support for Israel's right to defend itself under international law, emphasizing solidarity with Israel following Hamas's attacks [E4].
+- He acknowledged the humanitarian crisis in Gaza, calling for greater care to protect civilians and the need for humanitarian aid [E2][E3].
+- There was a focus on diplomatic efforts to resolve the conflict and ensure the safety of British nationals and hostages [E4][E5].
+- The rhetoric was largely supportive of Israel, with calls for specific pauses in military action rather than a full ceasefire [E4].
+
+2) LATE summary
+- The Prime Minister's rhetoric shifted to a more critical stance towards Israel, urging it to change course and acknowledging the unacceptable situation in Gaza [L1].
+- He condemned Israel's actions, describing them as appalling and unacceptable, and recognized the humanitarian catastrophe affecting Palestinian civilians [L3][L4].
+- There was a clear condemnation of Hamas's actions, but the focus on Israel's responsibility and the need for humanitarian aid became more pronounced [L2][L3].
+- The Prime Minister's language reflected a growing urgency to address the humanitarian crisis, labeling the situation as a "man-made famine" [L4].
+
+3) What changed
+- The Prime Minister's initial strong support for Israel's military actions transitioned to a more critical view of Israel's policies and actions in Gaza.
+- There was an increased emphasis on the humanitarian impact of the conflict, with a recognition of the high civilian casualties among Palestinians [L1][L4].
+- The rhetoric evolved from advocating for specific pauses in military action to openly calling for Israel to change its course and take responsibility for the humanitarian crisis [L1][L3].
+- The framing of the conflict shifted from a focus on Israel's right to defend itself to a broader critique of the consequences of its actions on civilians [L1][L3].
+
+4) Evidence highlights
+- "Israel must respect international humanitarian law" → [E3]
+- "We do not view the situation as acceptable, and we will continue to take steps with our allies and partners to urge Israel to change course" → [L1]
+- "We have been absolutely clear in condemning them and calling them out" → [L3]
+- "The situation in Gaza was 'horrifying' and 'a man-made famine'" → [L4]
+
+5) Confidence
+High - The analysis is based on clear and contrasting statements from the Prime Minister's speeches in both the early and late windows, demonstrating a significant shift in rhetoric.
+
+Top refs:
+  EARLY:
+  - british:debates2023-12-11.txt [64796,65508]
+  - british:debates2023-10-25.txt [39562,40436]
+  - british:debates2023-11-14.txt [62478,63230]
+  - british:debates2023-10-23.txt [61640,62119]
+  - british:debates2024-01-24.txt [56278,56860]
+  LATE:
+  - british:debates2025-09-10.txt [83924,84510]
+  - british:debates2025-06-04.txt [45714,46290]
+  - british:debates2025-05-14.txt [91985,92644]
+  - british:debates2025-05-14.txt [91137,91984]
+  - british:debates2025-09-04.txt [76015,76335]
+
+------------------------------------------------------------
+
+Saved results to C:\Users\USER\Desktop\IR\IR2026\excercise4\outputs\rag_runs\cli_single_timeaware_evo_20260104_185526.json
+PS C:\Users\USER\Desktop\IR\IR2026\excercise4>
+
+
+
+
+
+
+
+
+------------------------------------------------------------
+
+Saved results to C:\Users\USER\Desktop\IR\IR2026\excercise4\outputs\rag_runs\cli_single_timeaware_evo_20260104_185526.json
+PS C:\Users\USER\Desktop\IR\IR2026\excercise4>
+
+
+
+
+
+
+------------------------------------------------------------
+
+Saved results to C:\Users\USER\Desktop\IR\IR2026\excercise4\outputs\rag_runs\cli_single_timeaware_evo_20260104_185526.json
+PS C:\Users\USER\Desktop\IR\IR2026\excercise4>
+
+
+
+
+------------------------------------------------------------
+
+Saved results to C:\Users\USER\Desktop\IR\IR2026\excercise4\outputs\rag_runs\cli_single_timeaware_evo_20260104_185526.json
+PS C:\Users\USER\Desktop\IR\IR2026\excercise4>
+
+
+
+
+
+------------------------------------------------------------
+
+Saved results to C:\Users\USER\Desktop\IR\IR202python rag_runner.py --query "How did the president rhetoric regarding the war between Israel and Hamas/Gaza develop/change between his first and last speech?"     p\IR\IR2026\excercise4>      
+[single] fixed/bm25 | k=5
+Query: How did the president rhetoric regarding the war between Israel and Hamas/Gaza develop/change between his first and last speech?
+
+Retrieval Mode: evolution
+
+Answer:
+1) EARLY summary
+- The president's rhetoric initially emphasized strong support for Israel's right to defend itself against Hamas, framing the conflict in terms of terrorism and self-defense [E3].
+- There was a clear condemnation of Hamas and its actions, with a focus on the need for Israel to take precautions to avoid civilian casualties [E4].
+- The president acknowledged the humanitarian crisis in Gaza but maintained a stance that prioritized Israel's security and the need to combat Hamas [E5].      
+- The rhetoric included a call for a sustainable ceasefire but was cautious about directly criticizing Israeli actions, often framing them as necessary responses to Hamas provocations [E2].
+
+2) LATE summary
+- The president's rhetoric shifted to a more critical stance towards Israel, highlighting the humanitarian catastrophe in Gaza and calling for urgent action to alleviate suffering [L1].
+- There was an explicit acknowledgment of the need for accountability regarding Israeli actions, with references to potential violations of international law [L2].
+- The president began to emphasize the importance of a political solution and the need for international pressure on Israel to change its course [L5].
+- The rhetoric included a stronger condemnation of the Israeli government's actions, suggesting they were disproportionate and harmful to peace efforts [L4].   
+
+3) What changed
+- The president's initial unwavering support for Israel's military actions evolved into a more balanced approach that recognized the humanitarian impact on Palestinians [L1].
+- There was a noticeable shift from solely condemning Hamas to also holding Israel accountable for its actions, indicating a more nuanced understanding of the conflict [L2].
+- The call for a sustainable ceasefire transitioned from a cautious suggestion to an urgent demand, reflecting growing international pressure and public sentiment [L5].
+- The rhetoric increasingly included calls for international intervention and a political resolution, moving away from a purely military-focused narrative [L4].
+
+4) Evidence highlights
+- "Israel has not only a right to defend itself but a duty to defend its people" → [E4].
+- "We are doing everything we can to get humanitarian support into Gaza" → [E2].
+- "The responsibilities weigh heavily on all of us" → [L1].
+- "The conduct of the Netanyahu Government is anything other than gross and disproportionate" → [L2].
+- "We will continue to push for a political resolution to end this conflict" → [L5].
+
+5) Confidence
+High - The analysis is based on clear and contrasting evidence from the early and late windows, demonstrating a significant evolution in rhetoric.
+
+Top refs:
+  EARLY:
+  - british:debates2023-10-16.txt [82401,86066]
+  - british:debates2024-01-08.txt [75350,79222]
+  - british:debates2023-12-19.txt [71914,75568]
+  - british:debates2023-10-16.txt [75867,79455]
+  - british:debates2023-10-16.txt [78944,82731]
+  LATE:
+  - british:debates2025-05-14.txt [91137,94868]
+  - british:debates2025-09-10.txt [78030,81873]
+  - british:debates2025-05-14.txt [87900,91621]
+  - british:debates2025-09-02.txt [39396,43178]
+  - british:debates2025-09-10.txt [54874,58810]
+
+------------------------------------------------------------
+
+[single] semantic/bm25 | k=5
+Query: How did the president rhetoric regarding the war between Israel and Hamas/Gaza develop/change between his first and last speech?
+
+Retrieval Mode: evolution
+
+Answer:
+1) EARLY summary
+- The president emphasized Israel's right to defend itself against Hamas following a brutal terrorist attack, while acknowledging the humanitarian impact on Gaza's civilians [E2], [E3].
+- There was a call for Hamas to release hostages and for a governance structure in Gaza that excludes Hamas, involving the Palestinian Authority [E1].
+- The rhetoric included reminders of international law and the need for Israel to operate within those bounds during military actions [E4].
+- The president expressed a desire for Israel to demonstrate positive actions post-conflict to improve the situation in Gaza [E5].
+
+2) LATE summary
+- The president's rhetoric became more accusatory towards Hamas, labeling them as genocidal and responsible for the ongoing violence [L1].
+- There was a stronger emphasis on the need for international action against Iran, which was framed as a key supporter of Hamas [L2].
+- The president maintained a focus on the humanitarian situation in Gaza, stressing the importance of aid and the need for the government to prioritize this issue [L3].
+- The rhetoric shifted towards a more proactive stance on ensuring peace and the return of hostages, with a commitment to not give up on Gaza [L4].
+
+3) What changed
+- The tone shifted from a balanced view of Israel's right to defend itself to a more aggressive condemnation of Hamas as a genocidal entity [L1].
+- The focus on international law and humanitarian concerns remained, but there was a clearer call for action against Iran's influence in the region [L2].       
+- The president's speeches increasingly highlighted the urgency of humanitarian aid to Gaza, indicating a growing concern for the civilian population [L3].     
+- There was a notable shift towards a more assertive stance on the need for peace and the return of hostages, reflecting a change in the urgency of the rhetoric [L4].
+
+4) Evidence highlights
+- "Israel has a right to pursue and destroy the terrorist forces" → [E2]        
+- "Hamas must agree to the release of all hostages" → [E1]
+- "Hamas... embarked on genocide" → [L1]
+- "What action will the Government take if... Israel does not allow aid into Gaza?" → [L1]
+- "The situation in Gaza will remain a top priority for this Government" → [L3] 
+
+5) Confidence
+High - The analysis is based on clear distinctions in rhetoric and policy focus between the early and late windows, supported by specific citations.
+
+Top refs:
+  EARLY:
+  - british:debates2023-10-18.txt [52925,53549]
+  - british:debates2023-10-18.txt [88382,88788]
+  - british:debates2023-10-16.txt [76980,77450]
+  - british:debates2024-01-30.txt [14935,15477]
+  - british:debates2023-11-14.txt [79468,80032]
+  LATE:
+  - british:debates2025-05-14.txt [91137,91984]
+  - british:debates2025-10-29.txt [60288,60951]
+  - british:debates2025-05-14.txt [67379,68110]
+  - british:debates2025-06-24.txt [6466,6870]
+  - british:debates2025-06-24.txt [5998,6465]
+
+------------------------------------------------------------
+
+[single] fixed/dense | k=5
+Query: How did the president rhetoric regarding the war between Israel and Hamas/Gaza develop/change between his first and last speech?
+
+Retrieval Mode: evolution
+
+Answer:
+1) EARLY summary
+- The president's rhetoric emphasized the humanitarian crisis in Gaza, calling for a sustained ceasefire and urgent humanitarian aid to alleviate suffering [E1].
+- He condemned the actions of both Hamas and Israel, highlighting the need for Israel to take precautions to protect civilian lives while asserting its right to defend itself [E3].
+- The president supported a two-state solution, advocating for Palestinian control over Gaza and the importance of international law in the conflict [E1][E3].  
+- There was a clear call for international cooperation and accountability regarding the humanitarian situation and the conduct of both parties in the conflict [E2][E4].
+
+2) LATE summary
+- The president's rhetoric shifted towards a more critical stance on Israel's actions, with references to "genocide" and calls for accountability for civilian casualties in Gaza [L1][L2].
+- There was a stronger emphasis on the need for a comprehensive ceasefire and the unconditional release of hostages, indicating a more urgent tone regarding the humanitarian crisis [L1].
+- The president acknowledged the complexities of the conflict, including the role of extremist elements on both sides, and called for international intervention to ensure peace [L3][L4].
+- The rhetoric included a recognition of the need for a political solution that addresses the rights and future of the Palestinian people, alongside Israel's security [L2][L5].
+
+3) What changed
+- The early rhetoric was more balanced, focusing on humanitarian needs and the rights of both Israelis and Palestinians, while the late rhetoric became more critical of Israel's military actions and their humanitarian impact.
+- The late speeches included explicit references to "genocide" and a demand for accountability, which were not present in the early speeches [L1][L2].
+- There was a noticeable shift from advocating for a two-state solution as a hopeful future to a more urgent call for immediate action to prevent further humanitarian disaster [L1][L2].
+- The late rhetoric reflected a growing frustration with the lack of progress and the increasing violence, suggesting a more proactive role for the international community in mediating the conflict [L3][L4].
+
+4) Evidence highlights
+- "The need for a sustained ceasefire is clear" → [E1]
+- "Gaza is now a humanitarian emergency" → [E3]
+- "The situation on the ground in Gaza is horrendous" → [L1]
+- "When will he call what is happening in Gaza a genocide?" → [L2]
+- "We must provide an alternative to the vision of violence" → [E4]
+- "We will continue to make those points strongly" regarding settler violence → [L5]
+
+5) Confidence
+High - The analysis is based on clear and contrasting evidence from the early and late speeches, demonstrating a significant evolution in rhetoric.
+
+Top refs:
+  EARLY:
+  - british:debates2023-10-23.txt [70152,73896]
+  - british:debates2023-11-14.txt [68393,72343]
+  - british:debates2023-10-16.txt [78944,82731]
+  - british:debates2024-01-08.txt [58096,62008]
+  - british:debates2023-10-16.txt [72395,76147]
+  LATE:
+  - british:debates2025-09-10.txt [81380,85190]
+  - british:debates2025-09-10.txt [78030,81873]
+  - british:debates2025-09-02.txt [28785,32719]
+  - british:debates2025-09-10.txt [91495,94680]
+  - british:debates2025-10-29.txt [75835,79631]
+
+------------------------------------------------------------
+
+[single] semantic/dense | k=5
+Query: How did the president rhetoric regarding the war between Israel and Hamas/Gaza develop/change between his first and last speech?
+
+Retrieval Mode: evolution
+
+Answer:
+1) EARLY summary
+- The president emphasized the need for a political solution to the Israeli-Palestinian conflict, advocating for a two-state solution that ensures justice and security for both sides [E1].
+- He condemned the humanitarian impact of Israel's actions in Gaza, highlighting the high civilian death toll and calling for compliance with international law [E1].
+- The rhetoric included a strong condemnation of violence from both sides, including Hamas and Israeli settlers, while stressing the importance of international diplomacy [E3].
+- The president acknowledged the dire humanitarian situation in Gaza and the need for Israel to respect international humanitarian law [E4].
+
+2) LATE summary
+- The president's rhetoric shifted towards a more urgent call for dialogue and a ceasefire, emphasizing that a return to negotiations is essential for lasting peace [L1].
+- He expressed outrage over the Israeli blockade of Gaza, framing it as a breach of international law and highlighting the humanitarian crisis, including a "man-made famine" [L3].
+- The focus on diplomacy remained, but there was a clearer insistence on immediate actions to secure a ceasefire as the priority for achieving security for both Israelis and Palestinians [L4].
+- The president reiterated the importance of international cooperation, particularly with the US and other allies, in addressing the conflict and supporting reconstruction efforts in Gaza [L1].
+
+3) What changed
+- The early rhetoric was more focused on condemning violence and advocating for a two-state solution, while the late rhetoric emphasized immediate actions for a ceasefire and dialogue [E1, L1].
+- There was a noticeable shift from discussing the humanitarian situation in general terms to explicitly labeling the Israeli blockade as a breach of international law and highlighting its severe humanitarian consequences [E4, L3].
+- The late speeches showed a stronger alignment with international partners in seeking a resolution, indicating a more collaborative approach compared to the earlier focus on internal diplomatic efforts [L1, L2].
+- The urgency in the late rhetoric reflects a response to the evolving situation on the ground, with a clear call for immediate cessation of hostilities rather than a longer-term political process [L4].
+
+4) Evidence highlights
+- "There must be a political solution... a two-state solution" → [E1]
+- "The aerial bombardment... has been devastating" → [E1]
+- "A return to a ceasefire is the only way we will bring the conflict to an end" → [L2]
+- "Gaza faces a 'man-made famine'" → [L3]
+- "Diplomacy, not bloodshed, is how we get security" → [L4]
+
+5) Confidence
+High - The analysis is based on clear and contrasting evidence from the early and late windows, demonstrating a significant evolution in rhetoric.
+
+Top refs:
+  EARLY:
+  - british:debates2023-11-14.txt [71817,72724]
+  - british:debates2023-12-12.txt [30591,31192]
+  - british:debates2023-11-07.txt [61496,61967]
+  - british:debates2023-12-11.txt [64796,65508]
+  - british:debates2023-11-14.txt [62478,63230]
+  LATE:
+  - british:debates2025-04-01.txt [27421,28001]
+  - british:debates2025-04-02.txt [87798,88456]
+  - british:debates2025-09-02.txt [19338,20102]
+  - british:debates2025-09-02.txt [33212,33811]
+  - british:debates2025-10-29.txt [68846,69545]
+
+------------------------------------------------------------
+
+Saved results to C:\Users\USER\Desktop\IR\IR2026\excercise4\outputs\rag_runs\cli_single_timeaware_evo_20260104_190757.json
+PS C:\Users\USER\Desktop\IR\IR2026\excercise4> 
+
+[single] fixed/bm25 | k=5
+Query: What was the specific budget allocated to security in 2024 in the US Congress?
+
+Retrieval Mode: timeaware
+
+Answer:
+I don't know based on the retrieved chunks.
+
+Top refs:
+- us:2024-09-24.txt [18550,23507] | score=14.180735994703529
+- british:debates2024-11-04.txt [70251,74205] | score=12.48155274699171
+- us:2024-12-09.txt [8286,13016] | score=12.315294781270142
+- us:2024-07-02.txt [31451,36377] | score=11.042670545161178
+- british:debates2024-01-22.txt [0,3542] | score=10.922860917479792
+
+------------------------------------------------------------
+
+[single] fixed/bm25 | k=10
+Query: What was the specific budget allocated to security in 2024 in the US Congress?
+
+Retrieval Mode: timeaware
+
+Answer:
+I don't know based on the retrieved chunks.
+
+Top refs:
+- us:2024-09-24.txt [18550,23507] | score=14.180735994703529
+- british:debates2024-11-04.txt [70251,74205] | score=12.48155274699171
+- us:2024-12-09.txt [8286,13016] | score=12.315294781270142
+- us:2024-07-02.txt [31451,36377] | score=11.042670545161178
+- british:debates2024-01-22.txt [0,3542] | score=10.922860917479792
+- us:2024-04-20.txt [17797,22119] | score=10.861828805061247
+- us:2024-06-12.txt [32666,38514] | score=10.773419101775673
+- us:2024-09-27.txt [8127,12645] | score=10.66594687073842
+- us:2024-07-11.txt [40109,44689] | score=10.565772584512153
+- us:2024-07-02.txt [22302,27583] | score=10.527342814025229
+
+------------------------------------------------------------
+
+[single] semantic/bm25 | k=3
+Query: What was the specific budget allocated to security in 2024 in the US Congress?
+
+Retrieval Mode: timeaware
+
+Answer:
+I don't know based on the retrieved chunks.
+
+Top refs:
+- british:debates2024-01-22.txt [295,757] | score=13.524515684870178
+- british:debates2024-01-22.txt [68491,68977] | score=13.524515684870178
+- british:debates2024-01-22.txt [24256,24711] | score=12.590239289497461
+
+------------------------------------------------------------
+
+[single] semantic/bm25 | k=5
+Query: What was the specific budget allocated to security in 2024 in the US Congress?
+
+Retrieval Mode: timeaware
+
+Answer:
+I don't know based on the retrieved chunks.
+
+Top refs:
+- british:debates2024-01-22.txt [295,757] | score=13.524515684870178
+- british:debates2024-01-22.txt [68491,68977] | score=13.524515684870178
+- british:debates2024-01-22.txt [24256,24711] | score=12.590239289497461
+- british:debates2024-12-19.txt [90167,90547] | score=12.345352860971598
+- british:debates2024-05-01.txt [0,357] | score=12.194628691706797
+
+------------------------------------------------------------
+
+[single] semantic/bm25 | k=10
+Query: What was the specific budget allocated to security in 2024 in the US Congress?
+
+Retrieval Mode: timeaware
+
+Answer:
+The specific budget allocated to security in 2024 by the US Congress was nearly $2.5 billion toward defense innovation, which includes rapid procurement and fielding of promising defense technologies through the Defense Innovation Unit, among other initiatives [source: us:2024-12-09.txt].
+
+Top refs:
+- british:debates2024-01-22.txt [295,757] | score=13.524515684870178
+- british:debates2024-01-22.txt [68491,68977] | score=13.524515684870178
+- british:debates2024-01-22.txt [24256,24711] | score=12.590239289497461
+- british:debates2024-12-19.txt [90167,90547] | score=12.345352860971598
+- british:debates2024-05-01.txt [0,357] | score=12.194628691706797
+- british:debates2024-11-27.txt [9076,9603] | score=11.469574069193389
+- us:2024-12-09.txt [12413,13148] | score=11.254100042684172
+- us:2024-09-27.txt [6414,7018] | score=11.012104292328193
+- british:debates2024-11-12.txt [65073,65550] | score=10.957651522387419
+- british:debates2024-11-05.txt [8659,8967] | score=10.897756215733752
+
+------------------------------------------------------------
+
+[single] fixed/dense | k=3
+Query: What was the specific budget allocated to security in 2024 in the US Congress?
+
+Retrieval Mode: timeaware
+
+Answer:
+I don't know based on the retrieved chunks.
+
+Top refs:
+- us:2024-07-02.txt [27230,32159] | score=0.4768939783707758
+- us:2024-06-28.txt [8878,14199] | score=0.4734292957109613
+- us:2024-05-20.txt [5078,11259] | score=0.47084339069782377
+
+------------------------------------------------------------
+
+[single] fixed/dense | k=5
+Query: What was the specific budget allocated to security in 2024 in the US Congress?
+
+Retrieval Mode: timeaware
+
+Answer:
+I don't know based on the retrieved chunks.
+
+Top refs:
+- us:2024-07-02.txt [27230,32159] | score=0.4768939783707758
+- us:2024-06-28.txt [8878,14199] | score=0.4734292957109613
+- us:2024-05-20.txt [5078,11259] | score=0.47084339069782377
+- us:2024-09-11.txt [27630,32918] | score=0.470321964417351
+- british:debates2024-04-24.txt [73019,76553] | score=0.46768139334422987
+
+------------------------------------------------------------
+
+[single] fixed/dense | k=10
+Query: What was the specific budget allocated to security in 2024 in the US Congress?
+
+Retrieval Mode: timeaware
+
+Answer:
+I don't know based on the retrieved chunks.
+
+Top refs:
+- us:2024-07-02.txt [27230,32159] | score=0.4768894779018566
+- us:2024-06-28.txt [8878,14199] | score=0.4734256619535407
+- us:2024-05-20.txt [5078,11259] | score=0.4708173870563564
+- us:2024-09-11.txt [27630,32918] | score=0.4703094392751346
+- british:debates2024-04-24.txt [73019,76553] | score=0.4676775604744989
+- us:2024-06-05.txt [18906,24435] | score=0.46738173266042227
+- us:2024-09-19.txt [0,5413] | score=0.4655503812985295
+- us:2024-07-05.txt [6792,11703] | score=0.46527530149046475
+- british:debates2024-04-24.txt [88890,92374] | score=0.46507322071519286
+- us:2024-06-12.txt [53623,55078] | score=0.4611816345581872
+
+------------------------------------------------------------
+
+[single] semantic/dense | k=3
+Query: What was the specific budget allocated to security in 2024 in the US Congress?
+
+Retrieval Mode: timeaware
+
+Answer:
+I don't know based on the retrieved chunks.
+
+Top refs:
+- us:2024-07-02.txt [30388,31259] | score=0.5321086671352199
+- us:2024-07-02.txt [29279,30380] | score=0.5316244506454352
+- us:2024-07-02.txt [31260,32159] | score=0.5110100583650222
+
+------------------------------------------------------------
+
+[single] semantic/dense | k=5
+Query: What was the specific budget allocated to security in 2024 in the US Congress?
+
+Retrieval Mode: timeaware
+
+Answer:
+I don't know based on the retrieved chunks.
+
+Top refs:
+- us:2024-07-02.txt [30388,31259] | score=0.5321089034054468
+- us:2024-07-02.txt [29279,30380] | score=0.5316249560180045
+- us:2024-07-02.txt [31260,32159] | score=0.5110087042451767
+- us:2024-06-12.txt [53325,53766] | score=0.5038183485715626
+- us:2024-05-21.txt [14094,14644] | score=0.50132212034086
+
+------------------------------------------------------------
+
+[single] semantic/dense | k=10
+Query: What was the specific budget allocated to security in 2024 in the US Congress?
+
+Retrieval Mode: timeaware
+
+Answer:
+I don't know based on the retrieved chunks.
+
+Top refs:
+- us:2024-07-02.txt [30388,31259] | score=0.5327320020063007
+- us:2024-07-02.txt [29279,30380] | score=0.5320998915325624
+- us:2024-07-02.txt [31260,32159] | score=0.5114457412805599
+- us:2024-06-12.txt [53325,53766] | score=0.5040397922230339
+- us:2024-05-21.txt [14094,14644] | score=0.5009919824099343
+- us:2024-09-24.txt [21373,22049] | score=0.48936341747386136
+- us:2024-06-28.txt [13217,13998] | score=0.4863695929947446
+- us:2024-07-02.txt [28339,29271] | score=0.48366603816164416
+- us:2024-02-26.txt [16172,16643] | score=0.4831091081696652
+- us:2024-04-10.txt [34946,36216] | score=0.47989182736175995
+
+------------------------------------------------------------
+
+Saved results to C:\Users\USER\Desktop\IR\IR2026\excercise4\outputs\rag_runs\cli_single_timeaware_evo_20260104_193609.json
+PS C:\Users\USER\Desktop\IR\IR2026\excercise4> python rag_runner.py --query "What was the specific budget allocated to defence in 2024 in the British Parliament?" --k 3 5 10
+[single] fixed/bm25 | k=3
+Query: What was the specific budget allocated to defence in 2024 in the British Parliament?
+
+Retrieval Mode: timeaware
+
+Answer:
+The specific budget allocated to defence in 2024 in the British Parliament is expected to amount to £55.6 billion, which is about 2.3% of GDP. This represents a 1.8% increase in real terms compared to previous spending levels [british:debates2024-03-11.txt [62799,66427]].
+
+Top refs:
+- british:debates2024-03-11.txt [62799,66427] | score=14.002414640917982
+- british:debates2024-11-04.txt [70251,74205] | score=12.48155274699171
+- british:debates2024-03-25.txt [47348,51114] | score=12.452499472901499
+
+------------------------------------------------------------
+
+[single] fixed/bm25 | k=5
+Query: What was the specific budget allocated to defence in 2024 in the British Parliament?
+
+Retrieval Mode: timeaware
+
+Answer:
+The specific budget allocated to defence in 2024 in the British Parliament is expected to amount to £55.6 billion, which is about 2.3% of GDP. This represents a 1.8% increase in real terms compared to previous spending levels [british:debates2024-03-11.txt [62799,66427]].
+
+Top refs:
+- british:debates2024-03-11.txt [62799,66427] | score=14.002414640917982
+- british:debates2024-11-04.txt [70251,74205] | score=12.48155274699171
+- british:debates2024-03-25.txt [47348,51114] | score=12.452499472901499
+- british:debates2024-05-20.txt [14290,18331] | score=12.273118250666142
+- british:debates2024-04-24.txt [73019,76553] | score=11.748205098552148
+
+------------------------------------------------------------
+
+[single] fixed/bm25 | k=10
+Query: What was the specific budget allocated to defence in 2024 in the British Parliament?
+
+Retrieval Mode: timeaware
+
+Answer:
+The specific budget allocated to defence in 2024 in the British Parliament is expected to amount to £55.6 billion, which is about 2.3% of GDP. This represents a 1.8% increase in real terms compared to the previous year. However, it was noted that the defence budget will be cut by £2.5 billion in cash terms in the next financial year, and the Defence Secretary had previously called for an increase to 2.5% of GDP, which was not reflected in the Budget [british:debates2024-03-11.txt [62799,66427]].
+
+Top refs:
+- british:debates2024-03-11.txt [62799,66427] | score=14.002414640917982
+- british:debates2024-11-04.txt [70251,74205] | score=12.48155274699171
+- british:debates2024-03-25.txt [47348,51114] | score=12.452499472901499
+- british:debates2024-05-20.txt [14290,18331] | score=12.273118250666142
+- british:debates2024-04-24.txt [73019,76553] | score=11.748205098552148
+- british:debates2024-05-09.txt [17121,21047] | score=11.640937434837358
+- british:debates2024-03-21.txt [9956,13836] | score=11.589746288106294
+- british:debates2024-03-11.txt [79767,83615] | score=11.33079913061777
+- british:debates2024-12-03.txt [0,4061] | score=11.071687735831897
+- british:debates2024-04-24.txt [82402,85911] | score=11.00358836597825
+
+------------------------------------------------------------
+
+[single] semantic/bm25 | k=3
+Query: What was the specific budget allocated to defence in 2024 in the British Parliament?
+
+Retrieval Mode: timeaware
+
+Answer:
+I don't know based on the retrieved chunks.
+
+Top refs:
+- british:debates2024-03-11.txt [62998,63644] | score=17.810663029966115
+- british:debates2024-05-20.txt [14993,15492] | score=14.651906248934045
+- british:debates2024-01-22.txt [295,757] | score=13.524515684870178
+
+------------------------------------------------------------
+
+[single] semantic/bm25 | k=5
+Query: What was the specific budget allocated to defence in 2024 in the British Parliament?
+
+Retrieval Mode: timeaware
+
+Answer:
+I don't know based on the retrieved chunks.
+
+Top refs:
+- british:debates2024-03-11.txt [62998,63644] | score=17.810663029966115
+- british:debates2024-05-20.txt [14993,15492] | score=14.651906248934045
+- british:debates2024-01-22.txt [295,757] | score=13.524515684870178
+- british:debates2024-01-22.txt [68491,68977] | score=13.524515684870178
+- british:debates2024-01-10.txt [3421,3857] | score=12.793078270051062
+
+------------------------------------------------------------
+
+[single] semantic/bm25 | k=10
+Query: What was the specific budget allocated to defence in 2024 in the British Parliament?
+
+Retrieval Mode: timeaware
+
+Answer:
+The specific budget allocated to defence in 2024 was a £2.9 billion increase in the Ministry of Defence budget, as mentioned in the context [british:debates2024-12-11.txt [49310,49632]].
+
+Top refs:
+- british:debates2024-03-11.txt [62998,63644] | score=17.810663029966115
+- british:debates2024-05-20.txt [14993,15492] | score=14.651906248934045
+- british:debates2024-01-22.txt [295,757] | score=13.524515684870178
+- british:debates2024-01-22.txt [68491,68977] | score=13.524515684870178
+- british:debates2024-01-10.txt [3421,3857] | score=12.793078270051062
+- british:debates2024-01-22.txt [24256,24711] | score=12.590239289497461
+- british:debates2024-12-19.txt [90167,90547] | score=12.345352860971598
+- british:debates2024-05-01.txt [0,357] | score=12.194628691706797
+- british:debates2024-10-14.txt [28754,29135] | score=11.906614240227047
+- british:debates2024-12-11.txt [49310,49632] | score=11.785834498812779
+
+------------------------------------------------------------
+
+[single] fixed/dense | k=3
+Query: What was the specific budget allocated to defence in 2024 in the British Parliament?
+
+Retrieval Mode: timeaware
+
+Answer:
+The specific budget allocated to defence in 2024 in the British Parliament is expected to amount to £55.6 billion, which is about 2.3% of GDP. This represents a 1.8% increase in real terms compared to previous spending levels [british:debates2024-03-11.txt [62799,66427]].
+
+Top refs:
+- british:debates2024-04-24.txt [59386,63327] | score=0.548800751517295
+- british:debates2024-04-24.txt [73019,76553] | score=0.5434187162695726
+- british:debates2024-03-11.txt [62799,66427] | score=0.5432472439308031
+
+------------------------------------------------------------
+
+[single] fixed/dense | k=5
+Query: What was the specific budget allocated to defence in 2024 in the British Parliament?
+
+Retrieval Mode: timeaware
+
+Answer:
+The specific budget allocated to defence in 2024 in the British Parliament is expected to be around £55.6 billion, which amounts to approximately 2.3% of GDP. This represents a 1.8% increase in real terms compared to the previous year [british:debates2024-03-11.txt [76376,80089]].
+
+Top refs:
+- british:debates2024-04-24.txt [59386,63327] | score=0.548787754677074
+- british:debates2024-04-24.txt [73019,76553] | score=0.5434155128183452
+- british:debates2024-03-11.txt [62799,66427] | score=0.543214686092847
+- british:debates2024-03-11.txt [76376,80089] | score=0.5368854293820104
+- british:debates2024-04-24.txt [91922,94491] | score=0.531947225503055
+
+------------------------------------------------------------
+
+[single] fixed/dense | k=10
+Query: What was the specific budget allocated to defence in 2024 in the British Parliament?
+
+Retrieval Mode: timeaware
+
+Answer:
+The specific budget allocated to defence in 2024 in the British Parliament is approximately £55.6 billion, which is about 2.3% of GDP. This represents a 1.8% increase in real terms compared to previous spending levels. However, the government has committed to increasing defence spending to 2.5% of GDP by 2030, which will involve an additional £75 billion over the next six years [british:debates2024-03-11.txt [76376,80089]; british:debates2024-04-24.txt [59386,63327]].
+
+Top refs:
+- british:debates2024-04-24.txt [59386,63327] | score=0.5487834644188325
+- british:debates2024-04-24.txt [73019,76553] | score=0.5433868594509457
+- british:debates2024-03-11.txt [62799,66427] | score=0.5432011434630241
+- british:debates2024-03-11.txt [76376,80089] | score=0.5368735405328544
+- british:debates2024-04-24.txt [91922,94491] | score=0.5319368867244885
+- british:debates2024-05-07.txt [7004,10757] | score=0.530792245236844
+- british:debates2024-04-24.txt [88890,92374] | score=0.5293688992376612
+- british:debates2024-04-24.txt [66435,70242] | score=0.5281167141483973
+- british:debates2024-04-24.txt [62906,66795] | score=0.5255814559631252
+- british:debates2024-04-24.txt [76140,79782] | score=0.5224513223761865
+
+------------------------------------------------------------
+
+[single] semantic/dense | k=3
+Query: What was the specific budget allocated to defence in 2024 in the British Parliament?
+
+Retrieval Mode: timeaware
+
+Answer:
+The specific budget allocated to defence in 2024 in the British Parliament is a total increase in the Ministry of Defence’s budget of £2.9 billion, ensuring that the UK exceeds its NATO commitments and providing guaranteed military support to Ukraine of £3 billion per year for as long as it takes [91142,91786].
+
+Top refs:
+- british:debates2024-10-30.txt [91142,91786] | score=0.5653830812816093
+- british:debates2024-03-11.txt [80775,81328] | score=0.559527813563744
+- british:debates2024-04-24.txt [59766,60398] | score=0.5557053397206551
+
+------------------------------------------------------------
+
+[single] semantic/dense | k=5
+Query: What was the specific budget allocated to defence in 2024 in the British Parliament?
+
+Retrieval Mode: timeaware
+
+Answer:
+The specific budget allocated to defence in 2024 in the British Parliament includes a total increase in the Ministry of Defence’s budget of £2.9 billion, ensuring that the UK exceeds its NATO commitments. Additionally, there is a commitment to provide guaranteed military support to Ukraine of £3 billion per year for as long as it takes [91142,91786].
+
+Top refs:
+- british:debates2024-10-30.txt [91142,91786] | score=0.5653830812816093
+- british:debates2024-03-11.txt [80775,81328] | score=0.559527813563744
+- british:debates2024-04-24.txt [59766,60398] | score=0.5557053397206551
+- british:debates2024-03-11.txt [61203,61667] | score=0.5555003862659637
+- british:debates2024-12-11.txt [49310,49632] | score=0.5532865795648638
+
+------------------------------------------------------------
+
+[single] semantic/dense | k=10
+Query: What was the specific budget allocated to defence in 2024 in the British Parliament?
+
+Retrieval Mode: timeaware
+
+Answer:
+The specific budget allocated to defence in 2024 in the British Parliament includes a total increase in the Ministry of Defence’s budget of £2.9 billion for that year, ensuring that the UK exceeds its NATO commitments. Additionally, there is a commitment to provide guaranteed military support to Ukraine of £3 billion per year for as long as necessary [91142,91786].
+
+Top refs:
+- british:debates2024-10-30.txt [91142,91786] | score=0.5653830812816093
+- british:debates2024-03-11.txt [80775,81328] | score=0.559527813563744
+- british:debates2024-04-24.txt [59766,60398] | score=0.5557053397206551
+- british:debates2024-03-11.txt [61203,61667] | score=0.5555003862659637
+- british:debates2024-12-11.txt [49310,49632] | score=0.5532865795648638
+- british:debates2024-11-18.txt [9225,9837] | score=0.5521324537415254
+- british:debates2024-04-25.txt [10102,10600] | score=0.5440677531883348
+- british:debates2024-11-11.txt [81204,81732] | score=0.5437562053753419
+- british:debates2024-03-11.txt [63645,64180] | score=0.5396892816843262
+- british:debates2024-04-29.txt [71779,72266] | score=0.5389318910262073
+
+------------------------------------------------------------
+
+Saved results to C:\Users\USER\Desktop\IR\IR2026\excercise4\outputs\rag_runs\cli_single_timeaware_evo_20260104_193736.json
+PS C:\Users\USER\Desktop\IR\IR2026\excercise4> python rag_runner.py --query "What healthcare legislation was discussed in Congress in 2024?" --k 3 5 10
+[single] fixed/bm25 | k=3
+Query: What healthcare legislation was discussed in Congress in 2024?
+
+Retrieval Mode: timeaware
+
+Answer:
+In 2024, Congress discussed healthcare legislation related to the unsustainable trajectory of federal health spending and the impact of healthcare consolidation. A hearing evaluated the budgetary effects of these consolidations, highlighting issues such as increased federal health spending, higher patient costs, and decreased quality of care. The discussion emphasized the need for policies that promote greater choice, affordability, and quality of care for citizens [source: us:2024-08-13.txt].
+
+Top refs:
+- us:2024-12-17.txt [7978,12424] | score=16.07930342313154
+- us:2024-08-13.txt [26603,31256] | score=12.864179759207289
+- us:2024-02-13.txt [35656,40726] | score=12.596856355805452
+
+------------------------------------------------------------
+
+[single] fixed/bm25 | k=5
+Query: What healthcare legislation was discussed in Congress in 2024?
+
+Retrieval Mode: timeaware
+
+Answer:
+In 2024, Congress discussed the "Gold Star Spouse Healthcare Enhancement Act," which aims to expand healthcare benefits for Gold Star spouses by removing the three-year limitation on their TRICARE coverage after the death of their servicemember. This legislation seeks to allow these spouses to remain in "active-duty family member" status, thereby reducing their healthcare costs and burden [source: us:2024-10-11.txt [9460,14001]]. Additionally, there were discussions regarding healthcare consolidation and its impact on costs and quality of care, as highlighted in a House Budget Committee hearing [source: us:2024-08-13.txt [26603,31256]].
+
+Top refs:
+- us:2024-12-17.txt [7978,12424] | score=16.07930342313154
+- us:2024-08-13.txt [26603,31256] | score=12.864179759207289
+- us:2024-02-13.txt [35656,40726] | score=12.596856355805452
+- us:2024-10-11.txt [9460,14001] | score=12.370964590864489
+- us:2024-04-19.txt [13003,18115] | score=11.848624373502979
+
+------------------------------------------------------------
+
+[single] fixed/bm25 | k=10
+Query: What healthcare legislation was discussed in Congress in 2024?
+
+Retrieval Mode: timeaware
+
+Answer:
+In 2024, Congress discussed several healthcare-related pieces of legislation, including the "Gold Star Spouse Healthcare Enhancement Act," which aims to expand healthcare benefits for Gold Star spouses by removing the three-year limitation on their TRICARE coverage after the death of their servicemember spouse [source: us:2024-10-11.txt]. Additionally, there was a focus on addressing the unsustainable trajectory of federal health spending and the impact of healthcare consolidation, which has led to increased costs and decreased quality of care for patients [source: us:2024-08-13.txt]. Another significant piece of legislation mentioned was the "Not Just a Number Act," which seeks to expand the Department of Veterans Affairs' approach to studying veteran suicide data, considering various socioeconomic factors [source: us:2024-11-19.txt].
+
+Top refs:
+- us:2024-12-17.txt [7978,12424] | score=16.07930342313154
+- us:2024-08-13.txt [26603,31256] | score=12.864179759207289
+- us:2024-02-13.txt [35656,40726] | score=12.596856355805452
+- us:2024-10-11.txt [9460,14001] | score=12.370964590864489
+- us:2024-04-19.txt [13003,18115] | score=11.848624373502979
+- us:2024-04-20.txt [17797,22119] | score=11.504100780169555
+- us:2024-11-19.txt [31351,34822] | score=11.367130618968886
+- us:2024-12-17.txt [11856,16945] | score=11.28799144212576
+- us:2024-12-12.txt [4786,9733] | score=11.025305874223298
+- us:2024-03-06.txt [35314,40892] | score=11.02054777482127
+
+------------------------------------------------------------
+
+[single] semantic/bm25 | k=3
+Query: What healthcare legislation was discussed in Congress in 2024?
+
+Retrieval Mode: timeaware
+
+Answer:
+The healthcare legislation discussed in Congress in 2024 includes the ADINA Act, which was introduced in 2023 and focuses on food allergies [us:2024-03-06.txt].
+
+Top refs:
+- us:2024-03-06.txt [36005,36428] | score=16.53783731172695
+- us:2024-12-17.txt [15097,15779] | score=12.785246213807028
+- us:2024-06-11.txt [20325,20498] | score=12.542720691862051
+
+------------------------------------------------------------
+
+[single] semantic/bm25 | k=5
+Query: What healthcare legislation was discussed in Congress in 2024?
+
+Retrieval Mode: timeaware
+
+Answer:
+In 2024, the healthcare legislation discussed in Congress included the "Gold Star Spouse Healthcare Enhancement Act" [source: 2024-10-11.txt]. Additionally, there was mention of the ADINA Act, which was introduced in 2023 and discussed in the context of food allergies [source: 2024-03-06.txt].
+
+Top refs:
+- us:2024-03-06.txt [36005,36428] | score=16.53783731172695
+- us:2024-12-17.txt [15097,15779] | score=12.785246213807028
+- us:2024-06-11.txt [20325,20498] | score=12.542720691862051
+- us:2024-12-17.txt [8211,8527] | score=11.899010076611248
+- us:2024-10-11.txt [11019,11875] | score=11.526176959205568
+
+------------------------------------------------------------
+
+[single] semantic/bm25 | k=10
+Query: What healthcare legislation was discussed in Congress in 2024?
+
+Retrieval Mode: timeaware
+
+Answer:
+In 2024, the healthcare legislation discussed in Congress included the "Gold Star Spouse Healthcare Enhancement Act" and the "ADINA Act," which was introduced in 2023. Additionally, Congresswoman Bush has been active in advocating for systemic inequities in healthcare, although specific bills were not detailed in the context provided [source: 2024-10-11, 2024-12-12, 2024-03-06].
+
+Top refs:
+- us:2024-03-06.txt [36005,36428] | score=16.53783731172695
+- us:2024-12-17.txt [15097,15779] | score=12.785246213807028
+- us:2024-06-11.txt [20325,20498] | score=12.542720691862051
+- us:2024-12-17.txt [8211,8527] | score=11.899010076611248
+- us:2024-10-11.txt [11019,11875] | score=11.526176959205568
+- us:2024-12-12.txt [9316,9630] | score=11.391436900699048
+- british:debates2024-01-26.txt [26957,27461] | score=11.268774106924702
+- british:debates2024-01-26.txt [38259,38763] | score=11.268774106924702
+- us:2024-11-01.txt [8657,8969] | score=11.101639608380356
+- us:2024-04-20.txt [20077,20817] | score=10.799221821686
+
+------------------------------------------------------------
+
+[single] fixed/dense | k=3
+Query: What healthcare legislation was discussed in Congress in 2024?
+
+Retrieval Mode: timeaware
+
+Answer:
+In 2024, Congress discussed the "Promoting Healthier Lifelong Improvements in Food and Exercise Act of 2024," also known as the LIFE Act. This legislation aims to establish a national program to combat overweight and obesity, which is a significant health issue in the United States. The bill proposes to allocate $75 million to the Centers for Disease Control and Prevention (CDC) for a coordinated effort to address sedentary lifestyles and unhealthy diets [source: us:2024-08-06.txt].
+
+Top refs:
+- us:2024-03-11.txt [26628,31874] | score=0.4705461058008049
+- us:2024-08-06.txt [9634,13950] | score=0.46891541933472947
+- us:2024-04-15.txt [32018,37679] | score=0.4676559202799221
+
+------------------------------------------------------------
+
+[single] fixed/dense | k=5
+Query: What healthcare legislation was discussed in Congress in 2024?
+
+Retrieval Mode: timeaware
+
+Answer:
+In 2024, Congress discussed several healthcare-related pieces of legislation, including:
+
+1. The **Promoting Healthier Lifelong Improvements in Food and Exercise Act of 2024** (LIFE Act), introduced by Eleanor Holmes Norton. This bill aims to establish a national program to combat overweight and obesity, providing $75 million to the CDC for a coordinated effort to promote healthier lifestyles and diets [source: us:2024-08-06.txt].
+
+2. The **Ensuring Child Health Coverage Compensation in Divorce Act of 2024**, also introduced by Eleanor Holmes Norton. This bill would require health insurers to reimburse a parent for out-of-pocket medical expenses for a child when the other parent is court-ordered to provide health insurance [source: us:2024-08-13.txt].     
+
+These pieces of legislation reflect ongoing efforts to address public health issues and improve healthcare access and coverage.
+
+Top refs:
+- us:2024-03-11.txt [26628,31874] | score=0.4705461058008049
+- us:2024-08-06.txt [9634,13950] | score=0.46891541933472947
+- us:2024-04-15.txt [32018,37679] | score=0.4676559202799221
+- us:2024-08-13.txt [13651,18641] | score=0.4647913388854549
+- us:2024-09-11.txt [27630,32918] | score=0.4630662434823237
+
+------------------------------------------------------------
+
+[single] fixed/dense | k=10
+Query: What healthcare legislation was discussed in Congress in 2024?
+
+Retrieval Mode: timeaware
+
+Answer:
+In 2024, Congress discussed several healthcare-related pieces of legislation, including:
+
+1. The **Promoting Healthier Lifelong Improvements in Food and Exercise Act of 2024** (LIFE Act), which aims to combat overweight and obesity by establishing a national program and providing $75 million to the CDC for a coordinated effort to promote healthier lifestyles [source: us:2024-08-06.txt].
+
+2. The **Ensuring Child Health Coverage Compensation in Divorce Act of 2024**, which would require health insurers to reimburse a parent for out-of-pocket medical expenses for a child when the other parent is court-ordered to provide health insurance [source: us:2024-08-13.txt].
+
+3. The **Fairness in Federal Bureau of Prisons Medical Care Act of 2024**, which seeks to eliminate the copay that individuals in federal custody must pay when visiting a healthcare provider, aiming to encourage early medical treatment [source: us:2024-07-08.txt].
+
+4. The **Elizabeth Dole 21st Century Veterans Healthcare and Benefits Improvement Act** (H.R. 8371), which focuses on improving healthcare and benefits for veterans [source: us:2024-11-19.txt].
+
+These pieces of legislation reflect ongoing efforts to address various healthcare issues in the United States.
+
+Top refs:
+- us:2024-03-11.txt [26628,31874] | score=0.4705461058008049
+- us:2024-08-06.txt [9634,13950] | score=0.46891541933472947
+- us:2024-04-15.txt [32018,37679] | score=0.4676559202799221
+- us:2024-08-13.txt [13651,18641] | score=0.4647913388854549
+- us:2024-09-11.txt [27630,32918] | score=0.4630662434823237
+- us:2024-07-31.txt [0,1770] | score=0.46137859590580926
+- us:2024-05-21.txt [13642,17997] | score=0.46100705924973184
+- us:2024-08-27.txt [29793,34587] | score=0.4593834368897374
+- us:2024-07-08.txt [12892,17458] | score=0.45918206705411496
+- us:2024-11-19.txt [26659,31527] | score=0.45900925317034325
+
+------------------------------------------------------------
+
+[single] semantic/dense | k=3
+Query: What healthcare legislation was discussed in Congress in 2024?
+
+Retrieval Mode: timeaware
+
+Answer:
+In 2024, Congress discussed several healthcare-related pieces of legislation, including bills to amend the Public Health Service Act to reauthorize various programs such as the Emergency Medical Services for Children program, poison control programs, the BOLD Infrastructure for Alzheimer's Act, and lifespan respite care programs [source: us:2024-05-20.txt]. Additionally, there was a hearing focused on the unsustainable trajectory of federal health spending, addressing issues related to hospital mergers, increased patient costs, and the quality of care [source: us:2024-08-13.txt].
+
+Top refs:
+- us:2024-08-13.txt [28656,29269] | score=0.48399638956092916
+- us:2024-05-20.txt [8955,9485] | score=0.47984724711314547
+- us:2024-08-27.txt [31215,32075] | score=0.4758787845094189
+
+------------------------------------------------------------
+
+[single] semantic/dense | k=5
+Query: What healthcare legislation was discussed in Congress in 2024?
+
+Retrieval Mode: timeaware
+
+Answer:
+In 2024, Congress discussed several healthcare-related pieces of legislation, including:
+
+1. A bill to amend the Public Health Service Act to reauthorize the Emergency Medical Services for Children program, as well as other programs related to poison control, Alzheimer's infrastructure, and lifespan respite care [source: us:2024-05-20.txt].
+
+2. The Ensuring Child Health Coverage Compensation in Divorce Act of 2024, which would require that when a court orders a non-custodial parent to provide health insurance for a child, the other parent can be reimbursed directly from the insurer for out-of-pocket medical expenses incurred for the child [source: us:2024-08-13.txt].
+
+Additionally, there were discussions about the unsustainable trajectory of federal health spending and the impact of hospital mergers on costs and quality of care [source: us:2024-08-13.txt].
+
+Top refs:
+- us:2024-08-13.txt [28656,29269] | score=0.48399638956092916
+- us:2024-05-20.txt [8955,9485] | score=0.47984724711314547
+- us:2024-08-27.txt [31215,32075] | score=0.4758787845094189
+- us:2024-05-08.txt [34060,34872] | score=0.4746578897157895
+- us:2024-08-13.txt [16278,17285] | score=0.47384037696161657
+
+------------------------------------------------------------
+
+[single] semantic/dense | k=10
+Query: What healthcare legislation was discussed in Congress in 2024?
+
+Retrieval Mode: timeaware
+
+Answer:
+In 2024, several healthcare legislation items were discussed in Congress, including:
+
+1. The **Ensuring Child Health Coverage Compensation in Divorce Act of 2024**, which aims to require that non-custodial parents who are court-ordered to provide health insurance for a child can have the other parent reimbursed directly from the insurer for out-of-pocket medical expenses incurred for the child [source: us:2024-08-13.txt].
+
+2. The **Promoting Healthier Lifelong Improvements in Food and Exercise Act of 2024 (LIFE Act)**, which seeks to establish a national program to combat overweight and obesity, addressing a significant health issue in the U.S. [source: us:2024-08-06.txt].
+
+3. Various bills to amend the Public Health Service Act, including reauthorizations for programs related to emergency medical services for children, poison control, and Alzheimer’s infrastructure [source: us:2024-05-20.txt].
+
+4. The **Elizabeth Dole 21st Century Veterans Healthcare and Benefits Improvement Act**, which was also introduced in 2024 [source: us:2024-11-19.txt].
+
+Additionally, there were hearings scheduled to examine high prices for diabetes and obesity medications, specifically focusing on Novo Nordisk's products [source: us:2024-09-11.txt].
+
+Top refs:
+- us:2024-08-13.txt [28656,29269] | score=0.48399638956092916
+- us:2024-05-20.txt [8955,9485] | score=0.47984724711314547
+- us:2024-08-27.txt [31215,32075] | score=0.4758787845094189
+- us:2024-05-08.txt [34060,34872] | score=0.4746578897157895
+- us:2024-08-13.txt [16278,17285] | score=0.47384037696161657
+- us:2024-11-19.txt [31130,31523] | score=0.47289274551786487
+- us:2024-06-27.txt [29441,29850] | score=0.47052868603450027
+- us:2024-09-11.txt [40529,41428] | score=0.4705234075720733
+- us:2024-08-06.txt [12876,13380] | score=0.46940761896085786
+- us:2024-07-10.txt [30340,30933] | score=0.46899705751953874
+
+------------------------------------------------------------
+
+Saved results to C:\Users\USER\Desktop\IR\IR2026\excercise4\outputs\rag_runs\cli_single_timeaware_evo_20260104_194845.json
+PS C:\Users\USER\Desktop\IR\IR2026\excercise4> python rag_runner.py --query "What healthcare legislation was debated in Parliament in 2024?" --k 3 5 10
+[single] fixed/bm25 | k=3
+Query: What healthcare legislation was debated in Parliament in 2024?
+
+Retrieval Mode: timeaware
+
+Answer:
+I don't know based on the retrieved chunks.
+
+Top refs:
+- us:2024-12-17.txt [7978,12424] | score=13.45936695564949
+- british:debates2024-03-22.txt [67692,71421] | score=12.779859645082094
+- british:debates2024-03-01.txt [75470,79087] | score=12.073368362356108
+
+------------------------------------------------------------
+
+[single] fixed/bm25 | k=5
+Query: What healthcare legislation was debated in Parliament in 2024?
+
+Retrieval Mode: timeaware
+
+Answer:
+I don't know based on the retrieved chunks.
+
+Top refs:
+- us:2024-12-17.txt [7978,12424] | score=13.45936695564949
+- british:debates2024-03-22.txt [67692,71421] | score=12.779859645082094
+- british:debates2024-03-01.txt [75470,79087] | score=12.073368362356108
+- british:debates2024-04-26.txt [53134,56842] | score=11.282467817866191
+- british:debates2024-03-01.txt [38136,41846] | score=11.111681227759345
+
+------------------------------------------------------------
+
+[single] fixed/bm25 | k=10
+Query: What healthcare legislation was debated in Parliament in 2024?
+
+Retrieval Mode: timeaware
+
+Answer:
+I don't know based on the retrieved chunks.
+
+Top refs:
+- us:2024-12-17.txt [7978,12424] | score=13.45936695564949
+- british:debates2024-03-22.txt [67692,71421] | score=12.779859645082094
+- british:debates2024-03-01.txt [75470,79087] | score=12.073368362356108
+- british:debates2024-04-26.txt [53134,56842] | score=11.282467817866191
+- british:debates2024-03-01.txt [38136,41846] | score=11.111681227759345
+- us:2024-04-19.txt [0,5054] | score=11.006662918390893
+- british:debates2024-04-26.txt [3556,7515] | score=10.76097007018214
+- british:debates2024-10-14.txt [9691,13424] | score=10.60798088169231
+- british:debates2024-02-29.txt [81589,85203] | score=10.303177913739248
+- us:2024-12-06.txt [8640,13601] | score=9.695917564173076
+
+------------------------------------------------------------
+
+[single] semantic/bm25 | k=3
+Query: What healthcare legislation was debated in Parliament in 2024?
+
+Retrieval Mode: timeaware
+
+Answer:
+I don't know based on the retrieved chunks.
+
+Top refs:
+- us:2024-12-17.txt [8211,8527] | score=13.667332416782099
+- british:debates2024-11-29.txt [23925,24069] | score=12.049011882480244
+- british:debates2024-12-06.txt [37420,37609] | score=11.422349608847266
+
+------------------------------------------------------------
+
+[single] semantic/bm25 | k=5
+Query: What healthcare legislation was debated in Parliament in 2024?
+
+Retrieval Mode: timeaware
+
+Answer:
+I don't know based on the retrieved chunks.
+
+Top refs:
+- us:2024-12-17.txt [8211,8527] | score=13.667332416782099
+- british:debates2024-11-29.txt [23925,24069] | score=12.049011882480244
+- british:debates2024-12-06.txt [37420,37609] | score=11.422349608847266
+- british:debates2024-05-16.txt [1184,1569] | score=11.328859458273602
+- us:2024-11-01.txt [8657,8969] | score=11.101639608380356
+
+------------------------------------------------------------
+
+[single] semantic/bm25 | k=10
+Query: What healthcare legislation was debated in Parliament in 2024?
+
+Retrieval Mode: timeaware
+
+Answer:
+I don't know based on the retrieved chunks.
+
+Top refs:
+- us:2024-12-17.txt [8211,8527] | score=13.667332416782099
+- british:debates2024-11-29.txt [23925,24069] | score=12.049011882480244
+- british:debates2024-12-06.txt [37420,37609] | score=11.422349608847266
+- british:debates2024-05-16.txt [1184,1569] | score=11.328859458273602
+- us:2024-11-01.txt [8657,8969] | score=11.101639608380356
+- british:debates2024-04-25.txt [20316,20823] | score=10.98148277583405
+- british:debates2024-03-01.txt [38361,38921] | score=10.85331696806509
+- british:debates2024-04-15.txt [577,931] | score=10.618209826454265
+- british:debates2024-10-14.txt [9882,10374] | score=10.3029150337499
+- british:debates2024-04-15.txt [39380,39914] | score=10.191954480358785
+
+------------------------------------------------------------
+
+[single] fixed/dense | k=3
+Query: What healthcare legislation was debated in Parliament in 2024?
+
+Retrieval Mode: timeaware
+
+Answer:
+In 2024, healthcare legislation debated in Parliament included a Bill to modernise the Mental Health Act, aiming to ensure it is fit for the twenty-first century. Additionally, there were measures proposed to improve the National Health Service, focusing on reducing waiting times, enhancing mental health provision for young people, and ensuring mental health receives equal attention as physical health [british:debates2024-07-17.txt].   
+
+Top refs:
+- british:debates2024-07-17.txt [37755,41874] | score=0.5083827684792803
+- british:debates2024-03-05.txt [34212,38136] | score=0.4914357360483053
+- british:debates2024-10-16.txt [89252,93143] | score=0.49028372851167884
+
+------------------------------------------------------------
+
+[single] fixed/dense | k=5
+Query: What healthcare legislation was debated in Parliament in 2024?
+
+Retrieval Mode: timeaware
+
+Answer:
+In 2024, healthcare legislation debated in Parliament included a Bill to modernise the Mental Health Act, aimed at ensuring it is fit for the 21st century and giving mental health the same attention as physical health. Additionally, there were discussions about measures to improve the National Health Service, focusing on reducing waiting times and enhancing mental health provision for young people. Other health-related topics included the regulation of vaping and the advertising of junk food to children, as well as the impact of national insurance changes on hospices and care services [british:debates2024-07-17.txt; british:debates2024-03-05.txt; british:debates2024-11-28.txt].
+
+Top refs:
+- british:debates2024-07-17.txt [37755,41874] | score=0.5083827684792803
+- british:debates2024-03-05.txt [34212,38136] | score=0.4914357360483053
+- british:debates2024-10-16.txt [89252,93143] | score=0.49028372851167884
+- british:debates2024-09-12.txt [0,3655] | score=0.4806396145994301
+- british:debates2024-11-28.txt [59865,63481] | score=0.4795759913348706
+
+------------------------------------------------------------
+
+[single] fixed/dense | k=10
+Query: What healthcare legislation was debated in Parliament in 2024?
+
+Retrieval Mode: timeaware
+
+Answer:
+In 2024, healthcare legislation debated in Parliament included a Bill to modernise the Mental Health Act, aimed at ensuring it is fit for the 21st century and addressing the treatment of individuals with severe mental health issues. Additionally, there were discussions about improving the National Health Service (NHS) to provide care based on need, reducing waiting times, and enhancing mental health provision for young people. The government also planned to legislate to restrict the advertising of junk food to children and to impose limits on the sale and marketing of vapes [sources: british:debates2024-07-17.txt, british:debates2024-03-05.txt].       
+
+Top refs:
+- british:debates2024-07-17.txt [37755,41874] | score=0.5083827684792803
+- british:debates2024-03-05.txt [34212,38136] | score=0.4914357360483053
+- british:debates2024-10-16.txt [89252,93143] | score=0.49028372851167884
+- british:debates2024-09-12.txt [0,3655] | score=0.4806396145994301
+- british:debates2024-11-28.txt [59865,63481] | score=0.4795759913348706
+- british:debates2024-10-15.txt [29026,32740] | score=0.4782368409740593
+- british:debates2024-07-23.txt [25901,29714] | score=0.4768023048548916
+- british:debates2024-11-05.txt [85280,89167] | score=0.4753050247794564
+- british:debates2024-12-10.txt [87732,91502] | score=0.4732400671920597
+- british:debates2024-03-05.txt [37616,41514] | score=0.47319748826385494
+
+------------------------------------------------------------
+
+[single] semantic/dense | k=3
+Query: What healthcare legislation was debated in Parliament in 2024?
+
+Retrieval Mode: timeaware
+
+Answer:
+The healthcare legislation debated in Parliament in 2024 focused on improving the National Health Service (NHS) by providing care based on need regardless of the ability to pay, reducing waiting times, focusing on prevention, and improving mental health provision for young people. It emphasized giving mental health the same attention as physical health [british:debates2024-07-17.txt].
+
+Top refs:
+- british:debates2024-07-17.txt [39419,39995] | score=0.5002865047894727
+- british:debates2024-11-29.txt [75040,75431] | score=0.49573004550481437
+- british:debates2024-05-17.txt [52500,52983] | score=0.49130319327443667
+
+------------------------------------------------------------
+
+[single] semantic/dense | k=5
+Query: What healthcare legislation was debated in Parliament in 2024?
+
+Retrieval Mode: timeaware
+
+Answer:
+In 2024, healthcare legislation debated in Parliament included efforts to improve the National Health Service (NHS) by reducing waiting times, focusing on prevention, and enhancing mental health provision for young people. Additionally, there was a proposal to modernize the Mental Health Act to make it more suitable for the 21st century [british:debates2024-07-17.txt [39419,39995]].
+
+Top refs:
+- british:debates2024-07-17.txt [39419,39995] | score=0.5002865047894727
+- british:debates2024-11-29.txt [75040,75431] | score=0.49573004550481437
+- british:debates2024-05-17.txt [52500,52983] | score=0.49130319327443667
+- british:debates2024-11-05.txt [88713,88984] | score=0.49060596850137933
+- british:debates2024-07-17.txt [39996,40462] | score=0.49032966727218885
+
+------------------------------------------------------------
+
+[single] semantic/dense | k=10
+Query: What healthcare legislation was debated in Parliament in 2024?
+
+Retrieval Mode: timeaware
+
+Answer:
+In 2024, healthcare legislation debated in Parliament included efforts to modernize the Mental Health Act and improve the National Health Service (NHS) by reducing waiting times, focusing on prevention, and enhancing mental health provision for young people. Additionally, there was a discussion about a Bill related to the treatment of rare types of cancer, which aimed to incentivize research and investment in that area [sources: british:debates2024-07-17.txt, british:debates2024-10-16.txt].
+
+Top refs:
+- british:debates2024-07-17.txt [39419,39995] | score=0.5002865047894727
+- british:debates2024-11-29.txt [75040,75431] | score=0.49573004550481437
+- british:debates2024-05-17.txt [52500,52983] | score=0.49130319327443667
+- british:debates2024-11-05.txt [88713,88984] | score=0.49060596850137933
+- british:debates2024-07-17.txt [39996,40462] | score=0.49032966727218885
+- british:debates2024-10-16.txt [89714,90357] | score=0.4895873348710911
+- british:debates2024-03-22.txt [21107,21702] | score=0.48385180880148476
+- british:debates2024-12-09.txt [47540,47944] | score=0.4836563894634663
+- british:debates2024-11-20.txt [28575,29084] | score=0.4830477667253388
+- british:debates2024-12-05.txt [45456,45827] | score=0.4793151478378357
+
+------------------------------------------------------------
+
+Saved results to C:\Users\USER\Desktop\IR\IR2026\excercise4\outputs\rag_runs\cli_single_timeaware_evo_20260104_195037.json
+
+PS C:\Users\USER\Desktop\IR\IR2026\excercise4> python rag_runner.py --query "What is the current official position of the US Congress regarding the State of Israel?" --k 3 5 10
+[single] fixed/bm25 | k=3
+Query: What is the current official position of the US Congress regarding the State of Israel?
+
+Retrieval Mode: timeaware
+
+Answer:
+I don't know based on the retrieved chunks.
+
+Top refs:
+- british:debates2025-10-29.txt [58419,62216] | score=0.9136893311188143
+- us:2025-07-28.txt [4744,10053] | score=0.8456875031501196
+- us:2025-07-23.txt [41221,44935] | score=0.8429351100392519
+
+------------------------------------------------------------
+
+[single] fixed/bm25 | k=5
+Query: What is the current official position of the US Congress regarding the State of Israel?
+
+Retrieval Mode: timeaware
+
+Answer:
+I don't know based on the retrieved chunks.
+
+Top refs:
+- british:debates2025-10-29.txt [58419,62216] | score=0.9136893311188143
+- us:2025-07-28.txt [4744,10053] | score=0.8456875031501196
+- us:2025-07-23.txt [41221,44935] | score=0.8429351100392519
+- british:debates2025-06-24.txt [49624,53566] | score=0.8320700202930829
+- british:debates2025-06-03.txt [63864,67731] | score=0.8311611362037357
+
+------------------------------------------------------------
+
+[single] fixed/bm25 | k=10
+Query: What is the current official position of the US Congress regarding the State of Israel?
+
+Retrieval Mode: timeaware
+
+Answer:
+I don't know based on the retrieved chunks.
+
+Top refs:
+- british:debates2025-10-29.txt [58419,62216] | score=0.9136893311188143
+- us:2025-10-08.txt [35979,38479] | score=0.8500797744607183
+- us:2025-07-28.txt [4744,10053] | score=0.8456875031501196
+- british:debates2025-09-11.txt [21761,25568] | score=0.8443528078489266
+- british:debates2025-09-02.txt [46161,49958] | score=0.8443174249303216
+- us:2025-07-23.txt [41221,44935] | score=0.8429351100392519
+- british:debates2025-06-24.txt [49624,53566] | score=0.8320700202930829
+- british:debates2025-06-03.txt [63864,67731] | score=0.8311611362037357
+- british:debates2025-09-04.txt [59186,62992] | score=0.830926853484926
+- us:2025-07-29.txt [40923,45591] | score=0.812052920220182
+
+------------------------------------------------------------
+
+[single] semantic/bm25 | k=3
+Query: What is the current official position of the US Congress regarding the State of Israel?
+
+Retrieval Mode: timeaware
+
+Answer:
+I don't know based on the retrieved chunks.
+
+Top refs:
+- british:debates2025-10-16.txt [61964,62381] | score=0.9065923557435761
+- british:debates2025-10-15.txt [34022,34488] | score=0.8921564751204296
+- british:debates2025-10-29.txt [60288,60951] | score=0.8911234327812567
+
+------------------------------------------------------------
+
+[single] semantic/bm25 | k=5
+Query: What is the current official position of the US Congress regarding the State of Israel?
+
+Retrieval Mode: timeaware
+
+Answer:
+I don't know based on the retrieved chunks.
+
+Top refs:
+- british:debates2025-10-16.txt [61964,62381] | score=0.9065923557435761
+- british:debates2025-10-15.txt [34022,34488] | score=0.8921564751204296
+- british:debates2025-10-29.txt [60288,60951] | score=0.8911234327812567
+- us:2025-07-29.txt [41422,42055] | score=0.862764119634345
+- british:debates2025-09-02.txt [71822,72286] | score=0.8593744961709502
+
+------------------------------------------------------------
+
+[single] semantic/bm25 | k=10
+Query: What is the current official position of the US Congress regarding the State of Israel?
+
+Retrieval Mode: timeaware
+
+Answer:
+I don't know based on the retrieved chunks.
+
+Top refs:
+- british:debates2025-10-16.txt [61964,62381] | score=0.9065923557435761
+- british:debates2025-10-15.txt [34022,34488] | score=0.8921564751204296
+- british:debates2025-10-29.txt [60288,60951] | score=0.8911234327812567
+- us:2025-07-29.txt [41422,42055] | score=0.862764119634345
+- british:debates2025-09-02.txt [71822,72286] | score=0.8593744961709502
+- british:debates2025-07-11.txt [8515,9085] | score=0.8568587669824148
+- us:2025-07-16.txt [18476,18960] | score=0.8407208756941679
+- british:debates2025-09-10.txt [63045,63612] | score=0.8406808805653477
+- british:debates2025-09-09.txt [28331,28593] | score=0.8403514788063126
+- us:2025-07-28.txt [7894,8611] | score=0.8173649520006689
+
+Top refs:
+- british:debates2025-10-16.txt [61964,62381] | score=0.9065923557435761
+- british:debates2025-10-15.txt [34022,34488] | score=0.8921564751204296
+- british:debates2025-10-29.txt [60288,60951] | score=0.8911234327812567
+- us:2025-07-29.txt [41422,42055] | score=0.862764119634345
+- british:debates2025-09-02.txt [71822,72286] | score=0.8593744961709502
+- british:debates2025-07-11.txt [8515,9085] | score=0.8568587669824148
+- us:2025-07-16.txt [18476,18960] | score=0.8407208756941679
+- british:debates2025-09-10.txt [63045,63612] | score=0.8406808805653477
+- british:debates2025-09-09.txt [28331,28593] | score=0.8403514788063126
+- us:2025-07-28.txt [7894,8611] | score=0.8173649520006689
+- british:debates2025-10-16.txt [61964,62381] | score=0.9065923557435761
+- british:debates2025-10-15.txt [34022,34488] | score=0.8921564751204296
+- british:debates2025-10-29.txt [60288,60951] | score=0.8911234327812567
+- us:2025-07-29.txt [41422,42055] | score=0.862764119634345
+- british:debates2025-09-02.txt [71822,72286] | score=0.8593744961709502
+- british:debates2025-07-11.txt [8515,9085] | score=0.8568587669824148
+- us:2025-07-16.txt [18476,18960] | score=0.8407208756941679
+- british:debates2025-09-10.txt [63045,63612] | score=0.8406808805653477
+- british:debates2025-09-09.txt [28331,28593] | score=0.8403514788063126
+- us:2025-07-28.txt [7894,8611] | score=0.8173649520006689
+
+------------------------------------------------------------
+
+[single] fixed/dense | k=3
+Query: What is the current official position of the US Congress regarding the State of Israel?
+
+Retrieval Mode: timeaware
+
+Answer:
+I don't know based on the retrieved chunks.
+
+Top refs:
+- us:2025-10-06.txt [45354,48940] | score=0.6088984466921048
+- british:debates2025-09-10.txt [91495,94680] | score=0.5973417415116388
+- us:2025-09-09.txt [28552,29228] | score=0.5924067119518719
+
+Top refs:
+- us:2025-10-06.txt [45354,48940] | score=0.6088984466921048
+- british:debates2025-09-10.txt [91495,94680] | score=0.5973417415116388
+- us:2025-09-09.txt [28552,29228] | score=0.5924067119518719
+- british:debates2025-09-10.txt [91495,94680] | score=0.5973417415116388
+- us:2025-09-09.txt [28552,29228] | score=0.5924067119518719
+
+------------------------------------------------------------
+
+[single] fixed/dense | k=5
+Query: What is the current official position of the US Congress regarding the State of Israel?
+
+Retrieval Mode: timeaware
+
+Answer:
+The current official position of the US Congress regarding the State of Israel emphasizes a strong and special relationship between the United States and Israel, highlighting them as close democratic allies. This relationship is underscored by military support, as evidenced by the deployment of aircraft carriers to deter threats against Israel. Additionally, there is a recognition of the challenges Israel faces, particularly in light of recent events impacting its security and survival. The Congress also expresses a commitment to the release of hostages held by Hamas, reflecting a focus on humanitarian concerns alongside security interests [source: us:2025-05-05.txt].
+
+Top refs:
+- us:2025-10-06.txt [45354,48940] | score=0.6088984466921048
+- british:debates2025-09-10.txt [91495,94680] | score=0.5973417415116388
+- us:2025-09-09.txt [28552,29228] | score=0.5924067119518719
+- british:debates2025-09-10.txt [68709,72535] | score=0.5916471380142054
+- us:2025-05-05.txt [13010,17790] | score=0.5392203238112305
+
+------------------------------------------------------------
+
+[single] fixed/dense | k=10
+Query: What is the current official position of the US Congress regarding the State of Israel?
+
+Retrieval Mode: timeaware
+
+Answer:
+I don't know based on the retrieved chunks.
+
+Top refs:
+- british:debates2025-10-29.txt [72260,76137] | score=0.6208156491994821
+- us:2025-10-06.txt [45354,48940] | score=0.6088984466921048
+- british:debates2025-09-10.txt [91495,94680] | score=0.5973417415116388
+- us:2025-09-09.txt [28552,29228] | score=0.5924067119518719
+- british:debates2025-09-10.txt [68709,72535] | score=0.5916471380142054
+- british:debates2025-09-10.txt [78030,81873] | score=0.5908446214776086
+- british:debates2025-09-10.txt [81380,85190] | score=0.5907153371021843
+- us:2025-09-15.txt [51062,52846] | score=0.5902727490733881
+- us:2025-09-10.txt [36249,40386] | score=0.5894965017559632
+- british:debates2025-09-10.txt [75057,78747] | score=0.5891339733122825
+
+------------------------------------------------------------
+
+[single] semantic/dense | k=3
+Query: What is the current official position of the US Congress regarding the State of Israel?
+
+Retrieval Mode: timeaware
+
+Answer:
+The current official position of the US Congress regarding the State of Israel emphasizes a strong support for Israel, particularly in the context of condemning Hamas for its attacks and affirming the special relationship between the U.S. and Israel as close democratic allies. Congress has condemned Hamas for its actions and has called for the immediate release of hostages taken during the attacks on October 7, 2023. Additionally, there is a recognition of the military support and readiness to stand by Israel in times of need [us:2025-06-02.txt; us:2025-05-05.txt].
+
+Top refs:
+- british:debates2025-09-02.txt [62311,62907] | score=0.6000978941067492
+- us:2025-06-02.txt [24511,25299] | score=0.5572989157804678
+- us:2025-05-05.txt [14939,15410] | score=0.5553687919749087
+
+------------------------------------------------------------
+
+[single] semantic/dense | k=5
+Query: What is the current official position of the US Congress regarding the State of Israel?
+
+Retrieval Mode: timeaware
+
+Answer:
+The current official position of the US Congress regarding the State of Israel emphasizes a strong support for Israel as a close democratic ally. This is reflected in the recognition of the special relationship between the U.S. and Israel, as well as in recent actions such as condemning Hamas for its attacks on Israel and demanding the release of hostages. Congress has also been involved in legislative measures that reinforce security assistance and oversight related to Israel [us:2025-05-05.txt; us:2025-06-02.txt].
+
+Top refs:
+- british:debates2025-09-02.txt [62311,62907] | score=0.6005331247016393
+- us:2025-06-02.txt [24511,25299] | score=0.5583407755727506
+- us:2025-05-05.txt [14939,15410] | score=0.5553189453687102
+- us:2025-05-21.txt [8395,9183] | score=0.5512361847661588
+- us:2025-05-05.txt [14016,14742] | score=0.5337740472786865
+
+------------------------------------------------------------
+
+[single] semantic/dense | k=10
+Query: What is the current official position of the US Congress regarding the State of Israel?
+
+Retrieval Mode: timeaware
+
+Answer:
+The current official position of the US Congress regarding the State of Israel emphasizes a strong support for Israel, particularly in the context of recent events. For instance, Congress condemned Hamas for its attacks on Israel and demanded the immediate release of hostages taken by Hamas [source: us:2025-06-02.txt]. Additionally, there is a recognition of the special relationship between the U.S. and Israel, highlighting them as close democratic allies [source: us:2025-05-05.txt].
+
+Top refs:
+- us:2025-10-15.txt [5839,7209] | score=0.6203516572946812
+- us:2025-10-17.txt [977,1680] | score=0.6203259206754281
+- us:2025-09-10.txt [39776,40386] | score=0.6012507601911035
+- british:debates2025-09-02.txt [62311,62907] | score=0.6000978941067492
+- us:2025-06-02.txt [24511,25299] | score=0.5572989157804678
+- us:2025-05-05.txt [14939,15410] | score=0.5553687919749087
+- british:debates2025-06-23.txt [70162,70944] | score=0.5527688858933888
+- us:2025-05-21.txt [8395,9183] | score=0.5501815852024212
+- british:debates2025-06-04.txt [38653,39360] | score=0.5420966211861242
+- us:2025-05-05.txt [14016,14742] | score=0.5334050631983667
+
+------------------------------------------------------------
+
+Saved results to C:\Users\USER\Desktop\IR\IR2026\excercise4\outputs\rag_runs\cli_single_timeaware_evo_20260104_200351.json
+PS C:\Users\USER\Desktop\IR\IR2026\excercise4> python rag_runner.py --query "What is the current official position of the British Parliament regarding the State of Israel?" --k 3 5 10     
+[single] fixed/bm25 | k=3
+Query: What is the current official position of the British Parliament regarding the State of Israel?
+
+Retrieval Mode: timeaware
+
+Answer:
+The current official position of the British Parliament regarding the State of Israel emphasizes support for a ceasefire and a wider peace initiative in the context of the ongoing conflict involving Hamas. The UK government is focused on ensuring that the ceasefire holds and transitions into a sustainable end to the conflict. It has condemned the actions of Hamas, describing them as a threat to both Palestinians and Israelis, and is actively discussing measures to disarm Hamas and address the security situation in Gaza. The UK is also committed to increasing aid to Gaza and has been involved in discussions about the future role of the United Nations Relief and Works Agency (UNRWA) in the region. Overall, the UK government seeks to maintain a partnership with Israel while addressing the complexities of the situation in Gaza and the threats posed by Hamas [british:debates2025-10-29.txt].
+
+Top refs:
+- british:debates2025-10-29.txt [58419,62216] | score=0.9033404653341601
+- british:debates2025-09-15.txt [75882,79841] | score=0.8823011953303614
+- british:debates2025-09-02.txt [46161,49958] | score=0.8689831052792201
+
+------------------------------------------------------------
+
+[single] fixed/bm25 | k=5
+Query: What is the current official position of the British Parliament regarding the State of Israel?
+
+Retrieval Mode: timeaware
+
+Answer:
+The current official position of the British Parliament regarding the State of Israel emphasizes the need for a ceasefire and the delivery of humanitarian aid, while also expressing concern over the actions of Hamas. The UK Government has called for Israel to lift aid restrictions and has condemned the violence and suffering in Gaza. There is a clear stance against the forced displacement of Palestinians and a commitment to uphold international law, including obligations under the genocide convention. The UK is also involved in discussions about transitional governance in Gaza and the disarming of Hamas, while maintaining a focus on the security of its own interests and the broader region [british:debates2025-10-29.txt; british:debates2025-06-23.txt; british:debates2025-05-14.txt].
+
+Top refs:
+- british:debates2025-10-29.txt [58419,62216] | score=0.9033404653341601
+- british:debates2025-09-15.txt [75882,79841] | score=0.8823011953303614
+- british:debates2025-09-02.txt [46161,49958] | score=0.8689831052792201
+- british:debates2025-06-23.txt [71414,75290] | score=0.8506057305373631
+- british:debates2025-05-14.txt [60271,64343] | score=0.8302649475543467
+
+------------------------------------------------------------
+
+[single] fixed/bm25 | k=10
+Query: What is the current official position of the British Parliament regarding the State of Israel?
+
+Retrieval Mode: timeaware
+
+Answer:
+The current official position of the British Parliament regarding the State of Israel emphasizes support for a ceasefire and a pathway to lasting peace, while also expressing concerns about the actions of Hamas and the situation in Gaza. The UK Government has condemned Hamas as a terrorist organization and is engaged in discussions about disarming Hamas and addressing the humanitarian crisis in Gaza. Additionally, the UK does not accept trade with Israeli settlements on the same basis as trade with Israel and is working to ensure compliance with international obligations regarding the status of the Occupied Palestinian Territories. The Government has also recognized the need for a two-state solution and has called for the release of hostages held by Hamas, while condemning violence from both sides in the conflict [sources: british:debates2025-10-29.txt, british:debates2025-10-28.txt, british:debates2025-09-02.txt].
+
+Top refs:
+- british:debates2025-10-29.txt [58419,62216] | score=0.9033404653341601
+- british:debates2025-10-28.txt [62396,66153] | score=0.8841446324440811
+- british:debates2025-09-15.txt [75882,79841] | score=0.8823011953303614
+- british:debates2025-10-29.txt [72260,76137] | score=0.8780308571366631
+- british:debates2025-10-29.txt [68621,72483] | score=0.8755082618662529
+- british:debates2025-09-02.txt [46161,49958] | score=0.8689831052792201
+- british:debates2025-10-16.txt [52467,56174] | score=0.8684346814395207
+- british:debates2025-09-10.txt [61860,65652] | score=0.8601285605756707
+- british:debates2025-09-04.txt [59186,62992] | score=0.857437837590912
+- british:debates2025-06-23.txt [71414,75290] | score=0.8506057305373631
+
+------------------------------------------------------------
+
+[single] semantic/bm25 | k=3
+Query: What is the current official position of the British Parliament regarding the State of Israel?
+
+Retrieval Mode: timeaware
+
+Answer:
+I don't know based on the retrieved chunks.
+
+Top refs:
+- british:debates2025-10-16.txt [61964,62381] | score=0.9026040991268917
+- british:debates2025-10-15.txt [34022,34488] | score=0.8882658682636624
+- british:debates2025-10-29.txt [60288,60951] | score=0.8873056079558155
+
+------------------------------------------------------------
+
+[single] semantic/bm25 | k=5
+Query: What is the current official position of the British Parliament regarding the State of Israel?
+
+Retrieval Mode: timeaware
+
+Answer:
+I don't know based on the retrieved chunks.
+
+Top refs:
+- british:debates2025-10-16.txt [61964,62381] | score=0.9026040991268917
+- british:debates2025-10-15.txt [34022,34488] | score=0.8882658682636624
+- british:debates2025-10-29.txt [60288,60951] | score=0.8873056079558155
+- british:debates2025-10-28.txt [64487,64861] | score=0.8869015024744664
+- british:debates2025-09-02.txt [71822,72286] | score=0.8555256057516094
+
+------------------------------------------------------------
+
+[single] semantic/bm25 | k=10
+Query: What is the current official position of the British Parliament regarding the State of Israel?
+
+Retrieval Mode: timeaware
+
+Answer:
+I don't know based on the retrieved chunks.
+
+Top refs:
+- british:debates2025-10-16.txt [61964,62381] | score=0.9026040991268917
+- british:debates2025-10-15.txt [34022,34488] | score=0.8882658682636624
+- british:debates2025-10-29.txt [60288,60951] | score=0.8873056079558155
+- british:debates2025-10-28.txt [64487,64861] | score=0.8869015024744664
+- british:debates2025-10-20.txt [79023,79650] | score=0.8724829946716887
+- british:debates2025-09-02.txt [71822,72286] | score=0.8555256057516094
+- british:debates2025-09-01.txt [52450,52995] | score=0.8530899669540329
+- british:debates2025-07-11.txt [8515,9085] | score=0.8528132982106598
+- british:debates2025-09-03.txt [65152,65633] | score=0.8501713529967116
+- british:debates2025-09-10.txt [63045,63612] | score=0.8369986994889257
+
+------------------------------------------------------------
+
+[single] fixed/dense | k=3
+Query: What is the current official position of the British Parliament regarding the State of Israel?
+
+Retrieval Mode: timeaware
+
+Answer:
+The current official position of the British Parliament regarding the State of Israel includes condemnation of Israel's actions that violate international law, particularly in relation to its recent military strikes, including those on Qatar. The UK Government expects Israel to abide by international law and has supported motions for urgent sessions at the UN Security Council to address these issues. There is also a commitment to recognize a state of Palestine if Israel fails to meet certain conditions, although it is not clear if those conditions have been met. The UK has taken steps such as suspending arms sales and imposing sanctions on extremist figures within the Israeli Government, reflecting a strong stance against actions deemed as violations of international law [british:debates2025-09-10.txt].
+
+Top refs:
+- british:debates2025-09-10.txt [91495,94680] | score=0.6511002745562511
+- british:debates2025-09-10.txt [68709,72535] | score=0.634358664984372
+- british:debates2025-09-10.txt [78030,81873] | score=0.6325627021416287
+
+------------------------------------------------------------
+
+[single] fixed/dense | k=5
+Query: What is the current official position of the British Parliament regarding the State of Israel?
+
+Retrieval Mode: timeaware
+
+Answer:
+The current official position of the British Parliament regarding the State of Israel includes condemnation of Israel's actions that violate international law, particularly in relation to its military strikes on Qatar and the ongoing situation in Gaza. The UK Government expects Israel to abide by international law and has supported motions at the UN Security Council addressing these issues. There is also a commitment to recognizing a state of Palestine if Israel fails to meet certain conditions, although it is not clear if those conditions have been met yet. The UK has taken steps such as suspending arms sales to Israel and imposing sanctions on extremist figures within the Israeli Government. Overall, the UK Government expresses a desire for a two-state solution and emphasizes the need for peace negotiations while condemning acts of violence from both sides, including those by Hamas and the Israeli government [british:debates2025-09-10.txt].
+
+Top refs:
+- british:debates2025-09-10.txt [91495,94680] | score=0.6511002745562511
+- british:debates2025-09-10.txt [68709,72535] | score=0.634358664984372
+- british:debates2025-09-10.txt [78030,81873] | score=0.6325627021416287
+- british:debates2025-05-14.txt [70243,74007] | score=0.5836601003683335
+- british:debates2025-01-14.txt [27202,31162] | score=0.5293096667912877
+
+------------------------------------------------------------
+
+[single] fixed/dense | k=10
+Query: What is the current official position of the British Parliament regarding the State of Israel?
+
+Retrieval Mode: timeaware
+
+Answer:
+The current official position of the British Parliament regarding the State of Israel emphasizes a commitment to a two-state solution and recognition of Palestine as a sovereign state. The UK has provided significant aid to the Palestinian people and has announced sanctions against the Israeli government in response to actions in the occupied territories. The UK government has also expressed concerns about Israeli actions that violate international law and has called for accountability regarding violence in the region. Additionally, there is ongoing discussion about the need for further measures to deter Israeli aggression and support for Palestinian statehood, with the government indicating that it is keeping trade policies under review in light of these issues [british:debates2025-10-28.txt; british:debates2025-10-29.txt].
+
+Top refs:
+- british:debates2025-10-29.txt [65236,69009] | score=0.6606286736054804
+- british:debates2025-10-28.txt [27533,31423] | score=0.6606248531865409
+- british:debates2025-10-29.txt [72260,76137] | score=0.6593083969877864
+- british:debates2025-10-29.txt [68621,72483] | score=0.6573677820743009
+- british:debates2025-09-10.txt [91495,94680] | score=0.651114430477457
+- british:debates2025-09-10.txt [68709,72535] | score=0.6343807630644986
+- british:debates2025-09-10.txt [78030,81873] | score=0.6325882436122907
+- british:debates2025-09-10.txt [81380,85190] | score=0.6274463546526805
+- british:debates2025-05-14.txt [70243,74007] | score=0.5836753308868997
+- british:debates2025-05-14.txt [84085,87999] | score=0.5622294064422972
+
+------------------------------------------------------------
+
+[single] semantic/dense | k=3
+Query: What is the current official position of the British Parliament regarding the State of Israel?
+
+Retrieval Mode: timeaware
+
+Answer:
+The current official position of the British Parliament regarding the State of Israel includes condemnation of actions taken by the Israeli Prime Minister, Benjamin Netanyahu, which are viewed as violations of international law and diplomacy. The UK Government has suspended arms sales to Israel and imposed sanctions on extremist figures within the Israeli Government. Additionally, there is support for the recognition of Palestine as a state, contingent on the Israeli Government taking urgent steps to address the situation in Gaza and committing to a long-term peace. The Parliament emphasizes that any future Palestinian state must not pose a threat to Israel, advocating for a two-state solution where both states can live in safety and security [70494, 78473, 62311].
+
+Top refs:
+- british:debates2025-09-10.txt [70494,71480] | score=0.6386204184829336
+- british:debates2025-09-04.txt [78473,79277] | score=0.6358424775519347
+- british:debates2025-09-02.txt [62311,62907] | score=0.634126614282776
+
+------------------------------------------------------------
+
+[single] semantic/dense | k=5
+Query: What is the current official position of the British Parliament regarding the State of Israel?
+
+Retrieval Mode: timeaware
+
+Answer:
+The current official position of the British Parliament regarding the State of Israel includes condemnation of actions taken by the Israeli government, particularly under Prime Minister Benjamin Netanyahu, which are viewed as violations of international law and detrimental to peace efforts. The UK government has suspended arms sales to Israel and is considering further sanctions. Additionally, there is a commitment to recognizing the state of Palestine, contingent on the Israeli government's actions towards peace and humanitarian conditions in Gaza. The Parliament emphasizes the need for a two-state solution where both states can coexist safely and securely [70494, 78473, 62311, 35714, 45298].
+
+Top refs:
+- british:debates2025-09-10.txt [70494,71480] | score=0.638636031531612
+- british:debates2025-09-04.txt [78473,79277] | score=0.6358285960964931
+- british:debates2025-09-02.txt [62311,62907] | score=0.6341238910458933
+- british:debates2025-06-24.txt [35714,36331] | score=0.5944318723780264
+- british:debates2025-06-12.txt [45298,45776] | score=0.593757189715933
+
+------------------------------------------------------------
+
+[single] semantic/dense | k=10
+Query: What is the current official position of the British Parliament regarding the State of Israel?
+
+Retrieval Mode: timeaware
+
+Answer:
+The current official position of the British Parliament regarding the State of Israel includes a recognition of the state of Palestine, which was announced by the Prime Minister on 21 September. This recognition is aimed at supporting the viability of a two-state solution and fostering lasting peace. The UK Government has condemned actions by Israel that violate international law and has suspended arms sales to Israel in response to these actions. Additionally, there is a focus on ensuring that UK trade policy does not undermine the prospect of Palestinian statehood, particularly concerning trade with Israeli settlements in occupied territories [british:debates2025-10-28.txt [28133,28598]; [29271,29791]; [78473,79277]].
+
+Top refs:
+- british:debates2025-10-28.txt [28133,28598] | score=0.6678171650441
+- british:debates2025-10-28.txt [29271,29791] | score=0.666384548867186
+- british:debates2025-10-28.txt [28599,29270] | score=0.6646051819976666
+- british:debates2025-09-10.txt [70494,71480] | score=0.6386227247454883
+- british:debates2025-09-10.txt [83330,83923] | score=0.6373026434189366
+- british:debates2025-09-10.txt [94184,94680] | score=0.6365552905180762
+- british:debates2025-09-04.txt [78473,79277] | score=0.6358192618256366
+- british:debates2025-09-10.txt [83924,84510] | score=0.6351269728410268
+- british:debates2025-09-02.txt [62311,62907] | score=0.634110526758618
+- british:debates2025-09-10.txt [56596,57261] | score=0.6323426420172866
+
+------------------------------------------------------------
+
+Saved results to C:\Users\USER\Desktop\IR\IR2026\excercise4\outputs\rag_runs\cli_single_timeaware_evo_20260104_200540.json
+PS C:\Users\USER\Desktop\IR\IR2026\excercise4>
+
+
+
+
+Saved results to C:\Users\USER\Desktop\IR\IR2026\excercise4\outputs\rag_runs\cli_single_timeaware_evo_20260104_200540.json
+PS C:\Users\USER\Desktop\IR\IR2026\excercise4> python rag_runner.py --query "What are the latest discussions in Congress about immigration reform?" --k 3 5 10
+[single] fixed/bm25 | k=3
+Query: What are the latest discussions in Congress about immigration reform?
+
+Retrieval Mode: timeaware
+
+Answer:
+The latest discussions in Congress about immigration reform focus on the need for stricter measures and accountability in the immigration system. There is a call for implementing a legally binding annual migration cap and reinstating a previous Conservative threshold for income. The current government is under scrutiny for its handling of record levels of net migration and a significant backlog in asylum claims. The opposition criticizes the government's proposed immigration White Paper as inadequate, suggesting it would only reduce net migration by 50,000, which they deem insufficient without real deterrents. Additionally, there are discussions about the need to differentiate between migration and refugees, and the importance of addressing anti-immigrant sentiment while recognizing the benefits of immigration to the economy and society [british:debates2025-06-02.txt; british:debates2025-04-25.txt].
+
+Top refs:
+- british:debates2025-06-02.txt [3657,7365] | score=0.9281063336135886
+- british:debates2025-04-25.txt [40635,44429] | score=0.9262936599150109
+- british:debates2025-04-25.txt [75447,79151] | score=0.9208657223316354
+
+------------------------------------------------------------
+
+[single] fixed/bm25 | k=5
+Query: What are the latest discussions in Congress about immigration reform?
+
+Retrieval Mode: timeaware
+
+Answer:
+The latest discussions in Congress about immigration reform include a focus on addressing record levels of net migration and the need for stricter measures to manage immigration effectively. There are calls for implementing a legally binding annual migration cap and reinstating a previous Conservative threshold for income requirements for visas. The government is also looking to reform family rules related to refugee family reunions and has acknowledged the need to improve visa processing times. Additionally, there is a significant concern regarding the backlog of asylum claims, which is projected to increase substantially. The discussions highlight a divide between parties, with some advocating for a more compassionate approach to immigration and others emphasizing stricter controls and accountability measures [british:debates2025-06-02.txt; british:debates2025-04-25.txt].
+
+Top refs:
+- british:debates2025-06-02.txt [3657,7365] | score=0.9281063336135886
+- british:debates2025-04-25.txt [40635,44429] | score=0.9262936599150109
+- british:debates2025-04-25.txt [75447,79151] | score=0.9208657223316354
+- british:debates2025-06-02.txt [42647,46548] | score=0.9149436682448826
+- british:debates2025-04-25.txt [72137,75692] | score=0.9043745875775319
+
+------------------------------------------------------------
+
+[single] fixed/bm25 | k=10
+Query: What are the latest discussions in Congress about immigration reform?
+
+Retrieval Mode: timeaware
+
+Answer:
+The latest discussions in Congress about immigration reform focus on several key issues, including the need for stricter measures to address record levels of net migration, the backlog of asylum claims, and the processing of visa applications. There is a call for concrete measures such as implementing a legally binding annual migration cap and raising the income threshold for visa applicants. The government is also looking to reform the immigration system to better align with economic needs, while addressing the challenges posed by illegal crossings and the asylum system backlog. Additionally, there are discussions about the importance of distinguishing between migration and refugees, and the need for a more compassionate approach to immigration policy, particularly regarding family reunification for refugees [british:debates2025-06-02.txt; british:debates2025-04-25.txt; british:debates2025-07-08.txt].
+
+Top refs:
+- british:debates2025-06-02.txt [3657,7365] | score=0.9281063336135886
+- british:debates2025-04-25.txt [40635,44429] | score=0.9262936599150109
+- british:debates2025-04-25.txt [75447,79151] | score=0.9208657223316354
+- british:debates2025-06-02.txt [42647,46548] | score=0.9149436682448826
+- british:debates2025-04-25.txt [72137,75692] | score=0.9043745875775319
+- british:debates2025-07-08.txt [45245,48979] | score=0.8990115052218186
+- british:debates2025-06-04.txt [14149,18151] | score=0.8918716010797534
+- british:debates2025-09-01.txt [82476,86212] | score=0.8818848188369571
+- british:debates2025-07-16.txt [38441,42278] | score=0.881876882108926
+- british:debates2025-04-25.txt [30524,34371] | score=0.866953618533931
+
+------------------------------------------------------------
+
+[single] semantic/bm25 | k=3
+Query: What are the latest discussions in Congress about immigration reform?
+
+Retrieval Mode: timeaware
+
+Answer:
+I don't know based on the retrieved chunks.
+
+Top refs:
+- us:2025-10-06.txt [18507,18760] | score=0.9284348952824214
+- british:debates2025-04-25.txt [75619,75991] | score=0.9204000477903108
+- british:debates2025-06-03.txt [35931,36200] | score=0.919852143163307
+
+------------------------------------------------------------
+
+[single] semantic/bm25 | k=5
+Query: What are the latest discussions in Congress about immigration reform?
+
+Retrieval Mode: timeaware
+
+Answer:
+I don't know based on the retrieved chunks.
+
+Top refs:
+- us:2025-10-06.txt [18507,18760] | score=0.9284348952824214
+- british:debates2025-04-25.txt [75619,75991] | score=0.9204000477903108
+- british:debates2025-06-03.txt [35931,36200] | score=0.919852143163307
+- british:debates2025-06-02.txt [3924,4422] | score=0.8986757907806392
+- british:debates2025-09-15.txt [47822,48461] | score=0.8904095544090954
+
+------------------------------------------------------------
+
+[single] semantic/bm25 | k=10
+Query: What are the latest discussions in Congress about immigration reform?
+
+Retrieval Mode: timeaware
+
+Answer:
+I don't know based on the retrieved chunks.
+
+Top refs:
+- us:2025-10-06.txt [18507,18760] | score=0.9284348952824214
+- british:debates2025-04-25.txt [75619,75991] | score=0.9204000477903108
+- british:debates2025-06-03.txt [35931,36200] | score=0.919852143163307
+- british:debates2025-06-02.txt [3924,4422] | score=0.8986757907806392
+- british:debates2025-09-15.txt [47822,48461] | score=0.8904095544090954
+- british:debates2025-06-04.txt [14748,15267] | score=0.8903285355726236
+- british:debates2025-09-02.txt [28355,28784] | score=0.8885619735258978
+- british:debates2025-10-29.txt [21306,21821] | score=0.8873721281486779
+- us:2025-04-03.txt [27120,27446] | score=0.8862904367428828
+- british:debates2025-06-02.txt [43144,43582] | score=0.8767560284764176
+
+------------------------------------------------------------
+
+[single] fixed/dense | k=3
+Query: What are the latest discussions in Congress about immigration reform?
+
+Retrieval Mode: timeaware
+
+Answer:
+I don't know based on the retrieved chunks.
+
+Top refs:
+- us:2025-10-28.txt [14877,19931] | score=0.5993277948551532
+- us:2025-10-06.txt [45354,48940] | score=0.5905031219555181
+- us:2025-10-08.txt [35979,38479] | score=0.585797150664491
+
+------------------------------------------------------------
+
+[single] fixed/dense | k=5
+Query: What are the latest discussions in Congress about immigration reform?
+
+Retrieval Mode: timeaware
+
+Answer:
+I don't know based on the retrieved chunks.
+
+Top refs:
+- us:2025-10-28.txt [14877,19931] | score=0.5993277948551532
+- us:2025-10-06.txt [45354,48940] | score=0.5905031219555181
+- us:2025-10-08.txt [35979,38479] | score=0.585797150664491
+- us:2025-09-29.txt [9229,10346] | score=0.5799948311448535
+- us:2025-09-03.txt [35610,41581] | score=0.5775804747512282
+
+------------------------------------------------------------
+
+[single] fixed/dense | k=10
+Query: What are the latest discussions in Congress about immigration reform?
+
+Retrieval Mode: timeaware
+
+Answer:
+I don't know based on the retrieved chunks.
+
+Top refs:
+- us:2025-10-28.txt [14877,19931] | score=0.5993277948551532
+- us:2025-10-06.txt [45354,48940] | score=0.5905031219555181
+- us:2025-10-08.txt [35979,38479] | score=0.585797150664491
+- us:2025-10-27.txt [5323,9098] | score=0.5805872708796064
+- us:2025-09-29.txt [9229,10346] | score=0.5799948311448535
+- us:2025-10-15.txt [4746,9941] | score=0.5787335888003198
+- us:2025-09-03.txt [35610,41581] | score=0.5775804747512282
+- us:2025-09-18.txt [26288,30889] | score=0.570641913222006
+- us:2025-09-10.txt [31176,36757] | score=0.5697800003154377
+- us:2025-09-10.txt [36249,40386] | score=0.5688778066439597
+
+------------------------------------------------------------
+
+[single] semantic/dense | k=3
+Query: What are the latest discussions in Congress about immigration reform?
+
+Retrieval Mode: timeaware
+
+Answer:
+I don't know based on the retrieved chunks.
+
+Top refs:
+- us:2025-10-15.txt [5839,7209] | score=0.5932450852191993
+- us:2025-10-20.txt [3828,5221] | score=0.5916413693620435
+- us:2025-07-23.txt [41166,41914] | score=0.572752865953885
+
+------------------------------------------------------------
+
+[single] semantic/dense | k=5
+Query: What are the latest discussions in Congress about immigration reform?
+
+Retrieval Mode: timeaware
+
+Answer:
+I don't know based on the retrieved chunks.
+
+Top refs:
+- us:2025-10-15.txt [5839,7209] | score=0.5932441023198884
+- us:2025-10-20.txt [3828,5221] | score=0.5916403713428704
+- us:2025-07-23.txt [41166,41914] | score=0.5727551994998227
+- us:2025-07-23.txt [41915,42578] | score=0.571665090949514
+- us:2025-07-28.txt [7894,8611] | score=0.5692731102369375
+
+------------------------------------------------------------
+
+[single] semantic/dense | k=10
+Query: What are the latest discussions in Congress about immigration reform?
+
+Retrieval Mode: timeaware
+
+Answer:
+I don't know based on the retrieved chunks.
+
+Top refs:
+- us:2025-10-15.txt [5839,7209] | score=0.5932450852191993
+- us:2025-10-20.txt [3828,5221] | score=0.5916413693620435
+- us:2025-10-28.txt [19081,19921] | score=0.5885319575048734
+- us:2025-10-20.txt [2207,3186] | score=0.588340971079925
+- us:2025-10-28.txt [19922,20210] | score=0.5879127443736568
+- us:2025-10-28.txt [20211,21195] | score=0.5873455439971409
+- us:2025-10-06.txt [46847,48228] | score=0.5868947868589662
+- us:2025-10-08.txt [34883,35862] | score=0.5851440293809962
+- us:2025-10-08.txt [36504,37912] | score=0.5843080894038607
+- us:2025-10-15.txt [5132,5838] | score=0.5835372583389833
+
+------------------------------------------------------------
+
+Saved results to C:\Users\USER\Desktop\IR\IR2026\excercise4\outputs\rag_runs\cli_single_timeaware_evo_20260104_201025.json
+PS C:\Users\USER\Desktop\IR\IR2026\excercise4> python rag_runner.py --query "What are the latest debates in Parliament about immigration policy?" --k 3 5 10
+[single] fixed/bm25 | k=3
+Query: What are the latest debates in Parliament about immigration policy?
+
+Retrieval Mode: timeaware
+
+Answer:
+The latest debates in Parliament regarding immigration policy highlight a significant divide in perspectives. One viewpoint emphasizes the need for a long-term strategic approach to immigration, suggesting that the current government is overly focused on curbing migration without considering future implications, such as potential competition for migrants in the coming decades. This perspective argues for a more imaginative and inquiry-driven approach to immigration policy, particularly in Scotland, where there is a perceived crisis in various sectors and public services that could be alleviated by attracting migrants [85211].
+
+Additionally, there are discussions about the effectiveness of the Sentencing Council's guidelines on immigration offences, with concerns that proposed guidelines suggest substantially lower sentences than those agreed by Parliament. This has led to calls for the government to ensure that sentencing aligns with parliamentary decisions, while also clarifying that foreign national offenders can still be deported even if they receive sentences of less than 12 months [10193].
+
+Overall, the debates reflect a tension between immediate policy measures aimed at controlling migration and the need for a broader, more strategic vision for the future of immigration in the UK.
+
+Top refs:
+- british:debates2025-04-25.txt [85211,88696] | score=0.9357107072802486
+- british:debates2025-03-06.txt [60296,64078] | score=0.9076728739590634
+- british:debates2025-04-22.txt [10193,14303] | score=0.8923851574100772
+
+------------------------------------------------------------
+
+[single] fixed/bm25 | k=5
+Query: What are the latest debates in Parliament about immigration policy?
+
+Retrieval Mode: timeaware
+
+Answer:
+The latest debates in Parliament regarding immigration policy highlight several key issues. There is a significant focus on the need for a long-term strategic vision for immigration, with some members expressing concern that the current government is primarily focused on curbing migration rather than addressing the underlying issues that affect various sectors, including public services and housing in Scotland. There is a call for the UK Government to support measures that have political consensus in the Scottish Parliament to address these challenges [british:debates2025-04-25.txt].
+
+Additionally, there are discussions about the effectiveness of the Sentencing Council and its proposed guidelines for immigration offences, which some argue are too lenient compared to what Parliament has agreed upon. The government has stated that it is not seeking to overturn these guidelines but emphasizes that judges retain the discretion to sentence outside the guideline range if deemed necessary [british:debates2025-04-22.txt].
+
+Furthermore, there are ongoing concerns about illegal immigration and people-smuggling, with the government announcing new sanctions against gang leaders and efforts to enhance international cooperation to tackle these issues [british:debates2025-10-28.txt]. Overall, the debates reflect a complex interplay of immediate policy concerns and broader strategic considerations regarding immigration in the UK.
+
+Top refs:
+- british:debates2025-04-25.txt [85211,88696] | score=0.9357107072802486
+- british:debates2025-03-06.txt [60296,64078] | score=0.9076728739590634
+- british:debates2025-04-22.txt [10193,14303] | score=0.8923851574100772
+- british:debates2025-09-04.txt [69756,73535] | score=0.8919501063018593
+- british:debates2025-10-28.txt [31031,35113] | score=0.8843150997994935
+
+------------------------------------------------------------
+
+[single] fixed/bm25 | k=10
+Query: What are the latest debates in Parliament about immigration policy?
+
+Retrieval Mode: timeaware
+
+Answer:
+The latest debates in Parliament about immigration policy have focused on several key issues. There is a significant discussion around the need for a long-term strategic vision for immigration, particularly in light of demographic changes and the potential future competition for migrants. Some members argue that the current government views migration primarily as a problem to be managed, rather than recognizing its potential benefits to the economy and society [british:debates2025-04-25.txt [85211,88696]].
+
+Additionally, there is a call for the UK Government to support measures that address the specific needs of Scotland regarding immigration, as there is a consensus among Scottish political organizations that action is needed to attract migrants to fill job vacancies and support public services [british:debates2025-04-25.txt [85211,88696]].
+
+The debates also touch on the implications of the Border Security, Asylum and Immigration Bill, with some members expressing concern that the measures proposed may not adequately address the complexities of immigration and may reflect a continuation of policies that are perceived as overly restrictive [british:debates2025-04-25.txt [65097,68799]].
+
+Overall, the discussions highlight a divide between those who advocate for a more open and strategic approach to immigration and those who support stricter controls, reflecting broader political tensions within Parliament [british:debates2025-04-25.txt [65097,68799]].
+
+Top refs:
+- british:debates2025-04-25.txt [85211,88696] | score=0.9357107072802486
+- british:debates2025-03-06.txt [60296,64078] | score=0.9076728739590634
+- british:debates2025-04-22.txt [10193,14303] | score=0.8923851574100772
+- british:debates2025-09-04.txt [69756,73535] | score=0.8919501063018593
+- british:debates2025-10-28.txt [31031,35113] | score=0.8843150997994935
+- british:debates2025-06-02.txt [67511,71175] | score=0.8674271843671996
+- british:debates2025-07-16.txt [80428,84089] | score=0.8597816096399781
+- british:debates2025-04-25.txt [75447,79151] | score=0.8572596110036299
+- british:debates2025-04-25.txt [65097,68799] | score=0.8557538747169722
+- british:debates2025-05-01.txt [81374,85012] | score=0.8524411461526168
+
+------------------------------------------------------------
+
+[single] semantic/bm25 | k=3
+Query: What are the latest debates in Parliament about immigration policy?
+
+Retrieval Mode: timeaware
+
+Answer:
+The latest debates in Parliament about immigration policy include discussions on the role of Parliament in making immigration rules, with a focus on the need for the Government to set policy. There is also concern regarding the new immigration sentencing guidelines published by the Sentencing Council, which are perceived to dilute the sentences passed by Parliament, potentially allowing many illegal migrants to avoid automatic deportation. Additionally, there are references to the impact of immigration on devolved policy areas, such as housing, particularly in Scotland, where a housing emergency has been declared by the Scottish Government [sources: 88054, 34000, 37272].
+
+Top refs:
+- british:debates2025-04-25.txt [88054,88346] | score=0.9357107072802486
+- british:debates2025-02-12.txt [34000,34407] | score=0.8816003358452318
+- british:debates2025-06-03.txt [37272,37753] | score=0.8721520594056323
+
+------------------------------------------------------------
+
+[single] semantic/bm25 | k=5
+Query: What are the latest debates in Parliament about immigration policy?
+
+Retrieval Mode: timeaware
+
+Answer:
+The latest debates in Parliament about immigration policy include discussions on the Border Security, Asylum and Immigration Bill, which is set for remaining stages on May 12. There are also concerns regarding the new immigration sentencing guidelines published by the Sentencing Council, which are perceived to dilute the sentences for illegal migrants, potentially allowing many to avoid automatic deportation. Additionally, there has been criticism of the Government's handling of immigration issues, including a recent immigration White Paper that was briefed outside the House, raising questions about transparency and prioritization of immigration policy within the Government's agenda [sources: 2025-04-25, 2025-06-03, 2025-06-02, 2025-05-01].  
+
+Top refs:
+- british:debates2025-04-25.txt [88054,88346] | score=0.9357107072802486
+- british:debates2025-02-12.txt [34000,34407] | score=0.8816003358452318
+- british:debates2025-06-03.txt [37272,37753] | score=0.8721520594056323
+- british:debates2025-06-02.txt [67782,68500] | score=0.8680174508483226
+- british:debates2025-05-01.txt [81526,81862] | score=0.8598918200335399
+
+------------------------------------------------------------
+
+[single] semantic/bm25 | k=10
+Query: What are the latest debates in Parliament about immigration policy?
+
+Retrieval Mode: timeaware
+
+Answer:
+The latest debates in Parliament about immigration policy include discussions on the need for Parliament to make the rules on immigration rather than the Government, as highlighted by a member who disagreed with a decision made under the previous Government's legal framework [british:debates2025-02-12.txt]. There are also concerns regarding the new immigration sentencing guidelines published by the Sentencing Council, which may allow hundreds of illegal migrants to avoid automatic deportation [british:debates2025-06-03.txt]. Additionally, there is a push for a British Isles solution to immigration that operates outside the EU and Schengen area, emphasizing the need for a uniform UK immigration policy [british:debates2024-05-14.txt]. The upcoming parliamentary schedule includes debates on the Border Security, Asylum and Immigration Bill, indicating ongoing legislative activity in this area [british:debates2025-05-01.txt].      
+
+Top refs:
+- british:debates2025-04-25.txt [88054,88346] | score=0.9357107072802486
+- british:debates2025-02-12.txt [34000,34407] | score=0.8816003358452318
+- british:debates2025-06-03.txt [37272,37753] | score=0.8721520594056323
+- british:debates2025-06-02.txt [67782,68500] | score=0.8680174508483226
+- british:debates2025-05-01.txt [81526,81862] | score=0.8598918200335399
+- british:debates2024-05-14.txt [67704,68330] | score=0.8531642881723731
+- british:debates2025-06-30.txt [23881,24231] | score=0.8490664415907911
+- british:debates2025-04-25.txt [77982,78477] | score=0.846567175781017
+- british:debates2025-04-25.txt [57124,57378] | score=0.8424699007698394
+- british:debates2025-04-25.txt [32141,32747] | score=0.8389544569505131
+
+------------------------------------------------------------
+
+[single] fixed/dense | k=3
+Query: What are the latest debates in Parliament about immigration policy?
+
+Retrieval Mode: timeaware
+
+Answer:
+The latest debates in Parliament about immigration policy focus on several key issues:        
+
+1. **Asylum Hotels and Accommodation**: There is significant concern regarding the use of hotels for asylum seekers, with a noted increase in their numbers since the last general election. Questions have been raised about whether the government will simply move asylum seekers from hotels to other types of accommodation, which are needed for local young people. The Home Secretary has been asked to provide assurances against this practice [british:debates2025-09-01.txt].
+
+2. **Rights of Illegal Immigrants vs. Local Citizens**: There has been a heated discussion about the perceived prioritization of the rights of illegal immigrants over local citizens. The Home Secretary's lawyers reportedly stated that the rights of illegal immigrants are more important, which has sparked outrage among MPs and the public [british:debates2025-09-01.txt].     
+
+3. **Returns Deal with France**: The effectiveness of the Home Secretary's returns deal with France has been questioned, particularly the low number of returns expected (about 50 people a week), which critics argue will not deter illegal crossings. There are also concerns about the lack of information sharing from France regarding migrants, which complicates security checks [british:debates2025-09-01.txt].
+
+4. **Public Safety Concerns**: There are alarming reports of criminal activities among migrants in hotels, including serious offenses. This has led to public protests and a perception that the government is failing to ensure public safety and manage immigration effectively [british:debates2025-09-01.txt].
+
+5. **Reforms to the Asylum System**: The government is proposing major reforms to modernize the asylum system, including a complete overhaul of the appeals process, which is currently seen as a significant barrier to efficiency. The aim is to speed up decision-making and reduce the backlog of cases, with plans for a new independent body to handle appeals [british:debates2025-09-01.txt].
+
+6. **Enforcement Against Illegal Working**: There is a focus on tackling illegal working, which is seen as a pull factor for illegal immigration. The government is working on measures to hold companies accountable for employing individuals without proper immigration status [british:debates2025-07-21.txt].
+
+Overall, the debates reflect a contentious atmosphere regarding immigration policy, with strong opinions on both sides about how to balance the rights of immigrants with the concerns of local citizens and public safety.
+
+Top refs:
+- british:debates2025-09-01.txt [76253,79996] | score=0.6305567481476576
+- british:debates2025-07-21.txt [84048,87715] | score=0.624699259066286
+- british:debates2025-09-01.txt [62943,66829] | score=0.6237905366542302
+
+------------------------------------------------------------
+
+[single] fixed/dense | k=5
+Query: What are the latest debates in Parliament about immigration policy?
+
+Retrieval Mode: timeaware
+
+Answer:
+The latest debates in Parliament about immigration policy focus on several contentious issues. One major point of discussion is the increase in the number of asylum hotels, which has risen by 8% since the last general election, despite previous hotel closures. There are concerns that the government may be shifting asylum seekers from hotels to other types of accommodation, which are needed for local residents, particularly young people. The Home Secretary has been criticized for prioritizing the rights of illegal immigrants over local citizens, leading to public anger and protests against the government's approach to immigration and asylum policies [british:debates2025-09-01.txt [76253,79996]].
+
+Additionally, there is scrutiny over a new treaty with France aimed at returning individuals who arrive illegally by small boats. Critics argue that the expected return rate of only about 50 people per week is insufficient and will not deter illegal crossings. The Home Secretary has been pressed to clarify the actual number of returns that have occurred under this agreement, which has reportedly been zero so far [british:debates2025-09-01.txt [76253,79996]].        
+
+The debates also highlight the government's plans for significant reforms to the asylum system, including a complete overhaul of the appeals process, increased detention capacity, and measures to tackle illegal working. There is a push for stricter enforcement against smuggling gangs and a call for a more efficient asylum system that swiftly returns those without a genuine right to stay [british:debates2025-09-01.txt [62943,66829]].
+
+Overall, the discussions reflect a deep divide between the government and opposition parties regarding the handling of immigration and asylum issues, with significant public concern about safety and the effectiveness of current policies [british:debates2025-09-01.txt [76253,79996]].
+
+Top refs:
+- british:debates2025-09-01.txt [76253,79996] | score=0.6307754903314482
+- british:debates2025-07-21.txt [84048,87715] | score=0.6248781614365824
+- british:debates2025-09-01.txt [62943,66829] | score=0.6239268454934264
+- british:debates2025-06-02.txt [46368,50320] | score=0.6230818196805553
+- british:debates2025-09-01.txt [59531,63360] | score=0.6229604108519606
+
+------------------------------------------------------------
+
+[single] fixed/dense | k=10
+Query: What are the latest debates in Parliament about immigration policy?
+
+Retrieval Mode: timeaware
+
+Answer:
+The latest debates in Parliament about immigration policy have focused on several contentious issues. Key points include:
+
+1. **Asylum Hotels and Public Safety**: There has been significant concern regarding the use of hotels to accommodate asylum seekers, with claims that the number of asylum hotels has increased by 8% since the last general election. Critics argue that this situation has led to public safety crises, citing instances of criminal offenses linked to migrants in these accommodations, including serious crimes against minors. There are calls for the government to close these hotels and ensure that asylum seekers are not placed in unsuitable accommodations near schools [british:debates2025-09-01.txt [76253,79996]].
+
+2. **Government's Immigration Strategy**: The Home Secretary has been challenged on the effectiveness of the government's immigration strategy, particularly regarding the return of illegal immigrants. Reports suggest that a deal with France would only return about 50 people a week, which critics argue is insufficient and does not act as a deterrent to illegal crossings. The government has been accused of failing to manage the situation effectively, with illegal migration reportedly up by 38% this year, marking the worst year in history for illegal crossings [british:debates2025-09-01.txt [76253,79996]].
+
+3. **Public Sentiment and Protests**: There is a growing public sentiment against the government's handling of immigration, with 75% of the public believing the government is failing in this area. Protests have erupted in various locations, reflecting community anger over the perceived prioritization of illegal immigrants' rights over local citizens' safety and concerns [british:debates2025-09-01.txt [76253,79996]].
+
+4. **Legislative Proposals**: The opposition has proposed more stringent measures, including disapplying the Human Rights Act in immigration matters to facilitate the immediate removal of illegal immigrants. They argue that current measures are inadequate and that a more robust approach is necessary to regain control over the borders [british:debates2025-09-01.txt [76253,79996]].
+
+5. **Reforms to the Asylum System**: The government has indicated plans for significant reforms to the asylum system, including a complete overhaul of the appeals process and increased detention capacity. However, there is skepticism about whether these reforms will be effective in addressing the backlog and improving public safety [british:debates2025-09-01.txt [76253,79996]].
+
+Overall, the debates reflect deep divisions over how to handle immigration and asylum issues, with significant public concern about safety and the effectiveness of current policies.       
+
+Top refs:
+- british:debates2025-09-01.txt [76253,79996] | score=0.6305546933549152
+- british:debates2025-07-21.txt [84048,87715] | score=0.6246889001131244
+- british:debates2025-09-15.txt [54501,58330] | score=0.6243584567806635
+- british:debates2025-09-01.txt [62943,66829] | score=0.6237776835158113
+- british:debates2025-06-02.txt [46368,50320] | score=0.6229178793343769
+- british:debates2025-09-01.txt [59531,63360] | score=0.6228092746472029
+- british:debates2025-09-15.txt [19429,23211] | score=0.6212984838398421
+- british:debates2025-07-21.txt [90635,94351] | score=0.6192257273474688
+- british:debates2025-09-01.txt [79537,83345] | score=0.6175000665891324
+- british:debates2025-09-01.txt [72858,76517] | score=0.6170330948294636
+
+------------------------------------------------------------
+
+[single] semantic/dense | k=3
+Query: What are the latest debates in Parliament about immigration policy?
+
+Retrieval Mode: timeaware
+
+Answer:
+The latest debates in Parliament about immigration policy include discussions on the government's increased deportations of foreign offenders and a review of the Immigration Act 1971. There is also a focus on clarifying the application of article 8 rights in the UK, as outlined in the immigration White Paper. Additionally, there are updates on actions taken with France to strengthen border security and reforms to the asylum system, addressing issues such as the asylum backlog and illegal working, which have been significant concerns since the government took office [british:debates2025-10-13.txt; british:debates2025-07-07.txt; british:debates2025-09-01.txt].
+
+Top refs:
+- british:debates2025-10-13.txt [84619,85059] | score=0.6364019966687731
+- british:debates2025-07-07.txt [58330,59038] | score=0.6266311538086691
+- british:debates2025-09-01.txt [60190,60784] | score=0.620605004527321
+
+------------------------------------------------------------
+
+[single] semantic/dense | k=5
+Query: What are the latest debates in Parliament about immigration policy?
+
+Retrieval Mode: timeaware
+
+Answer:
+The latest debates in Parliament about immigration policy include discussions on the government's increased deportations of foreign offenders and the review of the Immigration Act 1971. There is also a focus on the government's intention to clarify immigration rights as outlined in their immigration White Paper. Additionally, there are updates on actions taken with France to strengthen border security and reforms to the asylum system, which the government claims was previously in chaos. The Immigration Minister has been engaging with employers regarding immigration status and efforts to combat human trafficking related to small boat crossings. There are calls for significant changes, including the potential repeal of the Human Rights Act for immigration matters and adopting a more stringent approach to deporting illegal immigrants without judicial process, similar to Greece's new policy [sources: 2025-10-13, 2025-07-07, 2025-09-01, 2025-07-21].
+
+Top refs:
+- british:debates2025-10-13.txt [84619,85059] | score=0.6364019966687731
+- british:debates2025-07-07.txt [58330,59038] | score=0.6266311538086691
+- british:debates2025-09-01.txt [60190,60784] | score=0.620605004527321
+- british:debates2025-07-21.txt [87517,88103] | score=0.6151243342165832
+- british:debates2025-07-21.txt [80992,81548] | score=0.608962384592413
+
+------------------------------------------------------------
+
+[single] semantic/dense | k=10
+Query: What are the latest debates in Parliament about immigration policy?
+
+Retrieval Mode: timeaware
+
+Answer:
+The latest debates in Parliament about immigration policy include discussions on the government's increased deportations of foreign offenders, the need for Parliament to decide who has the right to remain in the UK, and the chaos in the asylum and immigration system that the current government inherited. There are also calls for radical changes to immigration policy, including proposals to disapply the Human Rights Act for immigration matters and to deport all illegal immigrants upon arrival without judicial process. Additionally, there is a focus on banning sex offenders from the asylum system and addressing the rise in illegal crossings of the Channel, which have increased by 38% compared to the previous year. The government is also working on international arrangements to combat human trafficking and illegal immigration [sources: 2025-10-13, 2025-07-07, 2025-09-01, 2025-09-15, 2025-07-21].
+
+Top refs:
+- british:debates2025-10-13.txt [84619,85059] | score=0.6364019966687731
+- british:debates2025-07-07.txt [58330,59038] | score=0.6266311538086691
+- british:debates2025-09-01.txt [60190,60784] | score=0.620605004527321
+- british:debates2025-09-15.txt [50125,50546] | score=0.616521422705463
+- british:debates2025-07-21.txt [87517,88103] | score=0.6151243342165832
+- british:debates2025-09-01.txt [83891,84707] | score=0.6139329141130944
+- british:debates2025-07-21.txt [80992,81548] | score=0.608962384592413
+- british:debates2025-05-21.txt [25124,25588] | score=0.6066844268932062
+- british:debates2025-07-21.txt [83261,83864] | score=0.6054547561961474
+- british:debates2025-07-21.txt [75811,76271] | score=0.6016051601023555
+
+------------------------------------------------------------
+
+Saved results to C:\Users\USER\Desktop\IR\IR2026\excercise4\outputs\rag_runs\cli_single_timeaware_evo_20260104_201307.json
+PS C:\Users\USER\Desktop\IR\IR2026\excercise4> 
+
+
+PS C:\Users\USER\Desktop\IR\IR2026\excercise4> python rag_runner.py --query "What is the current stance of Parliament on climate change legislation?" --k 3 5 10
+[single] fixed/bm25 | k=3
+Query: What is the current stance of Parliament on climate change legislation?
+
+Retrieval Mode: timeaware
+
+Answer:
+The current stance of Parliament on climate change legislation is supportive of maintaining and enhancing the Climate Change Act, which mandates net zero emissions by 2050. The government emphasizes that this legislation is crucial for attracting investment and ensuring economic growth through a low-carbon future. There is a recognition that the Climate Change Act has been instrumental in fostering confidence among investors and that any attempts to abolish it would be detrimental to jobs and investment opportunities. Additionally, the government is committed to aligning infrastructure projects, such as the expansion of Heathrow airport, with legal and environmental climate commitments, including net zero targets [british:debates2025-10-14.txt][british:debates2025-10-22.txt].
+
+Top refs:
+- british:debates2025-10-14.txt [0,3792] | score=0.8659245452935949
+- british:debates2025-10-22.txt [65205,68955] | score=0.865646923130559
+- british:debates2025-10-22.txt [0,3966] | score=0.8628682550159925
+
+------------------------------------------------------------
+
+[single] fixed/bm25 | k=5
+Query: What is the current stance of Parliament on climate change legislation?
+
+Retrieval Mode: timeaware
+
+Answer:
+The current stance of Parliament on climate change legislation is supportive of maintaining and enhancing existing frameworks, such as the Climate Change Act 2008, which is seen as essential for driving investment and ensuring the UK meets its net zero targets by 2050. The government emphasizes the importance of scientific evidence in shaping its climate policies and acknowledges the economic opportunities presented by the transition to a net zero economy. There is a clear commitment to align infrastructure projects, like the expansion of Heathrow airport, with legal and environmental climate commitments. The government also recognizes the urgency of addressing climate change and its impacts, stating that action is necessary to protect future generations and the economy [british:debates2025-10-14.txt; british:debates2025-10-22.txt; british:debates2025-07-14.txt].
+
+Top refs:
+- british:debates2025-10-14.txt [0,3792] | score=0.8659245452935949
+- british:debates2025-10-22.txt [65205,68955] | score=0.865646923130559
+- british:debates2025-10-22.txt [0,3966] | score=0.8628682550159925
+- british:debates2025-07-14.txt [73910,77733] | score=0.841306290618494
+- british:debates2025-07-14.txt [77322,80968] | score=0.8310006122209668
+
+------------------------------------------------------------
+
+[single] fixed/bm25 | k=10
+Query: What is the current stance of Parliament on climate change legislation?
+
+Retrieval Mode: timeaware
+
+Answer:
+The current stance of Parliament on climate change legislation is one of strong support for ambitious climate action, particularly in relation to achieving net zero by 2050. The Government emphasizes that this commitment is based on scientific evidence and is crucial for limiting global warming to 1.5°C. The Climate Change Act 2008 is highlighted as a foundational piece of legislation that has fostered investment in the UK and is seen as essential for economic growth and job creation in the renewable energy sector. There is a recognition that the Climate Change Act has become a divisive issue within Parliament, with some advocating for its abolition, which is viewed as detrimental to jobs and investment. The Government is committed to maintaining its climate obligations while also pursuing economic growth, indicating that these goals are not seen as mutually exclusive [british:debates2025-10-14.txt; british:debates2025-10-22.txt].
+
+Top refs:
+- british:debates2025-10-14.txt [0,3792] | score=0.8659245452935949
+- british:debates2025-10-22.txt [65205,68955] | score=0.865646923130559
+- british:debates2025-10-22.txt [0,3966] | score=0.8628682550159925
+- british:debates2025-10-22.txt [85607,89198] | score=0.8556202520391518
+- british:debates2025-10-14.txt [34835,38600] | score=0.8476801181687851
+- british:debates2025-10-22.txt [72154,76005] | score=0.844600088877979
+- british:debates2025-07-14.txt [73910,77733] | score=0.841306290618494
+- us:2025-09-18.txt [26288,30889] | score=0.8370062335671311
+- british:debates2025-07-14.txt [77322,80968] | score=0.8310006122209668
+- british:debates2025-07-14.txt [80512,84148] | score=0.8229000296314797
+
+------------------------------------------------------------
+
+[single] semantic/bm25 | k=3
+Query: What is the current stance of Parliament on climate change legislation?
+
+Retrieval Mode: timeaware
+
+Answer:
+The current stance of Parliament on climate change legislation is one of commitment to reaching net zero for the whole economy by 2050, as outlined in the Climate Change Act 2008. The Government has reiterated its dedication to meeting these climate change obligations and has emphasized that any airport expansion proposals must align with the UK's legally binding climate change commitments. Additionally, the UK has taken a leadership role internationally, with efforts to cooperate with other countries to address the climate crisis and protect future generations [british:debates2025-10-22.txt].
+
+Top refs:
+- british:debates2025-10-14.txt [32425,32962] | score=0.8994947654300105
+- british:debates2025-10-23.txt [14830,15347] | score=0.8980665625907496
+- british:debates2025-10-22.txt [85722,86370] | score=0.8878970758988256
+
+------------------------------------------------------------
+
+[single] semantic/bm25 | k=5
+Query: What is the current stance of Parliament on climate change legislation?
+
+Retrieval Mode: timeaware
+
+Answer:
+The current stance of Parliament on climate change legislation is one of commitment to reaching net zero for the whole economy by 2050, as outlined in the Climate Change Act 2008. The Government has reiterated its dedication to meeting its climate change obligations and has emphasized the importance of demonstrating that any airport expansion proposals align with the UK's legally binding climate commitments. Additionally, there is recognition of the need for both the private and public sectors to contribute to climate action, and there is strong public support for local initiatives addressing climate change [british:debates2025-10-22.txt [85722,86370]; british:debates2025-07-15.txt [43172,43827]].
+
+Top refs:
+- british:debates2025-10-14.txt [32425,32962] | score=0.8994947654300105
+- british:debates2025-10-23.txt [14830,15347] | score=0.8980665625907496
+- british:debates2025-10-22.txt [85722,86370] | score=0.8878970758988256
+- british:debates2025-10-14.txt [37288,37657] | score=0.87959392183341
+- british:debates2025-07-15.txt [43172,43827] | score=0.8420069300624241
+
+------------------------------------------------------------
+
+[single] semantic/bm25 | k=10
+Query: What is the current stance of Parliament on climate change legislation?
+
+Retrieval Mode: timeaware
+
+Answer:
+The current stance of Parliament on climate change legislation is one of commitment to the Climate Change Act 2008 and the goal of reaching net zero emissions by 2050. The Government has reiterated its dedication to meeting its climate obligations and has emphasized the importance of scientific evidence in shaping its net zero policies. However, there are divisions within Parliament regarding the Climate Change Act, with some members expressing a desire to scrap it, which could lead to judicial reviews affecting infrastructure projects like airport expansions. Overall, there is a recognition of the need for cooperation and action to address climate change, but also significant debate about the best approach to take [british:debates2025-10-22.txt [85722,86370]; british:debates2025-10-14.txt [37658,38271]; british:debates2025-10-14.txt [1370,1532]].
+
+Top refs:
+- british:debates2025-10-14.txt [32425,32962] | score=0.8994947654300105
+- british:debates2025-10-23.txt [14830,15347] | score=0.8980665625907496
+- british:debates2025-10-22.txt [85722,86370] | score=0.8878970758988256
+- british:debates2025-10-14.txt [37288,37657] | score=0.87959392183341
+- british:debates2025-10-14.txt [0,625] | score=0.8659243032576355
+- british:debates2025-10-22.txt [75100,75666] | score=0.8651099571881335
+- british:debates2025-10-13.txt [62754,63295] | score=0.8610997648407037
+- british:debates2025-10-14.txt [27879,28477] | score=0.8602130661832394
+- british:debates2025-10-14.txt [37658,38271] | score=0.8602130661832394
+- british:debates2025-10-14.txt [1370,1532] | score=0.858179008798101
+
+------------------------------------------------------------
+
+[single] fixed/dense | k=3
+Query: What is the current stance of Parliament on climate change legislation?
+
+Retrieval Mode: timeaware
+
+Answer:
+The current stance of Parliament on climate change legislation emphasizes the importance of taking action to address climate change, with a focus on achieving net zero emissions by 2050. The government supports this goal based on scientific evidence and recognizes the economic benefits of transitioning to a low-carbon economy. There is a commitment to using the best scientific evidence to inform policies, and the Climate Change Act 2008 is seen as a crucial framework for investment in sustainable growth. However, there are also discussions about the challenges faced by local authorities in achieving net zero due to financial constraints, and the need for private finance to support climate action in developing countries is acknowledged. Overall, there is a call for continued leadership from the UK on the global stage, particularly with the upcoming COP30 conference in Brazil [british:debates2025-10-14.txt].
+
+Top refs:
+- british:debates2025-10-14.txt [34835,38600] | score=0.6654492386733393
+- british:debates2025-10-14.txt [0,3792] | score=0.6500344915333787
+- british:debates2025-10-14.txt [51818,55530] | score=0.6472163971750519
+
+------------------------------------------------------------
+
+[single] fixed/dense | k=5
+Query: What is the current stance of Parliament on climate change legislation?
+
+Retrieval Mode: timeaware
+
+Answer:
+The current stance of Parliament on climate change legislation emphasizes the importance of taking action to address climate change, with a focus on achieving net zero by 2050. The UK government is committed to using scientific evidence to support its net zero policies, as highlighted by the Climate Change Act 2008, which has been a significant framework for investment in the UK. There is a recognition that the UK must play a leading role on the world stage, particularly with the upcoming COP30 in Brazil, and that collaboration with other countries is essential to tackle the climate crisis. The government is also working on initiatives to support local authorities in their net zero transitions and is focused on ensuring that low and middle-income families benefit from the energy transition [british:debates2025-10-14.txt].
+
+Top refs:
+- british:debates2025-10-14.txt [34835,38600] | score=0.6654405571258157
+- british:debates2025-10-14.txt [0,3792] | score=0.6500289700324509
+- british:debates2025-10-14.txt [51818,55530] | score=0.647216443349915
+- british:debates2025-10-14.txt [31305,35158] | score=0.644658443573544
+- british:debates2025-10-14.txt [55385,59165] | score=0.644394834849011
+
+------------------------------------------------------------
+
+[single] fixed/dense | k=10
+Query: What is the current stance of Parliament on climate change legislation?
+
+Retrieval Mode: timeaware
+
+Answer:
+The current stance of Parliament on climate change legislation emphasizes the importance of taking action to address climate change, with a focus on achieving net zero emissions by 2050. The UK government has shown leadership in this area, having established the Climate Change Act 2008 and committed to legally binding emissions targets. There is a recognition that climate action is not only necessary for environmental reasons but also for economic growth and job creation. The government is actively working on initiatives to support local authorities in their net zero transitions and is preparing to present a new carbon budget growth and delivery plan. However, there are divisions within Parliament regarding the approach to climate policies, with some members expressing concerns about the economic implications of these measures and the need for bipartisan support to effectively tackle the climate crisis [british:debates2025-10-14.txt].
+
+Top refs:
+- british:debates2025-10-14.txt [34835,38600] | score=0.6654492386733393
+- british:debates2025-10-14.txt [0,3792] | score=0.6500344915333787
+- british:debates2025-10-14.txt [51818,55530] | score=0.6472163971750519
+- british:debates2025-10-14.txt [31305,35158] | score=0.6446596603877508
+- british:debates2025-10-14.txt [55385,59165] | score=0.644397808145329
+- british:debates2025-07-14.txt [80512,84148] | score=0.5985889542715065
+- british:debates2025-07-14.txt [77322,80968] | score=0.5985094207667583
+- british:debates2025-07-14.txt [90533,94352] | score=0.5933687355276069
+- british:debates2025-07-14.txt [83639,87250] | score=0.5891928942755813
+- british:debates2025-07-14.txt [87109,90841] | score=0.5829476115426271
+
+------------------------------------------------------------
+
+[single] semantic/dense | k=3
+Query: What is the current stance of Parliament on climate change legislation?
+
+Retrieval Mode: timeaware
+
+Answer:
+The current stance of Parliament on climate change legislation appears to be divided. There is recognition of the effectiveness of the Climate Change Act 2008 and the work of the Committee on Climate Change, with hopes for re-establishing consensus on climate issues. However, there are also criticisms regarding the Act, with some members arguing that it imposes rigid, legally binding emissions targets that have led to higher energy bills and a loss of competitiveness, suggesting that repealing the Act may be a sensible course of action. This indicates a significant split in opinion within Parliament on the matter [british:debates2025-10-14.txt [37658,38271], [british:debates2025-10-14.txt [3501,4011], [british:debates2025-10-14.txt [1370,1532]].
+
+Top refs:
+- british:debates2025-10-14.txt [37658,38271] | score=0.6568231051234521
+- british:debates2025-10-14.txt [3501,4011] | score=0.6534221064409685
+- british:debates2025-10-14.txt [1370,1532] | score=0.6463244960825356
+
+------------------------------------------------------------
+
+[single] semantic/dense | k=5
+Query: What is the current stance of Parliament on climate change legislation?
+
+Retrieval Mode: timeaware
+
+Answer:
+The current stance of Parliament on climate change legislation appears to be divided. There are discussions about the effectiveness of the Climate Change Act 2008, with some members expressing pride in its establishment and the work of the Committee on Climate Change, while others criticize it for contributing to higher energy bills and the loss of British industry. There are calls from some members to repeal the Act, arguing that it imposes rigid, legally binding emissions targets that negatively impact the economy. Additionally, there are concerns that without backing to scrap the Act, infrastructure projects like the Heathrow expansion will face significant delays due to legal challenges. Overall, the issue of climate change legislation is a contentious topic within Parliament, with differing opinions on its impact and future direction [british:debates2025-10-14.txt; british:debates2025-10-22.txt; british:debates2025-10-14.txt; british:debates2025-10-14.txt].
+
+Top refs:
+- british:debates2025-10-14.txt [37658,38271] | score=0.6568231051234521
+- british:debates2025-10-14.txt [3501,4011] | score=0.6534221064409685
+- british:debates2025-10-22.txt [75100,75666] | score=0.648871681503198
+- british:debates2025-10-14.txt [1370,1532] | score=0.6463244960825356
+- british:debates2025-10-14.txt [35159,35665] | score=0.6460847668339675
+
+------------------------------------------------------------
+
+[single] semantic/dense | k=10
+Query: What is the current stance of Parliament on climate change legislation?
+
+Retrieval Mode: timeaware
+
+Answer:
+The current stance of Parliament on climate change legislation appears to be divided. There is recognition of the importance of the Climate Change Act 2008, which has been influential both domestically and internationally, with the UK being seen as a leader in climate policy. However, there are also calls from some members to repeal the Act, citing concerns over its economic impact, such as higher energy bills and loss of industry competitiveness. The debate reflects a split in opinion, with some advocating for continued commitment to climate goals and others pushing for a reconsideration of existing legislation due to its perceived negative consequences [british:debates2025-10-14.txt [37658,38271]; [british:debates2025-10-22.txt [75100,75666]; [british:debates2025-10-14.txt [1370,1532]].
+
+Top refs:
+- british:debates2025-10-14.txt [37658,38271] | score=0.6567984435695438
+- british:debates2025-10-14.txt [3501,4011] | score=0.6534090598076283
+- british:debates2025-10-22.txt [75100,75666] | score=0.6488611024989279
+- british:debates2025-10-14.txt [1370,1532] | score=0.6463157376408353
+- british:debates2025-10-14.txt [35159,35665] | score=0.6460830343664712
+- british:debates2025-10-14.txt [32425,32962] | score=0.6448578866014665
+- british:debates2025-10-14.txt [2454,2697] | score=0.6413153717841632
+- british:debates2025-10-14.txt [0,625] | score=0.6405185343409834
+- british:debates2025-10-14.txt [37288,37657] | score=0.6400066191078865
+- british:debates2025-10-14.txt [55385,55794] | score=0.6393315430031413
+
+------------------------------------------------------------
+
+Saved results to C:\Users\USER\Desktop\IR\IR2026\excercise4\outputs\rag_runs\cli_single_timeaware_evo_20260104_201729.json
+PS C:\Users\USER\Desktop\IR\IR2026\excercise4> 
+
+
+
+
+
+
+
+
+
+
