@@ -1,0 +1,1922 @@
+[
+  {
+    "query_group": "single",
+    "query": "What healthcare legislation was debated in Parliament in 2024?",
+    "pipeline": {
+      "chunking": "fixed",
+      "representation": "bm25"
+    },
+    "k": 3,
+    "retrieval_mode": "timeaware",
+    "timeaware": true,
+    "references": [
+      {
+        "corpus": "us",
+        "file_name": "2024-12-17.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\US_congress_debates\\2024-12-17.txt",
+        "start_char": 7978,
+        "end_char": 12424,
+        "chunk_index": 2,
+        "doc_date_iso": "2024-12-17",
+        "doc_timestamp": 1734393600
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-03-22.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-03-22.txt",
+        "start_char": 67692,
+        "end_char": 71421,
+        "chunk_index": 20,
+        "doc_date_iso": "2024-03-22",
+        "doc_timestamp": 1711065600
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-03-01.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-03-01.txt",
+        "start_char": 75470,
+        "end_char": 79087,
+        "chunk_index": 22,
+        "doc_date_iso": "2024-03-01",
+        "doc_timestamp": 1709251200
+      }
+    ],
+    "answer": "I don't know based on the retrieved chunks.",
+    "time_info": {
+      "query": "What healthcare legislation was debated in Parliament in 2024?",
+      "now_iso": "2026-01-04",
+      "mode": "explicit",
+      "ranges": [
+        {
+          "id": "t1",
+          "source": "duckling",
+          "text": "in 2024",
+          "start": "2024-01-01",
+          "end": "2024-12-31",
+          "open_ended": false,
+          "duckling_type": "value",
+          "duckling_grain": "year",
+          "granularity": "year",
+          "kind": "point"
+        }
+      ],
+      "duckling_raw": [
+        {
+          "body": "in 2024",
+          "start": 54,
+          "end": 61,
+          "latent": false,
+          "value": {
+            "values": [
+              {
+                "value": "2024-01-01T00:00:00.000-08:00",
+                "grain": "year",
+                "type": "value"
+              }
+            ],
+            "value": "2024-01-01T00:00:00.000-08:00",
+            "grain": "year",
+            "type": "value"
+          }
+        }
+      ]
+    },
+    "plan": {
+      "strategy": "hard",
+      "start_ts": 1704067200,
+      "end_ts": 1735603200,
+      "ref_ts": 1767484800,
+      "alpha": 0.0,
+      "lam": 0.0,
+      "oversample": 200
+    },
+    "debug": {
+      "candidate_count": 203,
+      "rerank_rows": []
+    },
+    "retrieved_chunk_ids": [
+      "us:2024-12-17.txt [7978,12424]",
+      "british:debates2024-03-22.txt [67692,71421]",
+      "british:debates2024-03-01.txt [75470,79087]"
+    ],
+    "retrieved_chunk_id_scores": [
+      {
+        "id": "us:2024-12-17.txt [7978,12424]",
+        "score": 13.45936695564949
+      },
+      {
+        "id": "british:debates2024-03-22.txt [67692,71421]",
+        "score": 12.779859645082094
+      },
+      {
+        "id": "british:debates2024-03-01.txt [75470,79087]",
+        "score": 12.073368362356108
+      }
+    ]
+  },
+  {
+    "query_group": "single",
+    "query": "What healthcare legislation was debated in Parliament in 2024?",
+    "pipeline": {
+      "chunking": "fixed",
+      "representation": "bm25"
+    },
+    "k": 5,
+    "retrieval_mode": "timeaware",
+    "timeaware": true,
+    "references": [
+      {
+        "corpus": "us",
+        "file_name": "2024-12-17.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\US_congress_debates\\2024-12-17.txt",
+        "start_char": 7978,
+        "end_char": 12424,
+        "chunk_index": 2,
+        "doc_date_iso": "2024-12-17",
+        "doc_timestamp": 1734393600
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-03-22.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-03-22.txt",
+        "start_char": 67692,
+        "end_char": 71421,
+        "chunk_index": 20,
+        "doc_date_iso": "2024-03-22",
+        "doc_timestamp": 1711065600
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-03-01.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-03-01.txt",
+        "start_char": 75470,
+        "end_char": 79087,
+        "chunk_index": 22,
+        "doc_date_iso": "2024-03-01",
+        "doc_timestamp": 1709251200
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-04-26.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-04-26.txt",
+        "start_char": 53134,
+        "end_char": 56842,
+        "chunk_index": 15,
+        "doc_date_iso": "2024-04-26",
+        "doc_timestamp": 1714089600
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-03-01.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-03-01.txt",
+        "start_char": 38136,
+        "end_char": 41846,
+        "chunk_index": 11,
+        "doc_date_iso": "2024-03-01",
+        "doc_timestamp": 1709251200
+      }
+    ],
+    "answer": "I don't know based on the retrieved chunks.",
+    "time_info": {
+      "query": "What healthcare legislation was debated in Parliament in 2024?",
+      "now_iso": "2026-01-04",
+      "mode": "explicit",
+      "ranges": [
+        {
+          "id": "t1",
+          "source": "duckling",
+          "text": "in 2024",
+          "start": "2024-01-01",
+          "end": "2024-12-31",
+          "open_ended": false,
+          "duckling_type": "value",
+          "duckling_grain": "year",
+          "granularity": "year",
+          "kind": "point"
+        }
+      ],
+      "duckling_raw": [
+        {
+          "body": "in 2024",
+          "start": 54,
+          "end": 61,
+          "latent": false,
+          "value": {
+            "values": [
+              {
+                "value": "2024-01-01T00:00:00.000-08:00",
+                "grain": "year",
+                "type": "value"
+              }
+            ],
+            "value": "2024-01-01T00:00:00.000-08:00",
+            "grain": "year",
+            "type": "value"
+          }
+        }
+      ]
+    },
+    "plan": {
+      "strategy": "hard",
+      "start_ts": 1704067200,
+      "end_ts": 1735603200,
+      "ref_ts": 1767484800,
+      "alpha": 0.0,
+      "lam": 0.0,
+      "oversample": 200
+    },
+    "debug": {
+      "candidate_count": 205,
+      "rerank_rows": []
+    },
+    "retrieved_chunk_ids": [
+      "us:2024-12-17.txt [7978,12424]",
+      "british:debates2024-03-22.txt [67692,71421]",
+      "british:debates2024-03-01.txt [75470,79087]",
+      "british:debates2024-04-26.txt [53134,56842]",
+      "british:debates2024-03-01.txt [38136,41846]"
+    ],
+    "retrieved_chunk_id_scores": [
+      {
+        "id": "us:2024-12-17.txt [7978,12424]",
+        "score": 13.45936695564949
+      },
+      {
+        "id": "british:debates2024-03-22.txt [67692,71421]",
+        "score": 12.779859645082094
+      },
+      {
+        "id": "british:debates2024-03-01.txt [75470,79087]",
+        "score": 12.073368362356108
+      },
+      {
+        "id": "british:debates2024-04-26.txt [53134,56842]",
+        "score": 11.282467817866191
+      },
+      {
+        "id": "british:debates2024-03-01.txt [38136,41846]",
+        "score": 11.111681227759345
+      }
+    ]
+  },
+  {
+    "query_group": "single",
+    "query": "What healthcare legislation was debated in Parliament in 2024?",
+    "pipeline": {
+      "chunking": "fixed",
+      "representation": "bm25"
+    },
+    "k": 10,
+    "retrieval_mode": "timeaware",
+    "timeaware": true,
+    "references": [
+      {
+        "corpus": "us",
+        "file_name": "2024-12-17.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\US_congress_debates\\2024-12-17.txt",
+        "start_char": 7978,
+        "end_char": 12424,
+        "chunk_index": 2,
+        "doc_date_iso": "2024-12-17",
+        "doc_timestamp": 1734393600
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-03-22.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-03-22.txt",
+        "start_char": 67692,
+        "end_char": 71421,
+        "chunk_index": 20,
+        "doc_date_iso": "2024-03-22",
+        "doc_timestamp": 1711065600
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-03-01.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-03-01.txt",
+        "start_char": 75470,
+        "end_char": 79087,
+        "chunk_index": 22,
+        "doc_date_iso": "2024-03-01",
+        "doc_timestamp": 1709251200
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-04-26.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-04-26.txt",
+        "start_char": 53134,
+        "end_char": 56842,
+        "chunk_index": 15,
+        "doc_date_iso": "2024-04-26",
+        "doc_timestamp": 1714089600
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-03-01.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-03-01.txt",
+        "start_char": 38136,
+        "end_char": 41846,
+        "chunk_index": 11,
+        "doc_date_iso": "2024-03-01",
+        "doc_timestamp": 1709251200
+      },
+      {
+        "corpus": "us",
+        "file_name": "2024-04-19.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\US_congress_debates\\2024-04-19.txt",
+        "start_char": 0,
+        "end_char": 5054,
+        "chunk_index": 0,
+        "doc_date_iso": "2024-04-19",
+        "doc_timestamp": 1713484800
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-04-26.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-04-26.txt",
+        "start_char": 3556,
+        "end_char": 7515,
+        "chunk_index": 1,
+        "doc_date_iso": "2024-04-26",
+        "doc_timestamp": 1714089600
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-10-14.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-10-14.txt",
+        "start_char": 9691,
+        "end_char": 13424,
+        "chunk_index": 3,
+        "doc_date_iso": "2024-10-14",
+        "doc_timestamp": 1728864000
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-02-29.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-02-29.txt",
+        "start_char": 81589,
+        "end_char": 85203,
+        "chunk_index": 24,
+        "doc_date_iso": "2024-02-29",
+        "doc_timestamp": 1709164800
+      },
+      {
+        "corpus": "us",
+        "file_name": "2024-12-06.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\US_congress_debates\\2024-12-06.txt",
+        "start_char": 8640,
+        "end_char": 13601,
+        "chunk_index": 2,
+        "doc_date_iso": "2024-12-06",
+        "doc_timestamp": 1733443200
+      }
+    ],
+    "answer": "I don't know based on the retrieved chunks.",
+    "time_info": {
+      "query": "What healthcare legislation was debated in Parliament in 2024?",
+      "now_iso": "2026-01-04",
+      "mode": "explicit",
+      "ranges": [
+        {
+          "id": "t1",
+          "source": "duckling",
+          "text": "in 2024",
+          "start": "2024-01-01",
+          "end": "2024-12-31",
+          "open_ended": false,
+          "duckling_type": "value",
+          "duckling_grain": "year",
+          "granularity": "year",
+          "kind": "point"
+        }
+      ],
+      "duckling_raw": [
+        {
+          "body": "in 2024",
+          "start": 54,
+          "end": 61,
+          "latent": false,
+          "value": {
+            "values": [
+              {
+                "value": "2024-01-01T00:00:00.000-08:00",
+                "grain": "year",
+                "type": "value"
+              }
+            ],
+            "value": "2024-01-01T00:00:00.000-08:00",
+            "grain": "year",
+            "type": "value"
+          }
+        }
+      ]
+    },
+    "plan": {
+      "strategy": "hard",
+      "start_ts": 1704067200,
+      "end_ts": 1735603200,
+      "ref_ts": 1767484800,
+      "alpha": 0.0,
+      "lam": 0.0,
+      "oversample": 200
+    },
+    "debug": {
+      "candidate_count": 210,
+      "rerank_rows": []
+    },
+    "retrieved_chunk_ids": [
+      "us:2024-12-17.txt [7978,12424]",
+      "british:debates2024-03-22.txt [67692,71421]",
+      "british:debates2024-03-01.txt [75470,79087]",
+      "british:debates2024-04-26.txt [53134,56842]",
+      "british:debates2024-03-01.txt [38136,41846]",
+      "us:2024-04-19.txt [0,5054]",
+      "british:debates2024-04-26.txt [3556,7515]",
+      "british:debates2024-10-14.txt [9691,13424]",
+      "british:debates2024-02-29.txt [81589,85203]",
+      "us:2024-12-06.txt [8640,13601]"
+    ],
+    "retrieved_chunk_id_scores": [
+      {
+        "id": "us:2024-12-17.txt [7978,12424]",
+        "score": 13.45936695564949
+      },
+      {
+        "id": "british:debates2024-03-22.txt [67692,71421]",
+        "score": 12.779859645082094
+      },
+      {
+        "id": "british:debates2024-03-01.txt [75470,79087]",
+        "score": 12.073368362356108
+      },
+      {
+        "id": "british:debates2024-04-26.txt [53134,56842]",
+        "score": 11.282467817866191
+      },
+      {
+        "id": "british:debates2024-03-01.txt [38136,41846]",
+        "score": 11.111681227759345
+      },
+      {
+        "id": "us:2024-04-19.txt [0,5054]",
+        "score": 11.006662918390893
+      },
+      {
+        "id": "british:debates2024-04-26.txt [3556,7515]",
+        "score": 10.76097007018214
+      },
+      {
+        "id": "british:debates2024-10-14.txt [9691,13424]",
+        "score": 10.60798088169231
+      },
+      {
+        "id": "british:debates2024-02-29.txt [81589,85203]",
+        "score": 10.303177913739248
+      },
+      {
+        "id": "us:2024-12-06.txt [8640,13601]",
+        "score": 9.695917564173076
+      }
+    ]
+  },
+  {
+    "query_group": "single",
+    "query": "What healthcare legislation was debated in Parliament in 2024?",
+    "pipeline": {
+      "chunking": "semantic",
+      "representation": "bm25"
+    },
+    "k": 3,
+    "retrieval_mode": "timeaware",
+    "timeaware": true,
+    "references": [
+      {
+        "corpus": "us",
+        "file_name": "2024-12-17.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\US_congress_debates\\2024-12-17.txt",
+        "start_char": 8211,
+        "end_char": 8527,
+        "chunk_index": 17,
+        "doc_date_iso": "2024-12-17",
+        "doc_timestamp": 1734393600
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-11-29.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-11-29.txt",
+        "start_char": 23925,
+        "end_char": 24069,
+        "chunk_index": 57,
+        "doc_date_iso": "2024-11-29",
+        "doc_timestamp": 1732838400
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-12-06.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-12-06.txt",
+        "start_char": 37420,
+        "end_char": 37609,
+        "chunk_index": 85,
+        "doc_date_iso": "2024-12-06",
+        "doc_timestamp": 1733443200
+      }
+    ],
+    "answer": "I don't know based on the retrieved chunks.",
+    "time_info": {
+      "query": "What healthcare legislation was debated in Parliament in 2024?",
+      "now_iso": "2026-01-04",
+      "mode": "explicit",
+      "ranges": [
+        {
+          "id": "t1",
+          "source": "duckling",
+          "text": "in 2024",
+          "start": "2024-01-01",
+          "end": "2024-12-31",
+          "open_ended": false,
+          "duckling_type": "value",
+          "duckling_grain": "year",
+          "granularity": "year",
+          "kind": "point"
+        }
+      ],
+      "duckling_raw": [
+        {
+          "body": "in 2024",
+          "start": 54,
+          "end": 61,
+          "latent": false,
+          "value": {
+            "values": [
+              {
+                "value": "2024-01-01T00:00:00.000-08:00",
+                "grain": "year",
+                "type": "value"
+              }
+            ],
+            "value": "2024-01-01T00:00:00.000-08:00",
+            "grain": "year",
+            "type": "value"
+          }
+        }
+      ]
+    },
+    "plan": {
+      "strategy": "hard",
+      "start_ts": 1704067200,
+      "end_ts": 1735603200,
+      "ref_ts": 1767484800,
+      "alpha": 0.0,
+      "lam": 0.0,
+      "oversample": 200
+    },
+    "debug": {
+      "candidate_count": 203,
+      "rerank_rows": []
+    },
+    "retrieved_chunk_ids": [
+      "us:2024-12-17.txt [8211,8527]",
+      "british:debates2024-11-29.txt [23925,24069]",
+      "british:debates2024-12-06.txt [37420,37609]"
+    ],
+    "retrieved_chunk_id_scores": [
+      {
+        "id": "us:2024-12-17.txt [8211,8527]",
+        "score": 13.667332416782099
+      },
+      {
+        "id": "british:debates2024-11-29.txt [23925,24069]",
+        "score": 12.049011882480244
+      },
+      {
+        "id": "british:debates2024-12-06.txt [37420,37609]",
+        "score": 11.422349608847266
+      }
+    ]
+  },
+  {
+    "query_group": "single",
+    "query": "What healthcare legislation was debated in Parliament in 2024?",
+    "pipeline": {
+      "chunking": "semantic",
+      "representation": "bm25"
+    },
+    "k": 5,
+    "retrieval_mode": "timeaware",
+    "timeaware": true,
+    "references": [
+      {
+        "corpus": "us",
+        "file_name": "2024-12-17.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\US_congress_debates\\2024-12-17.txt",
+        "start_char": 8211,
+        "end_char": 8527,
+        "chunk_index": 17,
+        "doc_date_iso": "2024-12-17",
+        "doc_timestamp": 1734393600
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-11-29.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-11-29.txt",
+        "start_char": 23925,
+        "end_char": 24069,
+        "chunk_index": 57,
+        "doc_date_iso": "2024-11-29",
+        "doc_timestamp": 1732838400
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-12-06.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-12-06.txt",
+        "start_char": 37420,
+        "end_char": 37609,
+        "chunk_index": 85,
+        "doc_date_iso": "2024-12-06",
+        "doc_timestamp": 1733443200
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-05-16.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-05-16.txt",
+        "start_char": 1184,
+        "end_char": 1569,
+        "chunk_index": 3,
+        "doc_date_iso": "2024-05-16",
+        "doc_timestamp": 1715817600
+      },
+      {
+        "corpus": "us",
+        "file_name": "2024-11-01.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\US_congress_debates\\2024-11-01.txt",
+        "start_char": 8657,
+        "end_char": 8969,
+        "chunk_index": 15,
+        "doc_date_iso": "2024-11-01",
+        "doc_timestamp": 1730419200
+      }
+    ],
+    "answer": "I don't know based on the retrieved chunks.",
+    "time_info": {
+      "query": "What healthcare legislation was debated in Parliament in 2024?",
+      "now_iso": "2026-01-04",
+      "mode": "explicit",
+      "ranges": [
+        {
+          "id": "t1",
+          "source": "duckling",
+          "text": "in 2024",
+          "start": "2024-01-01",
+          "end": "2024-12-31",
+          "open_ended": false,
+          "duckling_type": "value",
+          "duckling_grain": "year",
+          "granularity": "year",
+          "kind": "point"
+        }
+      ],
+      "duckling_raw": [
+        {
+          "body": "in 2024",
+          "start": 54,
+          "end": 61,
+          "latent": false,
+          "value": {
+            "values": [
+              {
+                "value": "2024-01-01T00:00:00.000-08:00",
+                "grain": "year",
+                "type": "value"
+              }
+            ],
+            "value": "2024-01-01T00:00:00.000-08:00",
+            "grain": "year",
+            "type": "value"
+          }
+        }
+      ]
+    },
+    "plan": {
+      "strategy": "hard",
+      "start_ts": 1704067200,
+      "end_ts": 1735603200,
+      "ref_ts": 1767484800,
+      "alpha": 0.0,
+      "lam": 0.0,
+      "oversample": 200
+    },
+    "debug": {
+      "candidate_count": 205,
+      "rerank_rows": []
+    },
+    "retrieved_chunk_ids": [
+      "us:2024-12-17.txt [8211,8527]",
+      "british:debates2024-11-29.txt [23925,24069]",
+      "british:debates2024-12-06.txt [37420,37609]",
+      "british:debates2024-05-16.txt [1184,1569]",
+      "us:2024-11-01.txt [8657,8969]"
+    ],
+    "retrieved_chunk_id_scores": [
+      {
+        "id": "us:2024-12-17.txt [8211,8527]",
+        "score": 13.667332416782099
+      },
+      {
+        "id": "british:debates2024-11-29.txt [23925,24069]",
+        "score": 12.049011882480244
+      },
+      {
+        "id": "british:debates2024-12-06.txt [37420,37609]",
+        "score": 11.422349608847266
+      },
+      {
+        "id": "british:debates2024-05-16.txt [1184,1569]",
+        "score": 11.328859458273602
+      },
+      {
+        "id": "us:2024-11-01.txt [8657,8969]",
+        "score": 11.101639608380356
+      }
+    ]
+  },
+  {
+    "query_group": "single",
+    "query": "What healthcare legislation was debated in Parliament in 2024?",
+    "pipeline": {
+      "chunking": "semantic",
+      "representation": "bm25"
+    },
+    "k": 10,
+    "retrieval_mode": "timeaware",
+    "timeaware": true,
+    "references": [
+      {
+        "corpus": "us",
+        "file_name": "2024-12-17.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\US_congress_debates\\2024-12-17.txt",
+        "start_char": 8211,
+        "end_char": 8527,
+        "chunk_index": 17,
+        "doc_date_iso": "2024-12-17",
+        "doc_timestamp": 1734393600
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-11-29.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-11-29.txt",
+        "start_char": 23925,
+        "end_char": 24069,
+        "chunk_index": 57,
+        "doc_date_iso": "2024-11-29",
+        "doc_timestamp": 1732838400
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-12-06.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-12-06.txt",
+        "start_char": 37420,
+        "end_char": 37609,
+        "chunk_index": 85,
+        "doc_date_iso": "2024-12-06",
+        "doc_timestamp": 1733443200
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-05-16.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-05-16.txt",
+        "start_char": 1184,
+        "end_char": 1569,
+        "chunk_index": 3,
+        "doc_date_iso": "2024-05-16",
+        "doc_timestamp": 1715817600
+      },
+      {
+        "corpus": "us",
+        "file_name": "2024-11-01.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\US_congress_debates\\2024-11-01.txt",
+        "start_char": 8657,
+        "end_char": 8969,
+        "chunk_index": 15,
+        "doc_date_iso": "2024-11-01",
+        "doc_timestamp": 1730419200
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-04-25.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-04-25.txt",
+        "start_char": 20316,
+        "end_char": 20823,
+        "chunk_index": 38,
+        "doc_date_iso": "2024-04-25",
+        "doc_timestamp": 1714003200
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-03-01.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-03-01.txt",
+        "start_char": 38361,
+        "end_char": 38921,
+        "chunk_index": 84,
+        "doc_date_iso": "2024-03-01",
+        "doc_timestamp": 1709251200
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-04-15.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-04-15.txt",
+        "start_char": 577,
+        "end_char": 931,
+        "chunk_index": 1,
+        "doc_date_iso": "2024-04-15",
+        "doc_timestamp": 1713139200
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-10-14.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-10-14.txt",
+        "start_char": 9882,
+        "end_char": 10374,
+        "chunk_index": 19,
+        "doc_date_iso": "2024-10-14",
+        "doc_timestamp": 1728864000
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-04-15.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-04-15.txt",
+        "start_char": 39380,
+        "end_char": 39914,
+        "chunk_index": 77,
+        "doc_date_iso": "2024-04-15",
+        "doc_timestamp": 1713139200
+      }
+    ],
+    "answer": "I don't know based on the retrieved chunks.",
+    "time_info": {
+      "query": "What healthcare legislation was debated in Parliament in 2024?",
+      "now_iso": "2026-01-04",
+      "mode": "explicit",
+      "ranges": [
+        {
+          "id": "t1",
+          "source": "duckling",
+          "text": "in 2024",
+          "start": "2024-01-01",
+          "end": "2024-12-31",
+          "open_ended": false,
+          "duckling_type": "value",
+          "duckling_grain": "year",
+          "granularity": "year",
+          "kind": "point"
+        }
+      ],
+      "duckling_raw": [
+        {
+          "body": "in 2024",
+          "start": 54,
+          "end": 61,
+          "latent": false,
+          "value": {
+            "values": [
+              {
+                "value": "2024-01-01T00:00:00.000-08:00",
+                "grain": "year",
+                "type": "value"
+              }
+            ],
+            "value": "2024-01-01T00:00:00.000-08:00",
+            "grain": "year",
+            "type": "value"
+          }
+        }
+      ]
+    },
+    "plan": {
+      "strategy": "hard",
+      "start_ts": 1704067200,
+      "end_ts": 1735603200,
+      "ref_ts": 1767484800,
+      "alpha": 0.0,
+      "lam": 0.0,
+      "oversample": 200
+    },
+    "debug": {
+      "candidate_count": 210,
+      "rerank_rows": []
+    },
+    "retrieved_chunk_ids": [
+      "us:2024-12-17.txt [8211,8527]",
+      "british:debates2024-11-29.txt [23925,24069]",
+      "british:debates2024-12-06.txt [37420,37609]",
+      "british:debates2024-05-16.txt [1184,1569]",
+      "us:2024-11-01.txt [8657,8969]",
+      "british:debates2024-04-25.txt [20316,20823]",
+      "british:debates2024-03-01.txt [38361,38921]",
+      "british:debates2024-04-15.txt [577,931]",
+      "british:debates2024-10-14.txt [9882,10374]",
+      "british:debates2024-04-15.txt [39380,39914]"
+    ],
+    "retrieved_chunk_id_scores": [
+      {
+        "id": "us:2024-12-17.txt [8211,8527]",
+        "score": 13.667332416782099
+      },
+      {
+        "id": "british:debates2024-11-29.txt [23925,24069]",
+        "score": 12.049011882480244
+      },
+      {
+        "id": "british:debates2024-12-06.txt [37420,37609]",
+        "score": 11.422349608847266
+      },
+      {
+        "id": "british:debates2024-05-16.txt [1184,1569]",
+        "score": 11.328859458273602
+      },
+      {
+        "id": "us:2024-11-01.txt [8657,8969]",
+        "score": 11.101639608380356
+      },
+      {
+        "id": "british:debates2024-04-25.txt [20316,20823]",
+        "score": 10.98148277583405
+      },
+      {
+        "id": "british:debates2024-03-01.txt [38361,38921]",
+        "score": 10.85331696806509
+      },
+      {
+        "id": "british:debates2024-04-15.txt [577,931]",
+        "score": 10.618209826454265
+      },
+      {
+        "id": "british:debates2024-10-14.txt [9882,10374]",
+        "score": 10.3029150337499
+      },
+      {
+        "id": "british:debates2024-04-15.txt [39380,39914]",
+        "score": 10.191954480358785
+      }
+    ]
+  },
+  {
+    "query_group": "single",
+    "query": "What healthcare legislation was debated in Parliament in 2024?",
+    "pipeline": {
+      "chunking": "fixed",
+      "representation": "dense"
+    },
+    "k": 3,
+    "retrieval_mode": "timeaware",
+    "timeaware": true,
+    "references": [
+      {
+        "corpus": "british",
+        "file_name": "debates2024-07-17.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-07-17.txt",
+        "start_char": 37755,
+        "end_char": 41874,
+        "chunk_index": 11,
+        "doc_date_iso": "2024-07-17",
+        "doc_timestamp": 1721174400
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-03-05.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-03-05.txt",
+        "start_char": 34212,
+        "end_char": 38136,
+        "chunk_index": 10,
+        "doc_date_iso": "2024-03-05",
+        "doc_timestamp": 1709596800
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-10-16.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-10-16.txt",
+        "start_char": 89252,
+        "end_char": 93143,
+        "chunk_index": 26,
+        "doc_date_iso": "2024-10-16",
+        "doc_timestamp": 1729036800
+      }
+    ],
+    "answer": "In 2024, healthcare legislation debated in Parliament included a Bill to modernise the Mental Health Act, aiming to ensure it is fit for the twenty-first century. Additionally, there were measures proposed to improve the National Health Service, focusing on reducing waiting times, enhancing mental health provision for young people, and ensuring mental health receives equal attention as physical health [british:debates2024-07-17.txt].",
+    "time_info": {
+      "query": "What healthcare legislation was debated in Parliament in 2024?",
+      "now_iso": "2026-01-04",
+      "mode": "explicit",
+      "ranges": [
+        {
+          "id": "t1",
+          "source": "duckling",
+          "text": "in 2024",
+          "start": "2024-01-01",
+          "end": "2024-12-31",
+          "open_ended": false,
+          "duckling_type": "value",
+          "duckling_grain": "year",
+          "granularity": "year",
+          "kind": "point"
+        }
+      ],
+      "duckling_raw": [
+        {
+          "body": "in 2024",
+          "start": 54,
+          "end": 61,
+          "latent": false,
+          "value": {
+            "values": [
+              {
+                "value": "2024-01-01T00:00:00.000-08:00",
+                "grain": "year",
+                "type": "value"
+              }
+            ],
+            "value": "2024-01-01T00:00:00.000-08:00",
+            "grain": "year",
+            "type": "value"
+          }
+        }
+      ]
+    },
+    "plan": {
+      "strategy": "hard",
+      "start_ts": 1704067200,
+      "end_ts": 1735603200,
+      "ref_ts": 1767484800,
+      "alpha": 0.0,
+      "lam": 0.0,
+      "oversample": 200
+    },
+    "debug": {
+      "candidate_count": 203,
+      "rerank_rows": []
+    },
+    "retrieved_chunk_ids": [
+      "british:debates2024-07-17.txt [37755,41874]",
+      "british:debates2024-03-05.txt [34212,38136]",
+      "british:debates2024-10-16.txt [89252,93143]"
+    ],
+    "retrieved_chunk_id_scores": [
+      {
+        "id": "british:debates2024-07-17.txt [37755,41874]",
+        "score": 0.5083827684792803
+      },
+      {
+        "id": "british:debates2024-03-05.txt [34212,38136]",
+        "score": 0.4914357360483053
+      },
+      {
+        "id": "british:debates2024-10-16.txt [89252,93143]",
+        "score": 0.49028372851167884
+      }
+    ]
+  },
+  {
+    "query_group": "single",
+    "query": "What healthcare legislation was debated in Parliament in 2024?",
+    "pipeline": {
+      "chunking": "fixed",
+      "representation": "dense"
+    },
+    "k": 5,
+    "retrieval_mode": "timeaware",
+    "timeaware": true,
+    "references": [
+      {
+        "corpus": "british",
+        "file_name": "debates2024-07-17.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-07-17.txt",
+        "start_char": 37755,
+        "end_char": 41874,
+        "chunk_index": 11,
+        "doc_date_iso": "2024-07-17",
+        "doc_timestamp": 1721174400
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-03-05.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-03-05.txt",
+        "start_char": 34212,
+        "end_char": 38136,
+        "chunk_index": 10,
+        "doc_date_iso": "2024-03-05",
+        "doc_timestamp": 1709596800
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-10-16.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-10-16.txt",
+        "start_char": 89252,
+        "end_char": 93143,
+        "chunk_index": 26,
+        "doc_date_iso": "2024-10-16",
+        "doc_timestamp": 1729036800
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-09-12.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-09-12.txt",
+        "start_char": 0,
+        "end_char": 3655,
+        "chunk_index": 0,
+        "doc_date_iso": "2024-09-12",
+        "doc_timestamp": 1726099200
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-11-28.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-11-28.txt",
+        "start_char": 59865,
+        "end_char": 63481,
+        "chunk_index": 17,
+        "doc_date_iso": "2024-11-28",
+        "doc_timestamp": 1732752000
+      }
+    ],
+    "answer": "In 2024, healthcare legislation debated in Parliament included a Bill to modernise the Mental Health Act, aimed at ensuring it is fit for the 21st century and giving mental health the same attention as physical health. Additionally, there were discussions about measures to improve the National Health Service, focusing on reducing waiting times and enhancing mental health provision for young people. Other health-related topics included the regulation of vaping and the advertising of junk food to children, as well as the impact of national insurance changes on hospices and care services [british:debates2024-07-17.txt; british:debates2024-03-05.txt; british:debates2024-11-28.txt].",
+    "time_info": {
+      "query": "What healthcare legislation was debated in Parliament in 2024?",
+      "now_iso": "2026-01-04",
+      "mode": "explicit",
+      "ranges": [
+        {
+          "id": "t1",
+          "source": "duckling",
+          "text": "in 2024",
+          "start": "2024-01-01",
+          "end": "2024-12-31",
+          "open_ended": false,
+          "duckling_type": "value",
+          "duckling_grain": "year",
+          "granularity": "year",
+          "kind": "point"
+        }
+      ],
+      "duckling_raw": [
+        {
+          "body": "in 2024",
+          "start": 54,
+          "end": 61,
+          "latent": false,
+          "value": {
+            "values": [
+              {
+                "value": "2024-01-01T00:00:00.000-08:00",
+                "grain": "year",
+                "type": "value"
+              }
+            ],
+            "value": "2024-01-01T00:00:00.000-08:00",
+            "grain": "year",
+            "type": "value"
+          }
+        }
+      ]
+    },
+    "plan": {
+      "strategy": "hard",
+      "start_ts": 1704067200,
+      "end_ts": 1735603200,
+      "ref_ts": 1767484800,
+      "alpha": 0.0,
+      "lam": 0.0,
+      "oversample": 200
+    },
+    "debug": {
+      "candidate_count": 205,
+      "rerank_rows": []
+    },
+    "retrieved_chunk_ids": [
+      "british:debates2024-07-17.txt [37755,41874]",
+      "british:debates2024-03-05.txt [34212,38136]",
+      "british:debates2024-10-16.txt [89252,93143]",
+      "british:debates2024-09-12.txt [0,3655]",
+      "british:debates2024-11-28.txt [59865,63481]"
+    ],
+    "retrieved_chunk_id_scores": [
+      {
+        "id": "british:debates2024-07-17.txt [37755,41874]",
+        "score": 0.5083827684792803
+      },
+      {
+        "id": "british:debates2024-03-05.txt [34212,38136]",
+        "score": 0.4914357360483053
+      },
+      {
+        "id": "british:debates2024-10-16.txt [89252,93143]",
+        "score": 0.49028372851167884
+      },
+      {
+        "id": "british:debates2024-09-12.txt [0,3655]",
+        "score": 0.4806396145994301
+      },
+      {
+        "id": "british:debates2024-11-28.txt [59865,63481]",
+        "score": 0.4795759913348706
+      }
+    ]
+  },
+  {
+    "query_group": "single",
+    "query": "What healthcare legislation was debated in Parliament in 2024?",
+    "pipeline": {
+      "chunking": "fixed",
+      "representation": "dense"
+    },
+    "k": 10,
+    "retrieval_mode": "timeaware",
+    "timeaware": true,
+    "references": [
+      {
+        "corpus": "british",
+        "file_name": "debates2024-07-17.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-07-17.txt",
+        "start_char": 37755,
+        "end_char": 41874,
+        "chunk_index": 11,
+        "doc_date_iso": "2024-07-17",
+        "doc_timestamp": 1721174400
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-03-05.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-03-05.txt",
+        "start_char": 34212,
+        "end_char": 38136,
+        "chunk_index": 10,
+        "doc_date_iso": "2024-03-05",
+        "doc_timestamp": 1709596800
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-10-16.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-10-16.txt",
+        "start_char": 89252,
+        "end_char": 93143,
+        "chunk_index": 26,
+        "doc_date_iso": "2024-10-16",
+        "doc_timestamp": 1729036800
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-09-12.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-09-12.txt",
+        "start_char": 0,
+        "end_char": 3655,
+        "chunk_index": 0,
+        "doc_date_iso": "2024-09-12",
+        "doc_timestamp": 1726099200
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-11-28.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-11-28.txt",
+        "start_char": 59865,
+        "end_char": 63481,
+        "chunk_index": 17,
+        "doc_date_iso": "2024-11-28",
+        "doc_timestamp": 1732752000
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-10-15.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-10-15.txt",
+        "start_char": 29026,
+        "end_char": 32740,
+        "chunk_index": 9,
+        "doc_date_iso": "2024-10-15",
+        "doc_timestamp": 1728950400
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-07-23.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-07-23.txt",
+        "start_char": 25901,
+        "end_char": 29714,
+        "chunk_index": 8,
+        "doc_date_iso": "2024-07-23",
+        "doc_timestamp": 1721692800
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-11-05.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-11-05.txt",
+        "start_char": 85280,
+        "end_char": 89167,
+        "chunk_index": 24,
+        "doc_date_iso": "2024-11-05",
+        "doc_timestamp": 1730764800
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-12-10.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-12-10.txt",
+        "start_char": 87732,
+        "end_char": 91502,
+        "chunk_index": 25,
+        "doc_date_iso": "2024-12-10",
+        "doc_timestamp": 1733788800
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-03-05.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-03-05.txt",
+        "start_char": 37616,
+        "end_char": 41514,
+        "chunk_index": 11,
+        "doc_date_iso": "2024-03-05",
+        "doc_timestamp": 1709596800
+      }
+    ],
+    "answer": "In 2024, healthcare legislation debated in Parliament included a Bill to modernise the Mental Health Act, aimed at ensuring it is fit for the 21st century and addressing the treatment of individuals with severe mental health issues. Additionally, there were discussions about improving the National Health Service (NHS) to provide care based on need, reducing waiting times, and enhancing mental health provision for young people. The government also planned to legislate to restrict the advertising of junk food to children and to impose limits on the sale and marketing of vapes [sources: british:debates2024-07-17.txt, british:debates2024-03-05.txt].",
+    "time_info": {
+      "query": "What healthcare legislation was debated in Parliament in 2024?",
+      "now_iso": "2026-01-04",
+      "mode": "explicit",
+      "ranges": [
+        {
+          "id": "t1",
+          "source": "duckling",
+          "text": "in 2024",
+          "start": "2024-01-01",
+          "end": "2024-12-31",
+          "open_ended": false,
+          "duckling_type": "value",
+          "duckling_grain": "year",
+          "granularity": "year",
+          "kind": "point"
+        }
+      ],
+      "duckling_raw": [
+        {
+          "body": "in 2024",
+          "start": 54,
+          "end": 61,
+          "latent": false,
+          "value": {
+            "values": [
+              {
+                "value": "2024-01-01T00:00:00.000-08:00",
+                "grain": "year",
+                "type": "value"
+              }
+            ],
+            "value": "2024-01-01T00:00:00.000-08:00",
+            "grain": "year",
+            "type": "value"
+          }
+        }
+      ]
+    },
+    "plan": {
+      "strategy": "hard",
+      "start_ts": 1704067200,
+      "end_ts": 1735603200,
+      "ref_ts": 1767484800,
+      "alpha": 0.0,
+      "lam": 0.0,
+      "oversample": 200
+    },
+    "debug": {
+      "candidate_count": 210,
+      "rerank_rows": []
+    },
+    "retrieved_chunk_ids": [
+      "british:debates2024-07-17.txt [37755,41874]",
+      "british:debates2024-03-05.txt [34212,38136]",
+      "british:debates2024-10-16.txt [89252,93143]",
+      "british:debates2024-09-12.txt [0,3655]",
+      "british:debates2024-11-28.txt [59865,63481]",
+      "british:debates2024-10-15.txt [29026,32740]",
+      "british:debates2024-07-23.txt [25901,29714]",
+      "british:debates2024-11-05.txt [85280,89167]",
+      "british:debates2024-12-10.txt [87732,91502]",
+      "british:debates2024-03-05.txt [37616,41514]"
+    ],
+    "retrieved_chunk_id_scores": [
+      {
+        "id": "british:debates2024-07-17.txt [37755,41874]",
+        "score": 0.5083827684792803
+      },
+      {
+        "id": "british:debates2024-03-05.txt [34212,38136]",
+        "score": 0.4914357360483053
+      },
+      {
+        "id": "british:debates2024-10-16.txt [89252,93143]",
+        "score": 0.49028372851167884
+      },
+      {
+        "id": "british:debates2024-09-12.txt [0,3655]",
+        "score": 0.4806396145994301
+      },
+      {
+        "id": "british:debates2024-11-28.txt [59865,63481]",
+        "score": 0.4795759913348706
+      },
+      {
+        "id": "british:debates2024-10-15.txt [29026,32740]",
+        "score": 0.4782368409740593
+      },
+      {
+        "id": "british:debates2024-07-23.txt [25901,29714]",
+        "score": 0.4768023048548916
+      },
+      {
+        "id": "british:debates2024-11-05.txt [85280,89167]",
+        "score": 0.4753050247794564
+      },
+      {
+        "id": "british:debates2024-12-10.txt [87732,91502]",
+        "score": 0.4732400671920597
+      },
+      {
+        "id": "british:debates2024-03-05.txt [37616,41514]",
+        "score": 0.47319748826385494
+      }
+    ]
+  },
+  {
+    "query_group": "single",
+    "query": "What healthcare legislation was debated in Parliament in 2024?",
+    "pipeline": {
+      "chunking": "semantic",
+      "representation": "dense"
+    },
+    "k": 3,
+    "retrieval_mode": "timeaware",
+    "timeaware": true,
+    "references": [
+      {
+        "corpus": "british",
+        "file_name": "debates2024-07-17.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-07-17.txt",
+        "start_char": 39419,
+        "end_char": 39995,
+        "chunk_index": 78,
+        "doc_date_iso": "2024-07-17",
+        "doc_timestamp": 1721174400
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-11-29.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-11-29.txt",
+        "start_char": 75040,
+        "end_char": 75431,
+        "chunk_index": 180,
+        "doc_date_iso": "2024-11-29",
+        "doc_timestamp": 1732838400
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-05-17.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-05-17.txt",
+        "start_char": 52500,
+        "end_char": 52983,
+        "chunk_index": 102,
+        "doc_date_iso": "2024-05-17",
+        "doc_timestamp": 1715904000
+      }
+    ],
+    "answer": "The healthcare legislation debated in Parliament in 2024 focused on improving the National Health Service (NHS) by providing care based on need regardless of the ability to pay, reducing waiting times, focusing on prevention, and improving mental health provision for young people. It emphasized giving mental health the same attention as physical health [british:debates2024-07-17.txt].",
+    "time_info": {
+      "query": "What healthcare legislation was debated in Parliament in 2024?",
+      "now_iso": "2026-01-04",
+      "mode": "explicit",
+      "ranges": [
+        {
+          "id": "t1",
+          "source": "duckling",
+          "text": "in 2024",
+          "start": "2024-01-01",
+          "end": "2024-12-31",
+          "open_ended": false,
+          "duckling_type": "value",
+          "duckling_grain": "year",
+          "granularity": "year",
+          "kind": "point"
+        }
+      ],
+      "duckling_raw": [
+        {
+          "body": "in 2024",
+          "start": 54,
+          "end": 61,
+          "latent": false,
+          "value": {
+            "values": [
+              {
+                "value": "2024-01-01T00:00:00.000-08:00",
+                "grain": "year",
+                "type": "value"
+              }
+            ],
+            "value": "2024-01-01T00:00:00.000-08:00",
+            "grain": "year",
+            "type": "value"
+          }
+        }
+      ]
+    },
+    "plan": {
+      "strategy": "hard",
+      "start_ts": 1704067200,
+      "end_ts": 1735603200,
+      "ref_ts": 1767484800,
+      "alpha": 0.0,
+      "lam": 0.0,
+      "oversample": 200
+    },
+    "debug": {
+      "candidate_count": 203,
+      "rerank_rows": []
+    },
+    "retrieved_chunk_ids": [
+      "british:debates2024-07-17.txt [39419,39995]",
+      "british:debates2024-11-29.txt [75040,75431]",
+      "british:debates2024-05-17.txt [52500,52983]"
+    ],
+    "retrieved_chunk_id_scores": [
+      {
+        "id": "british:debates2024-07-17.txt [39419,39995]",
+        "score": 0.5002865047894727
+      },
+      {
+        "id": "british:debates2024-11-29.txt [75040,75431]",
+        "score": 0.49573004550481437
+      },
+      {
+        "id": "british:debates2024-05-17.txt [52500,52983]",
+        "score": 0.49130319327443667
+      }
+    ]
+  },
+  {
+    "query_group": "single",
+    "query": "What healthcare legislation was debated in Parliament in 2024?",
+    "pipeline": {
+      "chunking": "semantic",
+      "representation": "dense"
+    },
+    "k": 5,
+    "retrieval_mode": "timeaware",
+    "timeaware": true,
+    "references": [
+      {
+        "corpus": "british",
+        "file_name": "debates2024-07-17.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-07-17.txt",
+        "start_char": 39419,
+        "end_char": 39995,
+        "chunk_index": 78,
+        "doc_date_iso": "2024-07-17",
+        "doc_timestamp": 1721174400
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-11-29.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-11-29.txt",
+        "start_char": 75040,
+        "end_char": 75431,
+        "chunk_index": 180,
+        "doc_date_iso": "2024-11-29",
+        "doc_timestamp": 1732838400
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-05-17.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-05-17.txt",
+        "start_char": 52500,
+        "end_char": 52983,
+        "chunk_index": 102,
+        "doc_date_iso": "2024-05-17",
+        "doc_timestamp": 1715904000
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-11-05.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-11-05.txt",
+        "start_char": 88713,
+        "end_char": 88984,
+        "chunk_index": 183,
+        "doc_date_iso": "2024-11-05",
+        "doc_timestamp": 1730764800
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-07-17.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-07-17.txt",
+        "start_char": 39996,
+        "end_char": 40462,
+        "chunk_index": 79,
+        "doc_date_iso": "2024-07-17",
+        "doc_timestamp": 1721174400
+      }
+    ],
+    "answer": "In 2024, healthcare legislation debated in Parliament included efforts to improve the National Health Service (NHS) by reducing waiting times, focusing on prevention, and enhancing mental health provision for young people. Additionally, there was a proposal to modernize the Mental Health Act to make it more suitable for the 21st century [british:debates2024-07-17.txt [39419,39995]].",
+    "time_info": {
+      "query": "What healthcare legislation was debated in Parliament in 2024?",
+      "now_iso": "2026-01-04",
+      "mode": "explicit",
+      "ranges": [
+        {
+          "id": "t1",
+          "source": "duckling",
+          "text": "in 2024",
+          "start": "2024-01-01",
+          "end": "2024-12-31",
+          "open_ended": false,
+          "duckling_type": "value",
+          "duckling_grain": "year",
+          "granularity": "year",
+          "kind": "point"
+        }
+      ],
+      "duckling_raw": [
+        {
+          "body": "in 2024",
+          "start": 54,
+          "end": 61,
+          "latent": false,
+          "value": {
+            "values": [
+              {
+                "value": "2024-01-01T00:00:00.000-08:00",
+                "grain": "year",
+                "type": "value"
+              }
+            ],
+            "value": "2024-01-01T00:00:00.000-08:00",
+            "grain": "year",
+            "type": "value"
+          }
+        }
+      ]
+    },
+    "plan": {
+      "strategy": "hard",
+      "start_ts": 1704067200,
+      "end_ts": 1735603200,
+      "ref_ts": 1767484800,
+      "alpha": 0.0,
+      "lam": 0.0,
+      "oversample": 200
+    },
+    "debug": {
+      "candidate_count": 205,
+      "rerank_rows": []
+    },
+    "retrieved_chunk_ids": [
+      "british:debates2024-07-17.txt [39419,39995]",
+      "british:debates2024-11-29.txt [75040,75431]",
+      "british:debates2024-05-17.txt [52500,52983]",
+      "british:debates2024-11-05.txt [88713,88984]",
+      "british:debates2024-07-17.txt [39996,40462]"
+    ],
+    "retrieved_chunk_id_scores": [
+      {
+        "id": "british:debates2024-07-17.txt [39419,39995]",
+        "score": 0.5002865047894727
+      },
+      {
+        "id": "british:debates2024-11-29.txt [75040,75431]",
+        "score": 0.49573004550481437
+      },
+      {
+        "id": "british:debates2024-05-17.txt [52500,52983]",
+        "score": 0.49130319327443667
+      },
+      {
+        "id": "british:debates2024-11-05.txt [88713,88984]",
+        "score": 0.49060596850137933
+      },
+      {
+        "id": "british:debates2024-07-17.txt [39996,40462]",
+        "score": 0.49032966727218885
+      }
+    ]
+  },
+  {
+    "query_group": "single",
+    "query": "What healthcare legislation was debated in Parliament in 2024?",
+    "pipeline": {
+      "chunking": "semantic",
+      "representation": "dense"
+    },
+    "k": 10,
+    "retrieval_mode": "timeaware",
+    "timeaware": true,
+    "references": [
+      {
+        "corpus": "british",
+        "file_name": "debates2024-07-17.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-07-17.txt",
+        "start_char": 39419,
+        "end_char": 39995,
+        "chunk_index": 78,
+        "doc_date_iso": "2024-07-17",
+        "doc_timestamp": 1721174400
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-11-29.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-11-29.txt",
+        "start_char": 75040,
+        "end_char": 75431,
+        "chunk_index": 180,
+        "doc_date_iso": "2024-11-29",
+        "doc_timestamp": 1732838400
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-05-17.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-05-17.txt",
+        "start_char": 52500,
+        "end_char": 52983,
+        "chunk_index": 102,
+        "doc_date_iso": "2024-05-17",
+        "doc_timestamp": 1715904000
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-11-05.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-11-05.txt",
+        "start_char": 88713,
+        "end_char": 88984,
+        "chunk_index": 183,
+        "doc_date_iso": "2024-11-05",
+        "doc_timestamp": 1730764800
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-07-17.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-07-17.txt",
+        "start_char": 39996,
+        "end_char": 40462,
+        "chunk_index": 79,
+        "doc_date_iso": "2024-07-17",
+        "doc_timestamp": 1721174400
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-10-16.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-10-16.txt",
+        "start_char": 89714,
+        "end_char": 90357,
+        "chunk_index": 184,
+        "doc_date_iso": "2024-10-16",
+        "doc_timestamp": 1729036800
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-03-22.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-03-22.txt",
+        "start_char": 21107,
+        "end_char": 21702,
+        "chunk_index": 52,
+        "doc_date_iso": "2024-03-22",
+        "doc_timestamp": 1711065600
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-12-09.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-12-09.txt",
+        "start_char": 47540,
+        "end_char": 47944,
+        "chunk_index": 93,
+        "doc_date_iso": "2024-12-09",
+        "doc_timestamp": 1733702400
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-11-20.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-11-20.txt",
+        "start_char": 28575,
+        "end_char": 29084,
+        "chunk_index": 61,
+        "doc_date_iso": "2024-11-20",
+        "doc_timestamp": 1732060800
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-12-05.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-12-05.txt",
+        "start_char": 45456,
+        "end_char": 45827,
+        "chunk_index": 92,
+        "doc_date_iso": "2024-12-05",
+        "doc_timestamp": 1733356800
+      }
+    ],
+    "answer": "In 2024, healthcare legislation debated in Parliament included efforts to modernize the Mental Health Act and improve the National Health Service (NHS) by reducing waiting times, focusing on prevention, and enhancing mental health provision for young people. Additionally, there was a discussion about a Bill related to the treatment of rare types of cancer, which aimed to incentivize research and investment in that area [sources: british:debates2024-07-17.txt, british:debates2024-10-16.txt].",
+    "time_info": {
+      "query": "What healthcare legislation was debated in Parliament in 2024?",
+      "now_iso": "2026-01-04",
+      "mode": "explicit",
+      "ranges": [
+        {
+          "id": "t1",
+          "source": "duckling",
+          "text": "in 2024",
+          "start": "2024-01-01",
+          "end": "2024-12-31",
+          "open_ended": false,
+          "duckling_type": "value",
+          "duckling_grain": "year",
+          "granularity": "year",
+          "kind": "point"
+        }
+      ],
+      "duckling_raw": [
+        {
+          "body": "in 2024",
+          "start": 54,
+          "end": 61,
+          "latent": false,
+          "value": {
+            "values": [
+              {
+                "value": "2024-01-01T00:00:00.000-08:00",
+                "grain": "year",
+                "type": "value"
+              }
+            ],
+            "value": "2024-01-01T00:00:00.000-08:00",
+            "grain": "year",
+            "type": "value"
+          }
+        }
+      ]
+    },
+    "plan": {
+      "strategy": "hard",
+      "start_ts": 1704067200,
+      "end_ts": 1735603200,
+      "ref_ts": 1767484800,
+      "alpha": 0.0,
+      "lam": 0.0,
+      "oversample": 200
+    },
+    "debug": {
+      "candidate_count": 210,
+      "rerank_rows": []
+    },
+    "retrieved_chunk_ids": [
+      "british:debates2024-07-17.txt [39419,39995]",
+      "british:debates2024-11-29.txt [75040,75431]",
+      "british:debates2024-05-17.txt [52500,52983]",
+      "british:debates2024-11-05.txt [88713,88984]",
+      "british:debates2024-07-17.txt [39996,40462]",
+      "british:debates2024-10-16.txt [89714,90357]",
+      "british:debates2024-03-22.txt [21107,21702]",
+      "british:debates2024-12-09.txt [47540,47944]",
+      "british:debates2024-11-20.txt [28575,29084]",
+      "british:debates2024-12-05.txt [45456,45827]"
+    ],
+    "retrieved_chunk_id_scores": [
+      {
+        "id": "british:debates2024-07-17.txt [39419,39995]",
+        "score": 0.5002865047894727
+      },
+      {
+        "id": "british:debates2024-11-29.txt [75040,75431]",
+        "score": 0.49573004550481437
+      },
+      {
+        "id": "british:debates2024-05-17.txt [52500,52983]",
+        "score": 0.49130319327443667
+      },
+      {
+        "id": "british:debates2024-11-05.txt [88713,88984]",
+        "score": 0.49060596850137933
+      },
+      {
+        "id": "british:debates2024-07-17.txt [39996,40462]",
+        "score": 0.49032966727218885
+      },
+      {
+        "id": "british:debates2024-10-16.txt [89714,90357]",
+        "score": 0.4895873348710911
+      },
+      {
+        "id": "british:debates2024-03-22.txt [21107,21702]",
+        "score": 0.48385180880148476
+      },
+      {
+        "id": "british:debates2024-12-09.txt [47540,47944]",
+        "score": 0.4836563894634663
+      },
+      {
+        "id": "british:debates2024-11-20.txt [28575,29084]",
+        "score": 0.4830477667253388
+      },
+      {
+        "id": "british:debates2024-12-05.txt [45456,45827]",
+        "score": 0.4793151478378357
+      }
+    ]
+  }
+]

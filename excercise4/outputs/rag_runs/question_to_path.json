@@ -1,0 +1,125 @@
+{
+  "_README": {
+    "purpose": "Question-to-Results File Mapping",
+    "description": "This file maps each query to the JSON file containing its complete retrieval and LLM answer results.",
+    "usage": "Look up a query to find the corresponding results file in outputs/rag_runs/",
+    "file_contents": "Each JSON file contains retrieval results for all 4 pipeline configurations (fixed/bm25, fixed/dense, semantic/bm25, semantic/dense) across multiple K values (3, 5, 10), including: retrieved chunks with metadata, LLM-generated answers, reference citations, scores, and timestamps.",
+    "query_types": {
+      "evolution": "Queries comparing two time periods (e.g., 'How has X changed over time?', 'Has the position changed between 2023 and 2025?')",
+      "point_in_time": "Queries with explicit year constraints (e.g., 'What was discussed in 2024?')",
+      "recency": "Queries with implicit temporal signals (e.g., 'What is the current position?', 'What are the latest discussions?')"
+    },
+    "last_updated": "2026-01-04"
+  },
+  "questions": {
+    "How has climate policy changed over time?": {
+      "file": "cli_single_timeaware_evo_20260104_185110.json",
+      "path": "outputs/rag_runs/cli_single_timeaware_evo_20260104_185110.json",
+      "query_type": "evolution",
+      "corpus": "british_parliament"
+    },
+    "How did the Prime Minister rhetoric regarding the war between Israel and Hamas/Gaza develop/change between his first and last speech?": {
+      "file": "cli_single_timeaware_evo_20260104_185526.json",
+      "path": "outputs/rag_runs/cli_single_timeaware_evo_20260104_185526.json",
+      "query_type": "evolution",
+      "corpus": "british_parliament"
+    },
+    "How did the president rhetoric regarding the war between Israel and Hamas/Gaza develop/change between his first and last speech?": {
+      "file": "cli_single_timeaware_evo_20260104_190757.json",
+      "path": "outputs/rag_runs/cli_single_timeaware_evo_20260104_190757.json",
+      "query_type": "evolution",
+      "corpus": "us_congress"
+    },
+    "What was the specific budget allocated to security in 2024 in the US Congress?": {
+      "file": "cli_single_timeaware_evo_20260104_193609.json",
+      "path": "outputs/rag_runs/cli_single_timeaware_evo_20260104_193609.json",
+      "query_type": "point_in_time",
+      "corpus": "us_congress"
+    },
+    "What was the specific budget allocated to defence in 2024 in the British Parliament?": {
+      "file": "cli_single_timeaware_evo_20260104_193736.json",
+      "path": "outputs/rag_runs/cli_single_timeaware_evo_20260104_193736.json",
+      "query_type": "point_in_time",
+      "corpus": "british_parliament"
+    },
+    "What healthcare legislation was discussed in Congress in 2024?": {
+      "file": "cli_single_timeaware_evo_20260104_194845.json",
+      "path": "outputs/rag_runs/cli_single_timeaware_evo_20260104_194845.json",
+      "query_type": "point_in_time",
+      "corpus": "us_congress"
+    },
+    "What healthcare legislation was debated in Parliament in 2024?": {
+      "file": "cli_single_timeaware_evo_20260104_195037.json",
+      "path": "outputs/rag_runs/cli_single_timeaware_evo_20260104_195037.json",
+      "query_type": "point_in_time",
+      "corpus": "british_parliament"
+    },
+    "What is the current official position of the US Congress regarding the State of Israel?": {
+      "file": "cli_single_timeaware_evo_20260104_200351.json",
+      "path": "outputs/rag_runs/cli_single_timeaware_evo_20260104_200351.json",
+      "query_type": "recency",
+      "corpus": "us_congress"
+    },
+    "What is the current official position of the British Parliament regarding the State of Israel?": {
+      "file": "cli_single_timeaware_evo_20260104_200540.json",
+      "path": "outputs/rag_runs/cli_single_timeaware_evo_20260104_200540.json",
+      "query_type": "recency",
+      "corpus": "british_parliament"
+    },
+    "What are the latest discussions in Congress about immigration reform?": {
+      "file": "cli_single_timeaware_evo_20260104_201025.json",
+      "path": "outputs/rag_runs/cli_single_timeaware_evo_20260104_201025.json",
+      "query_type": "recency",
+      "corpus": "us_congress"
+    },
+    "What are the latest debates in Parliament about immigration policy?": {
+      "file": "cli_single_timeaware_evo_20260104_201307.json",
+      "path": "outputs/rag_runs/cli_single_timeaware_evo_20260104_201307.json",
+      "query_type": "recency",
+      "corpus": "british_parliament"
+    },
+    "What is the current stance of Congress on climate change legislation?": {
+      "file": "cli_single_timeaware_evo_20260104_201529.json",
+      "path": "outputs/rag_runs/cli_single_timeaware_evo_20260104_201529.json",
+      "query_type": "recency",
+      "corpus": "us_congress"
+    },
+    "What is the current stance of Parliament on climate change legislation?": {
+      "file": "cli_single_timeaware_evo_20260104_201729.json",
+      "path": "outputs/rag_runs/cli_single_timeaware_evo_20260104_201729.json",
+      "query_type": "recency",
+      "corpus": "british_parliament"
+    },
+    "What is the current official position of Congress regarding Hamas/Gaza?": {
+      "file": "cli_single_timeaware_evo_20260104_204439.json",
+      "path": "outputs/rag_runs/cli_single_timeaware_evo_20260104_204439.json",
+      "query_type": "recency",
+      "corpus": "us_congress"
+    },
+    "What is the current official position of Parliament regarding Hamas/Gaza?": {
+      "file": "cli_single_timeaware_evo_20260104_204619.json",
+      "path": "outputs/rag_runs/cli_single_timeaware_evo_20260104_204619.json",
+      "query_type": "recency",
+      "corpus": "british_parliament"
+    },
+    "Has the official position of Congress in the last quarter of 2023 changed relative to the official position in the last quarter of 2025 regarding Israel?": {
+      "file": "cli_single_timeaware_evo_20260104_205322.json",
+      "path": "outputs/rag_runs/cli_single_timeaware_evo_20260104_205322.json",
+      "query_type": "evolution",
+      "corpus": "us_congress"
+    },
+    "Has the official position of Parliament in the last quarter of 2023 changed relative to the official position in the last quarter of 2025 regarding Israel?": {
+      "file": "cli_single_timeaware_evo_20260104_205643.json",
+      "path": "outputs/rag_runs/cli_single_timeaware_evo_20260104_205643.json",
+      "query_type": "evolution",
+      "corpus": "british_parliament"
+    },
+    "Who is the president of united states right now?": {
+      "file": "cli_single_timeaware_evo_20260104_210807.json",
+      "path": "outputs/rag_runs/cli_single_timeaware_evo_20260104_210807.json",
+      "query_type": "recency",
+      "corpus": "multi_corpus",
+      "note": "Simple factual recency query demonstrating semantic/dense exclusive success"
+    }
+  }
+}

@@ -1,0 +1,1922 @@
+[
+  {
+    "query_group": "single",
+    "query": "What was the specific budget allocated to defence in 2024 in the British Parliament?",
+    "pipeline": {
+      "chunking": "fixed",
+      "representation": "bm25"
+    },
+    "k": 3,
+    "retrieval_mode": "timeaware",
+    "timeaware": true,
+    "references": [
+      {
+        "corpus": "british",
+        "file_name": "debates2024-03-11.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-03-11.txt",
+        "start_char": 62799,
+        "end_char": 66427,
+        "chunk_index": 18,
+        "doc_date_iso": "2024-03-11",
+        "doc_timestamp": 1710115200
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-11-04.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-11-04.txt",
+        "start_char": 70251,
+        "end_char": 74205,
+        "chunk_index": 20,
+        "doc_date_iso": "2024-11-04",
+        "doc_timestamp": 1730678400
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-03-25.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-03-25.txt",
+        "start_char": 47348,
+        "end_char": 51114,
+        "chunk_index": 14,
+        "doc_date_iso": "2024-03-25",
+        "doc_timestamp": 1711324800
+      }
+    ],
+    "answer": "The specific budget allocated to defence in 2024 in the British Parliament is expected to amount to £55.6 billion, which is about 2.3% of GDP. This represents a 1.8% increase in real terms compared to previous spending levels [british:debates2024-03-11.txt [62799,66427]].",
+    "time_info": {
+      "query": "What was the specific budget allocated to defence in 2024 in the British Parliament?",
+      "now_iso": "2026-01-04",
+      "mode": "explicit",
+      "ranges": [
+        {
+          "id": "t1",
+          "source": "duckling",
+          "text": "in 2024",
+          "start": "2024-01-01",
+          "end": "2024-12-31",
+          "open_ended": false,
+          "duckling_type": "value",
+          "duckling_grain": "year",
+          "granularity": "year",
+          "kind": "point"
+        }
+      ],
+      "duckling_raw": [
+        {
+          "body": "in 2024",
+          "start": 50,
+          "end": 57,
+          "latent": false,
+          "value": {
+            "values": [
+              {
+                "value": "2024-01-01T00:00:00.000-08:00",
+                "grain": "year",
+                "type": "value"
+              }
+            ],
+            "value": "2024-01-01T00:00:00.000-08:00",
+            "grain": "year",
+            "type": "value"
+          }
+        }
+      ]
+    },
+    "plan": {
+      "strategy": "hard",
+      "start_ts": 1704067200,
+      "end_ts": 1735603200,
+      "ref_ts": 1767484800,
+      "alpha": 0.0,
+      "lam": 0.0,
+      "oversample": 200
+    },
+    "debug": {
+      "candidate_count": 203,
+      "rerank_rows": []
+    },
+    "retrieved_chunk_ids": [
+      "british:debates2024-03-11.txt [62799,66427]",
+      "british:debates2024-11-04.txt [70251,74205]",
+      "british:debates2024-03-25.txt [47348,51114]"
+    ],
+    "retrieved_chunk_id_scores": [
+      {
+        "id": "british:debates2024-03-11.txt [62799,66427]",
+        "score": 14.002414640917982
+      },
+      {
+        "id": "british:debates2024-11-04.txt [70251,74205]",
+        "score": 12.48155274699171
+      },
+      {
+        "id": "british:debates2024-03-25.txt [47348,51114]",
+        "score": 12.452499472901499
+      }
+    ]
+  },
+  {
+    "query_group": "single",
+    "query": "What was the specific budget allocated to defence in 2024 in the British Parliament?",
+    "pipeline": {
+      "chunking": "fixed",
+      "representation": "bm25"
+    },
+    "k": 5,
+    "retrieval_mode": "timeaware",
+    "timeaware": true,
+    "references": [
+      {
+        "corpus": "british",
+        "file_name": "debates2024-03-11.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-03-11.txt",
+        "start_char": 62799,
+        "end_char": 66427,
+        "chunk_index": 18,
+        "doc_date_iso": "2024-03-11",
+        "doc_timestamp": 1710115200
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-11-04.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-11-04.txt",
+        "start_char": 70251,
+        "end_char": 74205,
+        "chunk_index": 20,
+        "doc_date_iso": "2024-11-04",
+        "doc_timestamp": 1730678400
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-03-25.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-03-25.txt",
+        "start_char": 47348,
+        "end_char": 51114,
+        "chunk_index": 14,
+        "doc_date_iso": "2024-03-25",
+        "doc_timestamp": 1711324800
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-05-20.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-05-20.txt",
+        "start_char": 14290,
+        "end_char": 18331,
+        "chunk_index": 4,
+        "doc_date_iso": "2024-05-20",
+        "doc_timestamp": 1716163200
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-04-24.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-04-24.txt",
+        "start_char": 73019,
+        "end_char": 76553,
+        "chunk_index": 21,
+        "doc_date_iso": "2024-04-24",
+        "doc_timestamp": 1713916800
+      }
+    ],
+    "answer": "The specific budget allocated to defence in 2024 in the British Parliament is expected to amount to £55.6 billion, which is about 2.3% of GDP. This represents a 1.8% increase in real terms compared to previous spending levels [british:debates2024-03-11.txt [62799,66427]].",
+    "time_info": {
+      "query": "What was the specific budget allocated to defence in 2024 in the British Parliament?",
+      "now_iso": "2026-01-04",
+      "mode": "explicit",
+      "ranges": [
+        {
+          "id": "t1",
+          "source": "duckling",
+          "text": "in 2024",
+          "start": "2024-01-01",
+          "end": "2024-12-31",
+          "open_ended": false,
+          "duckling_type": "value",
+          "duckling_grain": "year",
+          "granularity": "year",
+          "kind": "point"
+        }
+      ],
+      "duckling_raw": [
+        {
+          "body": "in 2024",
+          "start": 50,
+          "end": 57,
+          "latent": false,
+          "value": {
+            "values": [
+              {
+                "value": "2024-01-01T00:00:00.000-08:00",
+                "grain": "year",
+                "type": "value"
+              }
+            ],
+            "value": "2024-01-01T00:00:00.000-08:00",
+            "grain": "year",
+            "type": "value"
+          }
+        }
+      ]
+    },
+    "plan": {
+      "strategy": "hard",
+      "start_ts": 1704067200,
+      "end_ts": 1735603200,
+      "ref_ts": 1767484800,
+      "alpha": 0.0,
+      "lam": 0.0,
+      "oversample": 200
+    },
+    "debug": {
+      "candidate_count": 205,
+      "rerank_rows": []
+    },
+    "retrieved_chunk_ids": [
+      "british:debates2024-03-11.txt [62799,66427]",
+      "british:debates2024-11-04.txt [70251,74205]",
+      "british:debates2024-03-25.txt [47348,51114]",
+      "british:debates2024-05-20.txt [14290,18331]",
+      "british:debates2024-04-24.txt [73019,76553]"
+    ],
+    "retrieved_chunk_id_scores": [
+      {
+        "id": "british:debates2024-03-11.txt [62799,66427]",
+        "score": 14.002414640917982
+      },
+      {
+        "id": "british:debates2024-11-04.txt [70251,74205]",
+        "score": 12.48155274699171
+      },
+      {
+        "id": "british:debates2024-03-25.txt [47348,51114]",
+        "score": 12.452499472901499
+      },
+      {
+        "id": "british:debates2024-05-20.txt [14290,18331]",
+        "score": 12.273118250666142
+      },
+      {
+        "id": "british:debates2024-04-24.txt [73019,76553]",
+        "score": 11.748205098552148
+      }
+    ]
+  },
+  {
+    "query_group": "single",
+    "query": "What was the specific budget allocated to defence in 2024 in the British Parliament?",
+    "pipeline": {
+      "chunking": "fixed",
+      "representation": "bm25"
+    },
+    "k": 10,
+    "retrieval_mode": "timeaware",
+    "timeaware": true,
+    "references": [
+      {
+        "corpus": "british",
+        "file_name": "debates2024-03-11.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-03-11.txt",
+        "start_char": 62799,
+        "end_char": 66427,
+        "chunk_index": 18,
+        "doc_date_iso": "2024-03-11",
+        "doc_timestamp": 1710115200
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-11-04.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-11-04.txt",
+        "start_char": 70251,
+        "end_char": 74205,
+        "chunk_index": 20,
+        "doc_date_iso": "2024-11-04",
+        "doc_timestamp": 1730678400
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-03-25.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-03-25.txt",
+        "start_char": 47348,
+        "end_char": 51114,
+        "chunk_index": 14,
+        "doc_date_iso": "2024-03-25",
+        "doc_timestamp": 1711324800
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-05-20.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-05-20.txt",
+        "start_char": 14290,
+        "end_char": 18331,
+        "chunk_index": 4,
+        "doc_date_iso": "2024-05-20",
+        "doc_timestamp": 1716163200
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-04-24.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-04-24.txt",
+        "start_char": 73019,
+        "end_char": 76553,
+        "chunk_index": 21,
+        "doc_date_iso": "2024-04-24",
+        "doc_timestamp": 1713916800
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-05-09.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-05-09.txt",
+        "start_char": 17121,
+        "end_char": 21047,
+        "chunk_index": 5,
+        "doc_date_iso": "2024-05-09",
+        "doc_timestamp": 1715212800
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-03-21.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-03-21.txt",
+        "start_char": 9956,
+        "end_char": 13836,
+        "chunk_index": 3,
+        "doc_date_iso": "2024-03-21",
+        "doc_timestamp": 1710979200
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-03-11.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-03-11.txt",
+        "start_char": 79767,
+        "end_char": 83615,
+        "chunk_index": 23,
+        "doc_date_iso": "2024-03-11",
+        "doc_timestamp": 1710115200
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-12-03.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-12-03.txt",
+        "start_char": 0,
+        "end_char": 4061,
+        "chunk_index": 0,
+        "doc_date_iso": "2024-12-03",
+        "doc_timestamp": 1733184000
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-04-24.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-04-24.txt",
+        "start_char": 82402,
+        "end_char": 85911,
+        "chunk_index": 24,
+        "doc_date_iso": "2024-04-24",
+        "doc_timestamp": 1713916800
+      }
+    ],
+    "answer": "The specific budget allocated to defence in 2024 in the British Parliament is expected to amount to £55.6 billion, which is about 2.3% of GDP. This represents a 1.8% increase in real terms compared to the previous year. However, it was noted that the defence budget will be cut by £2.5 billion in cash terms in the next financial year, and the Defence Secretary had previously called for an increase to 2.5% of GDP, which was not reflected in the Budget [british:debates2024-03-11.txt [62799,66427]].",
+    "time_info": {
+      "query": "What was the specific budget allocated to defence in 2024 in the British Parliament?",
+      "now_iso": "2026-01-04",
+      "mode": "explicit",
+      "ranges": [
+        {
+          "id": "t1",
+          "source": "duckling",
+          "text": "in 2024",
+          "start": "2024-01-01",
+          "end": "2024-12-31",
+          "open_ended": false,
+          "duckling_type": "value",
+          "duckling_grain": "year",
+          "granularity": "year",
+          "kind": "point"
+        }
+      ],
+      "duckling_raw": [
+        {
+          "body": "in 2024",
+          "start": 50,
+          "end": 57,
+          "latent": false,
+          "value": {
+            "values": [
+              {
+                "value": "2024-01-01T00:00:00.000-08:00",
+                "grain": "year",
+                "type": "value"
+              }
+            ],
+            "value": "2024-01-01T00:00:00.000-08:00",
+            "grain": "year",
+            "type": "value"
+          }
+        }
+      ]
+    },
+    "plan": {
+      "strategy": "hard",
+      "start_ts": 1704067200,
+      "end_ts": 1735603200,
+      "ref_ts": 1767484800,
+      "alpha": 0.0,
+      "lam": 0.0,
+      "oversample": 200
+    },
+    "debug": {
+      "candidate_count": 210,
+      "rerank_rows": []
+    },
+    "retrieved_chunk_ids": [
+      "british:debates2024-03-11.txt [62799,66427]",
+      "british:debates2024-11-04.txt [70251,74205]",
+      "british:debates2024-03-25.txt [47348,51114]",
+      "british:debates2024-05-20.txt [14290,18331]",
+      "british:debates2024-04-24.txt [73019,76553]",
+      "british:debates2024-05-09.txt [17121,21047]",
+      "british:debates2024-03-21.txt [9956,13836]",
+      "british:debates2024-03-11.txt [79767,83615]",
+      "british:debates2024-12-03.txt [0,4061]",
+      "british:debates2024-04-24.txt [82402,85911]"
+    ],
+    "retrieved_chunk_id_scores": [
+      {
+        "id": "british:debates2024-03-11.txt [62799,66427]",
+        "score": 14.002414640917982
+      },
+      {
+        "id": "british:debates2024-11-04.txt [70251,74205]",
+        "score": 12.48155274699171
+      },
+      {
+        "id": "british:debates2024-03-25.txt [47348,51114]",
+        "score": 12.452499472901499
+      },
+      {
+        "id": "british:debates2024-05-20.txt [14290,18331]",
+        "score": 12.273118250666142
+      },
+      {
+        "id": "british:debates2024-04-24.txt [73019,76553]",
+        "score": 11.748205098552148
+      },
+      {
+        "id": "british:debates2024-05-09.txt [17121,21047]",
+        "score": 11.640937434837358
+      },
+      {
+        "id": "british:debates2024-03-21.txt [9956,13836]",
+        "score": 11.589746288106294
+      },
+      {
+        "id": "british:debates2024-03-11.txt [79767,83615]",
+        "score": 11.33079913061777
+      },
+      {
+        "id": "british:debates2024-12-03.txt [0,4061]",
+        "score": 11.071687735831897
+      },
+      {
+        "id": "british:debates2024-04-24.txt [82402,85911]",
+        "score": 11.00358836597825
+      }
+    ]
+  },
+  {
+    "query_group": "single",
+    "query": "What was the specific budget allocated to defence in 2024 in the British Parliament?",
+    "pipeline": {
+      "chunking": "semantic",
+      "representation": "bm25"
+    },
+    "k": 3,
+    "retrieval_mode": "timeaware",
+    "timeaware": true,
+    "references": [
+      {
+        "corpus": "british",
+        "file_name": "debates2024-03-11.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-03-11.txt",
+        "start_char": 62998,
+        "end_char": 63644,
+        "chunk_index": 136,
+        "doc_date_iso": "2024-03-11",
+        "doc_timestamp": 1710115200
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-05-20.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-05-20.txt",
+        "start_char": 14993,
+        "end_char": 15492,
+        "chunk_index": 34,
+        "doc_date_iso": "2024-05-20",
+        "doc_timestamp": 1716163200
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-01-22.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-01-22.txt",
+        "start_char": 295,
+        "end_char": 757,
+        "chunk_index": 1,
+        "doc_date_iso": "2024-01-22",
+        "doc_timestamp": 1705881600
+      }
+    ],
+    "answer": "I don't know based on the retrieved chunks.",
+    "time_info": {
+      "query": "What was the specific budget allocated to defence in 2024 in the British Parliament?",
+      "now_iso": "2026-01-04",
+      "mode": "explicit",
+      "ranges": [
+        {
+          "id": "t1",
+          "source": "duckling",
+          "text": "in 2024",
+          "start": "2024-01-01",
+          "end": "2024-12-31",
+          "open_ended": false,
+          "duckling_type": "value",
+          "duckling_grain": "year",
+          "granularity": "year",
+          "kind": "point"
+        }
+      ],
+      "duckling_raw": [
+        {
+          "body": "in 2024",
+          "start": 50,
+          "end": 57,
+          "latent": false,
+          "value": {
+            "values": [
+              {
+                "value": "2024-01-01T00:00:00.000-08:00",
+                "grain": "year",
+                "type": "value"
+              }
+            ],
+            "value": "2024-01-01T00:00:00.000-08:00",
+            "grain": "year",
+            "type": "value"
+          }
+        }
+      ]
+    },
+    "plan": {
+      "strategy": "hard",
+      "start_ts": 1704067200,
+      "end_ts": 1735603200,
+      "ref_ts": 1767484800,
+      "alpha": 0.0,
+      "lam": 0.0,
+      "oversample": 200
+    },
+    "debug": {
+      "candidate_count": 203,
+      "rerank_rows": []
+    },
+    "retrieved_chunk_ids": [
+      "british:debates2024-03-11.txt [62998,63644]",
+      "british:debates2024-05-20.txt [14993,15492]",
+      "british:debates2024-01-22.txt [295,757]"
+    ],
+    "retrieved_chunk_id_scores": [
+      {
+        "id": "british:debates2024-03-11.txt [62998,63644]",
+        "score": 17.810663029966115
+      },
+      {
+        "id": "british:debates2024-05-20.txt [14993,15492]",
+        "score": 14.651906248934045
+      },
+      {
+        "id": "british:debates2024-01-22.txt [295,757]",
+        "score": 13.524515684870178
+      }
+    ]
+  },
+  {
+    "query_group": "single",
+    "query": "What was the specific budget allocated to defence in 2024 in the British Parliament?",
+    "pipeline": {
+      "chunking": "semantic",
+      "representation": "bm25"
+    },
+    "k": 5,
+    "retrieval_mode": "timeaware",
+    "timeaware": true,
+    "references": [
+      {
+        "corpus": "british",
+        "file_name": "debates2024-03-11.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-03-11.txt",
+        "start_char": 62998,
+        "end_char": 63644,
+        "chunk_index": 136,
+        "doc_date_iso": "2024-03-11",
+        "doc_timestamp": 1710115200
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-05-20.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-05-20.txt",
+        "start_char": 14993,
+        "end_char": 15492,
+        "chunk_index": 34,
+        "doc_date_iso": "2024-05-20",
+        "doc_timestamp": 1716163200
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-01-22.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-01-22.txt",
+        "start_char": 295,
+        "end_char": 757,
+        "chunk_index": 1,
+        "doc_date_iso": "2024-01-22",
+        "doc_timestamp": 1705881600
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-01-22.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-01-22.txt",
+        "start_char": 68491,
+        "end_char": 68977,
+        "chunk_index": 144,
+        "doc_date_iso": "2024-01-22",
+        "doc_timestamp": 1705881600
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-01-10.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-01-10.txt",
+        "start_char": 3421,
+        "end_char": 3857,
+        "chunk_index": 5,
+        "doc_date_iso": "2024-01-10",
+        "doc_timestamp": 1704844800
+      }
+    ],
+    "answer": "I don't know based on the retrieved chunks.",
+    "time_info": {
+      "query": "What was the specific budget allocated to defence in 2024 in the British Parliament?",
+      "now_iso": "2026-01-04",
+      "mode": "explicit",
+      "ranges": [
+        {
+          "id": "t1",
+          "source": "duckling",
+          "text": "in 2024",
+          "start": "2024-01-01",
+          "end": "2024-12-31",
+          "open_ended": false,
+          "duckling_type": "value",
+          "duckling_grain": "year",
+          "granularity": "year",
+          "kind": "point"
+        }
+      ],
+      "duckling_raw": [
+        {
+          "body": "in 2024",
+          "start": 50,
+          "end": 57,
+          "latent": false,
+          "value": {
+            "values": [
+              {
+                "value": "2024-01-01T00:00:00.000-08:00",
+                "grain": "year",
+                "type": "value"
+              }
+            ],
+            "value": "2024-01-01T00:00:00.000-08:00",
+            "grain": "year",
+            "type": "value"
+          }
+        }
+      ]
+    },
+    "plan": {
+      "strategy": "hard",
+      "start_ts": 1704067200,
+      "end_ts": 1735603200,
+      "ref_ts": 1767484800,
+      "alpha": 0.0,
+      "lam": 0.0,
+      "oversample": 200
+    },
+    "debug": {
+      "candidate_count": 205,
+      "rerank_rows": []
+    },
+    "retrieved_chunk_ids": [
+      "british:debates2024-03-11.txt [62998,63644]",
+      "british:debates2024-05-20.txt [14993,15492]",
+      "british:debates2024-01-22.txt [295,757]",
+      "british:debates2024-01-22.txt [68491,68977]",
+      "british:debates2024-01-10.txt [3421,3857]"
+    ],
+    "retrieved_chunk_id_scores": [
+      {
+        "id": "british:debates2024-03-11.txt [62998,63644]",
+        "score": 17.810663029966115
+      },
+      {
+        "id": "british:debates2024-05-20.txt [14993,15492]",
+        "score": 14.651906248934045
+      },
+      {
+        "id": "british:debates2024-01-22.txt [295,757]",
+        "score": 13.524515684870178
+      },
+      {
+        "id": "british:debates2024-01-22.txt [68491,68977]",
+        "score": 13.524515684870178
+      },
+      {
+        "id": "british:debates2024-01-10.txt [3421,3857]",
+        "score": 12.793078270051062
+      }
+    ]
+  },
+  {
+    "query_group": "single",
+    "query": "What was the specific budget allocated to defence in 2024 in the British Parliament?",
+    "pipeline": {
+      "chunking": "semantic",
+      "representation": "bm25"
+    },
+    "k": 10,
+    "retrieval_mode": "timeaware",
+    "timeaware": true,
+    "references": [
+      {
+        "corpus": "british",
+        "file_name": "debates2024-03-11.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-03-11.txt",
+        "start_char": 62998,
+        "end_char": 63644,
+        "chunk_index": 136,
+        "doc_date_iso": "2024-03-11",
+        "doc_timestamp": 1710115200
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-05-20.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-05-20.txt",
+        "start_char": 14993,
+        "end_char": 15492,
+        "chunk_index": 34,
+        "doc_date_iso": "2024-05-20",
+        "doc_timestamp": 1716163200
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-01-22.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-01-22.txt",
+        "start_char": 295,
+        "end_char": 757,
+        "chunk_index": 1,
+        "doc_date_iso": "2024-01-22",
+        "doc_timestamp": 1705881600
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-01-22.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-01-22.txt",
+        "start_char": 68491,
+        "end_char": 68977,
+        "chunk_index": 144,
+        "doc_date_iso": "2024-01-22",
+        "doc_timestamp": 1705881600
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-01-10.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-01-10.txt",
+        "start_char": 3421,
+        "end_char": 3857,
+        "chunk_index": 5,
+        "doc_date_iso": "2024-01-10",
+        "doc_timestamp": 1704844800
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-01-22.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-01-22.txt",
+        "start_char": 24256,
+        "end_char": 24711,
+        "chunk_index": 52,
+        "doc_date_iso": "2024-01-22",
+        "doc_timestamp": 1705881600
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-12-19.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-12-19.txt",
+        "start_char": 90167,
+        "end_char": 90547,
+        "chunk_index": 195,
+        "doc_date_iso": "2024-12-19",
+        "doc_timestamp": 1734566400
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-05-01.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-05-01.txt",
+        "start_char": 0,
+        "end_char": 357,
+        "chunk_index": 0,
+        "doc_date_iso": "2024-05-01",
+        "doc_timestamp": 1714521600
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-10-14.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-10-14.txt",
+        "start_char": 28754,
+        "end_char": 29135,
+        "chunk_index": 59,
+        "doc_date_iso": "2024-10-14",
+        "doc_timestamp": 1728864000
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-12-11.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-12-11.txt",
+        "start_char": 49310,
+        "end_char": 49632,
+        "chunk_index": 110,
+        "doc_date_iso": "2024-12-11",
+        "doc_timestamp": 1733875200
+      }
+    ],
+    "answer": "The specific budget allocated to defence in 2024 was a £2.9 billion increase in the Ministry of Defence budget, as mentioned in the context [british:debates2024-12-11.txt [49310,49632]].",
+    "time_info": {
+      "query": "What was the specific budget allocated to defence in 2024 in the British Parliament?",
+      "now_iso": "2026-01-04",
+      "mode": "explicit",
+      "ranges": [
+        {
+          "id": "t1",
+          "source": "duckling",
+          "text": "in 2024",
+          "start": "2024-01-01",
+          "end": "2024-12-31",
+          "open_ended": false,
+          "duckling_type": "value",
+          "duckling_grain": "year",
+          "granularity": "year",
+          "kind": "point"
+        }
+      ],
+      "duckling_raw": [
+        {
+          "body": "in 2024",
+          "start": 50,
+          "end": 57,
+          "latent": false,
+          "value": {
+            "values": [
+              {
+                "value": "2024-01-01T00:00:00.000-08:00",
+                "grain": "year",
+                "type": "value"
+              }
+            ],
+            "value": "2024-01-01T00:00:00.000-08:00",
+            "grain": "year",
+            "type": "value"
+          }
+        }
+      ]
+    },
+    "plan": {
+      "strategy": "hard",
+      "start_ts": 1704067200,
+      "end_ts": 1735603200,
+      "ref_ts": 1767484800,
+      "alpha": 0.0,
+      "lam": 0.0,
+      "oversample": 200
+    },
+    "debug": {
+      "candidate_count": 210,
+      "rerank_rows": []
+    },
+    "retrieved_chunk_ids": [
+      "british:debates2024-03-11.txt [62998,63644]",
+      "british:debates2024-05-20.txt [14993,15492]",
+      "british:debates2024-01-22.txt [295,757]",
+      "british:debates2024-01-22.txt [68491,68977]",
+      "british:debates2024-01-10.txt [3421,3857]",
+      "british:debates2024-01-22.txt [24256,24711]",
+      "british:debates2024-12-19.txt [90167,90547]",
+      "british:debates2024-05-01.txt [0,357]",
+      "british:debates2024-10-14.txt [28754,29135]",
+      "british:debates2024-12-11.txt [49310,49632]"
+    ],
+    "retrieved_chunk_id_scores": [
+      {
+        "id": "british:debates2024-03-11.txt [62998,63644]",
+        "score": 17.810663029966115
+      },
+      {
+        "id": "british:debates2024-05-20.txt [14993,15492]",
+        "score": 14.651906248934045
+      },
+      {
+        "id": "british:debates2024-01-22.txt [295,757]",
+        "score": 13.524515684870178
+      },
+      {
+        "id": "british:debates2024-01-22.txt [68491,68977]",
+        "score": 13.524515684870178
+      },
+      {
+        "id": "british:debates2024-01-10.txt [3421,3857]",
+        "score": 12.793078270051062
+      },
+      {
+        "id": "british:debates2024-01-22.txt [24256,24711]",
+        "score": 12.590239289497461
+      },
+      {
+        "id": "british:debates2024-12-19.txt [90167,90547]",
+        "score": 12.345352860971598
+      },
+      {
+        "id": "british:debates2024-05-01.txt [0,357]",
+        "score": 12.194628691706797
+      },
+      {
+        "id": "british:debates2024-10-14.txt [28754,29135]",
+        "score": 11.906614240227047
+      },
+      {
+        "id": "british:debates2024-12-11.txt [49310,49632]",
+        "score": 11.785834498812779
+      }
+    ]
+  },
+  {
+    "query_group": "single",
+    "query": "What was the specific budget allocated to defence in 2024 in the British Parliament?",
+    "pipeline": {
+      "chunking": "fixed",
+      "representation": "dense"
+    },
+    "k": 3,
+    "retrieval_mode": "timeaware",
+    "timeaware": true,
+    "references": [
+      {
+        "corpus": "british",
+        "file_name": "debates2024-04-24.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-04-24.txt",
+        "start_char": 59386,
+        "end_char": 63327,
+        "chunk_index": 17,
+        "doc_date_iso": "2024-04-24",
+        "doc_timestamp": 1713916800
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-04-24.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-04-24.txt",
+        "start_char": 73019,
+        "end_char": 76553,
+        "chunk_index": 21,
+        "doc_date_iso": "2024-04-24",
+        "doc_timestamp": 1713916800
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-03-11.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-03-11.txt",
+        "start_char": 62799,
+        "end_char": 66427,
+        "chunk_index": 18,
+        "doc_date_iso": "2024-03-11",
+        "doc_timestamp": 1710115200
+      }
+    ],
+    "answer": "The specific budget allocated to defence in 2024 in the British Parliament is expected to amount to £55.6 billion, which is about 2.3% of GDP. This represents a 1.8% increase in real terms compared to previous spending levels [british:debates2024-03-11.txt [62799,66427]].",
+    "time_info": {
+      "query": "What was the specific budget allocated to defence in 2024 in the British Parliament?",
+      "now_iso": "2026-01-04",
+      "mode": "explicit",
+      "ranges": [
+        {
+          "id": "t1",
+          "source": "duckling",
+          "text": "in 2024",
+          "start": "2024-01-01",
+          "end": "2024-12-31",
+          "open_ended": false,
+          "duckling_type": "value",
+          "duckling_grain": "year",
+          "granularity": "year",
+          "kind": "point"
+        }
+      ],
+      "duckling_raw": [
+        {
+          "body": "in 2024",
+          "start": 50,
+          "end": 57,
+          "latent": false,
+          "value": {
+            "values": [
+              {
+                "value": "2024-01-01T00:00:00.000-08:00",
+                "grain": "year",
+                "type": "value"
+              }
+            ],
+            "value": "2024-01-01T00:00:00.000-08:00",
+            "grain": "year",
+            "type": "value"
+          }
+        }
+      ]
+    },
+    "plan": {
+      "strategy": "hard",
+      "start_ts": 1704067200,
+      "end_ts": 1735603200,
+      "ref_ts": 1767484800,
+      "alpha": 0.0,
+      "lam": 0.0,
+      "oversample": 200
+    },
+    "debug": {
+      "candidate_count": 203,
+      "rerank_rows": []
+    },
+    "retrieved_chunk_ids": [
+      "british:debates2024-04-24.txt [59386,63327]",
+      "british:debates2024-04-24.txt [73019,76553]",
+      "british:debates2024-03-11.txt [62799,66427]"
+    ],
+    "retrieved_chunk_id_scores": [
+      {
+        "id": "british:debates2024-04-24.txt [59386,63327]",
+        "score": 0.548800751517295
+      },
+      {
+        "id": "british:debates2024-04-24.txt [73019,76553]",
+        "score": 0.5434187162695726
+      },
+      {
+        "id": "british:debates2024-03-11.txt [62799,66427]",
+        "score": 0.5432472439308031
+      }
+    ]
+  },
+  {
+    "query_group": "single",
+    "query": "What was the specific budget allocated to defence in 2024 in the British Parliament?",
+    "pipeline": {
+      "chunking": "fixed",
+      "representation": "dense"
+    },
+    "k": 5,
+    "retrieval_mode": "timeaware",
+    "timeaware": true,
+    "references": [
+      {
+        "corpus": "british",
+        "file_name": "debates2024-04-24.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-04-24.txt",
+        "start_char": 59386,
+        "end_char": 63327,
+        "chunk_index": 17,
+        "doc_date_iso": "2024-04-24",
+        "doc_timestamp": 1713916800
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-04-24.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-04-24.txt",
+        "start_char": 73019,
+        "end_char": 76553,
+        "chunk_index": 21,
+        "doc_date_iso": "2024-04-24",
+        "doc_timestamp": 1713916800
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-03-11.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-03-11.txt",
+        "start_char": 62799,
+        "end_char": 66427,
+        "chunk_index": 18,
+        "doc_date_iso": "2024-03-11",
+        "doc_timestamp": 1710115200
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-03-11.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-03-11.txt",
+        "start_char": 76376,
+        "end_char": 80089,
+        "chunk_index": 22,
+        "doc_date_iso": "2024-03-11",
+        "doc_timestamp": 1710115200
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-04-24.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-04-24.txt",
+        "start_char": 91922,
+        "end_char": 94491,
+        "chunk_index": 27,
+        "doc_date_iso": "2024-04-24",
+        "doc_timestamp": 1713916800
+      }
+    ],
+    "answer": "The specific budget allocated to defence in 2024 in the British Parliament is expected to be around £55.6 billion, which amounts to approximately 2.3% of GDP. This represents a 1.8% increase in real terms compared to the previous year [british:debates2024-03-11.txt [76376,80089]].",
+    "time_info": {
+      "query": "What was the specific budget allocated to defence in 2024 in the British Parliament?",
+      "now_iso": "2026-01-04",
+      "mode": "explicit",
+      "ranges": [
+        {
+          "id": "t1",
+          "source": "duckling",
+          "text": "in 2024",
+          "start": "2024-01-01",
+          "end": "2024-12-31",
+          "open_ended": false,
+          "duckling_type": "value",
+          "duckling_grain": "year",
+          "granularity": "year",
+          "kind": "point"
+        }
+      ],
+      "duckling_raw": [
+        {
+          "body": "in 2024",
+          "start": 50,
+          "end": 57,
+          "latent": false,
+          "value": {
+            "values": [
+              {
+                "value": "2024-01-01T00:00:00.000-08:00",
+                "grain": "year",
+                "type": "value"
+              }
+            ],
+            "value": "2024-01-01T00:00:00.000-08:00",
+            "grain": "year",
+            "type": "value"
+          }
+        }
+      ]
+    },
+    "plan": {
+      "strategy": "hard",
+      "start_ts": 1704067200,
+      "end_ts": 1735603200,
+      "ref_ts": 1767484800,
+      "alpha": 0.0,
+      "lam": 0.0,
+      "oversample": 200
+    },
+    "debug": {
+      "candidate_count": 205,
+      "rerank_rows": []
+    },
+    "retrieved_chunk_ids": [
+      "british:debates2024-04-24.txt [59386,63327]",
+      "british:debates2024-04-24.txt [73019,76553]",
+      "british:debates2024-03-11.txt [62799,66427]",
+      "british:debates2024-03-11.txt [76376,80089]",
+      "british:debates2024-04-24.txt [91922,94491]"
+    ],
+    "retrieved_chunk_id_scores": [
+      {
+        "id": "british:debates2024-04-24.txt [59386,63327]",
+        "score": 0.548787754677074
+      },
+      {
+        "id": "british:debates2024-04-24.txt [73019,76553]",
+        "score": 0.5434155128183452
+      },
+      {
+        "id": "british:debates2024-03-11.txt [62799,66427]",
+        "score": 0.543214686092847
+      },
+      {
+        "id": "british:debates2024-03-11.txt [76376,80089]",
+        "score": 0.5368854293820104
+      },
+      {
+        "id": "british:debates2024-04-24.txt [91922,94491]",
+        "score": 0.531947225503055
+      }
+    ]
+  },
+  {
+    "query_group": "single",
+    "query": "What was the specific budget allocated to defence in 2024 in the British Parliament?",
+    "pipeline": {
+      "chunking": "fixed",
+      "representation": "dense"
+    },
+    "k": 10,
+    "retrieval_mode": "timeaware",
+    "timeaware": true,
+    "references": [
+      {
+        "corpus": "british",
+        "file_name": "debates2024-04-24.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-04-24.txt",
+        "start_char": 59386,
+        "end_char": 63327,
+        "chunk_index": 17,
+        "doc_date_iso": "2024-04-24",
+        "doc_timestamp": 1713916800
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-04-24.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-04-24.txt",
+        "start_char": 73019,
+        "end_char": 76553,
+        "chunk_index": 21,
+        "doc_date_iso": "2024-04-24",
+        "doc_timestamp": 1713916800
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-03-11.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-03-11.txt",
+        "start_char": 62799,
+        "end_char": 66427,
+        "chunk_index": 18,
+        "doc_date_iso": "2024-03-11",
+        "doc_timestamp": 1710115200
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-03-11.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-03-11.txt",
+        "start_char": 76376,
+        "end_char": 80089,
+        "chunk_index": 22,
+        "doc_date_iso": "2024-03-11",
+        "doc_timestamp": 1710115200
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-04-24.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-04-24.txt",
+        "start_char": 91922,
+        "end_char": 94491,
+        "chunk_index": 27,
+        "doc_date_iso": "2024-04-24",
+        "doc_timestamp": 1713916800
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-05-07.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-05-07.txt",
+        "start_char": 7004,
+        "end_char": 10757,
+        "chunk_index": 2,
+        "doc_date_iso": "2024-05-07",
+        "doc_timestamp": 1715040000
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-04-24.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-04-24.txt",
+        "start_char": 88890,
+        "end_char": 92374,
+        "chunk_index": 26,
+        "doc_date_iso": "2024-04-24",
+        "doc_timestamp": 1713916800
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-04-24.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-04-24.txt",
+        "start_char": 66435,
+        "end_char": 70242,
+        "chunk_index": 19,
+        "doc_date_iso": "2024-04-24",
+        "doc_timestamp": 1713916800
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-04-24.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-04-24.txt",
+        "start_char": 62906,
+        "end_char": 66795,
+        "chunk_index": 18,
+        "doc_date_iso": "2024-04-24",
+        "doc_timestamp": 1713916800
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-04-24.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-04-24.txt",
+        "start_char": 76140,
+        "end_char": 79782,
+        "chunk_index": 22,
+        "doc_date_iso": "2024-04-24",
+        "doc_timestamp": 1713916800
+      }
+    ],
+    "answer": "The specific budget allocated to defence in 2024 in the British Parliament is approximately £55.6 billion, which is about 2.3% of GDP. This represents a 1.8% increase in real terms compared to previous spending levels. However, the government has committed to increasing defence spending to 2.5% of GDP by 2030, which will involve an additional £75 billion over the next six years [british:debates2024-03-11.txt [76376,80089]; british:debates2024-04-24.txt [59386,63327]].",
+    "time_info": {
+      "query": "What was the specific budget allocated to defence in 2024 in the British Parliament?",
+      "now_iso": "2026-01-04",
+      "mode": "explicit",
+      "ranges": [
+        {
+          "id": "t1",
+          "source": "duckling",
+          "text": "in 2024",
+          "start": "2024-01-01",
+          "end": "2024-12-31",
+          "open_ended": false,
+          "duckling_type": "value",
+          "duckling_grain": "year",
+          "granularity": "year",
+          "kind": "point"
+        }
+      ],
+      "duckling_raw": [
+        {
+          "body": "in 2024",
+          "start": 50,
+          "end": 57,
+          "latent": false,
+          "value": {
+            "values": [
+              {
+                "value": "2024-01-01T00:00:00.000-08:00",
+                "grain": "year",
+                "type": "value"
+              }
+            ],
+            "value": "2024-01-01T00:00:00.000-08:00",
+            "grain": "year",
+            "type": "value"
+          }
+        }
+      ]
+    },
+    "plan": {
+      "strategy": "hard",
+      "start_ts": 1704067200,
+      "end_ts": 1735603200,
+      "ref_ts": 1767484800,
+      "alpha": 0.0,
+      "lam": 0.0,
+      "oversample": 200
+    },
+    "debug": {
+      "candidate_count": 210,
+      "rerank_rows": []
+    },
+    "retrieved_chunk_ids": [
+      "british:debates2024-04-24.txt [59386,63327]",
+      "british:debates2024-04-24.txt [73019,76553]",
+      "british:debates2024-03-11.txt [62799,66427]",
+      "british:debates2024-03-11.txt [76376,80089]",
+      "british:debates2024-04-24.txt [91922,94491]",
+      "british:debates2024-05-07.txt [7004,10757]",
+      "british:debates2024-04-24.txt [88890,92374]",
+      "british:debates2024-04-24.txt [66435,70242]",
+      "british:debates2024-04-24.txt [62906,66795]",
+      "british:debates2024-04-24.txt [76140,79782]"
+    ],
+    "retrieved_chunk_id_scores": [
+      {
+        "id": "british:debates2024-04-24.txt [59386,63327]",
+        "score": 0.5487834644188325
+      },
+      {
+        "id": "british:debates2024-04-24.txt [73019,76553]",
+        "score": 0.5433868594509457
+      },
+      {
+        "id": "british:debates2024-03-11.txt [62799,66427]",
+        "score": 0.5432011434630241
+      },
+      {
+        "id": "british:debates2024-03-11.txt [76376,80089]",
+        "score": 0.5368735405328544
+      },
+      {
+        "id": "british:debates2024-04-24.txt [91922,94491]",
+        "score": 0.5319368867244885
+      },
+      {
+        "id": "british:debates2024-05-07.txt [7004,10757]",
+        "score": 0.530792245236844
+      },
+      {
+        "id": "british:debates2024-04-24.txt [88890,92374]",
+        "score": 0.5293688992376612
+      },
+      {
+        "id": "british:debates2024-04-24.txt [66435,70242]",
+        "score": 0.5281167141483973
+      },
+      {
+        "id": "british:debates2024-04-24.txt [62906,66795]",
+        "score": 0.5255814559631252
+      },
+      {
+        "id": "british:debates2024-04-24.txt [76140,79782]",
+        "score": 0.5224513223761865
+      }
+    ]
+  },
+  {
+    "query_group": "single",
+    "query": "What was the specific budget allocated to defence in 2024 in the British Parliament?",
+    "pipeline": {
+      "chunking": "semantic",
+      "representation": "dense"
+    },
+    "k": 3,
+    "retrieval_mode": "timeaware",
+    "timeaware": true,
+    "references": [
+      {
+        "corpus": "british",
+        "file_name": "debates2024-10-30.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-10-30.txt",
+        "start_char": 91142,
+        "end_char": 91786,
+        "chunk_index": 186,
+        "doc_date_iso": "2024-10-30",
+        "doc_timestamp": 1730246400
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-03-11.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-03-11.txt",
+        "start_char": 80775,
+        "end_char": 81328,
+        "chunk_index": 174,
+        "doc_date_iso": "2024-03-11",
+        "doc_timestamp": 1710115200
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-04-24.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-04-24.txt",
+        "start_char": 59766,
+        "end_char": 60398,
+        "chunk_index": 132,
+        "doc_date_iso": "2024-04-24",
+        "doc_timestamp": 1713916800
+      }
+    ],
+    "answer": "The specific budget allocated to defence in 2024 in the British Parliament is a total increase in the Ministry of Defence’s budget of £2.9 billion, ensuring that the UK exceeds its NATO commitments and providing guaranteed military support to Ukraine of £3 billion per year for as long as it takes [91142,91786].",
+    "time_info": {
+      "query": "What was the specific budget allocated to defence in 2024 in the British Parliament?",
+      "now_iso": "2026-01-04",
+      "mode": "explicit",
+      "ranges": [
+        {
+          "id": "t1",
+          "source": "duckling",
+          "text": "in 2024",
+          "start": "2024-01-01",
+          "end": "2024-12-31",
+          "open_ended": false,
+          "duckling_type": "value",
+          "duckling_grain": "year",
+          "granularity": "year",
+          "kind": "point"
+        }
+      ],
+      "duckling_raw": [
+        {
+          "body": "in 2024",
+          "start": 50,
+          "end": 57,
+          "latent": false,
+          "value": {
+            "values": [
+              {
+                "value": "2024-01-01T00:00:00.000-08:00",
+                "grain": "year",
+                "type": "value"
+              }
+            ],
+            "value": "2024-01-01T00:00:00.000-08:00",
+            "grain": "year",
+            "type": "value"
+          }
+        }
+      ]
+    },
+    "plan": {
+      "strategy": "hard",
+      "start_ts": 1704067200,
+      "end_ts": 1735603200,
+      "ref_ts": 1767484800,
+      "alpha": 0.0,
+      "lam": 0.0,
+      "oversample": 200
+    },
+    "debug": {
+      "candidate_count": 203,
+      "rerank_rows": []
+    },
+    "retrieved_chunk_ids": [
+      "british:debates2024-10-30.txt [91142,91786]",
+      "british:debates2024-03-11.txt [80775,81328]",
+      "british:debates2024-04-24.txt [59766,60398]"
+    ],
+    "retrieved_chunk_id_scores": [
+      {
+        "id": "british:debates2024-10-30.txt [91142,91786]",
+        "score": 0.5653830812816093
+      },
+      {
+        "id": "british:debates2024-03-11.txt [80775,81328]",
+        "score": 0.559527813563744
+      },
+      {
+        "id": "british:debates2024-04-24.txt [59766,60398]",
+        "score": 0.5557053397206551
+      }
+    ]
+  },
+  {
+    "query_group": "single",
+    "query": "What was the specific budget allocated to defence in 2024 in the British Parliament?",
+    "pipeline": {
+      "chunking": "semantic",
+      "representation": "dense"
+    },
+    "k": 5,
+    "retrieval_mode": "timeaware",
+    "timeaware": true,
+    "references": [
+      {
+        "corpus": "british",
+        "file_name": "debates2024-10-30.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-10-30.txt",
+        "start_char": 91142,
+        "end_char": 91786,
+        "chunk_index": 186,
+        "doc_date_iso": "2024-10-30",
+        "doc_timestamp": 1730246400
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-03-11.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-03-11.txt",
+        "start_char": 80775,
+        "end_char": 81328,
+        "chunk_index": 174,
+        "doc_date_iso": "2024-03-11",
+        "doc_timestamp": 1710115200
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-04-24.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-04-24.txt",
+        "start_char": 59766,
+        "end_char": 60398,
+        "chunk_index": 132,
+        "doc_date_iso": "2024-04-24",
+        "doc_timestamp": 1713916800
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-03-11.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-03-11.txt",
+        "start_char": 61203,
+        "end_char": 61667,
+        "chunk_index": 133,
+        "doc_date_iso": "2024-03-11",
+        "doc_timestamp": 1710115200
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-12-11.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-12-11.txt",
+        "start_char": 49310,
+        "end_char": 49632,
+        "chunk_index": 110,
+        "doc_date_iso": "2024-12-11",
+        "doc_timestamp": 1733875200
+      }
+    ],
+    "answer": "The specific budget allocated to defence in 2024 in the British Parliament includes a total increase in the Ministry of Defence’s budget of £2.9 billion, ensuring that the UK exceeds its NATO commitments. Additionally, there is a commitment to provide guaranteed military support to Ukraine of £3 billion per year for as long as it takes [91142,91786].",
+    "time_info": {
+      "query": "What was the specific budget allocated to defence in 2024 in the British Parliament?",
+      "now_iso": "2026-01-04",
+      "mode": "explicit",
+      "ranges": [
+        {
+          "id": "t1",
+          "source": "duckling",
+          "text": "in 2024",
+          "start": "2024-01-01",
+          "end": "2024-12-31",
+          "open_ended": false,
+          "duckling_type": "value",
+          "duckling_grain": "year",
+          "granularity": "year",
+          "kind": "point"
+        }
+      ],
+      "duckling_raw": [
+        {
+          "body": "in 2024",
+          "start": 50,
+          "end": 57,
+          "latent": false,
+          "value": {
+            "values": [
+              {
+                "value": "2024-01-01T00:00:00.000-08:00",
+                "grain": "year",
+                "type": "value"
+              }
+            ],
+            "value": "2024-01-01T00:00:00.000-08:00",
+            "grain": "year",
+            "type": "value"
+          }
+        }
+      ]
+    },
+    "plan": {
+      "strategy": "hard",
+      "start_ts": 1704067200,
+      "end_ts": 1735603200,
+      "ref_ts": 1767484800,
+      "alpha": 0.0,
+      "lam": 0.0,
+      "oversample": 200
+    },
+    "debug": {
+      "candidate_count": 205,
+      "rerank_rows": []
+    },
+    "retrieved_chunk_ids": [
+      "british:debates2024-10-30.txt [91142,91786]",
+      "british:debates2024-03-11.txt [80775,81328]",
+      "british:debates2024-04-24.txt [59766,60398]",
+      "british:debates2024-03-11.txt [61203,61667]",
+      "british:debates2024-12-11.txt [49310,49632]"
+    ],
+    "retrieved_chunk_id_scores": [
+      {
+        "id": "british:debates2024-10-30.txt [91142,91786]",
+        "score": 0.5653830812816093
+      },
+      {
+        "id": "british:debates2024-03-11.txt [80775,81328]",
+        "score": 0.559527813563744
+      },
+      {
+        "id": "british:debates2024-04-24.txt [59766,60398]",
+        "score": 0.5557053397206551
+      },
+      {
+        "id": "british:debates2024-03-11.txt [61203,61667]",
+        "score": 0.5555003862659637
+      },
+      {
+        "id": "british:debates2024-12-11.txt [49310,49632]",
+        "score": 0.5532865795648638
+      }
+    ]
+  },
+  {
+    "query_group": "single",
+    "query": "What was the specific budget allocated to defence in 2024 in the British Parliament?",
+    "pipeline": {
+      "chunking": "semantic",
+      "representation": "dense"
+    },
+    "k": 10,
+    "retrieval_mode": "timeaware",
+    "timeaware": true,
+    "references": [
+      {
+        "corpus": "british",
+        "file_name": "debates2024-10-30.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-10-30.txt",
+        "start_char": 91142,
+        "end_char": 91786,
+        "chunk_index": 186,
+        "doc_date_iso": "2024-10-30",
+        "doc_timestamp": 1730246400
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-03-11.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-03-11.txt",
+        "start_char": 80775,
+        "end_char": 81328,
+        "chunk_index": 174,
+        "doc_date_iso": "2024-03-11",
+        "doc_timestamp": 1710115200
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-04-24.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-04-24.txt",
+        "start_char": 59766,
+        "end_char": 60398,
+        "chunk_index": 132,
+        "doc_date_iso": "2024-04-24",
+        "doc_timestamp": 1713916800
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-03-11.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-03-11.txt",
+        "start_char": 61203,
+        "end_char": 61667,
+        "chunk_index": 133,
+        "doc_date_iso": "2024-03-11",
+        "doc_timestamp": 1710115200
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-12-11.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-12-11.txt",
+        "start_char": 49310,
+        "end_char": 49632,
+        "chunk_index": 110,
+        "doc_date_iso": "2024-12-11",
+        "doc_timestamp": 1733875200
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-11-18.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-11-18.txt",
+        "start_char": 9225,
+        "end_char": 9837,
+        "chunk_index": 18,
+        "doc_date_iso": "2024-11-18",
+        "doc_timestamp": 1731888000
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-04-25.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-04-25.txt",
+        "start_char": 10102,
+        "end_char": 10600,
+        "chunk_index": 16,
+        "doc_date_iso": "2024-04-25",
+        "doc_timestamp": 1714003200
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-11-11.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-11-11.txt",
+        "start_char": 81204,
+        "end_char": 81732,
+        "chunk_index": 161,
+        "doc_date_iso": "2024-11-11",
+        "doc_timestamp": 1731283200
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-03-11.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-03-11.txt",
+        "start_char": 63645,
+        "end_char": 64180,
+        "chunk_index": 137,
+        "doc_date_iso": "2024-03-11",
+        "doc_timestamp": 1710115200
+      },
+      {
+        "corpus": "british",
+        "file_name": "debates2024-04-29.txt",
+        "source_path": "C:\\Users\\USER\\Desktop\\IR\\IR2026\\excercise2\\data\\british_parliament_debates\\debates2024-04-29.txt",
+        "start_char": 71779,
+        "end_char": 72266,
+        "chunk_index": 143,
+        "doc_date_iso": "2024-04-29",
+        "doc_timestamp": 1714348800
+      }
+    ],
+    "answer": "The specific budget allocated to defence in 2024 in the British Parliament includes a total increase in the Ministry of Defence’s budget of £2.9 billion for that year, ensuring that the UK exceeds its NATO commitments. Additionally, there is a commitment to provide guaranteed military support to Ukraine of £3 billion per year for as long as necessary [91142,91786].",
+    "time_info": {
+      "query": "What was the specific budget allocated to defence in 2024 in the British Parliament?",
+      "now_iso": "2026-01-04",
+      "mode": "explicit",
+      "ranges": [
+        {
+          "id": "t1",
+          "source": "duckling",
+          "text": "in 2024",
+          "start": "2024-01-01",
+          "end": "2024-12-31",
+          "open_ended": false,
+          "duckling_type": "value",
+          "duckling_grain": "year",
+          "granularity": "year",
+          "kind": "point"
+        }
+      ],
+      "duckling_raw": [
+        {
+          "body": "in 2024",
+          "start": 50,
+          "end": 57,
+          "latent": false,
+          "value": {
+            "values": [
+              {
+                "value": "2024-01-01T00:00:00.000-08:00",
+                "grain": "year",
+                "type": "value"
+              }
+            ],
+            "value": "2024-01-01T00:00:00.000-08:00",
+            "grain": "year",
+            "type": "value"
+          }
+        }
+      ]
+    },
+    "plan": {
+      "strategy": "hard",
+      "start_ts": 1704067200,
+      "end_ts": 1735603200,
+      "ref_ts": 1767484800,
+      "alpha": 0.0,
+      "lam": 0.0,
+      "oversample": 200
+    },
+    "debug": {
+      "candidate_count": 210,
+      "rerank_rows": []
+    },
+    "retrieved_chunk_ids": [
+      "british:debates2024-10-30.txt [91142,91786]",
+      "british:debates2024-03-11.txt [80775,81328]",
+      "british:debates2024-04-24.txt [59766,60398]",
+      "british:debates2024-03-11.txt [61203,61667]",
+      "british:debates2024-12-11.txt [49310,49632]",
+      "british:debates2024-11-18.txt [9225,9837]",
+      "british:debates2024-04-25.txt [10102,10600]",
+      "british:debates2024-11-11.txt [81204,81732]",
+      "british:debates2024-03-11.txt [63645,64180]",
+      "british:debates2024-04-29.txt [71779,72266]"
+    ],
+    "retrieved_chunk_id_scores": [
+      {
+        "id": "british:debates2024-10-30.txt [91142,91786]",
+        "score": 0.5653830812816093
+      },
+      {
+        "id": "british:debates2024-03-11.txt [80775,81328]",
+        "score": 0.559527813563744
+      },
+      {
+        "id": "british:debates2024-04-24.txt [59766,60398]",
+        "score": 0.5557053397206551
+      },
+      {
+        "id": "british:debates2024-03-11.txt [61203,61667]",
+        "score": 0.5555003862659637
+      },
+      {
+        "id": "british:debates2024-12-11.txt [49310,49632]",
+        "score": 0.5532865795648638
+      },
+      {
+        "id": "british:debates2024-11-18.txt [9225,9837]",
+        "score": 0.5521324537415254
+      },
+      {
+        "id": "british:debates2024-04-25.txt [10102,10600]",
+        "score": 0.5440677531883348
+      },
+      {
+        "id": "british:debates2024-11-11.txt [81204,81732]",
+        "score": 0.5437562053753419
+      },
+      {
+        "id": "british:debates2024-03-11.txt [63645,64180]",
+        "score": 0.5396892816843262
+      },
+      {
+        "id": "british:debates2024-04-29.txt [71779,72266]",
+        "score": 0.5389318910262073
+      }
+    ]
+  }
+]
