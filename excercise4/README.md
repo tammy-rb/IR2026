@@ -928,5 +928,3 @@ The following examples demonstrate specific temporal corrections on individual q
 
 
 
-
-

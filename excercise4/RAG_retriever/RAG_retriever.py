@@ -23,6 +23,15 @@ from .temporal_policy import RetrievalPlan, build_retrieval_plan
 
 from .temporal.hard_filter import hard_filter
 from .temporal.soft_decay import soft_decay_rerank
+from .temporal.evolution import retrieve_evolution_windows, has_sufficient_results
+
+# Import temporal utility functions
+from .temporal_utils import (
+    compute_corpus_bounds,
+    months_to_seconds,
+    ts_to_iso,
+    format_evolution_context,
+)
 
 load_dotenv()
 
@@ -65,9 +74,14 @@ class RAGRetriever:
 
     def __init__(self) -> None:
         self._pipelines: Dict[Tuple[str, str], Pipeline] = {}
+        self._corpus_bounds: Dict[str, Tuple[int, int]] = {}  # chunking -> (min_ts, max_ts)
         self._load_all()
 
     def _load_all(self) -> None:
+        # Compute corpus bounds per chunking ONCE (independent of representation)
+        self._corpus_bounds["fixed"] = compute_corpus_bounds(CHUNKS_FIXED_JSONL)
+        self._corpus_bounds["semantic"] = compute_corpus_bounds(CHUNKS_SEM_JSONL)
+        
         for chunking in ("fixed", "semantic"):
             for repr_ in ("bm25", "dense"):
                 self._pipelines[(chunking, repr_)] = self._load_pipeline(chunking, repr_)
@@ -260,5 +274,157 @@ class RAGRetriever:
             "debug": {
                 "candidate_count": len(cands),
                 "rerank_rows": debug_rows,
+            },
+        }
+
+    # -------------------------
+    # Stage 4: Evolution retrieval
+    # -------------------------
+    # Note: Helper functions (compute_corpus_bounds, months_to_seconds, ts_to_iso,
+    #       format_evolution_context) are in temporal_utils.py
+    
+    def get_topk_evolution(
+        self,
+        query: str,
+        chunking: str,
+        representation: str,
+        k: int,
+        *,
+        window_months: int = 8,
+        oversample: int = 200,
+        max_oversample: int = 800,
+    ) -> Dict[str, Any]:
+        """
+        Stage 4: Evolution retrieval (double retrieval).
+
+        Retrieves:
+          - Top-K relevant chunks from the EARLIEST window (first window_months)
+          - Top-K relevant chunks from the LATEST window   (last  window_months)
+
+        Returns a formatted context string with both time periods, sorted by
+        distance to window boundary (closest to farthest).
+
+        Args:
+            query: Search query
+            chunking: "fixed" or "semantic"
+            representation: "bm25" or "dense"
+            k: Number of chunks to retrieve from each window
+            window_months: Size of early/late windows in months (default 8)
+            oversample: Initial oversample factor (default 200)
+            max_oversample: Maximum oversample limit (default 800)
+
+        Returns:
+            Dictionary with retrieved chunks, formatted context, and metadata
+
+        """
+        pipe = self._get_pipe(chunking, representation)
+
+        # Corpus bounds for this chunking method
+        if chunking not in self._corpus_bounds:
+            raise RuntimeError(f"Missing corpus bounds for chunking={chunking!r}")
+
+        min_ts, max_ts = self._corpus_bounds[chunking]
+        w_sec = months_to_seconds(window_months)
+
+        early_range = (min_ts, min(min_ts + w_sec, max_ts))
+        late_range = (max(max_ts - w_sec, min_ts), max_ts)
+
+        early_start_ts, early_end_ts = early_range
+        late_start_ts, late_end_ts = late_range
+
+        def _retrieve_candidates(n: int) -> List[Tuple[Any, float]]:
+            if representation == "bm25":
+                if pipe.bm25 is None:
+                    raise RuntimeError("BM25 pipeline not initialized.")
+                return pipe.bm25.search_candidates(query, k, oversample=n)
+            else:
+                if pipe.dense is None:
+                    raise RuntimeError("Dense pipeline not initialized.")
+                return pipe.dense.search_candidates(query, k, oversample=n)
+
+        n = max(int(oversample), k * 10)
+        early_items: List[Tuple[Any, float]] = []
+        late_items: List[Tuple[Any, float]] = []
+
+        # Oversample loop until we have enough for both windows (or hit max)
+        while True:
+            cands = _retrieve_candidates(n)
+
+            # Filter and sort candidates into temporal windows
+            early_items, late_items = retrieve_evolution_windows(
+                candidates=cands,
+                early_range=early_range,
+                late_range=late_range,
+                k=k,
+            )
+
+            # Check if we have sufficient results
+            if has_sufficient_results(early_items, late_items, k):
+                break
+
+            if n >= max_oversample:
+                break
+
+            # Grow oversample
+            n = min(max_oversample, max(n * 2, n + 200))
+
+        context = format_evolution_context(
+            early_items=early_items,
+            late_items=late_items,
+            early_range=early_range,
+            late_range=late_range,
+        )
+
+        def _refs_for(items: List[Tuple[Any, float]]) -> List[Dict[str, Any]]:
+            out: List[Dict[str, Any]] = []
+            for (c, _s) in items:
+                out.append(
+                    {
+                        "corpus": (c.corpus or detect_corpus_label(c.source_path)),
+                        "file_name": os.path.basename(c.source_path or ""),
+                        "source_path": c.source_path,
+                        "start_char": c.start_char,
+                        "end_char": c.end_char,
+                        "chunk_index": c.chunk_index,
+                        "doc_date_iso": c.doc_date_iso,
+                        "doc_timestamp": c.doc_timestamp,
+                    }
+                )
+            return out
+
+        return {
+            "query": query,
+            "chunking": chunking,
+            "representation": representation,
+            "k": k,
+            "window_months": window_months,
+            "ranges": {
+                "early": {
+                    "start_ts": early_start_ts,
+                    "end_ts": early_end_ts,
+                    "start_iso": ts_to_iso(early_start_ts),
+                    "end_iso": ts_to_iso(early_end_ts),
+                },
+                "late": {
+                    "start_ts": late_start_ts,
+                    "end_ts": late_end_ts,
+                    "start_iso": ts_to_iso(late_start_ts),
+                    "end_iso": ts_to_iso(late_end_ts),
+                },
+            },
+            "retrieved": {
+                "early": [{"chunk": asdict(c), "score": float(s), "text": c.text} for (c, s) in early_items],
+                "late": [{"chunk": asdict(c), "score": float(s), "text": c.text} for (c, s) in late_items],
+            },
+            "context": context,
+            "refs": {
+                "early": _refs_for(early_items),
+                "late": _refs_for(late_items),
+            },
+            "debug": {
+                "oversample_used": n,
+                "early_found": len(early_items),
+                "late_found": len(late_items),
+                "corpus_bounds": {"min_ts": min_ts, "max_ts": max_ts},
             },
         }

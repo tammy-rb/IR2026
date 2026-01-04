@@ -90,6 +90,23 @@ def main() -> None:
     )
     parser.set_defaults(timeaware=True)
 
+    # Evolution detection toggle (default ON)
+    parser.add_argument(
+        "--no-evolution",
+        dest="enable_evolution",
+        action="store_false",
+        help="Disable automatic evolution query detection and routing.",
+    )
+    parser.set_defaults(enable_evolution=True)
+    
+    # Evolution window size
+    parser.add_argument(
+        "--window_months",
+        type=int,
+        default=8,
+        help="Window size in months for evolution queries (default: 8).",
+    )
+
     # Query group for single query mode
     parser.add_argument(
         "--query_group",
@@ -127,8 +144,12 @@ def main() -> None:
             timeaware=args.timeaware,
             print_console=(not args.quiet),
             query_group=args.query_group,
+            enable_evolution=args.enable_evolution,
+            window_months=args.window_months,
         )
         mode_tag = "timeaware" if args.timeaware else "baseline"
+        if args.enable_evolution:
+            mode_tag += "_evo"
         tag = f"cli_single_{mode_tag}"
     else:
         # Auto-detect schema and load accordingly
@@ -153,9 +174,13 @@ def main() -> None:
             ks=ks,
             timeaware=args.timeaware,
             log_progress=(not args.quiet),
+            enable_evolution=args.enable_evolution,
+            window_months=args.window_months,
         )
         base = os.path.splitext(os.path.basename(args.queries_json))[0]
         mode_tag = "timeaware" if args.timeaware else "baseline"
+        if args.enable_evolution:
+            mode_tag += "_evo"
         tag = f"batch_{base}_{mode_tag}"
 
     out_path = build_output_path(
