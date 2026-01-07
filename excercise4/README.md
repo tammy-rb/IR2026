@@ -889,95 +889,6 @@ python rag_runner.py --query "..." --no-evolution
 
 ---
 
-## Evolution Retrieval — Evaluation & Findings
-
-### Optimal Configuration
-
-**Default Setting: k=5**
-
-Based on empirical evaluation across multiple evolution queries and pipeline configurations, **k=5 emerges as the optimal default** for evolution retrieval. This setting provides the best balance between evidence coverage and analytical coherence.
-
-**Why k=5?**
-
-The outputs consistently demonstrate:
-- **Sufficient citation density**: LLM answers cite 2-4 distinct chunks per window (EARLY and LATE)
-- **Coherent summaries**: Each temporal window produces a stable thematic interpretation grounded in multiple evidence sources
-- **Redundancy without noise**: If one chunk is off-topic, the remaining 4 still anchor the window effectively
-
-**Why not k=3?**
-
-Evolution analysis requires two cognitive tasks per window:
-1. Inferring a position/theme from evidence
-2. Comparing and explaining change across time
-
-With k=3, the system becomes fragile:
-- Too few thematic angles (often only 1-2 perspectives emerge)
-- High sensitivity to a single noisy or off-topic chunk
-- Weaker "What changed" sections due to insufficient contrast material
-
-**Why not k≥10?**
-
-Values larger than k=5 introduce several degradation patterns observed in empirical testing:
-
-- **Topic drift and dilution**: Additional chunks often introduce adjacent or tangential topics, weakening the thematic coherence of each temporal window. Instead of 5 focused perspectives on climate policy, k=10 may include 3 climate chunks + 4 energy policy chunks + 3 infrastructure debates, diluting the evolution signal.
-
-- **Loss of analytical focus**: Longer context windows cause the LLM to shift from sharp temporal contrast to broad summarization. The "What changed" section becomes generic ("policies evolved") rather than specific ("from ambitious net-zero targets to defensive responses about feasibility").
-
-- **Citation duplication and noise**: Even at k=5, some outputs showed repeated reference blocks in the metadata. At k=10, this problem amplifies, wasting context budget and creating confusion in the evidence grounding.
-
-- **Diminishing returns**: The 6th-10th chunks rarely add new thematic angles; they typically reinforce points already covered by the top 5, without improving the quality of the comparative analysis.
-
-**Empirical validation**: Across multiple test queries (climate policy, PM rhetoric on Israel/Gaza), k=5 consistently produced:
-- High-confidence answers (explicitly marked "High" in the LLM's confidence assessment)
-- Clear temporal separation in citations (2-4 distinct [E#] and [L#] references per window)
-- Stable, focused narratives with minimal topic drift
-
----
-
-### Best Pipeline Configuration
-
-**Winner: Semantic Chunking + Dense Retrieval**
-
-Across both test queries (climate policy, PM rhetoric), the **semantic/dense** pipeline produces the highest-quality evolution analyses.
-
-**Evidence from the climate policy query:**
-
-The semantic/dense run generated a clean, well-contrasted narrative:
-- **EARLY**: "adaptation planning / criticism of PM's lack of climate leadership / targets with no means to deliver"
-- **LATE**: "COP29 commitments / historical Climate Change Act / just transition with job creation"
-- **Confidence**: High, with clear evidence highlights demonstrating internal coherence
-
-**Why dense retrieval excels for evolution:**
-
-Dense (vector) retrieval captures **conceptual alignment** across different time periods, not just keyword overlap. This is critical for evolution queries because:
-- Query phrasing is often abstract ("changed over time") rather than keyword-specific
-- The same policy topic may be discussed using different vocabulary in 2023 vs. 2025
-- Dense embeddings align semantically similar debates even when lexical surface forms diverge
-
-**Runner-up: Fixed Chunking + Dense Retrieval**
-
-The fixed/dense pipeline also performed strongly:
-- Climate query: Produced coherent evolution narrative (national achievements → international leadership/urgency)
-- PM rhetoric query: Clear shift from "unwavering support for Israel" → "critical stance on disproportionate actions"
-
-**Advantages of fixed chunking:**
-- Preserves debate flow and contextual continuity (larger contiguous segments)
-- Helps LLM form stable summaries when debates unfold over extended exchanges
-
-**Disadvantage:**
-- Fixed windows may include unrelated content if the relevant snippet occupies only part of a long chunk
-
-**Weaker Performance: BM25 (both fixed/bm25 and semantic/bm25)**
-
-BM25-based pipelines can work but showed consistent limitations:
-- **Topic drift**: Retrieves procedurally similar text (e.g., policy statements) but from different subtopics
-- **Medium confidence**: LLM outputs twice flagged "Medium" confidence, indicating evidence coherence issues
-- **Keyword sensitivity**: BM25 works best when queries have stable keywords appearing consistently across years; evolution queries rarely satisfy this condition
-
-**Conclusion**: BM25 remains useful for point-in-time or explicit-keyword queries, but **dense retrieval is superior for evolution analysis**.
-
----
-
 ### Temporal Separation: Validation
 
 The core success criterion for evolution retrieval is **temporal control**: ensuring the LLM analyzes two distinct time windows, not a mixed set.
@@ -1003,26 +914,6 @@ This citation pattern, combined with timestamp clustering, confirms the system a
 
 ---
 
-### Key Findings Summary
-
-1. **k=5 is the optimal default**: Sufficient evidence per window without topic drift or citation duplication
-2. **Semantic + dense is the primary pipeline**: Best for cross-time thematic alignment and high-confidence analysis
-3. **Fixed + dense is a strong backup**: Useful when debate flow and continuous context are critical
-4. **BM25 underperforms for evolution**: Lexical matching creates topic drift; reserve for keyword-heavy queries
-5. **Temporal separation is validated**: Chunk timestamps and citation patterns ([E#] vs [L#]) demonstrate proper windowing
-
-**Design Implications:**
-
-The evolution retrieval method successfully solves the temporal comparison problem by:
-- Structurally separating evidence into early/late windows (no reliance on LLM temporal reasoning)
-- Using a specialized prompt that enforces comparative analysis
-- Providing k=5 diverse evidence points per window to stabilize thematic interpretation
-- Leveraging dense retrieval to capture conceptual evolution across vocabulary shifts
-
-These findings inform the default configuration and validate the core architectural choice of **double retrieval with structured prompting** over alternative approaches like timeline-based summarization or single-pass temporal QA.
-
----
-
 ## Point-in-Time Queries — Hard Filtering Evaluation
 
 ### Overview
@@ -1035,90 +926,6 @@ This evaluation assesses the **time-aware retrieval mode with hard filtering** f
 - Calendar-based constraints extracted by Duckling
 
 **Retrieval strategy:** Hard filtering removes all chunks whose timestamps fall outside the specified range before retrieval. This prevents temporally incorrect documents from contaminating the results.
-
-### Key Finding: K=10 is Optimal for Point-in-Time Queries
-
-Unlike evolution queries (where k=5 is optimal), **point-in-time queries require K=10** as the default. This represents a different optimal configuration for a fundamentally different query type.
-
-**Why K=10?**
-
-Point-in-time queries exhibit two distinct behavioral patterns:
-
-#### 1. Exact-Value Questions (Numeric Facts)
-
-Queries seeking specific budget figures, allocation amounts, or numeric data are **highly brittle at low K**.
-
-**Evidence from budget allocation query:**
-
-| Pipeline | K | Result |
-|----------|---|--------|
-| semantic/bm25 | k=5 | "I don't know based on the retrieved chunks." |
-| semantic/bm25 | k=10 | "The specific budget allocated to security in 2024 by the US Congress was nearly $2.5 billion toward defense innovation..." [✅ Success] |
-| fixed/dense | k=3, 5, 10 | "I don't know" across all K values |
-| semantic/dense | k=3, 5, 10 | "I don't know" across all K values |
-
-**Explanation:** The correct numeric fact may appear in only one or two chunks. If those chunks rank 6th-10th in the initial retrieval, k=5 will miss them entirely. Increasing K to 10 doubles the chance of capturing the critical chunk containing the precise figure.
-
-#### 2. Topic/List Questions (Multiple Items)
-
-Queries asking about "what legislation was discussed" or "which committees met" naturally produce **sets of answers** that benefit from broader coverage.
-
-**Evidence from healthcare legislation queries:**
-
-**US Congress query:**
-- **k=3**: Retrieved 1-2 bills (Gold Star Healthcare Act + healthcare consolidation hearing)
-- **k=5**: Retrieved 2-3 bills (added ADINA Act)
-- **k=10**: Retrieved 4+ bills (LIFE Act, Divorce Act, Veterans Healthcare Act, Not Just a Number Act)
-
-**British Parliament query (fixed/dense):**
-- **k=3**: Mental Health Act modernization only
-- **k=5**: Mental Health Act + NHS improvements + vaping/junk food regulation
-- **k=10**: Mental Health Act + NHS improvements + vaping regulation + rare cancer treatment Bill
-
-**Pattern:** Each increment in K expands the list without degrading quality. Unlike evolution queries (where k>5 causes topic drift), point-in-time hard filtering ensures all retrieved chunks are temporally valid, so higher K simply increases coverage.
-
-### Best Pipeline Configuration
-
-**Winner: Fixed Chunking + Dense Retrieval (K=10)**
-
-**Evidence:**
-- **Consistency across queries**: fixed/dense produced well-grounded answers at all K values for both budget and legislation queries
-- **Self-contained evidence**: Fixed chunks provide longer, contiguous debate segments that help the LLM cite and summarize from single chunks
-- **Stability**: Dense retrieval remained semantically on-topic as K increased, unlike BM25 which sometimes drifted
-
-**Runner-up: Fixed Chunking + BM25 (K=10)**
-
-**When BM25 excels:**
-- For **exact-number queries** (budgets, allocations), fixed/BM25 strongly retrieves explicit fiscal statements when they exist
-- British Parliament defence budget query: fixed/BM25 returned "£55.6 billion, about 2.3% of GDP" **even at k=3**, while semantic/BM25 returned "I don't know" until k=10
-
-**BM25 advantage:** When the query contains specific lexical anchors (e.g., "budget", "allocated", "2024"), BM25's term-matching can directly surface the exact passage containing those keywords.
-
-**Recommendation:** Use fixed/BM25 + K=10 as a specialized configuration for numeric/budget queries; use fixed/dense + K=10 as the general-purpose default.
-
-### Practical Implications
-
-**What this stage demonstrates:**
-
-1. **Hard filtering works**: When supporting evidence is retrieved, answers are well-grounded and cite correct sources
-2. **Recall is the bottleneck**: Point-in-time success depends on whether the relevant year-specific chunk appears in top-K
-3. **K must be tuned to query type**: Evolution queries optimize at k=5 (focus over breadth), point-in-time queries optimize at K=10 (recall over focus)
-
-**Failure modes:**
-
-Even with K=10, some queries return "I don't know":
-- **British Parliament healthcare legislation (BM25)**: All K values failed because BM25 retrieved US Congress chunks instead of British debates, despite hard filtering being active (suggests corpus boundary issues in the test setup)
-- **US security budget (fixed/dense, semantic/dense)**: Failed at all K values, likely because the specific "$2.5 billion" figure didn't appear in enough retrieval-relevant contexts
-
-These failures confirm that **K=10 reduces but does not eliminate "I don't know" outcomes** when the required evidence is sparse or lexically dissimilar to the query.
-
-### Configuration Summary
-
-| Query Type | Optimal K | Primary Pipeline | Fallback Pipeline | Rationale |
-|------------|-----------|------------------|-------------------|-----------|
-| Point-in-time | **10** | fixed/dense | fixed/bm25 | Maximizes recall for year-bounded evidence; reduces "I don't know" failures for exact-fact queries |
-| Evolution | **5** | semantic/dense | fixed/dense | Balances focus and coverage; prevents topic drift |
-| Recency | **5-10** | semantic/dense | fixed/dense | Soft decay handles this; K less critical |
 
 ### Results Files
 
@@ -1154,152 +961,7 @@ This evaluation assesses **time-aware retrieval mode with soft decay re-ranking*
 
 **Retrieval strategy:** Soft decay re-ranking applies a recency prior that boosts recent chunks without eliminating older ones. The system uses a temporal half-life function (h=365 days for "current"/"recent") combined with semantic weight (α=0.6-0.65) to balance freshness and relevance.
 
-### Key Finding: K=5-10 Optimal, Dense Retrieval Critical
-
-Unlike point-in-time queries (where K=10 is mandatory for recall) and evolution queries (where k=5 is optimal for focus), **recency queries operate effectively in the K=5-10 range** with the exact choice depending on answer complexity.
-
-### Best Pipeline Configuration
-
-**Winner: Semantic Chunking + Dense Retrieval (K=5)**
-
-**Evidence from cross-corpus Israel position queries:**
-
-| Query | Pipeline | K=3 | K=5 | K=10 |
-|-------|----------|-----|-----|------|
-| US Congress Israel position | semantic/dense | ✅ Answer | ✅ Answer | ✅ Answer |
-| US Congress Israel position | fixed/dense | ❌ "I don't know" | ✅ Answer | ❌ "I don't know" |
-| US Congress Israel position | fixed/bm25 | ❌ "I don't know" | ❌ "I don't know" | ❌ "I don't know" |
-| US Congress Israel position | semantic/bm25 | ❌ "I don't know" | ❌ "I don't know" | ❌ "I don't know" |
-| British Parliament Israel position | fixed/bm25 | ✅ Answer | ✅ Answer | ✅ Answer |
-| British Parliament Israel position | semantic/dense | ✅ Answer | ✅ Answer | ✅ Answer |
-| British Parliament Israel position | fixed/dense | ✅ Answer | ✅ Answer | ✅ Answer |
-
-**Key observations:**
-- **semantic/dense is the most consistent**: Produces well-grounded answers at all K values for multiple query types
-- **BM25 corpus confusion**: semantic/bm25 and fixed/bm25 often fail on US queries because they retrieve British Parliament chunks (lexical similarity across corpora), demonstrating that keyword matching doesn't respect corpus boundaries as effectively as dense retrieval
-- **fixed/dense instability**: Shows erratic behavior (success at k=5, failure at k=10 for same query), suggesting dense retrieval benefits from semantic chunking's topical coherence
-
-### Dense vs. BM25 Performance Gap
-
-**Dense retrieval advantages for recency queries:**
-
-1. **Semantic focus**: Dense embeddings capture conceptual similarity to "current official position" or "latest discussions" without requiring exact keyword matches
-2. **Corpus awareness**: Dense vectors implicitly encode corpus-level patterns, reducing cross-corpus contamination
-3. **Temporal signal alignment**: Works better with soft decay because semantic similarity + recency decay produces more stable re-ranking than keyword matching + decay
-
-**Evidence from immigration queries:**
-
-| Query | Pipeline | K=3 | K=5 | K=10 |
-|-------|----------|-----|-----|------|
-| Latest Congress immigration discussions | fixed/bm25 | ✅ Answer (British!) | ✅ Answer (British!) | ✅ Answer (British!) |
-| Latest Congress immigration discussions | semantic/bm25 | ❌ "I don't know" | ❌ "I don't know" | ❌ "I don't know" |
-| Latest Congress immigration discussions | fixed/dense | ❌ "I don't know" | ❌ "I don't know" | ❌ "I don't know" |
-| Latest Congress immigration discussions | semantic/dense | ❌ "I don't know" | ❌ "I don't know" | ❌ "I don't know" |
-| Latest Parliament immigration debates | fixed/bm25 | ✅ Answer | ✅ Answer | ✅ Answer |
-| Latest Parliament immigration debates | semantic/bm25 | ✅ Answer | ✅ Answer | ✅ Answer |
-| Latest Parliament immigration debates | fixed/dense | ✅ Answer | ✅ Answer | ✅ Answer |
-| Latest Parliament immigration debates | semantic/dense | ✅ Answer | ✅ Answer | ✅ Answer |
-
-**Critical finding:** The US Congress immigration query **completely failed** across all pipelines except fixed/bm25, which retrieved **British Parliament documents** instead. This demonstrates:
-- **Corpus availability issue**: The US corpus may not contain substantial recent immigration reform discussions (2025), while British Parliament does
-- **BM25 false positives**: fixed/bm25 retrieved lexically similar but corpus-incorrect documents, producing an answer that doesn't address the user's intent
-- **Dense retrieval discipline**: Dense methods returned "I don't know" rather than hallucinating from wrong-corpus evidence
-
-### Case Study: Semantic/Dense Exclusive Success
-
-**Query:** *"Who is the president of united states right now?"*
-
-This simple factual recency query provides the **strongest validation** of semantic/dense superiority. Results show a clean separation:
-
-| Pipeline | K=3 | K=5 | K=10 | Result |
-|----------|-----|-----|------|--------|
-| **semantic/dense** | ✅ "President Trump" | ✅ "President Trump" | ✅ "President Trump" | **SUCCESS at all K** |
-| fixed/bm25 | ❌ "I don't know" | ❌ "I don't know" | ❌ "I don't know" | Complete failure |
-| semantic/bm25 | ❌ "I don't know" | ❌ "I don't know" | ❌ "I don't know" | Complete failure |
-| fixed/dense | ❌ "I don't know" | ❌ "I don't know" | ❌ "I don't know" | Complete failure |
-
-**Why this matters:**
-
-1. **BM25 total failure despite clear keywords**: The query contains "president" and "united states" — strong lexical signals that BM25 should match. Yet both BM25 pipelines return "I don't know" at all K values. This demonstrates that keyword matching alone cannot surface the right chunks even when terms are explicit.
-
-2. **Fixed chunking failure even with dense retrieval**: fixed/dense also fails completely, showing that semantic retrieval alone isn't sufficient. The chunks must be **topically coherent** (semantic chunking) to provide the context needed for the LLM to extract the answer.
-
-3. **Semantic/dense is not just "better" but sometimes the ONLY working method**: This is not a marginal improvement — it's the difference between answering the query correctly and failing entirely. No amount of K-value tuning can rescue the other pipelines.
-
-4. **Validates soft decay + dense embedding synergy**: The query uses "right now", a temporal signal. Semantic/dense successfully combines:
-   - Dense embedding similarity to capture "who is president" semantically
-   - Soft decay re-ranking to prioritize 2025 chunks over older mentions
-   - Semantic chunking to provide coherent context where "President Trump" appears
-
-**Retrieval evidence:**
-
-The winning semantic/dense pipeline retrieved chunks from:
-- `british:debates2025-10-28.txt` (score: 0.604) — Most recent mention, October 2025
-- `british:debates2025-09-11.txt` (score: 0.569) — Secondary confirmation, September 2025
-- `us:2025-09-02.txt` (score: 0.568) — US Congress mention
-
-Note that the top-ranked chunk came from **British Parliament**, not US Congress. This cross-corpus retrieval demonstrates that semantic/dense correctly identified the most recent factual reference regardless of corpus origin, while BM25's lexical matching failed to surface any usable evidence.
-
-**Conclusion:** This query provides definitive evidence that **semantic chunking + dense retrieval is not optional for recency queries** — it is the only configuration that reliably answers simple factual questions about current state. The other three pipelines are fundamentally unsuitable for recency-based factual retrieval.
-
-Results file: [cli_single_timeaware_evo_20260104_210807.json](outputs/rag_runs/cli_single_timeaware_evo_20260104_210807.json)
-
 ---
-
-### K Value Selection Tradeoffs
-
-**K=3 (Minimal):**
-- **Pros**: Fast, focused answers when top-3 are highly relevant
-- **Cons**: High "I don't know" rate when critical chunk ranks 4th-5th
-- **Use case**: Highly frequent topics with recent, concentrated discussion
-
-**K=5 (Recommended Default):**
-- **Pros**: Balanced coverage and precision; stable across diverse query types
-- **Cons**: Occasionally insufficient for multi-faceted policy questions
-- **Use case**: General-purpose recency queries where soft decay can effectively re-rank top-5
-
-**K=10 (High Recall):**
-- **Pros**: Reduces "I don't know" failures; captures broader policy discussions
-- **Cons**: Can introduce noise in stable re-ranking; longer LLM context
-- **Use case**: Complex topics (e.g., climate change legislation with multiple debate threads)
-
-**Evidence from climate change query:**
-
-All pipelines (fixed/bm25, semantic/bm25, fixed/dense, semantic/dense) produced **successful answers at K=3, 5, and 10**. This demonstrates that for **high-salience topics with extensive recent debate**, even K=3 is sufficient, and the soft decay mechanism effectively surfaces the most recent and relevant chunks regardless of K value.
-
-**Pattern:** When recent discussion is abundant and on-topic, K value matters less. When discussion is sparse or corpus-distributed, K=5-10 becomes critical.
-
-### Failure Mode Analysis
-
-**Case Study: US Congress immigration reform query failure**
-
-All 4 pipelines returned "I don't know" at all K values (or retrieved British Parliament documents in the case of fixed/bm25). This reveals a **corpus coverage gap** rather than a retrieval failure:
-
-- **Temporal distribution**: US Congress may not have substantive immigration reform debates in late 2025 (the query reference time)
-- **Corpus boundaries**: British Parliament extensively debated immigration in 2025, creating lexical overlap that confuses BM25
-- **System behavior**: Dense retrieval correctly returned "I don't know" rather than cross-contaminating with British evidence; fixed/bm25 failed by retrieving wrong-corpus documents
-
-**Design implication:** Recency queries are sensitive to **temporal corpus coverage**. If the corpus lacks recent documents on the topic, no retrieval method will succeed. This is distinct from point-in-time queries (where evidence existence is verifiable by year) and evolution queries (where two time windows ensure coverage).
-
-### Key Findings Summary
-
-1. **Semantic/dense is mandatory for recency queries**: Unlike other query types where it's merely "best", semantic/dense is often the **only pipeline that works** for simple factual recency queries (see "Who is the president?" case study above)
-
-2. **Dense retrieval provides corpus discipline**: Returns "I don't know" rather than cross-corpus hallucination when evidence is unavailable
-
-3. **BM25 fundamentally unsuitable**: Fails even with clear keyword signals; prone to cross-corpus contamination
-
-4. **K=5-10 range is stable**: K=5 recommended default; increase to K=10 for broad policy questions with multiple debate threads
-
-5. **Soft decay + dense embedding synergy validated**: Temporal signal ("right now") + semantic similarity + topical coherence = reliable factual retrieval
-
-### Configuration Summary
-
-| Query Type | Optimal K | Primary Pipeline | Fallback Pipeline | Rationale |
-|------------|-----------|------------------|-------------------|-----------|
-| Recency | **5-10** | semantic/dense **(required)** | ⚠️ none | Soft decay handles freshness; dense retrieval provides corpus discipline; semantic chunking provides topical coherence; **other pipelines unsuitable** |
-| Point-in-time | **10** | fixed/dense | fixed/bm25 | Maximizes recall for year-bounded evidence; reduces "I don't know" failures |
-| Evolution | **5** | semantic/dense | fixed/dense | Balances focus and coverage per time window; prevents topic drift |
 
 ### Results Files
 
@@ -1685,109 +1347,6 @@ python rag_runner.py --query "..." --no-evolution
 
 ---
 
-## Evaluation Findings: Best Configurations
-
-### Evolution Queries
-
-**Optimal Configuration:**
-- **Pipeline**: Semantic chunking + Dense retrieval (required)
-- **K value**: 5 (per window, so 10 total chunks retrieved)
-- **Fallback**: Fixed chunking + Dense retrieval
-
-**Why k=5?**
-- **Sufficient citation density**: LLM uses 2-4 chunks per window, providing multiple perspectives without overwhelming context
-- **Prevents topic drift**: k≥10 introduces tangential topics that dilute temporal contrast (e.g., climate policy → energy policy → infrastructure debates)
-- **Balanced analysis**: k=3 is too fragile (single noisy chunk disrupts interpretation); k=5 provides redundancy without noise
-
-**Why semantic/dense?**
-- **Cross-time thematic alignment**: Dense embeddings capture conceptual evolution even when vocabulary shifts ("climate action" in 2023 → "net zero transition" in 2025)
-- **BM25 failure mode**: Keyword matching causes topic drift; retrieving "climate" + "energy" + "policy" lexically similar chunks from unrelated debates
-- **Fixed chunking backup useful**: When continuous debate flow provides better context, but semantic chunking is primary
-
-**Answer quality:** ✅ Excellent
-- Structured 5-part responses with clear temporal separation
-- Citations properly attributed to early [E#] vs late [L#] windows
-- "What changed" sections provide substantive comparative analysis with specific evidence
-- Confidence assessments accurately reflect evidence quality
-
-**Examples:**
-- Climate policy: Detailed evolution from 2023 ambitious targets to 2025 implementation challenges
-- Israel/Gaza rhetoric: PM position shift from "unwavering support" (2023) to "critical stance on humanitarian crisis" (2025)
-
-### Point-in-Time Queries
-
-**Optimal Configuration:**
-- **Pipeline**: Fixed chunking + Dense retrieval (primary); Fixed chunking + BM25 (for numeric queries)
-- **K value**: 10 (mandatory for recall)
-- **Fallback**: Fixed/BM25 for exact-value queries (budgets, allocations)
-
-**Why K=10?**
-- **Recall-driven**: Exact numeric facts may appear in only 1-2 chunks; if they rank 6th-10th, k=5 misses them entirely
-- **Evidence expansion**: List-based questions ("what legislation was discussed?") benefit from broader coverage
-  - k=3: 1-2 bills retrieved
-  - k=5: 2-3 bills retrieved
-  - k=10: 4+ bills retrieved
-- **No degradation risk**: Hard filtering ensures all retrieved chunks are temporally valid, so higher K only increases coverage without introducing noise
-
-**Why fixed/dense (primary)?**
-- **Consistency**: Well-grounded answers across diverse query types
-- **Self-contained evidence**: Longer contiguous chunks provide complete context for LLM to cite from single passages
-- **Stability**: Dense retrieval remains on-topic as K increases
-
-**Why fixed/BM25 (specialized)?**
-- **Exact-number advantage**: When query contains "budget", "allocated", "$X billion", BM25 directly surfaces passages with those lexical anchors
-- **Evidence**: British defence budget query succeeded at k=3 with BM25 ("£55.6 billion, about 2.3% of GDP") while semantic methods required k=10
-
-**Answer quality:** ✅ Good (when evidence exists)
-- Hard filtering successfully restricts answers to specified year
-- Numeric facts correctly extracted and cited
-- Multiple legislation items listed with proper sources
-- **"I don't know" failures**: When critical chunk ranks outside top-K or evidence doesn't exist in corpus; K=10 reduces but doesn't eliminate these failures
-
-**Examples:**
-- US security budget 2024: "$2.5 billion toward defense innovation" (succeeded at k=10, failed at k=5)
-- Healthcare legislation 2024: Coverage expanded from 1-2 bills (k=3) to 4+ bills (k=10)
-
-### Recency Queries
-
-**Optimal Configuration:**
-- **Pipeline**: Semantic chunking + Dense retrieval ⚠️ **REQUIRED** (no fallback)
-- **K value**: 5-10 (K=5 recommended default; K=10 for broad policy questions)
-
-**Why semantic/dense is mandatory:**
-- **Exclusive success**: Simple factual recency query "Who is the president of united states right now?" demonstrates:
-  - semantic/dense: ✅ "President Trump" at all K values (3, 5, 10)
-  - fixed/bm25: ❌ "I don't know" at all K values (despite clear keywords "president" + "united states")
-  - semantic/bm25: ❌ "I don't know" at all K values
-  - fixed/dense: ❌ "I don't know" at all K values
-- **BM25 fundamental unsuitability**: Fails even with explicit lexical signals; prone to cross-corpus contamination (retrieves British Parliament chunks for US Congress queries)
-- **Fixed chunking failure**: Shows that semantic retrieval alone insufficient; topical coherence (semantic chunking) is critical
-- **Not marginal improvement**: This is the difference between success and complete system failure
-
-**Why K=5-10 range?**
-- **K=5 default**: Balanced coverage and precision for focused topics (Israel position, Hamas/Gaza stance)
-- **K=10 for complexity**: Broad policy questions with multiple debate threads (climate change legislation with multiple parliamentary sessions)
-- **Stability**: Soft decay + dense retrieval produces stable re-ranking across K range
-
-**Why soft decay + dense embeddings synergy?**
-- **Temporal signal alignment**: "right now" → soft decay boosts 2025 chunks
-- **Semantic focus**: Dense embeddings capture "who is president" conceptually without keyword dependence
-- **Cross-corpus retrieval**: Top answer from British Parliament debates (most recent mention, October 2025) demonstrates corpus-agnostic factual retrieval
-- **Corpus discipline**: Dense methods return "I don't know" when evidence unavailable rather than hallucinating from wrong corpus
-
-**Answer quality:** ✅ Excellent (when using semantic/dense)
-- Factually correct with proper recency (President Trump, October 2025 source)
-- Citations from most recent available mentions
-- Clean answers without temporal confusion
-- **Other pipelines**: Complete failure; unsuitable for production use
-
-**Examples:**
-- President query: Clean success with cross-corpus retrieval validation
-- Israel position: Consistent answers across K values with proper temporal grounding
-- Climate change: Success at all K values due to abundant recent debate coverage
-
----
-
 ## Parameter Justification
 
 ### Temporal Decay Parameters (Soft Decay)
@@ -1856,15 +1415,6 @@ python rag_runner.py --query "..." --no-evolution
 - "Current position on Israel" → Citations from September-October 2025
 - Older relevant chunks still retrieved: 2024 chunks appear in K=10 when conceptually strong, but rank below 2025 chunks
 
-### Failure Modes and System Discipline
-
-**"I don't know" responses are correct behavior when:**
-1. **Corpus coverage gap**: US Congress immigration query fails because late-2025 corpus lacks substantive immigration reform debates
-2. **Sparse evidence**: UK security budget at k=5 fails because critical chunk ranks 8th; system correctly reports insufficient evidence rather than hallucinating
-3. **Cross-corpus contamination prevention**: Dense retrieval returns "I don't know" rather than using lexically similar British Parliament chunks for US Congress queries
-
-**System demonstrates proper restraint**: High "I don't know" rate with wrong pipeline (BM25, fixed/dense for recency) is evidence of **failure to retrieve**, not failure to answer. When semantic/dense succeeds, answer quality is excellent.
-
 ---
 
 ## System Architecture Strengths
@@ -1901,23 +1451,610 @@ python rag_runner.py --query "..." --no-evolution
 
 4. **Parameter policy for slow-moving domains**: Adapted soft decay parameters from fast-moving cybersecurity logs to slow-moving political discourse
 
-5. **Failure mode analysis**: Documented when "I don't know" is correct system behavior vs. retrieval failure
-
-6. **Cross-corpus retrieval validation**: Demonstrated that dense embeddings enable factual retrieval regardless of corpus origin
+5. **Cross-corpus retrieval validation**: Demonstrated that dense embeddings enable factual retrieval regardless of corpus origin
 
 ---
 
-## Future Directions
+## Evaluation Methodology
 
-1. **Corpus boundary enforcement**: Add metadata filtering to prevent cross-corpus contamination when user specifies "US Congress" or "British Parliament"
+### Overview
 
-2. **Adaptive window sizing**: Automatically adjust evolution window size based on corpus density and debate frequency
+To systematically determine the optimal pipeline configuration for each temporal query type, we conducted a comprehensive two-stage evaluation combining quantitative accuracy metrics with qualitative answer analysis.
 
-3. **Multi-hop temporal reasoning**: Extend evolution retrieval to track policy changes across 3+ time periods
+### Data Collection and Labeling
 
-4. **Temporal question decomposition**: Break complex queries like "How did position on X affect policy on Y between 2023-2025?" into sub-queries
+1. **Query Execution**: We executed 18 temporal queries across all pipeline configurations:
+   - 4 pipelines: fixed/semantic × BM25/dense
+   - 3 K values: {3, 5, 10}
+   - 3 temporal modes: recency (soft decay), point-in-time (hard filtering), evolution (windowed retrieval)
 
-5. **Confidence-weighted retrieval**: Use LLM confidence assessments to trigger k-value adjustment or pipeline switching
+2. **LLM-Based Answer Labeling**: Each answer was evaluated using an LLM judge and assigned one of three labels:
+   - **Correct** (2): Factually accurate and complete answer
+   - **Incorrect** (1): Factually wrong or misleading answer  
+   - **IDK** (0): System correctly abstained when evidence was insufficient
+
+3. **Data Output**: Results stored in:
+   - [`outputs/analysis/recency_runs_flat.jsonl`](excercise4/outputs/analysis/recency_runs_flat.jsonl) — Flattened run data with metadata
+   - [`outputs/analysis/results_analysis_llm_labels.json`](excercise4/outputs/analysis/results_analysis_llm_labels.json) — Labeled answers with judgments
+
+### Evaluation Metrics
+
+**Quantitative Metrics**:
+- **Accuracy excluding IDK**: Correctness among answered queries (Correct / (Correct + Incorrect))
+  - Measures precision when the system attempts an answer
+  - Does not penalize abstentions
+- **Accuracy including IDK**: End-to-end success rate (Correct / Total)
+  - Measures overall reliability
+  - Penalizes excessive abstention
+
+**Qualitative Assessment**:
+- Answer focus and conciseness
+- Temporal precision and sharpness
+- Completeness of evidence coverage
+- Resistance to semantic drift and noise
+
+### Two-Stage Evaluation Process
+
+**Stage 1: Quantitative Filtering**
+
+For each temporal query type, we generated accuracy plots (with and without IDK) to identify high-performing pipeline configurations. When accuracy metrics showed clear separation, we selected the top candidates directly.
+
+**Stage 2: Qualitative Refinement**
+
+When multiple configurations achieved similar accuracy scores, we performed manual inspection of actual answers to evaluate:
+- Whether higher K improved completeness or merely added redundancy
+- Whether answers maintained focus or suffered from topic drift
+- Whether temporal precision was preserved or diluted
+
+This qualitative analysis often revealed critical differences that accuracy alone could not capture.
+
+### Implementation
+
+- **Data Processing**: [`analysis/analysis_q_results.py`](excercise4/analysis/analysis_q_results.py) — Flattens run data for analysis
+- **Plot Generation**: [`analysis/analysis_plots.py`](excercise4/analysis/analysis_plots.py) — Generates accuracy and IDK rate plots
+- **Query Filtering**: [`outputs/analysis/filter_pipeline_results.py`](excercise4/outputs/analysis/filter_pipeline_results.py) — Filters results by query type for inspection
+
+---
+
+## Evaluation — Recency Queries
+
+### Evaluation Criteria
+
+Recency queries (e.g., "current position", "latest debates", "right now") were evaluated using two complementary criteria:
+
+**Quantitative accuracy**
+- **Accuracy excluding IDK**: correctness when the system attempts an answer
+- **Accuracy including IDK**: end-to-end success rate, penalizing abstentions
+
+**Qualitative answer quality**
+- Focus and conciseness
+- Temporal sharpness (clear emphasis on current state)
+- Signal-to-noise ratio
+- Absence of topic drift or unnecessary elaboration
+
+This dual evaluation is essential because higher accuracy alone may be achieved at the cost of reduced answer quality.
+
+---
+
+### Quantitative Results
+
+#### Accuracy excluding IDK (precision when answering)
+
+![Recency Accuracy (excluding IDK)](outputs/analysis/plots/recency__accuracy_no_idk.png)
+
+Top-performing configurations:
+- **semantic / bm25**
+  - k = 3 → 1.00
+  - k = 5 → 1.00
+- **semantic / dense**
+  - k = 10 → ~0.86
+  - k = 3, 5 → ~0.83
+- **fixed / dense**
+  - k = 10 → ~0.80
+
+This metric shows that multiple pipelines can be highly accurate when they answer, but does not capture abstention behavior.
+
+#### Accuracy including IDK (end-to-end success)
+
+![Recency Accuracy (including IDK)](outputs/analysis/plots/recency__accuracy_with_idk.png)
+
+Key observations from the graph:
+- **semantic / dense | k = 10** → ~0.67 (best overall)
+- **semantic / dense | k = 3, 5** → ~0.55
+- **fixed / dense | k = 5, 10** → ~0.44
+- **semantic / bm25** drops significantly once IDK is included
+
+This indicates that semantic/dense pipelines achieve the best balance between correctness and coverage for recency queries.
+
+---
+
+### Qualitative Stability & Answer Quality
+
+Manual inspection of representative recency answers reveals clear qualitative differences as K increases:
+
+**fixed / dense | k = 10**  
+Tends to introduce substantial verbosity and topic diffusion. Higher K amplifies chunk-level noise, often producing long, less focused answers that resemble transcript summaries rather than concise "current state" responses.
+
+**semantic / dense | k = 10**  
+More stable than fixed/dense, but still shows mild degradation: additional chunks rarely add new information and occasionally increase redundancy or over-specificity without improving answer substance.
+
+**semantic / dense | k = 5**  
+Produces the most stable behavior: focused, temporally sharp answers with minimal redundancy and a consistently high signal-to-noise ratio.
+
+---
+
+### Final Decision for Recency Queries
+
+**Selected configuration:**
+- **Pipeline:** Semantic chunking + dense retrieval
+- **K:** 5
+
+**Justification:**
+
+While semantic/dense with K=10 achieves the highest overall accuracy score, qualitative analysis shows that increasing K frequently adds redundancy and reduces focus without introducing new information.
+
+Semantic/dense with K=5 provides a more stable and interpretable behavior, delivering concise, temporally accurate answers that better match the intent of recency queries.
+
+Accordingly, **semantic chunking with dense retrieval at K=5** is selected as the optimal configuration for recency-based questions.
+
+---
+
+## Evaluation — Evolution Queries
+
+### Evaluation Criteria
+
+Evolution queries (e.g., "How did X change over time?", "Compare early vs late positions") require:
+
+- Retrieval from multiple distinct time windows
+- Clear separation between EARLY and LATE evidence
+- Explicit articulation of what changed over time
+
+Evaluation therefore combines:
+
+**Quantitative accuracy**
+- Accuracy excluding IDK
+- Accuracy including IDK
+
+**Qualitative answer quality**
+- Strength of temporal comparison
+- Completeness of change detection
+- Stability of the narrative structure
+
+---
+
+### Quantitative Results
+
+#### Accuracy excluding IDK
+
+![Evolution Accuracy (excluding IDK)](outputs/analysis/plots/evolution__accuracy_no_idk.png)
+
+Top-performing pipelines:
+
+- **semantic / dense**
+  - k = 5 → 1.00
+  - k = 10 → 1.00
+
+Both configurations are equally correct when they answer.
+
+#### Accuracy including IDK
+
+![Evolution Accuracy (including IDK)](outputs/analysis/plots/evolution__accuracy_with_idk.png)
+
+End-to-end accuracy clearly favors higher K:
+
+- **semantic / dense | k = 10** → 1.00
+- **semantic / dense | k = 5** → ~0.80
+
+This demonstrates that K=10 answers evolution queries more consistently, reducing abstentions without sacrificing correctness.
+
+---
+
+### Qualitative Proof: Why K=10 Outperforms K=5 for Dense Retrieval
+
+A direct comparison of answers reveals systematic qualitative advantages for K=10:
+
+**More complete late-stage coverage**  
+K=10 consistently retrieves additional late-window chunks (e.g., sanctions, recognition of Palestine, humanitarian framing). These elements are often absent or weaker at K=5, leading to lower confidence or more conservative conclusions.
+
+**Stronger articulation of change**  
+With K=10, answers identify multiple dimensions of evolution (rhetorical shift, policy oversight, humanitarian emphasis). K=5 typically captures the main shift but misses secondary developments that strengthen the comparative argument.
+
+**Higher confidence grounded in evidence**  
+K=10 answers frequently report *High* confidence, supported by a broader evidence base. K=5 answers sometimes report *Medium* confidence, reflecting insufficient late-stage corroboration.
+
+**No increase in temporal confusion**  
+Unlike recency queries, additional chunks at K=10 do not introduce noise or temporal mixing. Semantic chunking preserves early/late separation even with higher K.
+
+---
+
+### Concrete Example (Observed Pattern)
+
+Across multiple evolution queries (Congress, Parliament, Prime Minister rhetoric, climate policy):
+
+**K=5**  
+→ Identifies that a change occurred  
+→ Sometimes under-specifies how much and in which dimensions
+
+**K=10**  
+→ Identifies the change  
+→ Substantiates it with additional late evidence  
+→ Produces clearer, more defensible comparative conclusions
+
+---
+
+### Final Decision for Evolution Queries
+
+**Selected configuration:**
+- **Pipeline:** Semantic chunking + dense retrieval
+- **K:** 10
+
+**Final justification:**
+
+While both K=5 and K=10 achieve perfect correctness when answering, K=10 provides a measurable improvement in end-to-end accuracy and a demonstrable qualitative advantage. By consistently retrieving sufficient late-stage evidence without introducing noise, semantic/dense with K=10 is better suited for evolution queries that depend on longitudinal comparison.
+
+Accordingly, **semantic chunking with dense retrieval at K=10** is selected as the optimal configuration for evolution-based questions.
+
+---
+
+## Evaluation — Point-in-Time Queries
+
+### Why Point-in-Time Queries Are Split
+
+Although all point-in-time queries refer to a specific year or period, they are not homogeneous. They impose fundamentally different retrieval and reasoning requirements, so evaluating them together would obscure meaningful differences.
+
+We therefore split point-in-time queries into two subtypes:
+
+**Exact / Specific-Value Queries (Numeric or Single Fact)**
+- Require one precise answer (e.g., a budget value, a specific office holder)
+- Prioritize precision over coverage
+- Over-retrieval risks mixing conflicting values
+
+**Topic / Set-Based Queries (Non-Numeric)**
+- Require a set of items (e.g., laws, bills, measures discussed in a given year)
+- Prioritize coverage and completeness
+- Benefit from higher recall and aggregation across multiple chunks
+
+This section evaluates **Topic / Set-Based Point-in-Time Queries**.
+
+---
+
+### Point-in-Time (Topic) — Quantitative Evaluation
+
+#### Accuracy excluding IDK
+
+*(Correctness when an answer is produced)*
+
+![Point-in-Time Topic Accuracy (excluding IDK)](outputs/analysis/plots/point_in_time_topic__accuracy_no_idk.png)
+
+From the accuracy graph:
+- All pipelines that answered achieved **1.00 accuracy**
+- Differences between pipelines are not visible under this metric
+
+📌 **Interpretation**  
+When a pipeline answers a topic-based point-in-time query, it is almost always correct. This metric alone is therefore insufficient to differentiate configurations.
+
+#### Accuracy including IDK
+
+*(End-to-end success, penalizing abstentions)*
+
+![Point-in-Time Topic Accuracy (including IDK)](outputs/analysis/plots/point_in_time_topic__accuracy_with_idk.png)
+
+Clear separation appears once IDK is included:
+
+- **fixed / dense**
+  - k = 3, 5, 10 → 1.00
+- **semantic / dense**
+  - k = 3, 5, 10 → ~0.50
+- **bm25-based pipelines**
+  - Mixed performance
+  - Frequently abstain, especially for Parliament queries
+
+📌 **Interpretation**  
+The dominant factor for topic-based queries is coverage. Pipelines that retrieve fewer or narrower chunks tend to abstain, even when relevant evidence exists.
+
+---
+
+### Qualitative Answer Quality Analysis
+
+#### Parliament — Healthcare Legislation (2024)
+
+**fixed / dense**
+- **K = 5**
+  - Covers core legislation (Mental Health Act reform, NHS, advertising restrictions)
+  - Focused and factually grounded
+- **K = 10**
+  - Similar content
+  - Slightly more verbose, no added confusion
+  - ✅ Stable and complete
+  - ⚠️ Additional K adds little new information
+
+**semantic / dense**
+- **K = 5**
+  - Mentions only the main bill
+  - Partial coverage
+- **K = 10**
+  - Adds secondary legislation (e.g., rare cancer bill)
+  - Improves completeness without noise
+
+📌 Semantic chunking benefits from higher K, but still misses some breadth compared to fixed/dense.
+
+#### Congress — Healthcare Legislation (2024)
+
+**fixed / dense**
+- **K = 5**
+  - Identifies multiple concrete bills
+  - Clean list structure
+- **K = 10**
+  - Expands coverage significantly (veterans care, prison healthcare)
+  - Improves completeness with no topic drift
+  - ✅ Best overall coverage
+  - ✅ High stability at higher K
+
+**semantic / dense**
+- **K = 5**
+  - Partial set
+  - Misses some major bills
+- **K = 10**
+  - Much improved coverage
+  - Still slightly narrower than fixed/dense
+
+📌 Semantic/dense improves with K, but fixed/dense remains more reliable for set enumeration.
+
+**bm25 pipelines**
+- Inconsistent behavior
+- Sometimes retrieve a single bill
+- Often miss large parts of the legislative set
+- Parliament questions frequently result in IDK
+- ❌ Not suitable for topic-based point-in-time queries
+
+---
+
+### Final Decision — Point-in-Time (Topic Queries)
+
+**Selected configuration:**
+- **Pipeline:** Fixed chunking + dense retrieval
+- **K:** 10
+
+**Justification**
+
+Topic-based point-in-time queries prioritize coverage over brevity. Fixed/dense consistently retrieves a broader and more representative set of relevant chunks.
+
+Increasing K to 10:
+- Improves completeness
+- Does not introduce confusion or temporal drift
+- Maintains stable, list-like answers suitable for set enumeration
+
+Semantic chunking, while effective, shows higher abstention and narrower coverage for this subtype.
+
+Accordingly, **fixed chunking with dense retrieval at K=10** is selected as the optimal configuration for non-numeric topic-based point-in-time queries.
+
+---
+
+## Evaluation — Point-in-Time (Exact / Numeric Queries)
+
+### Definition and Evaluation Criteria
+
+Exact point-in-time queries ask for a single concrete fact at a specific time, typically:
+- a numeric value (e.g., budget amount)
+- a precise factual statement
+
+For this subtype, correctness requirements are strict:
+- There is exactly one correct answer
+- Partial values, contextual increases, or related figures are not acceptable substitutes
+- Returning IDK is preferable to returning an incorrect or ambiguous number
+
+Accordingly, evaluation emphasizes:
+- **Accuracy including IDK** (end-to-end reliability)
+- Answer precision and factual correctness
+- Resistance to semantic drift and aggregation noise
+
+---
+
+### Quantitative Evaluation
+
+#### Accuracy excluding IDK
+
+![Point-in-Time Numeric Accuracy (excluding IDK)](outputs/analysis/plots/point_in_time_numeric__accuracy_no_idk.png)
+
+From the graph:
+- All pipelines that produced an answer achieved **1.00 accuracy**
+
+📌 **Interpretation**  
+When an answer is given, it is usually internally consistent. However, this metric hides an important failure mode: frequent abstention.
+
+#### Accuracy including IDK
+
+![Point-in-Time Numeric Accuracy (including IDK)](outputs/analysis/plots/point_in_time_numeric__accuracy_with_idk.png)
+
+Once IDK is included, a clear pattern emerges:
+
+- **fixed / bm25**
+  - k = 3, 5, 10 → ~0.50
+- **fixed / dense**
+  - k = 3, 5, 10 → ~0.50
+- **semantic / bm25**
+  - k = 10 → ~0.50
+  - k = 5 → lower (frequent IDK)
+- **semantic / dense**
+  - k = 3, 5, 10 → ~0.00
+
+📌 **Interpretation**  
+Exact numeric queries are difficult, and many pipelines correctly abstain when evidence is insufficient. Performance differences are therefore driven by which pipelines are able to retrieve the single correct numeric chunk.
+
+---
+
+### Why Qualitative Analysis Is Required
+
+At this point, accuracy alone is insufficient.
+
+Several pipelines achieve similar numeric accuracy while producing very different kinds of answers:
+- some return the exact value
+- others return increases, projections, or related figures
+- some mix correct values with irrelevant context
+
+Therefore, after generating answers for the same queries, we manually inspected them to evaluate:
+- whether the exact requested value was returned
+- whether the answer was focused or polluted with nearby numeric facts
+- whether higher k improved correctness or merely increased noise
+
+The following qualitative analysis is based on direct inspection of the model outputs for the same queries across pipelines and k values.
+
+---
+
+### Qualitative Answer Analysis
+
+#### British Parliament — Defence Budget (2024)
+
+**Query:**  
+*What was the specific budget allocated to defence in 2024 in the British Parliament?*
+
+**Correct value:**  
+£55.6 billion (≈ 2.3% of GDP)
+
+**What counts as correct vs. incorrect (briefly)**
+- ✅ Correct: explicitly states £55.6B
+- ❌ Incorrect: reports budget increases, future targets, or related funding
+- ⚠️ Less focused: correct value mixed with unnecessary projections
+
+**fixed / bm25**
+- **K = 5**
+  - Returns exact correct figure
+  - Concise and precise
+- **K = 10**
+  - Still correct
+  - Adds contextual but non-conflicting information
+  - ✅ High precision
+  - ⚠️ Extra context does not harm correctness
+
+**fixed / dense**
+- **K = 5**
+  - Correct numeric value
+- **K = 10**
+  - Adds future commitments (e.g., 2.5% by 2030)
+  - Still correct but less focused
+
+📌 Larger k increases verbosity without improving correctness.
+
+**semantic / bm25**
+- **K = 5**
+  - IDK
+- **K = 10**
+  - Returns incorrect proxy value (£2.9B increase instead of total budget)
+  - ❌ Fails numeric exactness
+
+**semantic / dense**
+- **K = 5, 10**
+  - Returns increases or related spending
+  - Does not return the actual budget
+  - ❌ Systematic semantic drift
+  - ❌ Not suitable for numeric precision
+
+#### US Congress — Security Budget (2024)
+
+Across almost all pipelines:
+- Evidence for a single authoritative numeric value is sparse
+- Most pipelines correctly return IDK
+
+Only:
+- **semantic / bm25, K = 10**
+  - Returns a program-specific figure
+  - Not clearly the total "security budget"
+
+📌 In this case, abstention is the correct behavior.
+
+---
+
+### Final Decision — Point-in-Time (Exact / Numeric)
+
+**Selected configuration:**
+- **Pipeline:** Fixed chunking + BM25
+- **K:** 5
+
+**Justification**
+
+Exact numeric queries demand precision over recall.
+
+BM25 with fixed chunking:
+- Anchors retrieval to the exact lexical context where numbers appear
+- Minimizes semantic drift
+
+Lower k (5):
+- Reduces the risk of mixing:
+  - increases
+  - projections
+  - related but incorrect figures
+
+Dense and semantic pipelines consistently:
+- retrieve related numeric facts
+- fail to isolate the single correct value
+
+Accordingly, **fixed chunking with BM25 at k = 5** is selected as the most reliable configuration for exact numeric point-in-time queries.
+
+---
+
+## Overall Conclusions and Configuration Summary
+
+This evaluation demonstrates that **no single pipeline or K value is optimal across all temporal query types**. Instead, the effectiveness of a configuration depends strongly on the temporal intent of the query and the type of information required (recency snapshot, longitudinal evolution, exact numeric value, or topic coverage).
+
+By combining quantitative accuracy metrics with qualitative inspection of answer quality, we identify stable, interpretable configurations that balance correctness, coverage, and clarity.
+
+---
+
+### Summary Table — Best Configuration per Query Type
+
+| Query Type | Subtype | Best Pipeline | K | Rationale |
+|------------|---------|---------------|---|-----------|
+| **Recency** | Current / latest state | Semantic + Dense | 5 | Best balance of accuracy and answer focus; K=10 adds redundancy without new information |
+| **Evolution** | Change over time | Semantic + Dense | 10 | Higher K consistently retrieves sufficient late-stage evidence; improves confidence and completeness |
+| **Point-in-Time** | Topic / Set-based | Fixed + Dense | 10 | Maximizes coverage of relevant items; stable list-like answers without temporal drift |
+| **Point-in-Time** | Exact / Numeric | Fixed + BM25 | 5 | Anchors retrieval to precise numeric mentions; minimizes semantic drift and numeric confusion |
+
+---
+
+### Key Takeaways
+
+#### 1. Accuracy Alone Is Not Sufficient
+
+- **Accuracy excluding IDK** frequently overestimates system quality
+- Meaningful evaluation requires **accuracy including IDK**, especially for numeric and sparse queries where abstention is often the correct behavior
+
+#### 2. K Controls a Precision–Coverage Tradeoff
+
+- **Lower K** favors precision and focus
+- **Higher K** favors coverage and evidence aggregation
+
+The optimal K therefore depends on the query's intent:
+- **Recency** → focus dominates → smaller K
+- **Evolution / Topic queries** → coverage dominates → larger K
+
+#### 3. Semantic vs. Fixed Chunking Behave Differently
+
+**Semantic chunking**
+- Excels at conceptual aggregation and temporal comparison
+- More robust for recency and evolution queries
+
+**Fixed chunking**
+- Preserves lexical and numeric locality
+- Essential for exact numeric retrieval and set enumeration
+
+#### 4. Dense Retrieval Improves Recall — But Can Drift
+
+Dense retrieval improves coverage and reduces IDK rates, but:
+- For numeric queries, it often retrieves related but incorrect numbers
+- For recency, large K values may dilute temporal sharpness
+- **BM25 remains crucial** when exact phrasing and numeric precision matter
+
+---
+
+### Final System Design Recommendation
+
+A **query-aware retrieval strategy** is required:
+
+1. Detect query intent (recency / evolution / point-in-time)
+2. Route to the appropriate pipeline and K
+3. Avoid global defaults that degrade performance on specific temporal tasks
+
+This evaluation confirms that **temporal RAG is not a single-pipeline problem, but a structured retrieval decision problem**.
 
 ---
 
@@ -1925,25 +2062,7 @@ python rag_runner.py --query "..." --no-evolution
 
 This temporal RAG system successfully addresses the fundamental temporal blindness of standard retrieval systems through a **principled, empirically-validated architecture** that handles diverse temporal intents. The key insight is that **different temporal patterns require different retrieval strategies**, and no single approach (soft decay, hard filtering, or evolution) can handle all query types.
 
-The evaluation demonstrates that **configuration matters immensely**: The difference between semantic/dense and other pipelines for recency queries is not 10% accuracy improvement—it's the difference between answering "Who is the president?" correctly versus complete failure. This finding validates the investment in comprehensive pipeline evaluation and establishes semantic chunking + dense retrieval as a **non-negotiable requirement** for temporal RAG systems handling implicit recency signals.
-
 The system's design principles—automatic routing, transparent operation, empirical validation, and proper failure modes—provide a foundation for production temporal RAG deployments in domains where temporal dynamics are critical but often overlooked by standard semantic search.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

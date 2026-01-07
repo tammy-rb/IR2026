@@ -41,4 +41,4 @@ excercise3/outputs/
 # Embeddings and chunks - large generated files
 excercise4/outputs/embeddings/
 excercise4/outputs/chunks/
-excercise4/outputs/rag_runs/
+excercise4/outputs/rag_runs/tests/
