@@ -149,6 +149,656 @@ These failures motivate the need for temporal filtering, re-ranking, or explicit
 - [Stage 2 — Temporal Indexing (Data Engineering)](#stage-2--temporal-indexing-data-engineering)
 - [Stage 3 — Temporal Query Resolution (Duckling + LLM)](#stage-3--temporal-query-resolution-duckling--llm)
 
+
+## System Architecture Overview
+
+This project implements a **comprehensive temporal-aware RAG system** for parliamentary and congressional debate analysis, addressing the fundamental limitation of standard RAG systems: **temporal blindness**.
+
+### Three Query Types, Three Solutions
+
+We identified three distinct temporal query patterns, each requiring a specialized retrieval strategy:
+
+| Query Type | Temporal Signal | Example | Solution |
+|------------|----------------|---------|----------|
+| **Evolution** | Comparative ("how has X changed?", "between 2023 and 2025") | "How did climate policy change over time?" | Double retrieval from early/late windows + structured LLM prompt |
+| **Point-in-Time** | Explicit dates ("in 2024", "Q4 2023") | "What healthcare legislation was discussed in 2024?" | Hard filtering (pre-retrieval temporal constraint enforcement) |
+| **Recency** | Implicit freshness ("current", "latest", "recent") | "What is the current position on Israel?" | Soft decay re-ranking (half-life recency prior) |
+
+Each query type is automatically detected and routed to the appropriate retrieval strategy, creating a unified temporal RAG system that handles diverse temporal intents without manual configuration.
+
+### Automatic Query Routing
+
+The system automatically detects query intent and routes to the appropriate retrieval strategy:
+
+1. **Evolution patterns** → Double retrieval from early/late windows
+2. **Explicit temporal constraints** (via Duckling) → Hard filtering
+3. **Recency keywords** ("current", "latest") → Soft decay re-ranking
+4. **Default** → Baseline retrieval (no temporal adjustment)
+
+**Key Design Principles:**
+- No manual mode selection required
+- Graceful degradation when temporal signals are absent
+- Corpus-agnostic (works across British Parliament and US Congress)
+- Transparent routing with debug output
+
+---
+
+## Evaluation Methodology
+
+### Overview
+
+To systematically determine the optimal pipeline configuration for each temporal query type, we conducted a comprehensive two-stage evaluation combining quantitative accuracy metrics with qualitative answer analysis.
+
+### Data Collection and Labeling
+
+1. **Query Execution**: We executed 18 temporal queries across all pipeline configurations:
+   - 4 pipelines: fixed/semantic × BM25/dense
+   - 3 K values: {3, 5, 10}
+   - 3 temporal modes: recency (soft decay), point-in-time (hard filtering), evolution (windowed retrieval)
+
+2. **LLM-Based Answer Labeling**: Each answer was evaluated using an LLM judge and assigned one of three labels:
+   - **Correct** (2): Factually accurate and complete answer
+   - **Incorrect** (1): Factually wrong or misleading answer  
+   - **IDK** (0): System correctly abstained when evidence was insufficient
+
+3. **Data Output**: Results stored in:
+   - [`outputs/analysis/recency_runs_flat.jsonl`](excercise4/outputs/analysis/recency_runs_flat.jsonl) — Flattened run data with metadata
+   - [`outputs/analysis/results_analysis_llm_labels.json`](excercise4/outputs/analysis/results_analysis_llm_labels.json) — Labeled answers with judgments
+
+### Evaluation Metrics
+
+**Quantitative Metrics**:
+- **Accuracy excluding IDK**: Correctness among answered queries (Correct / (Correct + Incorrect))
+  - Measures precision when the system attempts an answer
+  - Does not penalize abstentions
+- **Accuracy including IDK**: End-to-end success rate (Correct / Total)
+  - Measures overall reliability
+  - Penalizes excessive abstention
+
+**Qualitative Assessment**:
+- Answer focus and conciseness
+- Temporal precision and sharpness
+- Completeness of evidence coverage
+- Resistance to semantic drift and noise
+
+### Two-Stage Evaluation Process
+
+**Stage 1: Quantitative Filtering**
+
+For each temporal query type, we generated accuracy plots (with and without IDK) to identify high-performing pipeline configurations. When accuracy metrics showed clear separation, we selected the top candidates directly.
+
+**Stage 2: Qualitative Refinement**
+
+When multiple configurations achieved similar accuracy scores, we performed manual inspection of actual answers to evaluate:
+- Whether higher K improved completeness or merely added redundancy
+- Whether answers maintained focus or suffered from topic drift
+- Whether temporal precision was preserved or diluted
+
+This qualitative analysis often revealed critical differences that accuracy alone could not capture.
+
+### Implementation
+
+- **Data Processing**: [`analysis/analysis_q_results.py`](excercise4/analysis/analysis_q_results.py) — Flattens run data for analysis
+- **Plot Generation**: [`analysis/analysis_plots.py`](excercise4/analysis/analysis_plots.py) — Generates accuracy and IDK rate plots
+- **Query Filtering**: [`outputs/analysis/filter_pipeline_results.py`](excercise4/outputs/analysis/filter_pipeline_results.py) — Filters results by query type for inspection
+
+---
+
+## Evaluation — Recency Queries
+
+### Evaluation Criteria
+
+Recency queries (e.g., "current position", "latest debates", "right now") were evaluated using two complementary criteria:
+
+**Quantitative accuracy**
+- **Accuracy excluding IDK**: correctness when the system attempts an answer
+- **Accuracy including IDK**: end-to-end success rate, penalizing abstentions
+
+**Qualitative answer quality**
+- Focus and conciseness
+- Temporal sharpness (clear emphasis on current state)
+- Signal-to-noise ratio
+- Absence of topic drift or unnecessary elaboration
+
+This dual evaluation is essential because higher accuracy alone may be achieved at the cost of reduced answer quality.
+
+---
+
+### Quantitative Results
+
+#### Accuracy excluding IDK (precision when answering)
+
+![Recency Accuracy (excluding IDK)](outputs/analysis/plots/recency__accuracy_no_idk.png)
+
+Top-performing configurations:
+- **semantic / bm25**
+  - k = 3 → 1.00
+  - k = 5 → 1.00
+- **semantic / dense**
+  - k = 10 → ~0.86
+  - k = 3, 5 → ~0.83
+- **fixed / dense**
+  - k = 10 → ~0.80
+
+This metric shows that multiple pipelines can be highly accurate when they answer, but does not capture abstention behavior.
+
+#### Accuracy including IDK (end-to-end success)
+
+![Recency Accuracy (including IDK)](outputs/analysis/plots/recency__accuracy_with_idk.png)
+
+Key observations from the graph:
+- **semantic / dense | k = 10** → ~0.67 (best overall)
+- **semantic / dense | k = 3, 5** → ~0.55
+- **fixed / dense | k = 5, 10** → ~0.44
+- **semantic / bm25** drops significantly once IDK is included
+
+This indicates that semantic/dense pipelines achieve the best balance between correctness and coverage for recency queries.
+
+---
+
+### Qualitative Stability & Answer Quality
+
+Manual inspection of representative recency answers reveals clear qualitative differences as K increases:
+
+**fixed / dense | k = 10**  
+Tends to introduce substantial verbosity and topic diffusion. Higher K amplifies chunk-level noise, often producing long, less focused answers that resemble transcript summaries rather than concise "current state" responses.
+
+**semantic / dense | k = 10**  
+More stable than fixed/dense, but still shows mild degradation: additional chunks rarely add new information and occasionally increase redundancy or over-specificity without improving answer substance.
+
+**semantic / dense | k = 5**  
+Produces the most stable behavior: focused, temporally sharp answers with minimal redundancy and a consistently high signal-to-noise ratio.
+
+---
+
+### Final Decision for Recency Queries
+
+**Selected configuration:**
+- **Pipeline:** Semantic chunking + dense retrieval
+- **K:** 5
+
+**Justification:**
+
+While semantic/dense with K=10 achieves the highest overall accuracy score, qualitative analysis shows that increasing K frequently adds redundancy and reduces focus without introducing new information.
+
+Semantic/dense with K=5 provides a more stable and interpretable behavior, delivering concise, temporally accurate answers that better match the intent of recency queries.
+
+Accordingly, **semantic chunking with dense retrieval at K=5** is selected as the optimal configuration for recency-based questions.
+
+---
+
+## Evaluation — Evolution Queries
+
+### Evaluation Criteria
+
+Evolution queries (e.g., "How did X change over time?", "Compare early vs late positions") require:
+
+- Retrieval from multiple distinct time windows
+- Clear separation between EARLY and LATE evidence
+- Explicit articulation of what changed over time
+
+Evaluation therefore combines:
+
+**Quantitative accuracy**
+- Accuracy excluding IDK
+- Accuracy including IDK
+
+**Qualitative answer quality**
+- Strength of temporal comparison
+- Completeness of change detection
+- Stability of the narrative structure
+
+---
+
+### Quantitative Results
+
+#### Accuracy excluding IDK
+
+![Evolution Accuracy (excluding IDK)](outputs/analysis/plots/evolution__accuracy_no_idk.png)
+
+Top-performing pipelines:
+
+- **semantic / dense**
+  - k = 5 → 1.00
+  - k = 10 → 1.00
+
+Both configurations are equally correct when they answer.
+
+#### Accuracy including IDK
+
+![Evolution Accuracy (including IDK)](outputs/analysis/plots/evolution__accuracy_with_idk.png)
+
+End-to-end accuracy clearly favors higher K:
+
+- **semantic / dense | k = 10** → 1.00
+- **semantic / dense | k = 5** → ~0.80
+
+This demonstrates that K=10 answers evolution queries more consistently, reducing abstentions without sacrificing correctness.
+
+---
+
+### Qualitative Proof: Why K=10 Outperforms K=5 for Dense Retrieval
+
+A direct comparison of answers reveals systematic qualitative advantages for K=10:
+
+**More complete late-stage coverage**  
+K=10 consistently retrieves additional late-window chunks (e.g., sanctions, recognition of Palestine, humanitarian framing). These elements are often absent or weaker at K=5, leading to lower confidence or more conservative conclusions.
+
+**Stronger articulation of change**  
+With K=10, answers identify multiple dimensions of evolution (rhetorical shift, policy oversight, humanitarian emphasis). K=5 typically captures the main shift but misses secondary developments that strengthen the comparative argument.
+
+**Higher confidence grounded in evidence**  
+K=10 answers frequently report *High* confidence, supported by a broader evidence base. K=5 answers sometimes report *Medium* confidence, reflecting insufficient late-stage corroboration.
+
+**No increase in temporal confusion**  
+Unlike recency queries, additional chunks at K=10 do not introduce noise or temporal mixing. Semantic chunking preserves early/late separation even with higher K.
+
+---
+
+### Concrete Example (Observed Pattern)
+
+Across multiple evolution queries (Congress, Parliament, Prime Minister rhetoric, climate policy):
+
+**K=5**  
+→ Identifies that a change occurred  
+→ Sometimes under-specifies how much and in which dimensions
+
+**K=10**  
+→ Identifies the change  
+→ Substantiates it with additional late evidence  
+→ Produces clearer, more defensible comparative conclusions
+
+---
+
+### Final Decision for Evolution Queries
+
+**Selected configuration:**
+- **Pipeline:** Semantic chunking + dense retrieval
+- **K:** 10
+
+**Final justification:**
+
+While both K=5 and K=10 achieve perfect correctness when answering, K=10 provides a measurable improvement in end-to-end accuracy and a demonstrable qualitative advantage. By consistently retrieving sufficient late-stage evidence without introducing noise, semantic/dense with K=10 is better suited for evolution queries that depend on longitudinal comparison.
+
+Accordingly, **semantic chunking with dense retrieval at K=10** is selected as the optimal configuration for evolution-based questions.
+
+---
+
+## Evaluation — Point-in-Time Queries
+
+### Why Point-in-Time Queries Are Split
+
+Although all point-in-time queries refer to a specific year or period, they are not homogeneous. They impose fundamentally different retrieval and reasoning requirements, so evaluating them together would obscure meaningful differences.
+
+We therefore split point-in-time queries into two subtypes:
+
+**Exact / Specific-Value Queries (Numeric or Single Fact)**
+- Require one precise answer (e.g., a budget value, a specific office holder)
+- Prioritize precision over coverage
+- Over-retrieval risks mixing conflicting values
+
+**Topic / Set-Based Queries (Non-Numeric)**
+- Require a set of items (e.g., laws, bills, measures discussed in a given year)
+- Prioritize coverage and completeness
+- Benefit from higher recall and aggregation across multiple chunks
+
+This section evaluates **Topic / Set-Based Point-in-Time Queries**.
+
+---
+
+### Point-in-Time (Topic) — Quantitative Evaluation
+
+#### Accuracy excluding IDK
+
+*(Correctness when an answer is produced)*
+
+![Point-in-Time Topic Accuracy (excluding IDK)](outputs/analysis/plots/point_in_time_topic__accuracy_no_idk.png)
+
+From the accuracy graph:
+- All pipelines that answered achieved **1.00 accuracy**
+- Differences between pipelines are not visible under this metric
+
+📌 **Interpretation**  
+When a pipeline answers a topic-based point-in-time query, it is almost always correct. This metric alone is therefore insufficient to differentiate configurations.
+
+#### Accuracy including IDK
+
+*(End-to-end success, penalizing abstentions)*
+
+![Point-in-Time Topic Accuracy (including IDK)](outputs/analysis/plots/point_in_time_topic__accuracy_with_idk.png)
+
+Clear separation appears once IDK is included:
+
+- **fixed / dense**
+  - k = 3, 5, 10 → 1.00
+- **semantic / dense**
+  - k = 3, 5, 10 → ~0.50
+- **bm25-based pipelines**
+  - Mixed performance
+  - Frequently abstain, especially for Parliament queries
+
+📌 **Interpretation**  
+The dominant factor for topic-based queries is coverage. Pipelines that retrieve fewer or narrower chunks tend to abstain, even when relevant evidence exists.
+
+---
+
+### Qualitative Answer Quality Analysis
+
+#### Parliament — Healthcare Legislation (2024)
+
+**fixed / dense**
+- **K = 5**
+  - Covers core legislation (Mental Health Act reform, NHS, advertising restrictions)
+  - Focused and factually grounded
+- **K = 10**
+  - Similar content
+  - Slightly more verbose, no added confusion
+  - ✅ Stable and complete
+  - ⚠️ Additional K adds little new information
+
+**semantic / dense**
+- **K = 5**
+  - Mentions only the main bill
+  - Partial coverage
+- **K = 10**
+  - Adds secondary legislation (e.g., rare cancer bill)
+  - Improves completeness without noise
+
+📌 Semantic chunking benefits from higher K, but still misses some breadth compared to fixed/dense.
+
+#### Congress — Healthcare Legislation (2024)
+
+**fixed / dense**
+- **K = 5**
+  - Identifies multiple concrete bills
+  - Clean list structure
+- **K = 10**
+  - Expands coverage significantly (veterans care, prison healthcare)
+  - Improves completeness with no topic drift
+  - ✅ Best overall coverage
+  - ✅ High stability at higher K
+
+**semantic / dense**
+- **K = 5**
+  - Partial set
+  - Misses some major bills
+- **K = 10**
+  - Much improved coverage
+  - Still slightly narrower than fixed/dense
+
+📌 Semantic/dense improves with K, but fixed/dense remains more reliable for set enumeration.
+
+**bm25 pipelines**
+- Inconsistent behavior
+- Sometimes retrieve a single bill
+- Often miss large parts of the legislative set
+- Parliament questions frequently result in IDK
+- ❌ Not suitable for topic-based point-in-time queries
+
+---
+
+### Final Decision — Point-in-Time (Topic Queries)
+
+**Selected configuration:**
+- **Pipeline:** Fixed chunking + dense retrieval
+- **K:** 10
+
+**Justification**
+
+Topic-based point-in-time queries prioritize coverage over brevity. Fixed/dense consistently retrieves a broader and more representative set of relevant chunks.
+
+Increasing K to 10:
+- Improves completeness
+- Does not introduce confusion or temporal drift
+- Maintains stable, list-like answers suitable for set enumeration
+
+Semantic chunking, while effective, shows higher abstention and narrower coverage for this subtype.
+
+Accordingly, **fixed chunking with dense retrieval at K=10** is selected as the optimal configuration for non-numeric topic-based point-in-time queries.
+
+---
+
+## Evaluation — Point-in-Time (Exact / Numeric Queries)
+
+### Definition and Evaluation Criteria
+
+Exact point-in-time queries ask for a single concrete fact at a specific time, typically:
+- a numeric value (e.g., budget amount)
+- a precise factual statement
+
+For this subtype, correctness requirements are strict:
+- There is exactly one correct answer
+- Partial values, contextual increases, or related figures are not acceptable substitutes
+- Returning IDK is preferable to returning an incorrect or ambiguous number
+
+Accordingly, evaluation emphasizes:
+- **Accuracy including IDK** (end-to-end reliability)
+- Answer precision and factual correctness
+- Resistance to semantic drift and aggregation noise
+
+---
+
+### Quantitative Evaluation
+
+#### Accuracy excluding IDK
+
+![Point-in-Time Numeric Accuracy (excluding IDK)](outputs/analysis/plots/point_in_time_numeric__accuracy_no_idk.png)
+
+From the graph:
+- All pipelines that produced an answer achieved **1.00 accuracy**
+
+📌 **Interpretation**  
+When an answer is given, it is usually internally consistent. However, this metric hides an important failure mode: frequent abstention.
+
+#### Accuracy including IDK
+
+![Point-in-Time Numeric Accuracy (including IDK)](outputs/analysis/plots/point_in_time_numeric__accuracy_with_idk.png)
+
+Once IDK is included, a clear pattern emerges:
+
+- **fixed / bm25**
+  - k = 3, 5, 10 → ~0.50
+- **fixed / dense**
+  - k = 3, 5, 10 → ~0.50
+- **semantic / bm25**
+  - k = 10 → ~0.50
+  - k = 5 → lower (frequent IDK)
+- **semantic / dense**
+  - k = 3, 5, 10 → ~0.00
+
+📌 **Interpretation**  
+Exact numeric queries are difficult, and many pipelines correctly abstain when evidence is insufficient. Performance differences are therefore driven by which pipelines are able to retrieve the single correct numeric chunk.
+
+---
+
+### Why Qualitative Analysis Is Required
+
+At this point, accuracy alone is insufficient.
+
+Several pipelines achieve similar numeric accuracy while producing very different kinds of answers:
+- some return the exact value
+- others return increases, projections, or related figures
+- some mix correct values with irrelevant context
+
+Therefore, after generating answers for the same queries, we manually inspected them to evaluate:
+- whether the exact requested value was returned
+- whether the answer was focused or polluted with nearby numeric facts
+- whether higher k improved correctness or merely increased noise
+
+The following qualitative analysis is based on direct inspection of the model outputs for the same queries across pipelines and k values.
+
+---
+
+### Qualitative Answer Analysis
+
+#### British Parliament — Defence Budget (2024)
+
+**Query:**  
+*What was the specific budget allocated to defence in 2024 in the British Parliament?*
+
+**Correct value:**  
+£55.6 billion (≈ 2.3% of GDP)
+
+**What counts as correct vs. incorrect (briefly)**
+- ✅ Correct: explicitly states £55.6B
+- ❌ Incorrect: reports budget increases, future targets, or related funding
+- ⚠️ Less focused: correct value mixed with unnecessary projections
+
+**fixed / bm25**
+- **K = 5**
+  - Returns exact correct figure
+  - Concise and precise
+- **K = 10**
+  - Still correct
+  - Adds contextual but non-conflicting information
+  - ✅ High precision
+  - ⚠️ Extra context does not harm correctness
+
+**fixed / dense**
+- **K = 5**
+  - Correct numeric value
+- **K = 10**
+  - Adds future commitments (e.g., 2.5% by 2030)
+  - Still correct but less focused
+
+📌 Larger k increases verbosity without improving correctness.
+
+**semantic / bm25**
+- **K = 5**
+  - IDK
+- **K = 10**
+  - Returns incorrect proxy value (£2.9B increase instead of total budget)
+  - ❌ Fails numeric exactness
+
+**semantic / dense**
+- **K = 5, 10**
+  - Returns increases or related spending
+  - Does not return the actual budget
+  - ❌ Systematic semantic drift
+  - ❌ Not suitable for numeric precision
+
+#### US Congress — Security Budget (2024)
+
+Across almost all pipelines:
+- Evidence for a single authoritative numeric value is sparse
+- Most pipelines correctly return IDK
+
+Only:
+- **semantic / bm25, K = 10**
+  - Returns a program-specific figure
+  - Not clearly the total "security budget"
+
+📌 In this case, abstention is the correct behavior.
+
+---
+
+### Final Decision — Point-in-Time (Exact / Numeric)
+
+**Selected configuration:**
+- **Pipeline:** Fixed chunking + BM25
+- **K:** 5
+
+**Justification**
+
+Exact numeric queries demand precision over recall.
+
+BM25 with fixed chunking:
+- Anchors retrieval to the exact lexical context where numbers appear
+- Minimizes semantic drift
+
+Lower k (5):
+- Reduces the risk of mixing:
+  - increases
+  - projections
+  - related but incorrect figures
+
+Dense and semantic pipelines consistently:
+- retrieve related numeric facts
+- fail to isolate the single correct value
+
+Accordingly, **fixed chunking with BM25 at k = 5** is selected as the most reliable configuration for exact numeric point-in-time queries.
+
+---
+
+## Overall Conclusions and Configuration Summary
+
+This evaluation demonstrates that **no single pipeline or K value is optimal across all temporal query types**. Instead, the effectiveness of a configuration depends strongly on the temporal intent of the query and the type of information required (recency snapshot, longitudinal evolution, exact numeric value, or topic coverage).
+
+By combining quantitative accuracy metrics with qualitative inspection of answer quality, we identify stable, interpretable configurations that balance correctness, coverage, and clarity.
+
+---
+
+### Summary Table — Best Configuration per Query Type
+
+| Query Type | Subtype | Best Pipeline | K | Rationale |
+|------------|---------|---------------|---|-----------|
+| **Recency** | Current / latest state | Semantic + Dense | 5 | Best balance of accuracy and answer focus; K=10 adds redundancy without new information |
+| **Evolution** | Change over time | Semantic + Dense | 10 | Higher K consistently retrieves sufficient late-stage evidence; improves confidence and completeness |
+| **Point-in-Time** | Topic / Set-based | Fixed + Dense | 10 | Maximizes coverage of relevant items; stable list-like answers without temporal drift |
+| **Point-in-Time** | Exact / Numeric | Fixed + BM25 | 5 | Anchors retrieval to precise numeric mentions; minimizes semantic drift and numeric confusion |
+
+---
+
+### Key Takeaways
+
+#### 1. Accuracy Alone Is Not Sufficient
+
+- **Accuracy excluding IDK** frequently overestimates system quality
+- Meaningful evaluation requires **accuracy including IDK**, especially for numeric and sparse queries where abstention is often the correct behavior
+
+#### 2. K Controls a Precision–Coverage Tradeoff
+
+- **Lower K** favors precision and focus
+- **Higher K** favors coverage and evidence aggregation
+
+The optimal K therefore depends on the query's intent:
+- **Recency** → focus dominates → smaller K
+- **Evolution / Topic queries** → coverage dominates → larger K
+
+#### 3. Semantic vs. Fixed Chunking Behave Differently
+
+**Semantic chunking**
+- Excels at conceptual aggregation and temporal comparison
+- More robust for recency and evolution queries
+
+**Fixed chunking**
+- Preserves lexical and numeric locality
+- Essential for exact numeric retrieval and set enumeration
+
+#### 4. Dense Retrieval Improves Recall — But Can Drift
+
+Dense retrieval improves coverage and reduces IDK rates, but:
+- For numeric queries, it often retrieves related but incorrect numbers
+- For recency, large K values may dilute temporal sharpness
+- **BM25 remains crucial** when exact phrasing and numeric precision matter
+
+---
+
+### Final System Design Recommendation
+
+A **query-aware retrieval strategy** is required:
+
+1. Detect query intent (recency / evolution / point-in-time)
+2. Route to the appropriate pipeline and K
+3. Avoid global defaults that degrade performance on specific temporal tasks
+
+This evaluation confirms that **temporal RAG is not a single-pipeline problem, but a structured retrieval decision problem**.
+
+---
+
+## Final Remarks
+
+This temporal RAG system successfully addresses the fundamental temporal blindness of standard retrieval systems through a **principled, empirically-validated architecture** that handles diverse temporal intents. The key insight is that **different temporal patterns require different retrieval strategies**, and no single approach (soft decay, hard filtering, or evolution) can handle all query types.
+
+The system's design principles—automatic routing, transparent operation, empirical validation, and proper failure modes—provide a foundation for production temporal RAG deployments in domains where temporal dynamics are critical but often overlooked by standard semantic search.
+
+---
+
+## Technical Implementation
+
+The following sections describe the technical implementation details of the temporal RAG system.
+
+
 ---
 
 ## Stage 2 — Temporal Indexing (Data Engineering)
@@ -1248,823 +1898,3 @@ The following examples demonstrate specific temporal corrections on individual q
 - Mixed-year baselines are corrected into **temporally coherent Top-5 sets**
 - Score deltas clearly show **temporal promotion**, not semantic noise
 - Overlap remains when a chunk is both recent and semantically strong
-
----
-
-# Conclusion
-
-## Overview of Temporal RAG System
-
-This project implements a **comprehensive temporal-aware RAG system** for parliamentary and congressional debate analysis, addressing the fundamental limitation of standard RAG systems: **temporal blindness**. Traditional vector-based retrieval captures semantic similarity but ignores temporal dynamics, leading to outdated answers for recency queries, inability to track policy evolution, and confusion when mixing evidence from different time periods.
-
-### Three Query Types, Three Solutions
-
-We identified three distinct temporal query patterns, each requiring a specialized retrieval strategy:
-
-| Query Type | Temporal Signal | Example | Solution |
-|------------|----------------|---------|----------|
-| **Evolution** | Comparative ("how has X changed?", "between 2023 and 2025") | "How did climate policy change over time?" | Double retrieval from early/late windows + structured LLM prompt |
-| **Point-in-Time** | Explicit dates ("in 2024", "Q4 2023") | "What healthcare legislation was discussed in 2024?" | Hard filtering (pre-retrieval temporal constraint enforcement) |
-| **Recency** | Implicit freshness ("current", "latest", "recent") | "What is the current position on Israel?" | Soft decay re-ranking (half-life recency prior) |
-
-Each query type is automatically detected and routed to the appropriate retrieval strategy, creating a unified temporal RAG system that handles diverse temporal intents without manual configuration.
-
----
-
-## Technical Implementation
-
-### 1. Evolution Retrieval: Tracking Change Over Time
-
-**Problem:** Comparative temporal queries require contrasting two time periods, but standard retrieval returns a mixture of old and new documents without temporal structure.
-
-**Solution:** Double retrieval with temporal windowing
-- **Automatic detection**: Pattern matching (`evolution_query_detector.py`) identifies comparative language ("how has", "changed", "evolved", "develop/change between")
-- **Corpus bounds calculation**: System determines earliest/latest available timestamps per chunking method (`temporal_utils.py`)
-- **Window separation**: 
-  - Early window: `[corpus_min, corpus_min + 8 months]`
-  - Late window: `[corpus_max - 8 months, corpus_max]`
-  - Configurable via `--window_months` flag
-- **Oversampling strategy**: Retrieve K × 20 candidates (minimum 100) before temporal filtering to ensure k chunks per window survive
-- **Structured LLM prompt**: 5-part response format enforces comparative analysis:
-  1. **Early Summary** (2023-2024 position) with citations [E1], [E2]...
-  2. **Late Summary** (2025 position) with citations [L1], [L2]...
-  3. **What Changed** (comparative analysis with bidirectional citations)
-  4. **Evidence Highlights** (key quotes supporting the evolution narrative)
-  5. **Confidence Assessment** (metadata on evidence quality)
-
-**Key files:**
-- Detection: `LLM/evolution_query_detector.py`
-- Core logic: `RAG_retriever/RAG_retriever.py::get_topk_evolution()`
-- Temporal filtering: `RAG_retriever/temporal/evolution.py::retrieve_evolution_windows()`
-- LLM prompt: `LLM/LLM_client.py::EVOLUTION_SYSTEM_PROMPT`
-
-### 2. Point-in-Time Retrieval: Hard Filtering
-
-**Problem:** Explicit year constraints ("in 2024") require strict temporal accuracy, but semantic retrieval can return highly relevant chunks from wrong years.
-
-**Solution:** Pre-retrieval hard filtering with Duckling temporal parsing
-- **Temporal extraction**: Duckling NER extracts explicit dates, years, quarters, ranges from queries
-- **Constraint enforcement**: All chunks whose `doc_timestamp` falls outside the specified range are filtered out **before** semantic retrieval
-- **Intersection semantics**: Multiple temporal constraints (e.g., "between 2018 and 2020 in Q4") are combined using AND logic
-- **Semi-infinite intervals**: Open-ended expressions ("since 2022", "until 2020") are represented as `[date, +∞)` or `(-∞, date]`
-- **Oversampling**: K × 20 candidates (minimum 100) retrieved before filtering ensures sufficient post-filter recall
-
-**Implementation:** `RAG_retriever/temporal_utils.py` calculates corpus bounds; `RAG_retriever/RAG_retriever.py::get_topk_timeaware()` applies filtering logic.
-
-### 3. Recency Retrieval: Soft Decay Re-ranking
-
-**Problem:** Implicit temporal signals ("current", "latest") indicate freshness preference but shouldn't eliminate slightly older relevant content.
-
-**Solution:** Half-life recency prior with semantic fusion
-- **Temporal decay function**: `0.5^(Δt_days/h)` where h = temporal half-life in days
-- **Score fusion**: `Sim(q,d,t) = α * Sim(q,d) + (1-α) * decay(t)`
-  - α = semantic weight (0.6-0.7)
-  - h = half-life (365 days for current/recent, 730 for weak temporal intent)
-- **Parameter rationale**:
-  - **α toward upper bound (0.6-0.7)**: Parliamentary debates have long-lived relevance; semantic content remains primary signal, temporal is corrective
-  - **Long half-life (1-2 years)**: Aligns with annual legislative cycles; prevents excessive recency bias that would suppress important historical context
-- **Oversampling**: K × 10 candidates (minimum 50) retrieved before re-ranking
-
-**Implementation:** `RAG_retriever/temporal_policy.py` defines parameter policy; fusion applied in `RAG_retriever/RAG_retriever.py::get_topk_timeaware()`
-
-### System Integration
-
-**Automatic query routing** (`LLM/runners/base_runner.py::route_query()`):
-1. Check for evolution patterns → `get_topk_evolution()`
-2. Check for Duckling-extracted temporal constraints → `get_topk_timeaware()` with hard filtering
-3. Check for recency keywords ("current", "latest", "recent") → `get_topk_timeaware()` with soft decay
-4. Default: Baseline retrieval (no temporal adjustment)
-
-**CLI interface** (`rag_runner.py`):
-```bash
-# Automatic routing
-python rag_runner.py --query "How has climate policy changed?"
-
-# Manual override
-python rag_runner.py --query "..." --mode evolution --window_months 12
-python rag_runner.py --query "..." --no-evolution
-```
-
----
-
-## Parameter Justification
-
-### Temporal Decay Parameters (Soft Decay)
-
-| Query Mode | α (semantic weight) | h (half-life / days) | Rationale |
-|------------|---------------------|----------------------|-----------|
-| Current    | 0.6                 | 365                  | Strong temporal intent; prioritize last year |
-| Recent     | 0.65                | 365                  | Moderate temporal intent; slight semantic bias |
-| None       | 0.7                 | 730                  | Weak temporal intent; semantic dominance |
-
-**Why α = 0.6-0.7 (upper boundary)?**
-- **Paper guidance**: Grofsky (2025) reports stable range of 0.4-0.7; above 0.7 causes temporal blindness
-- **Domain appropriateness**: Parliamentary debates have long-lived relevance; semantic content is primary signal, temporal is corrective
-- **Empirical validation**: Testing showed upper-bound α still prioritizes recent chunks when appropriate while preserving substantively important older debates
-
-**Why h = 365-730 days (long half-life)?**
-- **Legislative cycles**: Parliamentary sessions and policy debates operate on annual timescales
-- **Slow-moving domain**: Unlike cybersecurity logs (paper's 14-day half-life), political discourse remains relevant across months/years
-- **Prevents over-penalization**: Shorter half-life would aggressively suppress 6-month-old debates that are still highly relevant
-
-### Evolution Window Parameters
-
-- **Default window size**: 8 months per window
-- **Rationale**: 
-  - Captures sufficient debate volume for thematic analysis
-  - Prevents windows from overlapping in typical 2-3 year corpora
-  - Balances specificity (shorter windows = clearer time periods) with coverage (longer windows = more evidence)
-- **Configurable**: `--window_months` flag allows customization for different corpus timespans
-
-### Oversampling Ratios
-
-| Retrieval Mode | Oversample Ratio | Minimum Candidates | Rationale |
-|----------------|------------------|--------------------|-----------| 
-| Evolution | K × 20 | 100 | Aggressive: Ensures k chunks survive per window after temporal filtering |
-| Point-in-Time | K × 20 | 100 | Aggressive: Year-specific evidence may be sparse; maximize recall |
-| Recency | K × 10 | 50 | Moderate: Soft decay re-ranks rather than filters; less aggressive needed |
-
-**Why different ratios?**
-- **Hard filtering loss**: Evolution and point-in-time discard many candidates; need large initial pool
-- **Soft re-ranking preservation**: Recency keeps all candidates; smaller pool sufficient
-
----
-
-## Temporal Awareness Validation
-
-### Evidence of Proper Temporal Handling
-
-**1. Citation Patterns (Evolution)**
-- Early window citations: [E1], [E2], [E3]... properly reference 2023-2024 chunks
-- Late window citations: [L1], [L2], [L3]... properly reference 2025 chunks
-- No cross-contamination: Early summaries never cite late chunks and vice versa
-- Bidirectional "What Changed" section: Uses both [E#] and [L#] citations for comparison
-
-**2. Timestamp Clustering (Evolution)**
-- Early window chunks: Median timestamp ~2023-07 to 2024-03
-- Late window chunks: Median timestamp ~2025-08 to 2025-11
-- Clean temporal separation: No mixed-year Top-5 sets
-
-**3. Hard Filtering Accuracy (Point-in-Time)**
-- Query "in 2024" → All retrieved chunks have `doc_date_iso` starting with "2024-"
-- Query "Q4 2023" → All chunks dated October-December 2023
-- Zero temporal leakage: No 2023 chunks for 2024 queries, no 2025 chunks for 2024 queries
-
-**4. Recency Boost Validation (Soft Decay)**
-- "Who is the president right now?" → Top chunk from October 2025 (most recent)
-- "Current position on Israel" → Citations from September-October 2025
-- Older relevant chunks still retrieved: 2024 chunks appear in K=10 when conceptually strong, but rank below 2025 chunks
-
----
-
-## System Architecture Strengths
-
-### 1. Automatic Query Understanding
-- No manual mode selection required; system detects temporal intent from natural language
-- Graceful degradation: Falls back to baseline retrieval when no temporal signals detected
-- Extensible: New patterns can be added to `evolution_query_detector.py` without changing core logic
-
-### 2. Unified Pipeline
-- Single CLI interface (`rag_runner.py`) handles all three temporal modes + baseline
-- Consistent output format (JSON with chunk metadata, scores, LLM answers)
-- Transparent routing: Debug output shows which retrieval mode was selected
-
-### 3. Corpus-Agnostic Design
-- Works across British Parliament and US Congress corpora without modification
-- Cross-corpus retrieval validated: "President" query correctly pulls from British debate mentions
-- Corpus bounds calculated dynamically per chunking method
-
-### 4. Empirical Validation
-- 18 queries evaluated across 4 pipeline configurations × 3 K values = 216 total configurations
-- Complete results stored in `outputs/rag_runs/` with question-to-path mapping
-- Evidence-based recommendations: Every configuration choice backed by empirical failure/success data
-
----
-
-## Key Contributions
-
-1. **Three-mode temporal RAG architecture**: First system to unify evolution, point-in-time, and recency queries in single framework with automatic routing
-
-2. **Evolution retrieval method**: Double windowed retrieval + structured comparative prompt eliminates need for LLM temporal reasoning
-
-3. **Pipeline configuration empirical validation**: Definitive evidence that semantic/dense is **required** (not recommended) for recency queries
-
-4. **Parameter policy for slow-moving domains**: Adapted soft decay parameters from fast-moving cybersecurity logs to slow-moving political discourse
-
-5. **Cross-corpus retrieval validation**: Demonstrated that dense embeddings enable factual retrieval regardless of corpus origin
-
----
-
-## Evaluation Methodology
-
-### Overview
-
-To systematically determine the optimal pipeline configuration for each temporal query type, we conducted a comprehensive two-stage evaluation combining quantitative accuracy metrics with qualitative answer analysis.
-
-### Data Collection and Labeling
-
-1. **Query Execution**: We executed 18 temporal queries across all pipeline configurations:
-   - 4 pipelines: fixed/semantic × BM25/dense
-   - 3 K values: {3, 5, 10}
-   - 3 temporal modes: recency (soft decay), point-in-time (hard filtering), evolution (windowed retrieval)
-
-2. **LLM-Based Answer Labeling**: Each answer was evaluated using an LLM judge and assigned one of three labels:
-   - **Correct** (2): Factually accurate and complete answer
-   - **Incorrect** (1): Factually wrong or misleading answer  
-   - **IDK** (0): System correctly abstained when evidence was insufficient
-
-3. **Data Output**: Results stored in:
-   - [`outputs/analysis/recency_runs_flat.jsonl`](excercise4/outputs/analysis/recency_runs_flat.jsonl) — Flattened run data with metadata
-   - [`outputs/analysis/results_analysis_llm_labels.json`](excercise4/outputs/analysis/results_analysis_llm_labels.json) — Labeled answers with judgments
-
-### Evaluation Metrics
-
-**Quantitative Metrics**:
-- **Accuracy excluding IDK**: Correctness among answered queries (Correct / (Correct + Incorrect))
-  - Measures precision when the system attempts an answer
-  - Does not penalize abstentions
-- **Accuracy including IDK**: End-to-end success rate (Correct / Total)
-  - Measures overall reliability
-  - Penalizes excessive abstention
-
-**Qualitative Assessment**:
-- Answer focus and conciseness
-- Temporal precision and sharpness
-- Completeness of evidence coverage
-- Resistance to semantic drift and noise
-
-### Two-Stage Evaluation Process
-
-**Stage 1: Quantitative Filtering**
-
-For each temporal query type, we generated accuracy plots (with and without IDK) to identify high-performing pipeline configurations. When accuracy metrics showed clear separation, we selected the top candidates directly.
-
-**Stage 2: Qualitative Refinement**
-
-When multiple configurations achieved similar accuracy scores, we performed manual inspection of actual answers to evaluate:
-- Whether higher K improved completeness or merely added redundancy
-- Whether answers maintained focus or suffered from topic drift
-- Whether temporal precision was preserved or diluted
-
-This qualitative analysis often revealed critical differences that accuracy alone could not capture.
-
-### Implementation
-
-- **Data Processing**: [`analysis/analysis_q_results.py`](excercise4/analysis/analysis_q_results.py) — Flattens run data for analysis
-- **Plot Generation**: [`analysis/analysis_plots.py`](excercise4/analysis/analysis_plots.py) — Generates accuracy and IDK rate plots
-- **Query Filtering**: [`outputs/analysis/filter_pipeline_results.py`](excercise4/outputs/analysis/filter_pipeline_results.py) — Filters results by query type for inspection
-
----
-
-## Evaluation — Recency Queries
-
-### Evaluation Criteria
-
-Recency queries (e.g., "current position", "latest debates", "right now") were evaluated using two complementary criteria:
-
-**Quantitative accuracy**
-- **Accuracy excluding IDK**: correctness when the system attempts an answer
-- **Accuracy including IDK**: end-to-end success rate, penalizing abstentions
-
-**Qualitative answer quality**
-- Focus and conciseness
-- Temporal sharpness (clear emphasis on current state)
-- Signal-to-noise ratio
-- Absence of topic drift or unnecessary elaboration
-
-This dual evaluation is essential because higher accuracy alone may be achieved at the cost of reduced answer quality.
-
----
-
-### Quantitative Results
-
-#### Accuracy excluding IDK (precision when answering)
-
-![Recency Accuracy (excluding IDK)](outputs/analysis/plots/recency__accuracy_no_idk.png)
-
-Top-performing configurations:
-- **semantic / bm25**
-  - k = 3 → 1.00
-  - k = 5 → 1.00
-- **semantic / dense**
-  - k = 10 → ~0.86
-  - k = 3, 5 → ~0.83
-- **fixed / dense**
-  - k = 10 → ~0.80
-
-This metric shows that multiple pipelines can be highly accurate when they answer, but does not capture abstention behavior.
-
-#### Accuracy including IDK (end-to-end success)
-
-![Recency Accuracy (including IDK)](outputs/analysis/plots/recency__accuracy_with_idk.png)
-
-Key observations from the graph:
-- **semantic / dense | k = 10** → ~0.67 (best overall)
-- **semantic / dense | k = 3, 5** → ~0.55
-- **fixed / dense | k = 5, 10** → ~0.44
-- **semantic / bm25** drops significantly once IDK is included
-
-This indicates that semantic/dense pipelines achieve the best balance between correctness and coverage for recency queries.
-
----
-
-### Qualitative Stability & Answer Quality
-
-Manual inspection of representative recency answers reveals clear qualitative differences as K increases:
-
-**fixed / dense | k = 10**  
-Tends to introduce substantial verbosity and topic diffusion. Higher K amplifies chunk-level noise, often producing long, less focused answers that resemble transcript summaries rather than concise "current state" responses.
-
-**semantic / dense | k = 10**  
-More stable than fixed/dense, but still shows mild degradation: additional chunks rarely add new information and occasionally increase redundancy or over-specificity without improving answer substance.
-
-**semantic / dense | k = 5**  
-Produces the most stable behavior: focused, temporally sharp answers with minimal redundancy and a consistently high signal-to-noise ratio.
-
----
-
-### Final Decision for Recency Queries
-
-**Selected configuration:**
-- **Pipeline:** Semantic chunking + dense retrieval
-- **K:** 5
-
-**Justification:**
-
-While semantic/dense with K=10 achieves the highest overall accuracy score, qualitative analysis shows that increasing K frequently adds redundancy and reduces focus without introducing new information.
-
-Semantic/dense with K=5 provides a more stable and interpretable behavior, delivering concise, temporally accurate answers that better match the intent of recency queries.
-
-Accordingly, **semantic chunking with dense retrieval at K=5** is selected as the optimal configuration for recency-based questions.
-
----
-
-## Evaluation — Evolution Queries
-
-### Evaluation Criteria
-
-Evolution queries (e.g., "How did X change over time?", "Compare early vs late positions") require:
-
-- Retrieval from multiple distinct time windows
-- Clear separation between EARLY and LATE evidence
-- Explicit articulation of what changed over time
-
-Evaluation therefore combines:
-
-**Quantitative accuracy**
-- Accuracy excluding IDK
-- Accuracy including IDK
-
-**Qualitative answer quality**
-- Strength of temporal comparison
-- Completeness of change detection
-- Stability of the narrative structure
-
----
-
-### Quantitative Results
-
-#### Accuracy excluding IDK
-
-![Evolution Accuracy (excluding IDK)](outputs/analysis/plots/evolution__accuracy_no_idk.png)
-
-Top-performing pipelines:
-
-- **semantic / dense**
-  - k = 5 → 1.00
-  - k = 10 → 1.00
-
-Both configurations are equally correct when they answer.
-
-#### Accuracy including IDK
-
-![Evolution Accuracy (including IDK)](outputs/analysis/plots/evolution__accuracy_with_idk.png)
-
-End-to-end accuracy clearly favors higher K:
-
-- **semantic / dense | k = 10** → 1.00
-- **semantic / dense | k = 5** → ~0.80
-
-This demonstrates that K=10 answers evolution queries more consistently, reducing abstentions without sacrificing correctness.
-
----
-
-### Qualitative Proof: Why K=10 Outperforms K=5 for Dense Retrieval
-
-A direct comparison of answers reveals systematic qualitative advantages for K=10:
-
-**More complete late-stage coverage**  
-K=10 consistently retrieves additional late-window chunks (e.g., sanctions, recognition of Palestine, humanitarian framing). These elements are often absent or weaker at K=5, leading to lower confidence or more conservative conclusions.
-
-**Stronger articulation of change**  
-With K=10, answers identify multiple dimensions of evolution (rhetorical shift, policy oversight, humanitarian emphasis). K=5 typically captures the main shift but misses secondary developments that strengthen the comparative argument.
-
-**Higher confidence grounded in evidence**  
-K=10 answers frequently report *High* confidence, supported by a broader evidence base. K=5 answers sometimes report *Medium* confidence, reflecting insufficient late-stage corroboration.
-
-**No increase in temporal confusion**  
-Unlike recency queries, additional chunks at K=10 do not introduce noise or temporal mixing. Semantic chunking preserves early/late separation even with higher K.
-
----
-
-### Concrete Example (Observed Pattern)
-
-Across multiple evolution queries (Congress, Parliament, Prime Minister rhetoric, climate policy):
-
-**K=5**  
-→ Identifies that a change occurred  
-→ Sometimes under-specifies how much and in which dimensions
-
-**K=10**  
-→ Identifies the change  
-→ Substantiates it with additional late evidence  
-→ Produces clearer, more defensible comparative conclusions
-
----
-
-### Final Decision for Evolution Queries
-
-**Selected configuration:**
-- **Pipeline:** Semantic chunking + dense retrieval
-- **K:** 10
-
-**Final justification:**
-
-While both K=5 and K=10 achieve perfect correctness when answering, K=10 provides a measurable improvement in end-to-end accuracy and a demonstrable qualitative advantage. By consistently retrieving sufficient late-stage evidence without introducing noise, semantic/dense with K=10 is better suited for evolution queries that depend on longitudinal comparison.
-
-Accordingly, **semantic chunking with dense retrieval at K=10** is selected as the optimal configuration for evolution-based questions.
-
----
-
-## Evaluation — Point-in-Time Queries
-
-### Why Point-in-Time Queries Are Split
-
-Although all point-in-time queries refer to a specific year or period, they are not homogeneous. They impose fundamentally different retrieval and reasoning requirements, so evaluating them together would obscure meaningful differences.
-
-We therefore split point-in-time queries into two subtypes:
-
-**Exact / Specific-Value Queries (Numeric or Single Fact)**
-- Require one precise answer (e.g., a budget value, a specific office holder)
-- Prioritize precision over coverage
-- Over-retrieval risks mixing conflicting values
-
-**Topic / Set-Based Queries (Non-Numeric)**
-- Require a set of items (e.g., laws, bills, measures discussed in a given year)
-- Prioritize coverage and completeness
-- Benefit from higher recall and aggregation across multiple chunks
-
-This section evaluates **Topic / Set-Based Point-in-Time Queries**.
-
----
-
-### Point-in-Time (Topic) — Quantitative Evaluation
-
-#### Accuracy excluding IDK
-
-*(Correctness when an answer is produced)*
-
-![Point-in-Time Topic Accuracy (excluding IDK)](outputs/analysis/plots/point_in_time_topic__accuracy_no_idk.png)
-
-From the accuracy graph:
-- All pipelines that answered achieved **1.00 accuracy**
-- Differences between pipelines are not visible under this metric
-
-📌 **Interpretation**  
-When a pipeline answers a topic-based point-in-time query, it is almost always correct. This metric alone is therefore insufficient to differentiate configurations.
-
-#### Accuracy including IDK
-
-*(End-to-end success, penalizing abstentions)*
-
-![Point-in-Time Topic Accuracy (including IDK)](outputs/analysis/plots/point_in_time_topic__accuracy_with_idk.png)
-
-Clear separation appears once IDK is included:
-
-- **fixed / dense**
-  - k = 3, 5, 10 → 1.00
-- **semantic / dense**
-  - k = 3, 5, 10 → ~0.50
-- **bm25-based pipelines**
-  - Mixed performance
-  - Frequently abstain, especially for Parliament queries
-
-📌 **Interpretation**  
-The dominant factor for topic-based queries is coverage. Pipelines that retrieve fewer or narrower chunks tend to abstain, even when relevant evidence exists.
-
----
-
-### Qualitative Answer Quality Analysis
-
-#### Parliament — Healthcare Legislation (2024)
-
-**fixed / dense**
-- **K = 5**
-  - Covers core legislation (Mental Health Act reform, NHS, advertising restrictions)
-  - Focused and factually grounded
-- **K = 10**
-  - Similar content
-  - Slightly more verbose, no added confusion
-  - ✅ Stable and complete
-  - ⚠️ Additional K adds little new information
-
-**semantic / dense**
-- **K = 5**
-  - Mentions only the main bill
-  - Partial coverage
-- **K = 10**
-  - Adds secondary legislation (e.g., rare cancer bill)
-  - Improves completeness without noise
-
-📌 Semantic chunking benefits from higher K, but still misses some breadth compared to fixed/dense.
-
-#### Congress — Healthcare Legislation (2024)
-
-**fixed / dense**
-- **K = 5**
-  - Identifies multiple concrete bills
-  - Clean list structure
-- **K = 10**
-  - Expands coverage significantly (veterans care, prison healthcare)
-  - Improves completeness with no topic drift
-  - ✅ Best overall coverage
-  - ✅ High stability at higher K
-
-**semantic / dense**
-- **K = 5**
-  - Partial set
-  - Misses some major bills
-- **K = 10**
-  - Much improved coverage
-  - Still slightly narrower than fixed/dense
-
-📌 Semantic/dense improves with K, but fixed/dense remains more reliable for set enumeration.
-
-**bm25 pipelines**
-- Inconsistent behavior
-- Sometimes retrieve a single bill
-- Often miss large parts of the legislative set
-- Parliament questions frequently result in IDK
-- ❌ Not suitable for topic-based point-in-time queries
-
----
-
-### Final Decision — Point-in-Time (Topic Queries)
-
-**Selected configuration:**
-- **Pipeline:** Fixed chunking + dense retrieval
-- **K:** 10
-
-**Justification**
-
-Topic-based point-in-time queries prioritize coverage over brevity. Fixed/dense consistently retrieves a broader and more representative set of relevant chunks.
-
-Increasing K to 10:
-- Improves completeness
-- Does not introduce confusion or temporal drift
-- Maintains stable, list-like answers suitable for set enumeration
-
-Semantic chunking, while effective, shows higher abstention and narrower coverage for this subtype.
-
-Accordingly, **fixed chunking with dense retrieval at K=10** is selected as the optimal configuration for non-numeric topic-based point-in-time queries.
-
----
-
-## Evaluation — Point-in-Time (Exact / Numeric Queries)
-
-### Definition and Evaluation Criteria
-
-Exact point-in-time queries ask for a single concrete fact at a specific time, typically:
-- a numeric value (e.g., budget amount)
-- a precise factual statement
-
-For this subtype, correctness requirements are strict:
-- There is exactly one correct answer
-- Partial values, contextual increases, or related figures are not acceptable substitutes
-- Returning IDK is preferable to returning an incorrect or ambiguous number
-
-Accordingly, evaluation emphasizes:
-- **Accuracy including IDK** (end-to-end reliability)
-- Answer precision and factual correctness
-- Resistance to semantic drift and aggregation noise
-
----
-
-### Quantitative Evaluation
-
-#### Accuracy excluding IDK
-
-![Point-in-Time Numeric Accuracy (excluding IDK)](outputs/analysis/plots/point_in_time_numeric__accuracy_no_idk.png)
-
-From the graph:
-- All pipelines that produced an answer achieved **1.00 accuracy**
-
-📌 **Interpretation**  
-When an answer is given, it is usually internally consistent. However, this metric hides an important failure mode: frequent abstention.
-
-#### Accuracy including IDK
-
-![Point-in-Time Numeric Accuracy (including IDK)](outputs/analysis/plots/point_in_time_numeric__accuracy_with_idk.png)
-
-Once IDK is included, a clear pattern emerges:
-
-- **fixed / bm25**
-  - k = 3, 5, 10 → ~0.50
-- **fixed / dense**
-  - k = 3, 5, 10 → ~0.50
-- **semantic / bm25**
-  - k = 10 → ~0.50
-  - k = 5 → lower (frequent IDK)
-- **semantic / dense**
-  - k = 3, 5, 10 → ~0.00
-
-📌 **Interpretation**  
-Exact numeric queries are difficult, and many pipelines correctly abstain when evidence is insufficient. Performance differences are therefore driven by which pipelines are able to retrieve the single correct numeric chunk.
-
----
-
-### Why Qualitative Analysis Is Required
-
-At this point, accuracy alone is insufficient.
-
-Several pipelines achieve similar numeric accuracy while producing very different kinds of answers:
-- some return the exact value
-- others return increases, projections, or related figures
-- some mix correct values with irrelevant context
-
-Therefore, after generating answers for the same queries, we manually inspected them to evaluate:
-- whether the exact requested value was returned
-- whether the answer was focused or polluted with nearby numeric facts
-- whether higher k improved correctness or merely increased noise
-
-The following qualitative analysis is based on direct inspection of the model outputs for the same queries across pipelines and k values.
-
----
-
-### Qualitative Answer Analysis
-
-#### British Parliament — Defence Budget (2024)
-
-**Query:**  
-*What was the specific budget allocated to defence in 2024 in the British Parliament?*
-
-**Correct value:**  
-£55.6 billion (≈ 2.3% of GDP)
-
-**What counts as correct vs. incorrect (briefly)**
-- ✅ Correct: explicitly states £55.6B
-- ❌ Incorrect: reports budget increases, future targets, or related funding
-- ⚠️ Less focused: correct value mixed with unnecessary projections
-
-**fixed / bm25**
-- **K = 5**
-  - Returns exact correct figure
-  - Concise and precise
-- **K = 10**
-  - Still correct
-  - Adds contextual but non-conflicting information
-  - ✅ High precision
-  - ⚠️ Extra context does not harm correctness
-
-**fixed / dense**
-- **K = 5**
-  - Correct numeric value
-- **K = 10**
-  - Adds future commitments (e.g., 2.5% by 2030)
-  - Still correct but less focused
-
-📌 Larger k increases verbosity without improving correctness.
-
-**semantic / bm25**
-- **K = 5**
-  - IDK
-- **K = 10**
-  - Returns incorrect proxy value (£2.9B increase instead of total budget)
-  - ❌ Fails numeric exactness
-
-**semantic / dense**
-- **K = 5, 10**
-  - Returns increases or related spending
-  - Does not return the actual budget
-  - ❌ Systematic semantic drift
-  - ❌ Not suitable for numeric precision
-
-#### US Congress — Security Budget (2024)
-
-Across almost all pipelines:
-- Evidence for a single authoritative numeric value is sparse
-- Most pipelines correctly return IDK
-
-Only:
-- **semantic / bm25, K = 10**
-  - Returns a program-specific figure
-  - Not clearly the total "security budget"
-
-📌 In this case, abstention is the correct behavior.
-
----
-
-### Final Decision — Point-in-Time (Exact / Numeric)
-
-**Selected configuration:**
-- **Pipeline:** Fixed chunking + BM25
-- **K:** 5
-
-**Justification**
-
-Exact numeric queries demand precision over recall.
-
-BM25 with fixed chunking:
-- Anchors retrieval to the exact lexical context where numbers appear
-- Minimizes semantic drift
-
-Lower k (5):
-- Reduces the risk of mixing:
-  - increases
-  - projections
-  - related but incorrect figures
-
-Dense and semantic pipelines consistently:
-- retrieve related numeric facts
-- fail to isolate the single correct value
-
-Accordingly, **fixed chunking with BM25 at k = 5** is selected as the most reliable configuration for exact numeric point-in-time queries.
-
----
-
-## Overall Conclusions and Configuration Summary
-
-This evaluation demonstrates that **no single pipeline or K value is optimal across all temporal query types**. Instead, the effectiveness of a configuration depends strongly on the temporal intent of the query and the type of information required (recency snapshot, longitudinal evolution, exact numeric value, or topic coverage).
-
-By combining quantitative accuracy metrics with qualitative inspection of answer quality, we identify stable, interpretable configurations that balance correctness, coverage, and clarity.
-
----
-
-### Summary Table — Best Configuration per Query Type
-
-| Query Type | Subtype | Best Pipeline | K | Rationale |
-|------------|---------|---------------|---|-----------|
-| **Recency** | Current / latest state | Semantic + Dense | 5 | Best balance of accuracy and answer focus; K=10 adds redundancy without new information |
-| **Evolution** | Change over time | Semantic + Dense | 10 | Higher K consistently retrieves sufficient late-stage evidence; improves confidence and completeness |
-| **Point-in-Time** | Topic / Set-based | Fixed + Dense | 10 | Maximizes coverage of relevant items; stable list-like answers without temporal drift |
-| **Point-in-Time** | Exact / Numeric | Fixed + BM25 | 5 | Anchors retrieval to precise numeric mentions; minimizes semantic drift and numeric confusion |
-
----
-
-### Key Takeaways
-
-#### 1. Accuracy Alone Is Not Sufficient
-
-- **Accuracy excluding IDK** frequently overestimates system quality
-- Meaningful evaluation requires **accuracy including IDK**, especially for numeric and sparse queries where abstention is often the correct behavior
-
-#### 2. K Controls a Precision–Coverage Tradeoff
-
-- **Lower K** favors precision and focus
-- **Higher K** favors coverage and evidence aggregation
-
-The optimal K therefore depends on the query's intent:
-- **Recency** → focus dominates → smaller K
-- **Evolution / Topic queries** → coverage dominates → larger K
-
-#### 3. Semantic vs. Fixed Chunking Behave Differently
-
-**Semantic chunking**
-- Excels at conceptual aggregation and temporal comparison
-- More robust for recency and evolution queries
-
-**Fixed chunking**
-- Preserves lexical and numeric locality
-- Essential for exact numeric retrieval and set enumeration
-
-#### 4. Dense Retrieval Improves Recall — But Can Drift
-
-Dense retrieval improves coverage and reduces IDK rates, but:
-- For numeric queries, it often retrieves related but incorrect numbers
-- For recency, large K values may dilute temporal sharpness
-- **BM25 remains crucial** when exact phrasing and numeric precision matter
-
----
-
-### Final System Design Recommendation
-
-A **query-aware retrieval strategy** is required:
-
-1. Detect query intent (recency / evolution / point-in-time)
-2. Route to the appropriate pipeline and K
-3. Avoid global defaults that degrade performance on specific temporal tasks
-
-This evaluation confirms that **temporal RAG is not a single-pipeline problem, but a structured retrieval decision problem**.
-
----
-
-## Final Remarks
-
-This temporal RAG system successfully addresses the fundamental temporal blindness of standard retrieval systems through a **principled, empirically-validated architecture** that handles diverse temporal intents. The key insight is that **different temporal patterns require different retrieval strategies**, and no single approach (soft decay, hard filtering, or evolution) can handle all query types.
-
-The system's design principles—automatic routing, transparent operation, empirical validation, and proper failure modes—provide a foundation for production temporal RAG deployments in domains where temporal dynamics are critical but often overlooked by standard semantic search.
-
-
-
-
-
