@@ -22,7 +22,7 @@ from config import (
     OPENAI_EMBED_MODEL,
 )
 from .retrievers.bm25 import BM25Retriever
-from .retrievers.dense_qdrant import DenseQdrantRetriever
+from .retrievers.dense_qdrant import QdrantDenseRetriever
 from .utils import build_context_block, detect_corpus_label
 from .prefilter.chuncks_selector import ChunkFilter
 
@@ -57,7 +57,7 @@ class Pipeline:
     chunking: str         # "fixed" or "semantic"
     representation: str   # "bm25" or "dense"
     bm25: Optional[BM25Retriever]
-    dense: Optional[DenseQdrantRetriever]
+    dense: Optional[QdrantDenseRetriever]
 
 
 # ============================================================
@@ -98,11 +98,11 @@ class RAGRetriever:
             )
 
         if repr_ == "dense":
-            dense = DenseQdrantRetriever(
+            dense = QdrantDenseRetriever(
                 qdrant_host=QDRANT_HOST,
                 qdrant_port=QDRANT_PORT,
                 collection_name=QDRANT_COLLECTION_FIXED if chunking == "fixed" else QDRANT_COLLECTION_SEMANTIC,
-                embed_model=OPENAI_EMBED_MODEL,
+                model=OPENAI_EMBED_MODEL,
             )
 
         return Pipeline(chunking=chunking, representation=repr_, bm25=bm25, dense=dense)
@@ -258,6 +258,7 @@ class RAGRetriever:
         # 3) retrieve candidates based on strategy
         final_items: List[Tuple[Any, float]] = []
         debug_rows: List[Dict[str, Any]] = []
+        candidate_count = 0
 
         if plan.strategy == "hard":
             # Use prefiltered retrieval instead of oversampling + post-filtering
@@ -276,6 +277,7 @@ class RAGRetriever:
                     raise RuntimeError("Dense pipeline not initialized.")
                 filtered = pipe.dense.search_candidates_prefiltered(query, k, flt=flt, oversample=0)
             
+            candidate_count = len(filtered)
             final_items = filtered[:k]
 
         elif plan.strategy == "soft":
@@ -288,6 +290,8 @@ class RAGRetriever:
                 if pipe.dense is None:
                     raise RuntimeError("Dense pipeline not initialized.")
                 cands = pipe.dense.search_candidates(query, k, oversample=plan.oversample)
+            
+            candidate_count = len(cands)
             
             # Normalize sims for BM25 only; dense already in a comparable [0,1] similarity space
             normalize = (representation == "bm25")
@@ -326,6 +330,7 @@ class RAGRetriever:
                 if pipe.dense is None:
                     raise RuntimeError("Dense pipeline not initialized.")
                 cands = pipe.dense.search_candidates(query, k, oversample=0)
+            candidate_count = len(cands)
             final_items = cands[:k]
 
         return {
@@ -358,7 +363,7 @@ class RAGRetriever:
                 for (c, _s) in final_items
             ],
             "debug": {
-                "candidate_count": len(cands),
+                "candidate_count": candidate_count,
                 "rerank_rows": debug_rows,
             },
         }

@@ -38,6 +38,8 @@ OUTPUTS_DIR = EXERCISE5_DIR / "outputs"
 CHUNKS_DIR = OUTPUTS_DIR / "chunks"
 EMBEDDINGS_DIR = OUTPUTS_DIR / "embeddings"
 BM25_DIR = EMBEDDINGS_DIR / "bm25"
+BM25_FIXED_DIR = BM25_DIR / "fixed"
+BM25_SEM_DIR = BM25_DIR / "semantic"
 OPENAI_DIR = EMBEDDINGS_DIR / "openai"
 OPENAI_QDRANT_DIR = EMBEDDINGS_DIR / "openai_qdrant"
 OPENAI_QDRANT_FIXED_DIR = OPENAI_QDRANT_DIR / "fixed"
@@ -45,7 +47,8 @@ OPENAI_QDRANT_SEMANTIC_DIR = OPENAI_QDRANT_DIR / "semantic"
 
 # Chunking methods
 CHUNKS_FIXED_JSONL = CHUNKS_DIR / "chunks_fixed.jsonl"
-CHUNKS_SEMANTIC_JSONL = CHUNKS_DIR / "chunks_semantic.jsonl"
+CHUNKS_SEM_JSONL = CHUNKS_DIR / "chunks_semantic.jsonl"
+CHUNKS_SEMANTIC_JSONL = CHUNKS_SEM_JSONL  # Alias for consistency
 
 # ============================================================
 # Models
@@ -62,6 +65,8 @@ def ensure_dirs() -> None:
         CHUNKS_DIR,
         EMBEDDINGS_DIR,
         BM25_DIR,
+        BM25_FIXED_DIR,
+        BM25_SEM_DIR,
         OPENAI_QDRANT_DIR,
         OPENAI_QDRANT_FIXED_DIR,
         OPENAI_QDRANT_SEMANTIC_DIR,

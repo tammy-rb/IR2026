@@ -16,10 +16,15 @@ from __future__ import annotations
 
 import os
 from pathlib import Path
-from typing import List
+from typing import TYPE_CHECKING, List, Tuple
 
 from models.chunk import Chunk
-from .retrievers.base import RetrievedChunk
+
+if TYPE_CHECKING:
+    from .retrievers.base import RetrievedChunk
+else:
+    # Runtime fallback
+    RetrievedChunk = Tuple[object, float]
 
 BRITISH = "british_parliament_debates"
 US = "US_congress_debates"

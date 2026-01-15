@@ -1,5 +1,5 @@
-from .base import Retriever
+from .base import Retriever, RetrievedChunk
 from .bm25 import BM25Retriever
-from .dense_faiss import DenseFAISSRetriever
+from .dense_qdrant import QdrantDenseRetriever
 
-__all__ = ["Retriever", "BM25Retriever", "DenseFAISSRetriever"]
+__all__ = ["Retriever", "RetrievedChunk", "BM25Retriever", "QdrantDenseRetriever"]

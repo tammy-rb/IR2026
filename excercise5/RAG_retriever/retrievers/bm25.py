@@ -66,7 +66,7 @@ class BM25Retriever(Retriever):
         q_vec = self._index.vectorizer.transform([query]).astype(float)
 
         # Efficient 1D scores
-        scores = (self._index.matrix @ q_vec.T).A1  # shape: (num_chunks,)
+        scores = (self._index.matrix @ q_vec.T).toarray().ravel()  # shape: (num_chunks,)
 
         top = np.argsort(-scores)[:k_total]
         return [(self._index.chunks[int(i)], float(scores[int(i)])) for i in top]
@@ -92,7 +92,7 @@ class BM25Retriever(Retriever):
         q_vec = self._index.vectorizer.transform([query]).astype(float)
 
         sub_matrix = self._index.matrix[row_ids]
-        scores_subset = (sub_matrix @ q_vec.T).A1  # shape: (len(row_ids),)
+        scores_subset = (sub_matrix @ q_vec.T).toarray().ravel()  # shape: (len(row_ids),)
 
         top_local = np.argsort(-scores_subset)[:k_total]
         top_global = row_ids[top_local]

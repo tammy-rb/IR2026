@@ -149,13 +149,13 @@ class QdrantDenseRetriever(Retriever):
         qvec = self._with_retry(lambda: self._embeddings.embed_query(query))
 
         hits = self._with_retry(
-            lambda: self._client.search(
+            lambda: self._client.query_points(
                 collection_name=self.cfg.collection_name,
-                query_vector=qvec,
+                query=qvec,
                 limit=k_total,
                 with_payload=True,
                 with_vectors=False,
-            )
+            ).points
         )
         return self._hits_to_retrieved_chunks(hits)
 
@@ -176,14 +176,14 @@ class QdrantDenseRetriever(Retriever):
         q_filter = chunkfilter_to_qdrant_filter(flt)
 
         hits = self._with_retry(
-            lambda: self._client.search(
+            lambda: self._client.query_points(
                 collection_name=self.cfg.collection_name,
-                query_vector=qvec,
+                query=qvec,
                 query_filter=q_filter,
                 limit=k_total,
                 with_payload=True,
                 with_vectors=False,
-            )
+            ).points
         )
         return self._hits_to_retrieved_chunks(hits)
 
