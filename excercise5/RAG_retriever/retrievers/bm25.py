@@ -10,19 +10,15 @@ from scipy import sparse
 from sklearn.feature_extraction.text import CountVectorizer
 
 from models.chunk import Chunk
-from .base import Retriever
-from ..utils import RetrievedChunk, assert_exists, read_chunks_jsonl
+from .base import Retriever, RetrievedChunk
+from ..utils import assert_exists, read_chunks_jsonl
+from ..prefilter.chuncks_selector import CandidateSelector, ChunkFilter
 
 
 @dataclass(frozen=True)
 class BM25Index:
     """
     In-memory BM25 artifacts aligned by row index.
-
-    Attributes:
-        matrix: Sparse document(term) weight matrix, one row per chunk.
-        vectorizer: CountVectorizer configured with the same fixed vocabulary.
-        chunks: Chunk objects aligned with `matrix` row order.
     """
     matrix: sparse.csr_matrix
     vectorizer: CountVectorizer
@@ -33,24 +29,20 @@ class BM25Retriever(Retriever):
     """
     Sparse lexical retriever using precomputed BM25 artifacts.
 
-    Loads:
-        - `bm25_okapi.npz` sparse matrix
-        - `vocabulary.json` used to build a query vectorizer
-        - chunk metadata/text from the provided JSONL file
-
-    Notes:
-        - Score semantics: higher is better.
-        - Supports oversampling for time-aware post-filtering / reranking.
+    Score semantics: higher is better.
+    Supports oversampling and metadata prefiltering.
     """
 
     def __init__(self, index_dir: Path, chunks_jsonl: Path, *, stop_words: str = "english") -> None:
         self._index = self._load(index_dir=index_dir, chunks_jsonl=chunks_jsonl, stop_words=stop_words)
+        self._selector = CandidateSelector.from_chunks(self._index.chunks)
 
     @staticmethod
     def _load(*, index_dir: Path, chunks_jsonl: Path, stop_words: str) -> BM25Index:
         assert_exists([index_dir / "bm25_okapi.npz", index_dir / "vocabulary.json"])
 
-        matrix = sparse.load_npz(index_dir / "bm25_okapi.npz")
+        matrix = sparse.load_npz(index_dir / "bm25_okapi.npz").tocsr()
+
         with (index_dir / "vocabulary.json").open("r", encoding="utf-8") as f:
             vocab = json.load(f)
 
@@ -63,26 +55,50 @@ class BM25Retriever(Retriever):
                 f"matrix rows={matrix.shape[0]} vs chunks={len(chunks)} from {chunks_jsonl.name}"
             )
 
-        return BM25Index(matrix.tocsr(), vectorizer, chunks)
+        return BM25Index(matrix=matrix, vectorizer=vectorizer, chunks=chunks)
 
     def search(self, query: str, k: int) -> List[RetrievedChunk]:
-        """
-        Return top-k results (no oversampling).
-        """
         return self.search_candidates(query, k, oversample=0)
 
     def search_candidates(self, query: str, k: int, *, oversample: int = 0) -> List[RetrievedChunk]:
-        """
-        Return top-(k + oversample) results to enable:
-          - hard filtering after retrieval
-          - soft-decay reranking
-        """
         k_total = max(1, int(k) + int(oversample))
 
         q_vec = self._index.vectorizer.transform([query]).astype(float)
-        scores = self._index.matrix.dot(q_vec.T).toarray().ravel()
+
+        # Efficient 1D scores
+        scores = (self._index.matrix @ q_vec.T).A1  # shape: (num_chunks,)
 
         top = np.argsort(-scores)[:k_total]
         return [(self._index.chunks[int(i)], float(scores[int(i)])) for i in top]
 
-   
+    def search_candidates_prefiltered(
+        self,
+        query: str,
+        k: int,
+        *,
+        flt: ChunkFilter,
+        oversample: int = 0,
+    ) -> List[RetrievedChunk]:
+        """
+        Metadata-prefiltered BM25 retrieval using CandidateSelector row slicing.
+        """
+        selected = self._selector.select(flt)
+        row_ids = selected.row_ids
+        if row_ids.size == 0:
+            return []
+
+        k_total = max(1, int(k) + int(oversample))
+
+        q_vec = self._index.vectorizer.transform([query]).astype(float)
+
+        sub_matrix = self._index.matrix[row_ids]
+        scores_subset = (sub_matrix @ q_vec.T).A1  # shape: (len(row_ids),)
+
+        top_local = np.argsort(-scores_subset)[:k_total]
+        top_global = row_ids[top_local]
+
+        results: List[RetrievedChunk] = []
+        for local_i, global_i in zip(top_local.tolist(), top_global.tolist()):
+            results.append((self._index.chunks[int(global_i)], float(scores_subset[int(local_i)])))
+
+        return results

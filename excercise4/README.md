@@ -1,5 +1,8 @@
 # Temporal Failure Analysis — Baseline RAG (Time-Blind)
 
+for full code repository, use this git tag:
+https://github.com/tammy-rb/IR2026/releases/tag/stage4
+
 ## Overview
 
 In this experiment, we evaluated a baseline Retrieval-Augmented Generation (RAG) system **without any temporal awareness**.  

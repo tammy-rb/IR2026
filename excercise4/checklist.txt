@@ -1,0 +1,181 @@
+
+2) Replace FAISS with Qdrant for dense vectors (LangChain-compatible)
+2.1 Add dependencies
+
+ Add to requirements:
+
+qdrant-client
+
+langchain-qdrant (or appropriate LangChain integration package version you use)
+
+ Add Docker (recommended):
+
+ create docker-compose.yml with Qdrant service
+
+ expose port 6333
+
+ mount a volume for persistence
+
+2.2 Decide storage layout (collection naming)
+
+ Define Qdrant collection name(s), e.g.:
+
+chunks_dense_semantic
+
+chunks_dense_fixed
+
+optionally separate per corpus: chunks_dense_us, chunks_dense_british
+
+2.3 Upsert embeddings into Qdrant
+
+ Write an indexing script:
+
+Input: chunks.jsonl, embeddings model name
+
+For each chunk:
+
+id: stable numeric id derived from chunk_uid (hash to uint64/int64)
+
+vector: embedding
+
+payload: all metadata you need to filter on:
+
+chunk_uid, doc_id, corpus, chunking_method, chunk_index
+
+doc_timestamp, doc_date_iso
+
+start_char, end_char, maybe source_path
+
+ Create a payload index on doc_timestamp in Qdrant (for fast range filters)
+
+2.4 Swap DenseFAISSRetriever → DenseQdrantRetriever
+
+ Implement new retriever that does:
+
+embed query
+
+apply filter: doc_timestamp in [start_ts, end_ts)
+
+return top-k results with similarity scores
+
+ Make it mirror your RetrievedChunk output exactly.
+
+2.5 Confirm LangChain support
+
+ Use LangChain’s Qdrant vectorstore (Qdrant / QdrantVectorStore depending on your LC version)
+
+ Verify similarity_search_with_score works AND supports metadata filters
+
+If LangChain filter API is limiting, call qdrant-client directly (still fine)
+
+3) Implement CandidateSelector (“prefilter selector”) from chunks.jsonl
+3.1 Create new module
+
+ Add retrieval/prefilter/candidate_selector.py (or utils/candidate_selector.py)
+
+3.2 Responsibilities
+
+ Load chunks once (via your existing read_chunks_jsonl)
+
+ Build:
+
+row_id = index in loaded chunks list
+
+row_chunk_uid: np.ndarray[str] or list[str]
+
+row_doc_timestamp: np.ndarray[int64] (-1 if missing)
+
+week_start_ts -> np.ndarray[row_ids] mapping (optional but recommended)
+
+3.3 Public API (recommended)
+
+ rows_for_time_range(start_ts: int, end_ts: int) -> np.ndarray
+
+ rows_for_two_week_window(week_start_ts: int) -> np.ndarray
+
+ row_ids_to_chunk_uids(rows: np.ndarray) -> list[str]
+
+ Optional: chunk_uids_to_row_ids(uids: Iterable[str]) -> np.ndarray (useful for debugging)
+
+3.4 Filters structure
+
+ Create a small filter object (simple dataclass):
+
+TimeRangeFilter(start_ts: int, end_ts: int)
+
+optional flags: require_timestamp=True
+
+4) BM25 retriever: add prefiltered scoring that scores only candidate rows
+4.1 Extend BM25Index
+
+ Add timestamp array aligned with rows:
+
+doc_timestamps: np.ndarray[int64] (-1 if missing)
+
+ Add chunk_uid list/array aligned with rows (optional but helpful)
+
+4.2 Add new function: search_candidates_prefiltered
+
+ Signature recommendation:
+
+def search_candidates_prefiltered(
+    self,
+    query: str,
+    k: int,
+    *,
+    candidate_rows: np.ndarray,
+    oversample: int = 0,
+) -> List[RetrievedChunk]:
+
+
+ Implementation:
+
+compute q_vec
+
+slice matrix: subM = M[candidate_rows]
+
+score: scores = subM.dot(q_vec.T).toarray().ravel()
+
+take top k + oversample in that smaller score array
+
+map local indices back to global row ids
+
+return chunks in global alignment
+
+4.3 Keep the existing API unchanged
+
+ search() and search_candidates() remain, for non-filtered usage
+
+ Higher-level pipeline decides when to call prefiltered vs normal
+
+5) Wire it together in your pipeline
+5.1 Add a “window-aware” retrieval function (recommended)
+
+ In the orchestration layer (where you run experiments / analysis):
+
+Build CandidateSelector once
+
+For each 2-week window:
+
+rows = selector.rows_for_time_range(start, end)
+
+BM25: bm25.search_candidates_prefiltered(query, k, candidate_rows=rows)
+
+Dense (Qdrant): pass the time filter directly in retriever call
+
+5.2 Standardize the filter argument
+
+ Use the same TimeRangeFilter object everywhere:
+
+BM25 uses it via selector → rows
+
+Qdrant uses it directly as metadata filter
+
+
+
+
+
+the weekly chunck selector return chunckids or corresponding vector to them.
+the vector can be used for bm25.
+the chucnkids will be used for filtering the dense vectors before scoring them.
+so we use it for bm25 + dense vectorization
