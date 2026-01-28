@@ -51,6 +51,12 @@ excercise5/outputs/chunks/
 excercise5/outputs/embeddings/
 
 # =========================
+# Data
+# =========================
+# News corpus data files
+data/
+
+# =========================
 # Servers
 # =========================
 # Qdrant data directory

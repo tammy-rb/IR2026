@@ -22,13 +22,18 @@ BRITISH_PARLIAMENT_DIR = EXCERCISE2_DATA_DIR / "british_parliament_debates"
 US_CONGRESS_DIR = EXCERCISE2_DATA_DIR / "US_congress_debates"
 
 # Additional data sources (add new corpora here)
-# BBC_DATA_DIR = PROJECT_ROOT / "data" / "bbc_debates"
+DATA_DIR = PROJECT_ROOT / "data"
+DATA_UK_DIR = DATA_DIR / "uk"
+DATA_US_DIR = DATA_DIR / "us"
+BBC_NEWS_DIR = DATA_UK_DIR / "BBC_news"
+NBC_NEWS_DIR = DATA_US_DIR / "NBC_news"
 
 # All active corpus directories (add new sources to this list)
 CORPUS_DIRS = [
     BRITISH_PARLIAMENT_DIR,
     US_CONGRESS_DIR,
-    # BBC_DATA_DIR,  # uncomment when available
+    BBC_NEWS_DIR,
+    NBC_NEWS_DIR,
 ]
 
 # ============================================================
