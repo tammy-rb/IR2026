@@ -30,6 +30,69 @@ _RE_YYYY_MM_DD = re.compile(
     r"(?<!\d)((?:19|20)\d{2})-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])(?!\d)"
 )
 
+# Matches filenames like "Fri_01_Aug_2025_07_01_00_GMT" (BBC/NBC news dumps).
+_RE_GMT_TIMESTAMP = re.compile(
+    r"\b"
+    r"(?:(Mon|Tue|Wed|Thu|Fri|Sat|Sun)[_\s\-]+)?"
+    r"(\d{1,2})[_\s\-]+"
+    r"([A-Za-z]{3})[_\s\-]+"
+    r"(\d{4})"
+    r"(?:[_\s\-:]+(\d{1,2}))?"
+    r"(?:[_\s\-:]+(\d{1,2}))?"
+    r"(?:[_\s\-:]+(\d{1,2}))?"
+    r"[_\s\-]*"
+    r"(GMT|UTC)"
+    r"\b",
+    re.IGNORECASE,
+)
+
+_MONTH_NAME_TO_NUM = {
+    "jan": 1,
+    "feb": 2,
+    "mar": 3,
+    "apr": 4,
+    "may": 5,
+    "jun": 6,
+    "jul": 7,
+    "aug": 8,
+    "sep": 9,
+    "oct": 10,
+    "nov": 11,
+    "dec": 12,
+}
+
+
+def _parse_gmt_timestamp(s: str) -> Tuple[Optional[str], Optional[int]]:
+    """Parse timestamps that include an explicit GMT/UTC marker."""
+    if not s:
+        return None, None
+
+    m = _RE_GMT_TIMESTAMP.search(s)
+    if not m:
+        return None, None
+
+    (_dow, day_s, month_s, year_s, hour_s, minute_s, second_s, _tz) = m.groups()
+
+    month_num = _MONTH_NAME_TO_NUM.get(month_s.lower())
+    if month_num is None:
+        return None, None
+
+    try:
+        dt = datetime(
+            year=int(year_s),
+            month=month_num,
+            day=int(day_s),
+            hour=int(hour_s or 0),
+            minute=int(minute_s or 0),
+            second=int(second_s or 0),
+            tzinfo=timezone.utc,
+        )
+    except ValueError:
+        return None, None
+
+    return dt.date().isoformat(), int(dt.timestamp())
+
+
 def timestamp_from_string(s: str) -> Tuple[Optional[str], Optional[int]]:
     """
     Extract a date in YYYY-MM-DD format from an arbitrary string and return:
@@ -49,12 +112,18 @@ def timestamp_from_string(s: str) -> Tuple[Optional[str], Optional[int]]:
         return None, None
 
     m = _RE_YYYY_MM_DD.search(s)
-    if not m:
-        return None, None
+    if m:
+        iso_date = m.group(0)  # "YYYY-MM-DD"
+        dt = datetime.strptime(iso_date, "%Y-%m-%d").replace(tzinfo=timezone.utc)
+        return iso_date, int(dt.timestamp())
 
-    iso_date = m.group(0)  # "YYYY-MM-DD"
-    dt = datetime.strptime(iso_date, "%Y-%m-%d").replace(tzinfo=timezone.utc)
-    return iso_date, int(dt.timestamp())
+    upper = s.upper()
+    if "GMT" in upper or "UTC" in upper:
+        gmt_iso, gmt_ts = _parse_gmt_timestamp(s)
+        if gmt_iso is not None:
+            return gmt_iso, gmt_ts
+
+    return None, None
 
 
 def timestamp_from_path(path: str) -> Tuple[Optional[str], Optional[int]]:

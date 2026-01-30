@@ -30,7 +30,7 @@ from collections import Counter
 from dataclasses import dataclass
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Any, Dict, Iterable, Optional, Tuple
+from typing import Any, Dict, Iterable, Optional, Tuple, List
 
 import matplotlib
 matplotlib.use('Agg')  # Use non-interactive backend
@@ -40,11 +40,16 @@ import matplotlib.pyplot as plt
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from models.chunk import Chunk
-from paths import CHUNKS_DIR, TIME_HIST_DIR
-import matplotlib.pyplot as plt
+from paths import (
+    CHUNKS_DIR,
+    BBC_NEWS_CHUNKS_JSONL,
+    NBC_NEWS_CHUNKS_JSONL,
+    REPORTS_DIR,
+    ensure_dirs,
+)
 
-from models.chunk import Chunk
-from paths import CHUNKS_DIR, TIME_HIST_DIR, ensure_dirs
+
+TIME_HIST_DIR = REPORTS_DIR / "time_histograms"
 
 
 @dataclass(frozen=True)
@@ -188,34 +193,45 @@ class TimeHistogramBuilder:
         return self.save(combined, total_seen=total_seen, name=name, title=title)
 
 
-def main() -> None:
+def _default_targets() -> Dict[str, Tuple[Path, str]]:
+    return {
+        "fixed": (CHUNKS_DIR / "chunks_fixed.jsonl", "Fixed chunks: time distribution by year"),
+        "semantic": (CHUNKS_DIR / "chunks_semantic.jsonl", "Semantic chunks: time distribution by year"),
+        "bbc_news": (BBC_NEWS_CHUNKS_JSONL, "BBC news chunks: time distribution by year"),
+        "nbc_news": (NBC_NEWS_CHUNKS_JSONL, "NBC news chunks: time distribution by year"),
+    }
+
+
+def main(args: Optional[List[str]] = None) -> None:
     ensure_dirs()
-
-    fixed_jsonl = CHUNKS_DIR / "chunks_fixed.jsonl"
-    semantic_jsonl = CHUNKS_DIR / "chunks_semantic.jsonl"
-
-    if not fixed_jsonl.is_file():
-        raise FileNotFoundError(f"Missing chunks file: {fixed_jsonl}")
-    if not semantic_jsonl.is_file():
-        raise FileNotFoundError(f"Missing chunks file: {semantic_jsonl}")
 
     builder = TimeHistogramBuilder(out_dir=TIME_HIST_DIR)
 
-    r_fixed = builder.build_from_jsonl(
-        fixed_jsonl,
-        name="fixed",
-        title="Fixed chunks: time distribution by year",
-    )
-    print(f"✅ fixed histogram: {r_fixed.png_path} | {r_fixed.json_path} "
-          f"| covered={r_fixed.total_with_year}/{r_fixed.total_chunks_seen}")
+    targets = _default_targets()
 
-    r_sem = builder.build_from_jsonl(
-        semantic_jsonl,
-        name="semantic",
-        title="Semantic chunks: time distribution by year",
-    )
-    print(f"✅ semantic histogram: {r_sem.png_path} | {r_sem.json_path} "
-          f"| covered={r_sem.total_with_year}/{r_sem.total_chunks_seen}")
+    selected = args[1:] if args is not None and len(args) > 1 else sys.argv[1:]
+    if selected:
+        missing = [name for name in selected if name not in targets]
+        if missing:
+            raise ValueError(f"Unknown histogram targets: {', '.join(missing)}")
+        worklist = {name: targets[name] for name in selected}
+    else:
+        worklist = targets
+
+    for name, (jsonl_path, title) in worklist.items():
+        if not jsonl_path.is_file():
+            print(f"⚠️ skipping {name} histogram: missing {jsonl_path}")
+            continue
+
+        result = builder.build_from_jsonl(
+            jsonl_path,
+            name=name,
+            title=title,
+        )
+        print(
+            f"✅ {name} histogram: {result.png_path} | {result.json_path} "
+            f"| covered={result.total_with_year}/{result.total_chunks_seen}"
+        )
 
 
 if __name__ == "__main__":

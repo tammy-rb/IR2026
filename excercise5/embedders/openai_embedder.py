@@ -68,6 +68,7 @@ class OpenAIEmbedder(BaseEmbedder):
         collection_name: str = "chunks_openai",
         distance: str = "cosine",  # "cosine" | "dot" | "euclid"
     ) -> None:
+        """Configure the embedder with OpenAI and Qdrant runtime defaults."""
         super().__init__(output_dir)
         self.model = model
         self.docs_batch_size = docs_batch_size
@@ -112,6 +113,7 @@ class OpenAIEmbedder(BaseEmbedder):
 
     @staticmethod
     def batched(it: Iterator[Chunk], n: int) -> Iterator[List[Chunk]]:
+        """Yield lists of chunks with at most *n* elements to bound memory usage."""
         batch: List[Chunk] = []
         for x in it:
             batch.append(x)
@@ -135,6 +137,7 @@ class OpenAIEmbedder(BaseEmbedder):
         raise ValueError(f"Unsupported distance: {self.distance}")
 
     def _ensure_collection(self, client: QdrantClient, vector_size: int) -> None:
+        """Create or validate the target Qdrant collection schema."""
         existing = self._with_retry(lambda: client.get_collections()).collections
         exists = any(c.name == self.collection_name for c in existing)
 
@@ -160,6 +163,7 @@ class OpenAIEmbedder(BaseEmbedder):
         self._ensure_payload_indexes(client)
 
     def _ensure_payload_indexes(self, client: QdrantClient) -> None:
+        """Ensure query-time payload indexes exist, creating them if needed."""
         def safe_create_index(field_name: str, field_schema: qmodels.PayloadSchemaType) -> None:
             try:
                 self._with_retry(
@@ -185,6 +189,7 @@ class OpenAIEmbedder(BaseEmbedder):
     # ----------------------------
 
     def _existing_ids(self, client: QdrantClient, ids: List[str]) -> Set[str]:
+        """Return the subset of *ids* already persisted in Qdrant."""
         if not ids:
             return set()
         try:
@@ -199,6 +204,7 @@ class OpenAIEmbedder(BaseEmbedder):
             return set()
 
     def _chunk_payload(self, c: Chunk) -> Dict[str, Any]:
+        """Assemble the payload stored alongside each vector."""
         meta = self.extract_metadata(c)
         meta["chunk_uid"] = c.chunk_uid
         meta["text"] = c.text  # store chunk text in payload
@@ -209,6 +215,7 @@ class OpenAIEmbedder(BaseEmbedder):
     # ----------------------------
 
     def embed_chunks(self, chunks_jsonl: Path) -> None:
+        """Stream chunks from *chunks_jsonl* and upsert their embeddings into Qdrant."""
         run_started_iso = self._now_iso()
         run_id = self._run_id()
         t0 = time.time()
@@ -363,6 +370,7 @@ class OpenAIEmbedder(BaseEmbedder):
     # ----------------------------
 
     def _with_retry(self, fn: Callable[[], T], *, max_retries: int = 6, base_sleep_s: float = 2.0) -> T:
+        """Execute *fn* with exponential backoff, surfacing the final error if retries exhaust."""
         last_err: Optional[BaseException] = None
         for attempt in range(max_retries + 1):
             try:
