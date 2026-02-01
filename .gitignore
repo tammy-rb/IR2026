@@ -50,6 +50,10 @@ excercise4/outputs/rag_runs/tests/
 excercise5/outputs/chunks/
 excercise5/outputs/embeddings/
 
+# Topic analysis outputs
+excercise5/topic_analysis/output_semantic_us/
+excercise5/topic_analysis/output_semantic_british/
+
 # =========================
 # Data
 # =========================

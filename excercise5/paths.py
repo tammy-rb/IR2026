@@ -50,6 +50,8 @@ OPENAI_QDRANT_DIR = EMBEDDINGS_DIR / "openai_qdrant"
 OPENAI_QDRANT_FIXED_DIR = OPENAI_QDRANT_DIR / "fixed"
 OPENAI_QDRANT_SEMANTIC_DIR = OPENAI_QDRANT_DIR / "semantic"
 REPORTS_DIR = OUTPUTS_DIR / "reports"
+TOPIC_ANALYSIS_DIR = OUTPUTS_DIR / "topic_analysis"
+BERT_TOPIC_MODELS_DIR = TOPIC_ANALYSIS_DIR / "BERT_Topic_models"
 
 # Chunking methods
 CHUNKS_FIXED_JSONL = CHUNKS_DIR / "chunks_fixed.jsonl"
@@ -83,5 +85,7 @@ def ensure_dirs() -> None:
         OPENAI_QDRANT_SEMANTIC_DIR,
         NEWS_CHUNKS_DIR,
         REPORTS_DIR,
+        TOPIC_ANALYSIS_DIR,
+        BERT_TOPIC_MODELS_DIR,
     ]:
         p.mkdir(parents=True, exist_ok=True)
