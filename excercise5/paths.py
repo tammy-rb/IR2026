@@ -45,21 +45,28 @@ EMBEDDINGS_DIR = OUTPUTS_DIR / "embeddings"
 BM25_DIR = EMBEDDINGS_DIR / "bm25"
 BM25_FIXED_DIR = BM25_DIR / "fixed"
 BM25_SEM_DIR = BM25_DIR / "semantic"
+BM25_BRITISH_DIR = BM25_DIR / "british_parliament"
+BM25_US_CONGRESS_DIR = BM25_DIR / "us_congress"
 OPENAI_DIR = EMBEDDINGS_DIR / "openai"
 OPENAI_QDRANT_DIR = EMBEDDINGS_DIR / "openai_qdrant"
-OPENAI_QDRANT_FIXED_DIR = OPENAI_QDRANT_DIR / "fixed"
-OPENAI_QDRANT_SEMANTIC_DIR = OPENAI_QDRANT_DIR / "semantic"
+OPENAI_QDRANT_BRITISH_SEMANTIC_DIR = OPENAI_QDRANT_DIR / "british_parliament_semantic"
+OPENAI_QDRANT_US_CONGRESS_SEMANTIC_DIR = OPENAI_QDRANT_DIR / "us_congress_semantic"
 REPORTS_DIR = OUTPUTS_DIR / "reports"
 TOPIC_ANALYSIS_DIR = OUTPUTS_DIR / "topic_analysis"
 BERT_TOPIC_MODELS_DIR = TOPIC_ANALYSIS_DIR / "BERT_Topic_models"
+BERT_TOPIC_MODELS_UK_DIR = BERT_TOPIC_MODELS_DIR / "uk"
+BERT_TOPIC_MODELS_US_DIR = BERT_TOPIC_MODELS_DIR / "us"
 
-# Chunking methods
+# ============================================================
+# Chunk output paths
+DEBATES_CHUNKS_DIR = CHUNKS_DIR / "debates_chunks"
+CHUNKS_BRITISH_SEMANTIC_JSONL = DEBATES_CHUNKS_DIR / "chunks_british_semantic.jsonl"  # Alias for consistency
+CHUNKS_US_CLEAN_JSONL = DEBATES_CHUNKS_DIR / "chunks_us_clean.jsonl"
 CHUNKS_FIXED_JSONL = CHUNKS_DIR / "chunks_fixed.jsonl"
 CHUNKS_SEM_JSONL = CHUNKS_DIR / "chunks_semantic.jsonl"
-CHUNKS_SEMANTIC_JSONL = CHUNKS_SEM_JSONL  # Alias for consistency
 
 # News chunk outputs
-NEWS_CHUNKS_DIR = CHUNKS_DIR / "news_chuncks"
+NEWS_CHUNKS_DIR = CHUNKS_DIR / "news_chunks"
 BBC_NEWS_CHUNKS_JSONL = NEWS_CHUNKS_DIR / "bbc_chunks.jsonl"
 NBC_NEWS_CHUNKS_JSONL = NEWS_CHUNKS_DIR / "nbc_chunks.jsonl"
 
@@ -80,12 +87,17 @@ def ensure_dirs() -> None:
         BM25_DIR,
         BM25_FIXED_DIR,
         BM25_SEM_DIR,
+        BM25_BRITISH_DIR,
+        BM25_US_CONGRESS_DIR,
         OPENAI_QDRANT_DIR,
-        OPENAI_QDRANT_FIXED_DIR,
-        OPENAI_QDRANT_SEMANTIC_DIR,
+        OPENAI_QDRANT_BRITISH_SEMANTIC_DIR,
+        OPENAI_QDRANT_US_CONGRESS_SEMANTIC_DIR,
+        DEBATES_CHUNKS_DIR,
         NEWS_CHUNKS_DIR,
         REPORTS_DIR,
         TOPIC_ANALYSIS_DIR,
         BERT_TOPIC_MODELS_DIR,
+        BERT_TOPIC_MODELS_UK_DIR,
+        BERT_TOPIC_MODELS_US_DIR,
     ]:
         p.mkdir(parents=True, exist_ok=True)

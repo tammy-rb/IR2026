@@ -4,16 +4,16 @@ s_01_chunking.py
 Entry point for Stage 2 (Temporal Indexing) of the Temporal RAG assignment.
 
 Build temporally-aware chunk corpora by:
-1) Iterating over all debate text files in the raw corpus (Exercise 2 data).
-2) Applying two chunking strategies:
-   - Fixed-size chunking with sentence overlap.
-   - Semantic chunking based on embedding similarity.
-3) Extracting and attaching temporal metadata to each chunk (from filename).
+1) Iterating over debate text files in the raw corpus (Exercise 2 data).
+2) Applying dataset-specific chunkers:
+    - Semantic chunking for British Parliament debates.
+    - US cleaner chunking for Congressional Record transcripts.
+3) Extracting temporal metadata from filenames.
 4) Writing the resulting chunks to JSONL files.
 
 Outputs:
-- outputs/chunks/chunks_fixed.jsonl
-- outputs/chunks/chunks_semantic.jsonl
+- outputs/chunks/debates_chunks/chunks_british_semantic.jsonl
+- outputs/chunks/debates_chunks/chunks_us_clean.jsonl
 """
 
 from __future__ import annotations
@@ -25,11 +25,18 @@ from typing import List
 # Add parent directory to path for imports
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
-from paths import CORPUS_DIRS, CHUNKS_DIR, ensure_dirs, CHUNKS_SEMANTIC_JSONL, CHUNKS_FIXED_JSONL
+from paths import (
+    CORPUS_DIRS,
+    ensure_dirs,
+    BRITISH_PARLIAMENT_DIR,
+    US_CONGRESS_DIR,
+    CHUNKS_BRITISH_SEMANTIC_JSONL,
+    CHUNKS_US_CLEAN_JSONL,
+)
 from utils.text_utils import iter_text_files
 from models.chunk import Chunk
-from chunckers.fixed_chuncker import FixedChunker
 from chunckers.semantic_chuncker import SemanticChunker
+from chunckers.us_clean_chunker import USCleanerChunker
 
 
 def write_jsonl(chunks: List[Chunk], out_path) -> None:
@@ -52,7 +59,6 @@ def main() -> None:
     if not files:
         raise FileNotFoundError(f"No .txt files found in corpus directories: {CORPUS_DIRS}")
 
-    fixed_chunker = FixedChunker(max_words=660, overlap_sentences=3)
     semantic_chunker = SemanticChunker(
         max_words=660,
         sim_threshold=0.62,
@@ -60,28 +66,37 @@ def main() -> None:
         overlap_sentences=0,
         embedding_model="sentence-transformers/all-MiniLM-L6-v2",
     )
+    us_clean_chunker = USCleanerChunker()
 
-    all_fixed: List[Chunk] = []
-    all_sem: List[Chunk] = []
+    british_semantic: List[Chunk] = []
+    us_clean: List[Chunk] = []
 
     for idx, fp in enumerate(files, 1):
         # fp is a string path
-        print(f"Processing {idx}/{len(files)}: {fp.split('/')[-1]}")
-        all_fixed.extend(fixed_chunker.build_chunks_for_file(fp))
-        all_sem.extend(semantic_chunker.build_chunks_for_file(fp))
+        path_obj = Path(fp)
+        print(f"Processing {idx}/{len(files)}: {path_obj.name}")
+        resolved = path_obj.resolve()
 
-    out_fixed = CHUNKS_FIXED_JSONL
-    out_sem = CHUNKS_SEMANTIC_JSONL
+        if BRITISH_PARLIAMENT_DIR in resolved.parents:
+            british_semantic.extend(semantic_chunker.build_chunks_for_file(fp))
+        elif US_CONGRESS_DIR in resolved.parents:
+            us_chunks = us_clean_chunker.build_chunks_for_file(fp)
+            if us_chunks:
+                us_clean.extend(us_chunks)
 
-    write_jsonl(all_fixed, out_fixed)
-    write_jsonl(all_sem, out_sem)
+    write_jsonl(british_semantic, CHUNKS_BRITISH_SEMANTIC_JSONL)
+    write_jsonl(us_clean, CHUNKS_US_CLEAN_JSONL)
 
-    summarize_time_coverage(all_fixed, "fixed")
-    summarize_time_coverage(all_sem, "semantic")
+    summarize_time_coverage(british_semantic, "british_semantic")
+    summarize_time_coverage(us_clean, "us_clean")
 
-    print(f"✅ Saved: {out_fixed}")
-    print(f"✅ Saved: {out_sem}")
-    print(f"Done. Fixed chunks={len(all_fixed)} | Semantic chunks={len(all_sem)}")
+    print(f"✅ Saved: {CHUNKS_BRITISH_SEMANTIC_JSONL}")
+    print(f"✅ Saved: {CHUNKS_US_CLEAN_JSONL}")
+    print(
+        "Done. British semantic chunks={} | US clean chunks={}".format(
+            len(british_semantic), len(us_clean)
+        )
+    )
 
 
 if __name__ == "__main__":

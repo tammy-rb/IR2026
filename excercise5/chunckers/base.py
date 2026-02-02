@@ -41,30 +41,37 @@ class BaseChunker(ABC):
     Subclasses must define:
     - method_name: str  (e.g., "fixed" or "semantic")
     - _make_ranges(...): returns a list of ranges over sentence spans
-
+      
+    OPTIONAL (for special chunkers that don't want offsets):
+    - supports_raw_text_chunks() -> bool
+    - _make_text_chunks(text, sentence_spans) -> List[str]
     Public API:
     - build_chunks_for_file(file_path): returns a list of Chunk objects.
     """
 
-    method_name: str  # "fixed" / "semantic"
+    method_name: str  # "fixed" / "semantic" / etc.
 
+    # ---------- OPTIONAL TEXT-CHUNK MODE ----------
+    def supports_raw_text_chunks(self) -> bool:
+        """
+        Override and return True if your chunker produces final chunk texts
+        directly and does not rely on offsets.
+        """
+        return False
+
+    def _make_text_chunks(
+        self,
+        text: str,
+        sentence_spans: List[Tuple[str, int, int]],
+    ) -> List[str]:
+        """
+        Override if supports_raw_text_chunks() is True.
+        Should return a list of FINAL chunk texts (already cleaned).
+        """
+        raise NotImplementedError
+
+    # ---------- MAIN API ----------
     def build_chunks_for_file(self, file_path: str) -> List[Chunk]:
-        """
-        Build chunks for a single text file.
-
-        Steps:
-        1) Load full file text.
-        2) Split into sentences with stable char spans (offsets).
-        3) Extract temporal metadata from the file name/path.
-        4) Compute chunk ranges using the concrete strategy (_make_ranges).
-        5) Materialize Chunk objects, including offsets + text + timestamp metadata.
-
-        Args:
-            file_path: Path to a .txt debate file.
-
-        Returns:
-            List[Chunk] for the given file, ordered by chunk_index.
-        """
         text = extract_text(file_path)
         sentence_spans = split_to_sentences_with_spans(text)
 
@@ -72,11 +79,39 @@ class BaseChunker(ABC):
         corpus = detect_corpus_label(file_path)
         doc_id = doc_id_from_path(file_path)
 
-        ranges = self._make_ranges(sentence_spans)
-
         chunks: List[Chunk] = []
-        for idx, (_s_i, _e_i, start_char, end_char) in enumerate(ranges):
-            chunk_text = text[start_char:end_char]
+
+        # --- Mode A: Standard range-based chunking (existing behavior) ---
+        if not self.supports_raw_text_chunks():
+            ranges = self._make_ranges(sentence_spans)
+
+            for idx, (_s_i, _e_i, start_char, end_char) in enumerate(ranges):
+                chunk_text = text[start_char:end_char]
+                chunks.append(
+                    Chunk.create_chunk(
+                        doc_id=doc_id,
+                        source_path=file_path,
+                        corpus=corpus,
+                        chunking_method=self.method_name,
+                        chunk_index=idx,
+                        start_char=start_char,
+                        end_char=end_char,
+                        text=chunk_text,
+                        num_words=count_words(chunk_text),
+                        doc_date_iso=doc_date_iso,
+                        doc_timestamp=doc_timestamp,
+                    )
+                )
+            return chunks
+
+        # --- Mode B: Text-chunk mode (NULL offsets) ---
+        chunk_texts = self._make_text_chunks(text, sentence_spans)
+
+        for idx, chunk_text in enumerate(chunk_texts):
+            # "NULL" offsets: 0,0 (or you can choose -1,-1 if you prefer)
+            start_char = 0
+            end_char = 0
+
             chunks.append(
                 Chunk.create_chunk(
                     doc_id=doc_id,
@@ -92,17 +127,13 @@ class BaseChunker(ABC):
                     doc_timestamp=doc_timestamp,
                 )
             )
+
         return chunks
 
+    # ---------- REQUIRED ----------
     @abstractmethod
     def _make_ranges(self, sentence_spans: List[Tuple[str, int, int]]) -> List[Range]:
         """
         Compute chunk boundaries as ranges over sentence spans.
-
-        Args:
-            sentence_spans: List of (sentence_text, start_char, end_char)
-
-        Returns:
-            List[Range]: each Range is (start_sent_idx, end_sent_idx, start_char, end_char)
         """
         raise NotImplementedError

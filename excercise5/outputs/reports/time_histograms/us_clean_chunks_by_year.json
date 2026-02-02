@@ -1,0 +1,10 @@
+{
+  "name": "us_clean",
+  "total_chunks_seen": 3880,
+  "total_with_year": 3880,
+  "counts_by_year": {
+    "2023": 962,
+    "2024": 1799,
+    "2025": 1119
+  }
+}

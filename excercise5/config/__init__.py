@@ -8,8 +8,8 @@ Import all config values from this module for easy access.
 from config.qdrant_config import (
     QDRANT_HOST,
     QDRANT_PORT,
-    QDRANT_COLLECTION_FIXED,
-    QDRANT_COLLECTION_SEMANTIC,
+    QDRANT_COLLECTION_BRITISH_PARLIAMENT,
+    QDRANT_COLLECTION_US_CONGRESS,
     VECTOR_DISTANCE,
 )
 
@@ -29,8 +29,8 @@ __all__ = [
     # Qdrant
     "QDRANT_HOST",
     "QDRANT_PORT",
-    "QDRANT_COLLECTION_FIXED",
-    "QDRANT_COLLECTION_SEMANTIC",
+    "QDRANT_COLLECTION_BRITISH_PARLIAMENT",
+    "QDRANT_COLLECTION_US_CONGRESS",
     "VECTOR_DISTANCE",
     # OpenAI
     "OPENAI_EMBED_MODEL",

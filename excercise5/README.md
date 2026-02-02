@@ -1,152 +1,322 @@
-# Exercise 5: RAG System for News and Parliamentary Debates
+# Exercise 5: Topic Modeling over News and Parliamentary Debates
 
-## Preprocessing: BBC/NBC Corpus Cleaning (Phase 1–2)
-
-### Problem
-While collecting BBC and NBC articles as `.txt` files, we found that a substantial portion of the raw corpus is **not usable as news content**. The main issues were:
-
-1. **NBC pages dominated by “Cookie Notice” boilerplate**, sometimes leaving only a real headline in the first line  
-2. **BBC technical or error pages**, such as geo-blocking messages (“outside the UK”), short closed live pages, and topic/index pages  
-3. **Non-news pages**, including podcasts, radio programs, and TV show listings  
-4. **Many duplicates**, where different filenames contained identical content on the same day  
-
-Without explicit preprocessing, these issues introduce noise and bias into retrieval and downstream analysis.
+This README documents **Step 1 of the project pipeline**: data cleaning, chunking, embedding, and exploratory topic modeling using **BERTopic** over precomputed embeddings stored in **Qdrant**. The goal of this step is not final topic production, but **understanding the structure of the data**, identifying noise, and converging on a configuration that yields meaningful, balanced topics before downstream RAG and temporal analysis.
 
 ---
 
-### Preprocessing Pipeline Overview
-We implemented a **two-phase preprocessing pipeline** consisting of analysis and controlled cleanup.
+## Pipeline Overview
+
+1. **Corpus Cleaning**
+
+   * News corpora (BBC / NBC)
+   * Parliamentary corpora (US Congress, UK Parliament)
+2. **Chunking Strategy** (news vs. debates)
+3. **Embedding** (Sentence-BERT, stored in Qdrant)
+4. **Exploratory BERTopic Training**
+
+   * Fit on existing vectors
+   * Diagnose clustering behavior
+   * Reduce to 20 topics only after validation
 
 ---
 
-### Phase 1: Analyzer (`analyze_corpus.py`)
-The analyzer scans every `.txt` file and assigns one of three labels:
+## 1. Corpus Cleaning
 
-- **VALID** — usable news article  
-- **JUNK** — technical/error pages, unusable content, or content that is too short  
-- **NON_NEWS** — podcasts, programs, and other non-news pages (detected conservatively)
+### 1.1 BBC / NBC News Cleaning
 
-**Key steps:**
+Raw crawled news data contains a significant amount of **non-article content** that must be removed before embedding and topic modeling. Without cleaning, this material dominates the vector space and degrades both clustering and retrieval quality.
 
-- **NBC cookie notice removal (in-place)**  
-  If the string `"This Cookie Notice"` is detected, the file is truncated to keep only the text appearing before the cookie notice.  
-  This operation overwrites the file and typically leaves only a headline when present.
+**Main issues addressed:**
 
-- **Minimal-words threshold (applied after cleaning)**  
-  Files below a source-specific threshold are labeled **JUNK**:
-  - **BBC**: 80 words  
-  - **NBC**: 30 words  
+* **NBC cookie-consent boilerplate**
+  Many NBC pages are truncated by a long *"This Cookie Notice"* section, sometimes leaving only a headline.
 
-  Headline-only stubs are intentionally not retained, as they provide insufficient semantic signal for retrieval.
+  **Action:**
+  When a cookie notice is detected, the file is truncated **in-place**, keeping only the text that appears before the notice.
 
-- **Same-day duplicate detection only**  
-  The day is extracted from the filename timestamp.  
-  Exact duplicates are detected **within the same day only**, using a normalized-content SHA256 hash.
+* **BBC technical / error pages**
+  Includes geo-blocking messages ("outside the UK"), closed live pages, and index/topic pages.
 
-**Outputs:**
-- `data/cleanup_summary.json` — global statistics  
-- `data/cleanup_manifest.json` — per-file metadata (category, reason, word count) and duplicate groups  
+* **Non-news content**
+  Podcasts, radio shows, TV program listings, and episode pages.
 
----
+* **Duplicate articles (same day)**
+  Identical content published multiple times under different filenames on the same date.
 
-### Phase 2: Cleanup (`cleanup_corpus.py`)
-The cleanup script consumes the manifest and performs controlled removal:
+**Filtering rules:**
 
-- Files can be either:
-  - **moved** to a structured quarantine directory (recommended first), or  
-  - **deleted** permanently
-- Categories to remove can be selected (`junk`, `non_news`)
-- Duplicate handling is optional:
-  - Keeps **one file per same-day duplicate group**
-  - Removes the remaining copies
-- A **dry-run mode** is always available to preview actions
+* Files are labeled as `VALID`, `JUNK`, or `NON_NEWS`.
+* Minimum length thresholds (applied *after* cleaning):
+
+  * BBC: 80 words
+  * NBC: 30 words
+* Duplicate detection is **same-day only**, using normalized-content hashing.
+
+Short headline-only stubs are intentionally discarded: they provide insufficient semantic signal and behave like noise in embedding-based methods.
 
 ---
 
-### Filtering Logic
+### 1.2 US Congress Cleaning (Critical for Topic Modeling)
 
-#### NON_NEWS Detection
-NON_NEWS pages are detected using **strong marker combinations** to minimize false positives.
+For the US Congressional Record, we apply **additional structural cleaning** beyond basic text normalization.
 
-Examples:
-- **BBC**: podcast/radio pages require multiple markers such as  
-  *“BBC Sounds”*, *“podcast”*, *“episode”*, *“duration”*  
-- **BBC iPlayer/program pages** require iPlayer markers plus episode/program indicators  
-- **NBC**: TV/show pages require multiple signals such as  
-  *“full episodes”*, *“watch live”*, *“tv listings”*, *“cast”*, *“peacock”*
+**Key decision:**
+All headers and technical material **before the actual speech text** are removed.
 
-A file is labeled NON_NEWS only when several strong signals co-occur.
+**Why this matters:**
 
-#### Too Short / Too Few Words → JUNK
-Files with too few words after cleaning are labeled **JUNK**.  
-This is a deliberate design choice:
+Congressional documents share highly repetitive headers (e.g., *Congressional Record*, *Extensions of Remarks*, page numbers, metadata blocks). During early BERTopic runs, these headers became a **dominant semantic signal**, causing HDBSCAN to collapse most documents into a **single mega-cluster**.
 
-- We do **not** maintain a separate category for short news stubs  
-- Very short documents behave like noise in embedding-based retrieval  
-- Excluding them improves semantic consistency and retrieval quality  
+This happens because:
 
----
+* The header text is nearly identical across documents
+* It appears at the beginning of every file
+* It overwhelms the actual semantic differences between speeches
 
-### Results (7,331 files)
+**Action:**
 
-#### Overall
-- **VALID**: 4,650  
-- **JUNK**: 2,277  
-- **NON_NEWS**: 404  
-- **Same-day duplicate groups**: 1,091 (2,208 files involved)
+* Strip all content before the first actual speech body
+* Ensure embeddings reflect **what is being discussed**, not document structure
 
-#### BBC (4,484 files)
-- VALID: 3,408  
-- JUNK: 677  
-- NON_NEWS: 399  
-- Same-day duplicate groups: 606 (1,221 files)
-
-#### NBC (2,847 files)
-- VALID: 1,242  
-- JUNK: 1,600  
-- NON_NEWS: 5  
-- **Cookie cleanup (in-place)**:  
-  1,601 files cleaned, 84,854 lines removed  
-- Same-day duplicate groups: 485 (987 files)
+This change alone prevents clustering from degenerating into a single dominant topic.
 
 ---
 
-### Indexing Assumptions (Document Granularity)
+## 2. Chunking Strategy
 
-#### News Corpora (BBC/NBC)
-Each file is treated as **one document (one vector)** and **no chunking** is applied.
+### 2.1 News Articles (BBC / NBC)
+
+* **No chunking applied**
+* Each article file is treated as **one document → one vector**
 
 **Rationale:**
-- Each file typically corresponds to a single article and topic  
-- Semantic coherence within a file is high  
-- Chunking would add overhead and may fragment context without clear retrieval benefits  
 
-#### Debate Corpora (Congress & UK/US Parliamentary Debates)
-Chunking **is applied**, and each chunk is treated as one document.
+* News articles are typically single-topic
+* Internal coherence is high
+* Chunking would fragment context without clear benefit
+
+---
+
+### 2.2 Parliamentary Debates
+
+Parliamentary data is structurally different and requires chunking.
+
+#### Initial Observation
+
+* A single debate or speech often contains **multiple themes**
+* Treating an entire speech as one vector mixes unrelated policy areas
+
+#### Semantic Chunking
+
+We use **semantic chunking** to split speeches based on topic change.
+
+However, analysis revealed an important nuance:
+
+* The semantic chunker correctly identified **rhetorical paragraph boundaries**
+* But these boundaries did **not always correspond to analytically meaningful topic shifts**
+
+In practice:
+
+* A coherent parliamentary speech could be split into ~14 very short chunks
+* These chunks reflected stylistic transitions, not substantive policy changes
+
+#### Final Decision: Semantic Chunking + Controlled Merging
+
+* We keep the semantic chunker **as-is** (threshold unchanged)
+* We **merge consecutive chunks** up to a maximum word limit
+
+**Goal:**
+Each final chunk should represent **one coherent topic**, not rhetorical fragments.
+
+---
+
+## 3. Embedding and Vector Storage
+
+### Embedding Model
+
+* **Sentence-BERT: all-MiniLM-L6**
+
+### Why we generate embeddings ourselves
+
+Instead of letting BERTopic embed the text internally, we precompute embeddings and store them in Qdrant.
+
+**Reasons:**
+
+1. **Reusability**
+   Embeddings can be reused for:
+
+   * RAG retrieval
+   * Cluster centroids
+   * ANN search
+   * Temporal or evolution analysis
+
+2. **Speed**
+   BERTopic runs significantly faster when embeddings are precomputed, enabling rapid iteration and parameter tuning.
+
+3. **Diagnostics & Control**
+   We can inspect vectors, clusters, and metadata independently of BERTopic.
+
+---
+
+## 4. Qdrant Collections
+
+We work with **four embedding collections** in Qdrant:
+
+* `bbc_news_chunks`
+* `nbc_news_chunks`
+* `us_congress_chunks`
+* `uk_parliament_chunks`
+
+Each point contains:
+
+* embedding vector
+* text chunk
+* metadata (source, date, corpus, offsets)
+
+---
+
+## 5. BERTopic Configuration (Exploratory Phase)
+
+### Why override BERTopic defaults
+
+Default BERTopic parameters are generic and not well-suited for:
+
+* long-form political text
+* precomputed embeddings
+* mixed granularities (news vs debates)
+
+We explicitly control UMAP and HDBSCAN to adapt clustering behavior to our data.
+
+---
+
+### Dimensionality Reduction (UMAP)
+
+```text
+n_neighbors = 15
+n_components = 5
+min_dist = 0.0
+metric = cosine
+```
 
 **Rationale:**
-- A single debate file often contains:
-  - multiple speakers  
-  - multiple sub-topics  
-  - procedural and administrative sections  
-- Embedding an entire debate as one vector mixes unrelated content  
-- Chunking preserves topical locality and improves retrieval precision  
+
+* Preserve global topic structure
+* Allow tight clusters for recurring themes
+* Cosine distance matches embedding geometry
 
 ---
 
-### Assumptions and Limitations (Living Section)
+### Clustering (HDBSCAN)
 
-- **Cookie notice pages** do not represent crawler failures.  
-  They are the result of **conditional content delivery** by news websites (e.g., consent or JavaScript requirements).  
-  As a result, the corpus represents the subset of news articles that were accessible via static HTTP requests at crawl time.
+```text
+min_cluster_size = 30
+min_samples = None
+metric = euclidean
+cluster_selection_method = eom
+prediction_data = True
+```
 
-- Missing articles therefore reflect **systematic accessibility constraints**, not random download errors.
+**Rationale:**
 
-- Same-day duplicate detection assumes that cross-day duplicates may correspond to legitimate updates or revisions and are therefore preserved.
-
-This section documents preprocessing decisions and assumptions.  
-Any future changes to thresholds, detection patterns, or document granularity rules will be recorded here.
+* Enforce topic robustness (no tiny or unstable topics)
+* Allow natural outliers instead of forcing weak assignments
+* Enable post-hoc probability inspection
 
 ---
 
-*Last updated: January 28, 2026*
+## 6. Fit → Diagnose → Reduce (Not Reduce-First)
+
+We **do not** reduce to 20 topics immediately.
+
+### Process
+
+1. Run `fit_transform()` with **no forced topic count**
+2. Save full diagnostics:
+
+   * number of discovered clusters
+   * outlier rate
+   * cluster size distribution
+   * probability statistics
+3. Inspect results
+4. Only then call `reduce_topics(nr_topics=20)`
+
+This allows us to identify problems **before** collapsing structure.
+
+---
+
+## 7. What “Successful” BERTopic Means for Us
+
+Before reduction, we expect:
+
+* ~30–40 natural clusters
+* Balanced topic sizes (no mega-topic)
+* Meaningful, interpretable labels
+* Outlier rate that is noticeable but not dominant
+
+This range provides enough structure so that reducing to 20 topics is a **controlled compression**, not an artificial invention.
+
+---
+
+## 8. Empirical Findings & Iterations
+
+### 8.1 Document Granularity
+
+* **News articles and US Congress speeches**: single-topic → one document
+* **UK parliamentary speeches**: multi-topic → semantic chunking + merging
+
+---
+
+### 8.2 Speaker Name Bias (US Congress)
+
+Early runs revealed two very large clusters dominated by **speaker names**.
+
+**Cause:**
+
+* Speeches often begin with patterns like `Mr. X`, `Ms. Y`, `Mr. Speaker`
+* Names are unique and dominate token importance
+* HDBSCAN clusters by *who* is speaking instead of *what* is discussed
+
+**Fix:**
+
+* Remove speaker names from the text body
+* Add speaker-related terms to **custom stopwords**
+
+This preserves semantic meaning while removing clustering noise.
+
+---
+
+### 8.3 UK Parliament Example Diagnostics
+
+Example run (5,000 documents):
+
+* **Before reduction**:
+
+  * 30 topics (excluding outliers)
+  * Min topic size: 32
+  * No tiny or junk topics
+  * Outlier rate: ~26%
+
+* **After reduction to 20**:
+
+  * Balanced topic sizes
+  * Improved topic probability confidence
+  * Stable semantic labels
+
+**Conclusion:**
+Topics were semantically strong and balanced, but the outlier rate suggested further HDBSCAN tuning was needed.
+
+---
+
+## 9. Key Takeaways
+
+* Cleaning is **not optional** for topic modeling on political text
+* Headers and boilerplate can completely dominate clustering
+* Precomputed embeddings enable speed, reuse, and deep diagnostics
+* Topic reduction should be the **last step**, not the first
+* “Good” topic models are diagnosed empirically, not assumed
+
+This step establishes a clean, interpretable semantic space that downstream RAG and temporal analysis can rely on.
+
+---
+
+*Last updated: February 2026*

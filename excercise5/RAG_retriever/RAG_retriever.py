@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import os
 from dataclasses import asdict, dataclass
-from typing import Any, Dict, List, Optional, Tuple
+from typing import Any, Dict, Iterable, List, Optional, Tuple
 
 from dotenv import load_dotenv
 
@@ -11,16 +11,15 @@ from paths import (
     BM25_SEM_DIR,
     CHUNKS_FIXED_JSONL,
     CHUNKS_SEM_JSONL,
-    OPENAI_QDRANT_FIXED_DIR,
-    OPENAI_QDRANT_SEMANTIC_DIR,
 )
 from config import (
     QDRANT_HOST,
     QDRANT_PORT,
-    QDRANT_COLLECTION_FIXED,
-    QDRANT_COLLECTION_SEMANTIC,
+    QDRANT_COLLECTION_BRITISH_PARLIAMENT,
+    QDRANT_COLLECTION_US_CONGRESS,
     OPENAI_EMBED_MODEL,
 )
+from .retrievers.base import RetrievedChunk
 from .retrievers.bm25 import BM25Retriever
 from .retrievers.dense_qdrant import QdrantDenseRetriever
 from .utils import build_context_block, detect_corpus_label
@@ -58,6 +57,52 @@ class Pipeline:
     representation: str   # "bm25" or "dense"
     bm25: Optional[BM25Retriever]
     dense: Optional[QdrantDenseRetriever]
+
+
+class MultiQdrantDenseRetriever:
+    """Aggregate dense retrieval across multiple Qdrant collections."""
+
+    def __init__(self, retrievers: Iterable[QdrantDenseRetriever]) -> None:
+        self._retrievers = list(retrievers)
+
+    def search(self, query: str, k: int) -> List[RetrievedChunk]:
+        return self._merge([r.search(query, k) for r in self._retrievers], k)
+
+    def search_candidates(self, query: str, k: int, *, oversample: int = 0) -> List[RetrievedChunk]:
+        merged = [r.search_candidates(query, k, oversample=oversample) for r in self._retrievers]
+        return self._merge(merged, k + oversample)
+
+    def search_candidates_prefiltered(
+        self,
+        query: str,
+        k: int,
+        *,
+        flt: ChunkFilter,
+        oversample: int = 0,
+    ) -> List[RetrievedChunk]:
+        merged = [
+            r.search_candidates_prefiltered(query, k, flt=flt, oversample=oversample)
+            for r in self._retrievers
+        ]
+        return self._merge(merged, k + oversample)
+
+    @staticmethod
+    def _merge(result_lists: Iterable[List[RetrievedChunk]], limit: int) -> List[RetrievedChunk]:
+        combined: List[RetrievedChunk] = []
+        for results in result_lists:
+            combined.extend(results)
+        combined.sort(key=lambda item: float(item[1]), reverse=True)
+
+        deduped: List[RetrievedChunk] = []
+        seen_uids: set[str] = set()
+        for chunk, score in combined:
+            if chunk.chunk_uid in seen_uids:
+                continue
+            deduped.append((chunk, score))
+            seen_uids.add(chunk.chunk_uid)
+            if len(deduped) >= max(1, limit):
+                break
+        return deduped
 
 
 # ============================================================
@@ -98,12 +143,25 @@ class RAGRetriever:
             )
 
         if repr_ == "dense":
-            dense = QdrantDenseRetriever(
-                qdrant_host=QDRANT_HOST,
-                qdrant_port=QDRANT_PORT,
-                collection_name=QDRANT_COLLECTION_FIXED if chunking == "fixed" else QDRANT_COLLECTION_SEMANTIC,
-                model=OPENAI_EMBED_MODEL,
-            )
+            if chunking == "semantic":
+                dense = MultiQdrantDenseRetriever(
+                    [
+                        QdrantDenseRetriever(
+                            qdrant_host=QDRANT_HOST,
+                            qdrant_port=QDRANT_PORT,
+                            collection_name=QDRANT_COLLECTION_BRITISH_PARLIAMENT,
+                            model=OPENAI_EMBED_MODEL,
+                        ),
+                        QdrantDenseRetriever(
+                            qdrant_host=QDRANT_HOST,
+                            qdrant_port=QDRANT_PORT,
+                            collection_name=QDRANT_COLLECTION_US_CONGRESS,
+                            model=OPENAI_EMBED_MODEL,
+                        ),
+                    ]
+                )
+            else:
+                dense = None
 
         return Pipeline(chunking=chunking, representation=repr_, bm25=bm25, dense=dense)
 

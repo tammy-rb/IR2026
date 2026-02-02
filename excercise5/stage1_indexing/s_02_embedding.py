@@ -1,25 +1,22 @@
 """
 s_02_embedding.py
 
-Exercise 4 — Stage 2 (Temporal Indexing): Unified embedding script.
+Exercise 5 - Stage 1 (Indexing): Semantic embedding script.
 
 Purpose:
-- Build both sparse (BM25) and dense (OpenAI) embeddings over chunk corpora
-  produced by s_01_chunking.py.
+- Build dense (OpenAI) embeddings for semantic chunk corpora produced by s_01_chuncking.py.
 - Preserve temporal metadata (doc_date_iso + doc_timestamp) for time-aware retrieval.
 
 Chunk schema:
-- Chunks are defined by the canonical `Chunk` class in chunk.py and stored as JSONL.
+- Chunks are defined by the canonical Chunk class in chunk.py and stored as JSONL.
 
 Outputs:
-- outputs/embeddings/bm25/fixed/             (BM25 for fixed chunking)
-- outputs/embeddings/bm25/semantic/          (BM25 for semantic chunking)
-- outputs/embeddings/openai_qdrant/fixed/    (OpenAI+Qdrant for fixed chunking)
-- outputs/embeddings/openai_qdrant/semantic/ (OpenAI+Qdrant for semantic chunking)
+- outputs/embeddings/openai_qdrant/british_parliament_semantic/
+- outputs/embeddings/openai_qdrant/us_congress_semantic/
 
 Requirements:
 - OPENAI_API_KEY must be available (e.g., via .env loaded by python-dotenv)
-- run qdrant docker container for OpenAI+Qdrant embeddings
+- Run the Qdrant service before executing OpenAI embeddings
 """
 
 from __future__ import annotations
@@ -36,121 +33,83 @@ load_dotenv()
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from paths import (
-    CHUNKS_DIR,
-    BM25_DIR,
-    EMBEDDINGS_DIR,
-    OPENAI_QDRANT_FIXED_DIR,
-    OPENAI_QDRANT_SEMANTIC_DIR,
+    CHUNKS_BRITISH_SEMANTIC_JSONL,
+    CHUNKS_US_CLEAN_JSONL,
+    OPENAI_QDRANT_BRITISH_SEMANTIC_DIR,
+    OPENAI_QDRANT_US_CONGRESS_SEMANTIC_DIR,
     ensure_dirs,
 )
 from config import (
     QDRANT_HOST,
     QDRANT_PORT,
-    QDRANT_COLLECTION_FIXED,
-    QDRANT_COLLECTION_SEMANTIC,
+    QDRANT_COLLECTION_BRITISH_PARLIAMENT,
+    QDRANT_COLLECTION_US_CONGRESS,
     OPENAI_EMBED_MODEL,
-    FIXED_DOCS_BATCH_SIZE,
-    FIXED_EMBED_BATCH_SIZE,
     SEMANTIC_DOCS_BATCH_SIZE,
     SEMANTIC_EMBED_BATCH_SIZE,
     VECTOR_DISTANCE,
 )
-from embedders.bm25_embedder import BM25Embedder
 from embedders.openai_embedder import OpenAIEmbedder
 
-# Input JSONL files
-CHUNKS_FIXED_JSONL = CHUNKS_DIR / "chunks_fixed.jsonl"
-CHUNKS_SEM_JSONL = CHUNKS_DIR / "chunks_semantic.jsonl"
+def _embed_corpus(label: str) -> None:
+    if label == "british":
+        jsonl_path = CHUNKS_BRITISH_SEMANTIC_JSONL
+        output_dir = OPENAI_QDRANT_BRITISH_SEMANTIC_DIR
+        collection = QDRANT_COLLECTION_BRITISH_PARLIAMENT
+        banner = "British Parliament semantic chunks"
+    elif label == "us":
+        jsonl_path = CHUNKS_US_CLEAN_JSONL
+        output_dir = OPENAI_QDRANT_US_CONGRESS_SEMANTIC_DIR
+        collection = QDRANT_COLLECTION_US_CONGRESS
+        banner = "US Congress cleaned chunks"
+    else:
+        raise ValueError(f"Unknown corpus label: {label}")
 
+    print(f"\n[OpenAI] {banner}")
+    print("-" * 70)
 
-def build_bm25_embeddings(*, strategy: str = "both") -> None:
-    """Build BM25 indexes for fixed and/or semantic chunk corpora."""
-    print("\n" + "=" * 70)
-    print("Building BM25 Embeddings")
-    print("=" * 70)
-    
-    if strategy in ("both", "fixed"):
-        print("\n[BM25] Fixed chunking strategy")
-        print("-" * 70)
-        fixed_embedder = BM25Embedder(output_dir=BM25_DIR / "fixed")
-        fixed_embedder.embed_chunks(CHUNKS_FIXED_JSONL)
-
-    if strategy in ("both", "semantic"):
-        print("\n[BM25] Semantic chunking strategy")
-        print("-" * 70)
-        semantic_embedder = BM25Embedder(output_dir=BM25_DIR / "semantic")
-        semantic_embedder.embed_chunks(CHUNKS_SEM_JSONL)
-
-
-def build_openai_embeddings(*, strategy: str = "both") -> None:
-    """Build OpenAI + Qdrant indexes for fixed and/or semantic chunk corpora."""
-    print("\n" + "=" * 70)
-    print("Building OpenAI Embeddings")
-    print("=" * 70)
-    
-    if strategy in ("both", "fixed"):
-        print("\n[OpenAI] Fixed chunking strategy")
-        print("-" * 70)
-        fixed_embedder = OpenAIEmbedder(
-            output_dir=OPENAI_QDRANT_FIXED_DIR,
-            docs_batch_size=FIXED_DOCS_BATCH_SIZE,
-            embed_batch_size=FIXED_EMBED_BATCH_SIZE,
-            collection_name=QDRANT_COLLECTION_FIXED,
-            model=OPENAI_EMBED_MODEL,
-            qdrant_host=QDRANT_HOST,
-            qdrant_port=QDRANT_PORT,
-            distance=VECTOR_DISTANCE,
-        )
-        fixed_embedder.embed_chunks(CHUNKS_FIXED_JSONL)
-
-    if strategy in ("both", "semantic"):
-        print("\n[OpenAI] Semantic chunking strategy")
-        print("-" * 70)
-        semantic_embedder = OpenAIEmbedder(
-            output_dir=OPENAI_QDRANT_SEMANTIC_DIR,
-            docs_batch_size=SEMANTIC_DOCS_BATCH_SIZE,
-            embed_batch_size=SEMANTIC_EMBED_BATCH_SIZE,
-            collection_name=QDRANT_COLLECTION_SEMANTIC,
-            model=OPENAI_EMBED_MODEL,
-            qdrant_host=QDRANT_HOST,
-            qdrant_port=QDRANT_PORT,
-            distance=VECTOR_DISTANCE,
-        )
-        semantic_embedder.embed_chunks(CHUNKS_SEM_JSONL)
+    embedder = OpenAIEmbedder(
+        output_dir=output_dir,
+        docs_batch_size=SEMANTIC_DOCS_BATCH_SIZE,
+        embed_batch_size=SEMANTIC_EMBED_BATCH_SIZE,
+        collection_name=collection,
+        model=OPENAI_EMBED_MODEL,
+        qdrant_host=QDRANT_HOST,
+        qdrant_port=QDRANT_PORT,
+        distance=VECTOR_DISTANCE,
+    )
+    embedder.embed_chunks(jsonl_path)
 
 
 def main(argv: list[str] | None = None) -> None:
-    """Build embeddings with optional stage/strategy selection."""
-    parser = argparse.ArgumentParser(description="Exercise 4 — Stage 2: Build embedding indexes")
+    """Build OpenAI embeddings for British and/or US semantic corpora."""
+    parser = argparse.ArgumentParser(description="Exercise 5 - Stage 1: Build semantic embedding indexes")
     parser.add_argument(
-        "--only",
-        choices=["all", "bm25", "openai"],
-        default="all",
-        help="Which embedding family to run (default: all)",
-    )
-    parser.add_argument(
-        "--strategy",
-        choices=["both", "fixed", "semantic"],
+        "--corpus",
+        choices=["both", "british", "us"],
         default="both",
-        help="Which chunking strategy to process (default: both)",
+        help="Which semantic corpus to embed (default: both)",
     )
     args = parser.parse_args(argv)
 
     ensure_dirs()
-    
-    print("\n" + "=" * 70)
-    print("Exercise 4 — Stage 2: Temporal Indexing")
-    print("Building embeddings for fixed and semantic chunking strategies")
-    print("=" * 70)
-    
-    if args.only in ("all", "bm25"):
-        build_bm25_embeddings(strategy=args.strategy)
 
-    if args.only in ("all", "openai"):
-        build_openai_embeddings(strategy=args.strategy)
-    
     print("\n" + "=" * 70)
-    print("✅ All embeddings completed successfully!")
+    print("Exercise 5 - Stage 1: Indexing")
+    print("Building semantic embeddings for British Parliament and US Congress")
+    print("=" * 70)
+
+    targets = []
+    if args.corpus in ("both", "british"):
+        targets.append("british")
+    if args.corpus in ("both", "us"):
+        targets.append("us")
+
+    for label in targets:
+        _embed_corpus(label)
+
+    print("\n" + "=" * 70)
+    print("Semantic embeddings completed successfully.")
     print("=" * 70)
 
 

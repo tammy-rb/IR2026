@@ -53,6 +53,7 @@ excercise5/outputs/embeddings/
 # Topic analysis outputs
 excercise5/topic_analysis/output_semantic_us/
 excercise5/topic_analysis/output_semantic_british/
+excercise5/outputs/topic_analysis/BERT_Topic_models/
 
 # =========================
 # Data

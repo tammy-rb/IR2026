@@ -689,8 +689,8 @@ def parse_args() -> argparse.Namespace:
         help="Optional MatchText on doc_id (applies to every collection when provided)",
     )
 
-    ap.add_argument("--batch-size", type=int, default=128, help="Scroll page size (does not limit total points)")
-    ap.add_argument("--max-points", type=int, default=None, help="Optional cap for quick debugging runs")
+    ap.add_argument("--batch-size", type=int, default=4, help="Scroll page size (does not limit total points)")
+    ap.add_argument("--max-points", type=int, default=5000, help="Optional cap for quick debugging runs")
     ap.add_argument("--seed", type=int, default=42)
 
     ap.add_argument("--umap-n-neighbors", type=int, default=15)

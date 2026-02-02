@@ -1,7 +1,7 @@
 """
 s_01_time_histogram.py
 
-Exercise 4 — Stage 2 (Temporal Indexing): Time distribution report.
+Exercise 5 - Stage 1 (Indexing): Time distribution report.
 
 Purpose:
 - Produce an artifact proving temporal metadata (doc_timestamp / doc_date_iso)
@@ -9,14 +9,16 @@ Purpose:
 - Generates a time distribution of chunks by year.
 
 Inputs:
-- outputs/chunks/chunks_fixed.jsonl
-- outputs/chunks/chunks_semantic.jsonl
+- outputs/chunks/debates_chunks/chunks_british_semantic.jsonl
+- outputs/chunks/debates_chunks/chunks_us_clean.jsonl
+- outputs/chunks/news_chunks/bbc_chunks.jsonl
+- outputs/chunks/news_chunks/nbc_chunks.jsonl
 
 Outputs:
-- outputs/reports/time_histograms/fixed_chunks_by_year.png
-- outputs/reports/time_histograms/fixed_chunks_by_year.json
-- outputs/reports/time_histograms/semantic_chunks_by_year.png
-- outputs/reports/time_histograms/semantic_chunks_by_year.json
+- outputs/reports/time_histograms/british_semantic_chunks_by_year.{png,json}
+- outputs/reports/time_histograms/us_clean_chunks_by_year.{png,json}
+- outputs/reports/time_histograms/bbc_news_chunks_by_year.{png,json}
+- outputs/reports/time_histograms/nbc_news_chunks_by_year.{png,json}
 
 Run:
   python s_01_time_histogram.py
@@ -41,7 +43,8 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from models.chunk import Chunk
 from paths import (
-    CHUNKS_DIR,
+    CHUNKS_BRITISH_SEMANTIC_JSONL,
+    CHUNKS_US_CLEAN_JSONL,
     BBC_NEWS_CHUNKS_JSONL,
     NBC_NEWS_CHUNKS_JSONL,
     REPORTS_DIR,
@@ -195,8 +198,14 @@ class TimeHistogramBuilder:
 
 def _default_targets() -> Dict[str, Tuple[Path, str]]:
     return {
-        "fixed": (CHUNKS_DIR / "chunks_fixed.jsonl", "Fixed chunks: time distribution by year"),
-        "semantic": (CHUNKS_DIR / "chunks_semantic.jsonl", "Semantic chunks: time distribution by year"),
+        "british_semantic": (
+            CHUNKS_BRITISH_SEMANTIC_JSONL,
+            "British debates (semantic): time distribution by year",
+        ),
+        "us_clean": (
+            CHUNKS_US_CLEAN_JSONL,
+            "US Congressional Record (clean): time distribution by year",
+        ),
         "bbc_news": (BBC_NEWS_CHUNKS_JSONL, "BBC news chunks: time distribution by year"),
         "nbc_news": (NBC_NEWS_CHUNKS_JSONL, "NBC news chunks: time distribution by year"),
     }
@@ -220,7 +229,7 @@ def main(args: Optional[List[str]] = None) -> None:
 
     for name, (jsonl_path, title) in worklist.items():
         if not jsonl_path.is_file():
-            print(f"⚠️ skipping {name} histogram: missing {jsonl_path}")
+            print(f"Skipping {name} histogram: missing {jsonl_path}")
             continue
 
         result = builder.build_from_jsonl(
@@ -229,7 +238,7 @@ def main(args: Optional[List[str]] = None) -> None:
             title=title,
         )
         print(
-            f"✅ {name} histogram: {result.png_path} | {result.json_path} "
+            f"Completed {name} histogram: {result.png_path} | {result.json_path} "
             f"| covered={result.total_with_year}/{result.total_chunks_seen}"
         )
 
